@@ -1,7 +1,7 @@
 #include "libft.h"
 
 // The bzero() function writes n zeroed bytes to the string s.  If n is zero, bzero() does nothing.
-void	bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
 
