@@ -4,7 +4,7 @@
 strlcpy() take the full size of the destination buffer and guarantee NUL-termination if there is room.
 Room for the NUL should be included in dstsize.
 strlcpy() only operate on true ''C'' strings: src must be NUL-terminated.
-strlcpy() function return the length of src.
+strlcpy() function returns the length of src.
 */
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
