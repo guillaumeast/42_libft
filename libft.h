@@ -1,8 +1,8 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <ctype.h>
-# include <stdlib.h>
+# include <ctype.h>		// For size_t
+# include <stdlib.h>	// For NULL and malloc()
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
