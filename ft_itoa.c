@@ -54,14 +54,20 @@ int	main(void)
 	char	*res;
 
 	res = ft_itoa(-2147483648);
+	if (!res)
+		return (1);
 	printf("-2147483648 => %s\n", res);
 	free(res);
 
 	res = ft_itoa(0);
+	if (!res)
+		return (1);
 	printf("          0 => %s\n", res);
 	free(res);
 
 	res = ft_itoa(2147483647);
+	if (!res)
+		return (1);
 	printf(" 2147483647 => %s\n", res);
 	free(res);
 
