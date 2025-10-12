@@ -1,9 +1,10 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <ctype.h>		// For size_t
-# include <stdlib.h>	// For NULL and malloc()
-# include <stdio.h>		// For printf (tests only)
+# include <ctype.h>		// size_t
+# include <stdlib.h>	// NULL and malloc()
+# include <unistd.h>	// write()
+# include <stdio.h>		// printf (tests only)
 
 // Part 1
 int		ft_isalpha(int c);
@@ -39,5 +40,6 @@ char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
 
 #endif
