@@ -6,14 +6,14 @@ Iterates the list ’lst’ and applies the function ’f’ on the content of e
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*tmp;
+	t_list	*node;
 
 	if (!lst || !f)
 		return ;
-	tmp = lst;
-	while (tmp)
+	node = lst;
+	while (node)
 	{
-		f(tmp->content);
-		tmp = tmp->next;
+		f(node->content);
+		node = node->next;
 	}
 }
