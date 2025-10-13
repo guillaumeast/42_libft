@@ -11,7 +11,7 @@ void	print_success(char *f_name, char *input, char *output);
 void	print_failure(char *f_name, char *input, char *output, char *expected);
 void	print_result(int score, int max_score);
 
-// Tests
+// Unit tests (Part 1)
 int		test_ft_isalpha(void);
 int		test_ft_isdigit(void);
 int		test_ft_isalnum(void);
@@ -35,5 +35,7 @@ int		test_ft_strnstr(void);
 int		test_ft_atoi(void);
 int		test_ft_calloc(void);
 int		test_ft_strdup(void);
+
+// Unit tests (Part 2)
 
 #endif
