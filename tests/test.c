@@ -22,8 +22,8 @@ int	main(void)
 	score += test_ft_strlcat();
 	score += test_ft_toupper();
 	score += test_ft_tolower();
-	// score += test_ft_strchr();
-	// score += test_ft_strrchr();
+	score += test_ft_strchr();
+	score += test_ft_strrchr();
 	// score += test_ft_strncmp();
 	// score += test_ft_memchr();
 	// score += test_ft_memcmp();
@@ -32,6 +32,6 @@ int	main(void)
 	// score += test_ft_calloc();
 	// score += test_ft_strdup();
 
-	print_result(score, 14);
+	print_result(score, 16);
 	return (0);
 }
