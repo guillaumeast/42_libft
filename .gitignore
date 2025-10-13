@@ -1,6 +1,7 @@
 *.o
-a.out
+*.dSYM/
 **/obj/
+libft.a
 .vscode/
 .DS_Store
-a.out.dSYM/
+tests/test
