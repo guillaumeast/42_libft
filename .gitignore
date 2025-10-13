@@ -1,4 +1,6 @@
+*.o
 a.out
-a.out/
+**/obj/
 .vscode/
 .DS_Store
+a.out.dSYM/

@@ -7,7 +7,6 @@ The allocated memory is filled with bytes of value zero.
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	i;
 	void	*res;
 
 	if (size != 0 && count > SIZE_MAX / size)
