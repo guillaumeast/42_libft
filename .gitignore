@@ -4,4 +4,4 @@
 libft.a
 .vscode/
 .DS_Store
-tests/test
+tests/run_tests

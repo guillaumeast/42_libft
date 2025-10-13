@@ -1,3 +1,6 @@
+# TODO: add 'bonus' rule to compile bonus functions (DON'T COMPILE THEM WITH 'all' rule!)
+# TODO: add main.c for memory leaks check (can't memcheck with Criterion activated)
+
 NAME		= libft.a
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -g3
@@ -13,7 +16,7 @@ ifeq ($(CRIT_LIBS),)
 CRIT_LIBS := -lcriterion
 endif
 TEST_DIR	= tests
-TEST_SRCS	= $(wildcard $(TEST_DIR)/*.c) $(wildcard $(TEST_DIR)/helpers/*.c) $(wildcard $(TEST_DIR)/units/*.c)
+TEST_SRCS	= $(wildcard $(TEST_DIR)/*.c)
 TEST_BIN 	= $(TEST_DIR)/run_tests
 
 # OS detection for choosing memory leaks check command
