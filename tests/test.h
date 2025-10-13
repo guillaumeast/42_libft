@@ -17,7 +17,6 @@ int		test_ft_isdigit(void);
 int		test_ft_isalnum(void);
 int		test_ft_isascii(void);
 int		test_ft_isprint(void);
-
 int		test_ft_strlen(void);
 int		test_ft_memset(void);
 int		test_ft_bzero(void);
@@ -29,12 +28,12 @@ int		test_ft_toupper(void);
 int		test_ft_tolower(void);
 int		test_ft_strchr(void);
 int		test_ft_strrchr(void);
-// int		test_ft_strncmp(void);
-// int		test_ft_memchr(void);
-// int		test_ft_memcmp(void);
-// int		test_ft_strnstr(void);
-// int		test_ft_atoi(void);
-// int		test_ft_calloc(void);
-// int		test_ft_strdup(void);
+int		test_ft_strncmp(void);
+int		test_ft_memchr(void);
+int		test_ft_memcmp(void);
+int		test_ft_strnstr(void);
+int		test_ft_atoi(void);
+int		test_ft_calloc(void);
+int		test_ft_strdup(void);
 
 #endif
