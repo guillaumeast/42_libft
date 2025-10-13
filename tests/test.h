@@ -1,7 +1,6 @@
 #ifndef TEST_H
 # define TEST_H
 
-// TODO: replace by libft.a
 # include "libft.h"
 # include <string.h>	// strcmp
 
@@ -14,5 +13,9 @@ void	print_result(int score, int max_score);
 
 // Tests
 int		test_ft_isalpha(void);
+int		test_ft_isdigit(void);
+int		test_ft_isalnum(void);
+int		test_ft_isascii(void);
+int		test_ft_isprint(void);
 
 #endif

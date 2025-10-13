@@ -48,5 +48,5 @@ void	print_result(int score, int max_score)
 		color = "\x1b[32m";
 	else
 		color = "\x1b[1;31m";
-	printf("\n%s---> RESULT = %d / %d\x1b[0m\n", color, score, max_score);
+	printf("%s---> RESULT = %d / %d\x1b[0m\n", color, score, max_score);
 }
