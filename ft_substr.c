@@ -11,6 +11,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	min_len;
 	char	*res;
 
+	if (!s)
+		return (NULL);
 	if (start > ft_strlen(s))
 		return (ft_calloc(1, 1));
 	min_len = ft_strlen(s + start);
