@@ -1,16 +1,10 @@
+#include "libft.h"
+
+static int	ft_is_space(char c);
+
 /*
 Converts the initial portion of the string pointed to by str to int representation.
 */
-
-#include "libft.h"
-
-static int	ft_is_space(char c)
-{
-	if (c == ' ' || (c >= 9 && c <= 13))
-		return (1);
-	return (0);
-}
-
 int	ft_atoi(const char *str)
 {
 	unsigned int	i;
@@ -34,4 +28,11 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (result * sign);
+}
+
+static int	ft_is_space(char c)
+{
+	if (c == ' ' || (c >= 9 && c <= 13))
+		return (1);
+	return (0);
 }

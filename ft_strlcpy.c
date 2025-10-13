@@ -1,13 +1,12 @@
+#include "libft.h"
+
 /*
 Takes the full size of the destination buffer and guarantee NUL-termination if there is room.
 Room for the NUL should be included in dstsize.
 Only operates on true ''C'' strings: src must be NUL-terminated.
----
+
 Returns the length of src.
 */
-
-#include "libft.h"
-
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;

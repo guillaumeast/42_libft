@@ -1,9 +1,43 @@
+#include "libft.h"
+
+static size_t	count_words(char const *s, char sep);
+static char		*get_word(char const *s, char sep);
+static char		**free_all(char **tab);
+
 /*
+CALLER MUST FREE
+---
 Allocates (with malloc(3)) and returns an array of strings obtained by splitting ’s’ using the character ’c’ as a delimiter.
 The array must end with a NULL pointer.
 */
+char	**ft_split(char const *s, char c)
+{
+	size_t	i;
+	char	**res;
 
-#include "libft.h"
+	if (!s)
+		return (NULL);
+	res = malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			res[i] = NULL;
+			res[i] = get_word(s, c);
+			if (!res[i++])
+				return (free_all(res));
+			while (*s && *s != c)
+				s++;
+			continue;
+		}
+		s++;
+	}
+	res[i] = NULL;
+	return (res);
+}
 
 static size_t	count_words(char const *s, char sep)
 {
@@ -45,33 +79,4 @@ static char	**free_all(char **tab)
 		free(tab[i++]);
 	free(tab);
 	return (NULL);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	size_t	i;
-	char	**res;
-
-	if (!s)
-		return (NULL);
-	res = malloc((count_words(s, c) + 1) * sizeof(char *));
-	if (!res)
-		return (NULL);
-	i = 0;
-	while (*s)
-	{
-		if (*s != c)
-		{
-			res[i] = NULL;
-			res[i] = get_word(s, c);
-			if (!res[i++])
-				return (free_all(res));
-			while (*s && *s != c)
-				s++;
-			continue;
-		}
-		s++;
-	}
-	res[i] = NULL;
-	return (res);
 }

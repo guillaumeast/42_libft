@@ -46,10 +46,21 @@ static void	test_part1(int *score)
 
 static void	test_part2(int *score)
 {
-	*score = *score;
+	*score += test_ft_substr();
+	// *score += test_ft_strjoin();
+	// *score += test_ft_strtrim();
+	// *score += test_ft_split();
+	// *score += test_ft_itoa();
+	// *score += test_ft_strmapi();
+	// *score += ft_striteri();
+	// *score += ft_putchar_fd();
+	// *score += ft_putstr_fd();
+	// *score += ft_putendl_fd();
+	// *score += ft_putnbr_fd();
 }
 
 static void	test_bonus(int *score)
 {
 	*score = *score;
+	// TODO
 }

@@ -2,7 +2,7 @@ NAME	= test
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror -I..
 
-SRC		= test.c utils.c $(wildcard units/part1/*.c) $(wildcard units/part2/*.c) $(wildcard units/bonus/*.c)
+SRC		= test.c $(wildcard units/part1/*.c) $(wildcard units/part2/*.c) $(wildcard units/bonus/*.c) $(wildcard utils/*.c)
 OBJ_DIR	= obj
 OBJ		= $(SRC:%.c=$(OBJ_DIR)/%.o)
 

@@ -5,6 +5,7 @@
 # include <string.h>	// strcmp
 
 // Utils
+char	*ft_strmultijoin(char **strs, size_t size, char *sep);
 int		test_int(char *f_name, char *input, int expected_output, int output);
 int		test_str(char *f_name, char *input, char *expected_output, char *output);
 void	print_success(char *f_name, char *input, char *output);
@@ -37,5 +38,16 @@ int		test_ft_calloc(void);
 int		test_ft_strdup(void);
 
 // Unit tests (Part 2)
+int		test_ft_substr(void);
+// int		test_ft_strjoin(void);
+// int		test_ft_strtrim(void);
+// int		test_ft_split(void);
+// int		test_ft_itoa(void);
+// int		test_ft_strmapi(void);
+// int		ft_striteri(void);
+// int		ft_putchar_fd(void);
+// int		ft_putstr_fd(void);
+// int		ft_putendl_fd(void);
+// int		ft_putnbr_fd(void);
 
 #endif
