@@ -1,6 +1,7 @@
 #include "libft.h"
 #include <string.h>
 
+/* helper: simple iterator for ft_lstiter (prints each node's content) */
 static void	iter_print(void *content)
 {
 	if (content)

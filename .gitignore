@@ -1,7 +1,8 @@
-*.o
-*.dSYM/
-**/obj/
-libft.a
 .vscode/
 .DS_Store
+*.dSYM/
+*.o
+**/obj/
+libft.a
 tests/run_tests
+tests/run_memcheck
