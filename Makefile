@@ -116,6 +116,10 @@ fclean: clean
 re: fclean all
 
 help:
+	@echo "Detected OS: $(UNAME_S)"
+	@echo "Criterion libs: $(CRIT_LIBS)"
+	@echo "Criterion flags: $(CRIT_CFLAGS)"
+	@echo
 	@echo "Usage: make <target>"
 	@echo
 	@printf "  %-18s %s\n" "all"           "Build libft.a (mandatory only)"
@@ -127,9 +131,5 @@ help:
 	@printf "  %-18s %s\n" "clean"         "Remove object files"
 	@printf "  %-18s %s\n" "fclean"        "Remove objects and binaries (libft.a, test & memcheck)"
 	@printf "  %-18s %s\n" "re"            "fclean + all"
-	@echo
-	@echo "Detected OS: $(UNAME_S)"
-	@echo "Criterion libs: $(CRIT_LIBS)"
-	@echo "Criterion flags: $(CRIT_CFLAGS)"
 
 .PHONY: all bonus test_bin test_bin_bonus test test_bonus leaks_bin leaks_bin_bonus leaks leaks_bonus clean fclean re help
