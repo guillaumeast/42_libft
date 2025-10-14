@@ -1,5 +1,4 @@
 #include <criterion/criterion.h>
-#include <stdlib.h>
 #include "libft.h"
 
 /* mapping functions used for tests */

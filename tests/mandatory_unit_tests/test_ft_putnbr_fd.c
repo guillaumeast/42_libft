@@ -3,7 +3,6 @@
 #include <unistd.h>   // pipe, read, close
 #include <string.h>   // strlen
 #include <limits.h>   // INT_MAX, INT_MIN
-#include <stdio.h>    // snprintf
 
 typedef struct {
 	int			n;

@@ -1,6 +1,5 @@
 #include <criterion/criterion.h>
 #include <limits.h>
-#include <stdlib.h>
 #include "libft.h"
 
 typedef struct {
