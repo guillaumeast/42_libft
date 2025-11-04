@@ -1,7 +1,3 @@
-.vscode/
-.DS_Store
-*.dSYM/
-*.o
 **/obj/
 libft.a
 tests/run_tests

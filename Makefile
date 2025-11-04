@@ -2,56 +2,56 @@
 #			LIB CONFIG			#
 #################################
 
-NAME		= libft.a
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
+NAME		:= libft.a
+CC			:= cc
+CFLAGS		:= -Wall -Wextra -Werror
 
 # Mandatory part
-SRC			= $(filter-out ft_lst%.c, $(wildcard *.c))
-OBJ_DIR		= obj
-OBJ			= $(SRC:%.c=$(OBJ_DIR)/%.o)
+SRCS		:= $(filter-out ft_lst%.c, $(wildcard *.c))
+OBJ_DIR		:= obj
+OBJ			:= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 # Bonus part
-BONUS_SRC   = $(wildcard ft_lst*.c)
-BONUS_OBJ   = $(BONUS_SRC:%.c=$(OBJ_DIR)/%.o)
+BONUS_SRCS	:= $(wildcard ft_lst*.c)
+BONUS_OBJ	:= $(BONUS_SRCS:%.c=$(OBJ_DIR)/%.o)
 
 #################################
 #		UNIT TESTS CONFIG		#
 #################################
 
 # Criterion flags (portable: use pkg-config if available)
-CRIT_CFLAGS := $(shell pkg-config --cflags criterion 2>/dev/null)
-CRIT_LIBS   := $(shell pkg-config --libs   criterion 2>/dev/null)
+CRIT_CFLAGS	:= $(shell pkg-config --cflags criterion 2>/dev/null)
+CRIT_LIBS	:= $(shell pkg-config --libs   criterion 2>/dev/null)
 ifeq ($(CRIT_LIBS),)
-CRIT_LIBS := -lcriterion
+CRIT_LIBS	:= -lcriterion
 endif
 
 # Additional flags to improve debugger traces
-TEST_CFLAGS	= $(CFLAGS) -g3
+TEST_CFLAGS	:= $(CFLAGS) -g3
 
-TEST_DIR	= tests
-TEST_SRCS	= $(wildcard $(TEST_DIR)/mandatory_unit_tests/*.c)
-TEST_BONUS	= $(wildcard $(TEST_DIR)/bonus_unit_tests/*.c)
-TEST_BIN 	= $(TEST_DIR)/run_tests
+TEST_DIR	:= tests
+TEST_SRCS	:= $(wildcard $(TEST_DIR)/mandatory_unit_tests/*.c)
+TEST_BONUS	:= $(wildcard $(TEST_DIR)/bonus_unit_tests/*.c)
+TEST_BIN 	:= $(TEST_DIR)/run_tests
 
 #################################
 #		  MEMCHECK CONFIG		#
 #################################
 
 # OS detection for choosing memcheck command
-UNAME_S := $(shell uname -s)
+UNAME_S		:= $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
-LEAKS_CMD = leaks --atExit -- ./$(MEM_BIN)
+LEAKS_CMD	:= leaks --atExit -- ./$(MEM_BIN)
 else
-LEAKS_CMD = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose ./$(MEM_BIN) --verbose
+LEAKS_CMD	:= valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose ./$(MEM_BIN) --verbose
 endif
 
 # Additional flags to improve memleak traces
-MEM_CFLAGS	= $(CFLAGS) -g3
+MEM_CFLAGS	:= $(CFLAGS) -g3
 
-MEM_SRCS	= $(TEST_DIR)/mandatory_memcheck.c
-MEM_BONUS	= $(TEST_DIR)/bonus_memcheck.c
-MEM_BIN		= $(TEST_DIR)/run_memcheck
+MEM_SRCS	:= $(TEST_DIR)/mandatory_memcheck.c
+MEM_BONUS	:= $(TEST_DIR)/bonus_memcheck.c
+MEM_BIN		:= $(TEST_DIR)/run_memcheck
 
 #################################
 #			RULES - LIB			#
