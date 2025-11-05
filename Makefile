@@ -80,10 +80,10 @@ test_bin_bonus: bonus $(TEST_SRCS) $(TEST_BONUS)
 	$(CC) $(TEST_CFLAGS) $(CRIT_CFLAGS) -I. -I$(TEST_DIR) -o $(TEST_BIN) $(TEST_SRCS) $(TEST_BONUS) $(NAME) $(CRIT_LIBS)
 
 test: test_bin
-	./$(TEST_BIN)
+	./$(TEST_BIN) --jobs 1
 
 test_bonus: test_bin_bonus
-	./$(TEST_BIN)
+	./$(TEST_BIN) --jobs 1
 
 #################################
 #		 RULES - MEMCHECK		#

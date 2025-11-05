@@ -1,0 +1,6 @@
+- Update	`ft_putchar_fd()` => cast `int` to `unsigned char`
+- Add		`ft_putnbr_unsigned_fd()`
+- Add		`ft_putnbr_base_fd()`
+- Add		`ft_putnbr_unsigned_base_fd()`
+- Check		all implementations
+- Add		enforced test cases
