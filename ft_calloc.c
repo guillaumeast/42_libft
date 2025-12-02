@@ -1,11 +1,18 @@
-#include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/01 19:19:11 by gastesan          #+#    #+#             */
+/*   Updated: 2025/12/02 21:14:53 by gastesan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-/*
-CALLER MUST FREE
----
-Contiguously allocates enough space for count objects that are size bytes of memory each and returns a pointer to the allocated memory.
-The allocated memory is filled with bytes of value zero.
-*/
+#include "libft.h"
+#include <stdint.h>
+
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*res;

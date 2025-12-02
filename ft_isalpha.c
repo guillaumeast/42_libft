@@ -1,9 +1,15 @@
-/*
-Tests for any character for which isupper(3) or islower(3) is true.
-The value of the argument must be representable as an unsigned char or the value of EOF.
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/01 19:19:17 by gastesan          #+#    #+#             */
+/*   Updated: 2025/12/01 19:31:54 by gastesan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-Returns zero if the character tests false and returns non-zero if the character tests true.
-*/
 int	ft_isalpha(int c)
 {
 	if (c >= 'a' && c <= 'z')

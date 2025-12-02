@@ -1,10 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/01 19:20:15 by gastesan          #+#    #+#             */
+/*   Updated: 2025/12/01 19:33:07 by gastesan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static void	write_rec(long nbr, int fd);
 
-/*
-Outputs the integer ’n’ to the given file descriptor.
-*/
 void	ft_putnbr_fd(int n, int fd)
 {
 	long	nbr;

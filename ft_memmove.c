@@ -1,16 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/01 19:20:05 by gastesan          #+#    #+#             */
+/*   Updated: 2025/12/02 15:36:57 by gastesan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-/*
-Copies len bytes from string src to string dst.
-The two strings may overlap.
-The copy is always done in a non-destructive manner.
-
-Returns the original value of dst.
-*/
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;
 
+	if (!dst && !src)
+		return (NULL);
 	if (dst < src)
 	{
 		i = 0;

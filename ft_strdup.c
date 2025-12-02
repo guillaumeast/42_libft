@@ -1,13 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/01 19:20:26 by gastesan          #+#    #+#             */
+/*   Updated: 2025/12/01 19:33:20 by gastesan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static	void	ft_strcpy(char *dst, const char *src);
 
-/*
-CALLER MUST FREE
----
-Allocates sufficient memory for a copy of the string s1, does the copy, and returns a pointer to it.
-If insufficient memory is available, NULL is returned and errno is set to ENOMEM.
-*/
 char	*ft_strdup(const char *s1)
 {
 	char	*res;

@@ -1,6 +1,15 @@
-/*
-Tests for an ASCII character, which is any character between 0 and octal 0177 inclusive.
-*/
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/01 19:19:21 by gastesan          #+#    #+#             */
+/*   Updated: 2025/12/01 19:31:57 by gastesan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)

@@ -1,14 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/01 19:19:29 by gastesan          #+#    #+#             */
+/*   Updated: 2025/12/01 19:36:51 by gastesan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static size_t	get_len(int	n);
+static size_t	get_len(int n);
 static void		populate(int n, char *str, size_t i);
 
-/*
-CALLER MUST FREE
----
-Allocates (with malloc(3)) and returns a string representing the integer received as an argument.
-Negative numbers must be handled.
-*/
 char	*ft_itoa(int n)
 {
 	size_t	len;
@@ -25,7 +31,7 @@ char	*ft_itoa(int n)
 	return (res);
 }
 
-static size_t	get_len(int	n)
+static size_t	get_len(int n)
 {
 	size_t	len;
 
@@ -49,5 +55,5 @@ static void	populate(int n, char *str, size_t i)
 	mod = n % 10;
 	if (mod < 0)
 		mod *= -1;
-	str[i] = mod + '0';
+	str[i] = (char)mod + '0';
 }

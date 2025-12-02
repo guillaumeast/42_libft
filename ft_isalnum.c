@@ -1,9 +1,15 @@
-/*
-Tests for any character for which isalpha(3) or isdigit(3) is true.
-The value of the argument must be representable as an unsigned char or the value of EOF.
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/01 19:19:14 by gastesan          #+#    #+#             */
+/*   Updated: 2025/12/01 19:31:51 by gastesan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-Returns zero if the character tests false and returns non-zero if the character tests true.
-*/
 int	ft_isalnum(int c)
 {
 	if (c >= 'a' && c <= 'z')

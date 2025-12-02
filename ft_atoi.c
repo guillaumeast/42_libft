@@ -1,10 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/01 19:19:05 by gastesan          #+#    #+#             */
+/*   Updated: 2025/12/01 19:31:41 by gastesan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ft_is_space(char c);
 
-/*
-Converts the initial portion of the string pointed to by str to int representation.
-*/
 int	ft_atoi(const char *str)
 {
 	unsigned int	i;

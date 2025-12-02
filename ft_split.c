@@ -1,15 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/01 19:20:20 by gastesan          #+#    #+#             */
+/*   Updated: 2025/12/01 19:34:59 by gastesan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static size_t	count_words(char const *s, char sep);
 static char		*get_word(char const *s, char sep);
 static char		**free_all(char **tab);
 
-/*
-CALLER MUST FREE
----
-Allocates (with malloc(3)) and returns an array of strings obtained by splitting ’s’ using the character ’c’ as a delimiter.
-The array must end with a NULL pointer.
-*/
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
@@ -31,7 +37,7 @@ char	**ft_split(char const *s, char c)
 				return (free_all(res));
 			while (*s && *s != c)
 				s++;
-			continue;
+			continue ;
 		}
 		s++;
 	}

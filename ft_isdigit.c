@@ -1,9 +1,15 @@
-/*
-Tests for a decimal digit character.
-The value of the argument must be representable as an unsigned char or the value of EOF.
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/01 19:19:24 by gastesan          #+#    #+#             */
+/*   Updated: 2025/12/01 19:31:37 by gastesan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-Returns zero if the character tests false and return non-zero if the character tests true.
-*/
 int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')

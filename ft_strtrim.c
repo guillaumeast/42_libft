@@ -1,12 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/01 19:20:52 by gastesan          #+#    #+#             */
+/*   Updated: 2025/12/01 19:33:58 by gastesan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	ft_is_in_charset(char const c, char const *set);
 
-/*
-CALLER MUST FREE
----
-Allocates (with malloc(3)) and returns a copy of ’s1’ with the characters specified in ’set’ removed from the beginning and the end of the string
-*/
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
@@ -20,7 +27,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	end = ft_strlen(s1);
 	while (end > start && ft_is_in_charset(s1[end - 1], set))
 		end--;
-	return (ft_substr(s1, start, end - start));
+	return (ft_substr(s1, (unsigned int)start, end - start));
 }
 
 static int	ft_is_in_charset(char const c, char const *set)

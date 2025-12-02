@@ -1,4 +1,5 @@
+.vscode/
+.DS_Store
+*.o
 **/obj/
 libft.a
-tests/run_tests
-tests/run_memcheck

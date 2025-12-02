@@ -1,10 +1,15 @@
-/*
-Converts an upper-case letter to the corresponding lower-case letter.
-The argument must be representable as an unsigned char or the value of EOF.
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/01 19:20:57 by gastesan          #+#    #+#             */
+/*   Updated: 2025/12/01 19:34:04 by gastesan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-If the argument is an upper-case letter, it returns the corresponding lower-case letter if there is one.
-Otherwise, the argument is returned unchanged.
-*/
 int	ft_tolower(int c)
 {
 	unsigned char	uc;

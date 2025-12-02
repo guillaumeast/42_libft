@@ -1,9 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/01 19:19:08 by gastesan          #+#    #+#             */
+/*   Updated: 2025/12/01 19:31:44 by gastesan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-/*
-Writes n zeroed bytes to the string s.
-If n is zero, bzero() does nothing.
-*/
 void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;

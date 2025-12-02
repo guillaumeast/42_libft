@@ -1,10 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/01 19:20:08 by gastesan          #+#    #+#             */
+/*   Updated: 2025/12/01 19:32:57 by gastesan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-/*
-Writes len bytes of value c (converted to an unsigned char) to the string b.
-
-Returns its first argument.
-*/
 void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t	i;
@@ -12,7 +19,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	i = 0;
 	while (i < len)
 	{
-		((unsigned char *)b)[i] = c;
+		((unsigned char *)b)[i] = (unsigned char)c;
 		i++;
 	}
 	return (b);
