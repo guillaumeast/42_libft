@@ -6,11 +6,11 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:00 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/01 19:34:29 by gastesan         ###   ########.fr       */
+/*   Updated: 2025/12/06 23:31:07 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <ctype.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

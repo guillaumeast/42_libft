@@ -6,11 +6,11 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:44 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/01 19:33:46 by gastesan         ###   ########.fr       */
+/*   Updated: 2025/12/06 23:35:58 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <ctype.h>
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

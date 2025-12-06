@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/06 02:36:24 by gastesan         ###   ########.fr       */
+/*   Updated: 2025/12/07 00:21:14 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,28 @@
 # define LIBFT_H
 
 # include <ctype.h>		// size_t
-# include <stdlib.h>	// NULL and malloc()
-# include <unistd.h>	// write()
-# include <stdio.h>		// printf (tests only)
+# include <stdbool.h>	// bool
+
+typedef struct s_buff
+{
+	char	*data;
+	size_t	cap;
+	size_t	len;
+}	t_buff;
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+/*--------- BUFF ----------*/
+
+bool	buff_init(t_buff *b);
+bool	buff_prepend(t_buff *b, const char *str, long n);
+bool	buff_insert(t_buff *b, size_t index, const char *str, long n);
+bool	buff_append(t_buff *b, const char *str, long n);
+void	buff_free(t_buff *b);
 
 /*---------- CHR ----------*/
 
@@ -54,6 +67,7 @@ int		ft_lstsize(t_list *lst);
 /*--------- MALLOC --------*/
 
 void	*ft_calloc(size_t count, size_t size);
+bool	ft_realloc(char **buff, size_t cap, size_t newcap);
 
 /*---------- MEM ----------*/
 

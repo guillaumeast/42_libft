@@ -6,11 +6,11 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:15 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/01 19:33:07 by gastesan         ###   ########.fr       */
+/*   Updated: 2025/12/06 23:33:52 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
 static void	write_rec(long nbr, int fd);
 

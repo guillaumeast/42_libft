@@ -6,11 +6,12 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:26 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/01 19:33:20 by gastesan         ###   ########.fr       */
+/*   Updated: 2025/12/06 23:35:03 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static	void	ft_strcpy(char *dst, const char *src);
 
