@@ -3,13 +3,14 @@ CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 
 SRCS		:= \
-	$(wildcard chr/*.c) \
-	$(wildcard conv/*.c) \
-	$(wildcard lst/*.c) \
-	$(wildcard malloc/*.c) \
-	$(wildcard mem/*.c) \
-	$(wildcard put/*.c) \
-	$(wildcard str/*.c)
+	$(wildcard src/buff/*.c) \
+	$(wildcard src/chr/*.c) \
+	$(wildcard src/conv/*.c) \
+	$(wildcard src/lst/*.c) \
+	$(wildcard src/malloc/*.c) \
+	$(wildcard src/mem/*.c) \
+	$(wildcard src/put/*.c) \
+	$(wildcard src/str/*.c)
 INCLUDES	:= -I.
 
 OBJ_DIR		:= obj
