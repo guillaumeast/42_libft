@@ -2,14 +2,18 @@ NAME		= libft.a
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 
-# Mandatory part
-SRCS		:= $(filter-out ft_lst%.c, $(wildcard *.c))
+SRCS		:= \
+	$(wildcard chr/*.c) \
+	$(wildcard conv/*.c) \
+	$(wildcard lst/*.c) \
+	$(wildcard malloc/*.c) \
+	$(wildcard mem/*.c) \
+	$(wildcard put/*.c) \
+	$(wildcard str/*.c)
+INCLUDES	:= -I.
+
 OBJ_DIR		:= obj
 OBJ			:= $(SRCS:%.c=$(OBJ_DIR)/%.o)
-
-# Bonus part
-BONUS_SRCS	:= $(wildcard ft_lst*.c)
-BONUS_OBJ	:= $(BONUS_SRCS:%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
@@ -18,10 +22,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_DIR)/%.o : %.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-bonus: $(NAME) $(BONUS_OBJ)
-	ar rcs $(NAME) $(BONUS_OBJ)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ_DIR)
@@ -31,4 +32,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re
