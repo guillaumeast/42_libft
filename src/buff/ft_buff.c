@@ -1,36 +1,41 @@
 #include "libft.h"
 #include <stdlib.h>
 
-#define BUFF_SIZE 512
+#define DEFAULT_BUFF_CAP 128
 #define BUFF_GROWTH 2
 
-// TODO: test all
-
-bool	buff_init(t_buff *b)
+size_t	buff_get_required_cap(size_t current_cap, size_t target_len)
 {
-	b->data = malloc(BUFF_SIZE);
-	if (!b)
-		return (false);
-	b->cap = BUFF_SIZE;
-	b->len = 0;
-	return (true);
+	size_t	new_cap;
+
+	if (target_len == 0)
+		return (current_cap);
+	if (current_cap == 0)
+		new_cap = DEFAULT_BUFF_CAP;
+	else
+		new_cap = current_cap;
+	while (new_cap <= target_len)
+		new_cap *= BUFF_GROWTH;
+	return (new_cap);
 }
 
 bool	buff_prepend(t_buff *b, const char *str, long n)
 {
 	size_t	strlen;
 	char	*new_data;
+	size_t	new_cap;
 
 	if (n < 0)
 		strlen = ft_strlen(str);
 	else
 		strlen = (size_t)n;
-	if (b->len + strlen >= b->cap)
+	new_cap = buff_get_required_cap(b->cap, b->len + strlen);
+	if (new_cap > b->cap)
 	{
-		new_data = malloc(b->cap * BUFF_GROWTH);
+		new_data = malloc(new_cap);
 		if (!new_data)
 			return (false);
-		b->cap = b->cap * BUFF_GROWTH;
+		b->cap = new_cap;
 		ft_memcpy(new_data + strlen, b->data, b->len);
 		free(b->data);
 		b->data = new_data;
@@ -46,17 +51,19 @@ bool	buff_insert(t_buff *b, size_t index, const char *str, long n)
 {
 	size_t	strlen;
 	char	*new_data;
+	size_t	new_cap;
 
 	if (n < 0)
 		strlen = ft_strlen(str);
 	else
 		strlen = (size_t)n;
-	if (b->len + strlen >= b->cap)
+	new_cap = buff_get_required_cap(b->cap, b->len + strlen);
+	if (new_cap > b->cap)
 	{
-		new_data = malloc(b->cap * BUFF_GROWTH);
+		new_data = malloc(new_cap);
 		if (!new_data)
 			return (false);
-		b->cap = b->cap * BUFF_GROWTH;
+		b->cap = new_cap;
 		ft_memcpy(new_data, b->data, index);
 		ft_memcpy(new_data + index + strlen, b->data + index, b->len - index);
 		free(b->data);
@@ -72,24 +79,20 @@ bool	buff_insert(t_buff *b, size_t index, const char *str, long n)
 bool	buff_append(t_buff *b, const char *str, long n)
 {
 	size_t	strlen;
+	size_t	new_cap;
 
 	if (n < 0)
 		strlen = ft_strlen(str);
 	else
 		strlen = (size_t)n;
-	if (b->len + strlen >= b->cap)
+	new_cap = buff_get_required_cap(b->cap, b->len + strlen);
+	if (new_cap > b->cap)
 	{
-		if (!ft_realloc(&b->data, b->cap, b->cap * BUFF_GROWTH))
+		if (!ft_realloc(&b->data, b->cap, new_cap))
 			return (false);
+		b->cap = new_cap;
 	}
-	ft_memcpy(b->data, str, strlen);
+	ft_memcpy(b->data + b->len, str, strlen);
 	b->len = b->len + strlen;
 	return (true);
-}
-
-void	buff_free(t_buff *b)
-{
-	if (b->data)
-		free(b->data);
-	b->data = NULL;
 }
