@@ -18,7 +18,7 @@ OBJ			:= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 TEST_NAME	:= tests/tester
 TEST_SRCS	:= $(wildcard tests/*.c)
-TEST_CFLAGS	:= -I. -g3 -lfut
+TEST_CFLAGS	:= $(INCLUDES) -g3 -lfut
 
 all: $(NAME)
 

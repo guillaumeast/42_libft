@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/11 10:26:28 by gastesan         ###   ########.fr       */
+/*   Updated: 2025/12/11 21:33:25 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
+bool	ft_isincharset(char c, const char *charset);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
