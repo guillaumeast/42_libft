@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/10 16:43:56 by gastesan         ###   ########.fr       */
+/*   Updated: 2025/12/11 10:26:28 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int		ft_tolower(int c);
 
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
+char	*ft_utoa(unsigned int n);
+char	*ft_ltoa(long n);
 
 /*---------- LST ----------*/
 

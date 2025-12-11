@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_ltoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:19:29 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/06 23:28:30 by gastesan         ###   ########.fr       */
+/*   Updated: 2025/12/11 10:29:00 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static size_t	get_len(int n);
-static void		populate(int n, char *str, size_t i);
+static size_t	get_len(long n);
+static void		populate(long n, char *str, size_t i);
+char			*ft_ltoa(long n);
 
 char	*ft_itoa(int n)
+{
+	return (ft_ltoa((long) n));
+}
+
+char	*ft_utoa(unsigned int n)
+{
+	return (ft_ltoa((long) n));
+}
+
+char	*ft_ltoa(long n)
 {
 	size_t	len;
 	char	*res;
@@ -31,7 +42,7 @@ char	*ft_itoa(int n)
 	return (res);
 }
 
-static size_t	get_len(int n)
+static size_t	get_len(long n)
 {
 	size_t	len;
 
@@ -46,7 +57,7 @@ static size_t	get_len(int n)
 	return (len);
 }
 
-static void	populate(int n, char *str, size_t i)
+static void	populate(long n, char *str, size_t i)
 {
 	int	mod;
 
