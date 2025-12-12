@@ -6,14 +6,14 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/12 20:03:20 by gastesan         ###   ########.fr       */
+/*   Updated: 2025/12/12 23:04:58 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <ctype.h>		// size_t
+# include <stddef.h>	// size_t
 # include <stdbool.h>	// bool
 
 typedef struct s_buff

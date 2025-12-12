@@ -6,11 +6,11 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:19:08 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/06 23:30:28 by gastesan         ###   ########.fr       */
+/*   Updated: 2025/12/12 23:06:05 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
+#include <stddef.h>
 
 void	ft_bzero(void *s, size_t n)
 {
