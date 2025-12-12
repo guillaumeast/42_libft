@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:19:29 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/11 10:29:00 by gastesan         ###   ########.fr       */
+/*   Updated: 2025/12/12 19:30:01 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,6 @@
 
 static size_t	get_len(long n);
 static void		populate(long n, char *str, size_t i);
-char			*ft_ltoa(long n);
-
-char	*ft_itoa(int n)
-{
-	return (ft_ltoa((long) n));
-}
-
-char	*ft_utoa(unsigned int n)
-{
-	return (ft_ltoa((long) n));
-}
 
 char	*ft_ltoa(long n)
 {
