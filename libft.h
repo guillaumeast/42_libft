@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/12 23:04:58 by gastesan         ###   ########.fr       */
+/*   Updated: 2025/12/18 13:36:18 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,11 @@ int		ft_lstsize(t_list *lst);
 
 void	*ft_calloc(size_t count, size_t size);
 bool	ft_realloc(char **buff, size_t cap, size_t newcap);
+
+/*--------- MATH --------*/
+
+int	square_root_exact(int nb);
+int	square_root_rounded(int nb);
 
 /*---------- MEM ----------*/
 
