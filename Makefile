@@ -8,6 +8,7 @@ SRCS		:= \
 	$(wildcard src/conv/*.c) \
 	$(wildcard src/lst/*.c) \
 	$(wildcard src/malloc/*.c) \
+	$(wildcard src/math/*.c) \
 	$(wildcard src/mem/*.c) \
 	$(wildcard src/put/*.c) \
 	$(wildcard src/str/*.c)
