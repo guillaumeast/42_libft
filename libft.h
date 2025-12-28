@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/22 02:29:46 by gastesan         ###   ########.fr       */
+/*   Updated: 2025/12/28 13:08:54 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,14 @@ typedef struct s_list
 /*--------- BUFF ----------*/
 
 bool	buff_init(t_buff *b, size_t initial_cap);
+size_t	buff_get_required_cap(size_t current_cap, size_t target_len);
+bool	buff_grow(t_buff *buff, size_t target_len);
+void	buff_free(t_buff *b);
+
 bool	buff_prepend(t_buff *b, const char *str, long n);
 bool	buff_insert(t_buff *b, size_t index, const char *str, long n);
 bool	buff_append(t_buff *b, const char *str, long n);
-void	buff_free(t_buff *b);
+bool	buff_read_all(t_buff *buff, int fd);
 
 /*---------- CHR ----------*/
 

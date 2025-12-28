@@ -6,30 +6,14 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:40 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/13 01:30:41 by gastesan         ###   ########.fr       */
+/*   Updated: 2025/12/28 13:06:50 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <errno.h>
 #include <stdlib.h>
-
-#define DEFAULT_BUFF_CAP 128
-#define BUFF_GROWTH 2
-
-size_t	buff_get_required_cap(size_t current_cap, size_t target_len)
-{
-	size_t	new_cap;
-
-	if (target_len == 0)
-		return (current_cap);
-	if (current_cap == 0)
-		new_cap = DEFAULT_BUFF_CAP;
-	else
-		new_cap = current_cap;
-	while (new_cap <= target_len)
-		new_cap *= BUFF_GROWTH;
-	return (new_cap);
-}
+#include <unistd.h>
 
 bool	buff_prepend(t_buff *b, const char *str, long n)
 {
@@ -107,4 +91,31 @@ bool	buff_append(t_buff *b, const char *str, long n)
 	ft_memcpy(b->data + b->len, str, strlen);
 	b->len = b->len + strlen;
 	return (true);
+}
+
+bool	buff_read_all(t_buff *buff, int fd)
+{
+	ssize_t	read_len;
+	char	*final_data;
+
+	read_len = 1;
+	while (read_len > 0)
+	{
+		if (buff->cap - buff->len == 0 && !buff_grow(buff, buff->len + 1))
+			return (false);
+		read_len = read(fd, buff->data + buff->len, buff->cap - buff->len);
+		if (read_len == -1 && errno == EINTR)
+			continue ;
+		if (read_len > 0)
+			buff->len += (size_t)read_len;
+	}
+	final_data = malloc(buff->len);
+	if (final_data)
+	{
+		ft_memcpy(final_data, buff->data, buff->len);
+		free(buff->data);
+		buff->data = final_data;
+		buff->cap = buff->len;
+	}
+	return (read_len != -1);
 }
