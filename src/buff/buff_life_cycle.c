@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:37 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/28 12:57:26 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/05 17:25:37 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ bool	buff_grow(t_buff *buff, size_t target_len)
 {
 	size_t	new_cap;
 	char	*new_data;
-	
+
 	new_cap = buff_get_required_cap(buff->cap, target_len);
 	if (new_cap == buff->cap)
 		return (true);

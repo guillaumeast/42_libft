@@ -6,15 +6,15 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/28 13:08:54 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/05 17:26:08 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stddef.h>	// size_t
-# include <stdbool.h>	// bool
+# include <stddef.h>
+# include <stdbool.h>
 
 typedef struct s_buff
 {
@@ -81,10 +81,10 @@ bool	ft_realloc(char **buff, size_t cap, size_t newcap);
 
 /*--------- MATH --------*/
 
-int	square_root_exact(int nb);
-int	square_root_rounded(int nb);
-int	ft_min(int a, int b);
-int	ft_max(int a, int b);
+int		square_root_exact(int nb);
+int		square_root_rounded(int nb);
+int		ft_min(int a, int b);
+int		ft_max(int a, int b);
 
 /*---------- MEM ----------*/
 
