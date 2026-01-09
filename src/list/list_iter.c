@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   list_iter.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 19:19:39 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/06 23:29:08 by gastesan         ###   ########.fr       */
+/*   Created: 2025/12/01 19:19:42 by gastesan          #+#    #+#             */
+/*   Updated: 2026/01/10 00:39:57 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	list_iter(t_list lst, void (*f)(void *))
 {
-	if (!lst || !del)
+	t_node	*node;
+
+	if (!lst || !f)
 		return ;
-	del(lst->content);
-	free(lst);
+	node = lst;
+	while (node)
+	{
+		f(node->content);
+		node = node->next;
+	}
 }

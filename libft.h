@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/05 17:26:08 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/10 00:51:35 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stddef.h>
 # include <stdbool.h>
 
+# define BUFFER_SIZE 128
+
 typedef struct s_buff
 {
 	char	*data;
@@ -23,11 +25,20 @@ typedef struct s_buff
 	size_t	len;
 }	t_buff;
 
-typedef struct s_list
+typedef struct s_stash
+{
+	int			fd;
+	t_buff		buffer;
+}	t_stash;
+
+typedef struct s_node
 {
 	void			*content;
-	struct s_list	*next;
-}	t_list;
+	struct s_node	*prev;
+	struct s_node	*next;
+}	t_node;
+
+typedef t_node *t_list;
 
 /*--------- BUFF ----------*/
 
@@ -62,17 +73,19 @@ char	*ft_utoa(unsigned int n);
 char	*ft_ltoa(long n);
 char	*ft_ultoa_base(unsigned long n, const char *base);
 
-/*---------- LST ----------*/
+/*---------- LIST ----------*/
 
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstclear(t_list **lst, void (*del)(void*));
-void	ft_lstdelone(t_list *lst, void (*del)(void*));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-t_list	*ft_lstnew(void *content);
-int		ft_lstsize(t_list *lst);
+t_node	*node_new(void *content, t_node *prev, t_node *next);
+void	node_free(t_node **node, void (*del_content)(void*));
+bool	list_add_end(t_list *list, void *new_content);
+bool	list_add_start(t_list *list, void *new_content);
+size_t	list_get_size(t_list list);
+t_node	*list_get_n(t_list list, size_t index);
+t_node	*list_get_last(t_list list);
+void	list_iter(t_list lst, void (*f)(void *));
+t_list	list_map(t_list list, void *(*f)(void *), void (*del)(void *));
+void	list_rm(t_list *list, t_node *node, void (*del_content)(void*));
+void	list_rm_all(t_list *list, void (*del_content)(void*));
 
 /*--------- MALLOC --------*/
 
