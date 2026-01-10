@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   stash.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 19:20:23 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 19:12:57 by gastesan         ###   ########.fr       */
+/*   Created: 2026/01/10 19:29:17 by gastesan          #+#    #+#             */
+/*   Updated: 2026/01/10 19:29:18 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#ifndef STASH_H
+# define STASH_H
 
-char	*ft_strchr(const char *s, int c)
+# include "libft.h"
+
+typedef struct s_stash
 {
-	char	target;
+	int			fd;
+	t_buff		buffer;
+}	t_stash;
 
-	target = (char) c;
-	while (*s)
-	{
-		if (*s == target)
-			return ((char *) s);
-		s++;
-	}
-	if (target == '\0')
-		return ((char *) s);
-	return (NULL);
-}
+t_buff	*get_buffer(int fd);
+void	stash_find_and_free(int fd);
+void	stashs_free_all(void);
+
+#endif

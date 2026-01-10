@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   buff_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 22:59:45 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 02:49:08 by gastesan         ###   ########.fr       */
+/*   Created: 2026/01/10 19:29:25 by gastesan          #+#    #+#             */
+/*   Updated: 2026/01/10 19:29:26 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include "libft.h"
+int	buff_get_index(t_buff *buff, char c)
+{
+	size_t	i;
 
-t_buff	*get_buffer(t_list *stashs, int fd);
-void	stash_remove(t_list *stashs, int fd);
-
-#endif
+	i = 0;
+	while (i < buff->len)
+	{
+		if (buff->data[i] == c)
+			return ((int)i);
+		i++;
+	}
+	return (-1);
+}

@@ -6,7 +6,7 @@ SRCS		:= \
 	$(wildcard src/buff/*.c) \
 	$(wildcard src/chr/*.c) \
 	$(wildcard src/conv/*.c) \
-	$(wildcard src/gnl/*.c) \
+	$(wildcard src/gnc/*.c) \
 	$(wildcard src/list/*.c) \
 	$(wildcard src/malloc/*.c) \
 	$(wildcard src/math/*.c) \

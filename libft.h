@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 03:14:14 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/10 19:27:46 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stddef.h>
 # include <stdbool.h>
+# include <sys/types.h>
 
 # define BUFFER_SIZE 128
 
@@ -24,12 +25,6 @@ typedef struct s_buff
 	size_t	cap;
 	size_t	len;
 }	t_buff;
-
-typedef struct s_stash
-{
-	int			fd;
-	t_buff		buffer;
-}	t_stash;
 
 typedef struct s_node
 {
@@ -45,11 +40,15 @@ typedef t_node *t_list;
 bool	buff_init(t_buff *b, size_t initial_cap);
 size_t	buff_get_required_cap(size_t current_cap, size_t target_len);
 bool	buff_grow(t_buff *buff, size_t target_len);
+bool	buff_adjust(t_buff *buff);
 void	buff_free(t_buff *b);
-
+int		buff_get_index(t_buff *buff, char c);
 bool	buff_prepend(t_buff *b, const char *str, long n);
 bool	buff_insert(t_buff *b, size_t index, const char *str, long n);
 bool	buff_append(t_buff *b, const char *str, long n);
+t_buff	*buff_dup_n(const t_buff *src, size_t n);
+void	buff_rm_part(t_buff *buff, size_t i_start, ssize_t len);
+int		buff_read_until(t_buff *buff, int fd, char c);
 bool	buff_read_all(t_buff *buff, int fd);
 
 /*---------- CHR ----------*/
@@ -75,7 +74,8 @@ char	*ft_ultoa_base(unsigned long n, const char *base);
 
 /*---------- GNL ----------*/
 
-char	*gnl(int fd);
+t_buff	*get_next_chunk(int fd, char separator);
+void	get_next_chunk_free(void);
 
 /*---------- LIST ----------*/
 

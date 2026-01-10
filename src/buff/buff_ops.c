@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_buff.c                                          :+:      :+:    :+:   */
+/*   buff_add.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:40 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/28 13:06:50 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/10 19:27:17 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <errno.h>
 #include <stdlib.h>
-#include <unistd.h>
 
 bool	buff_prepend(t_buff *b, const char *str, long n)
 {
@@ -93,29 +91,42 @@ bool	buff_append(t_buff *b, const char *str, long n)
 	return (true);
 }
 
-bool	buff_read_all(t_buff *buff, int fd)
+t_buff	*buff_dup_n(const t_buff *src, size_t n)
 {
-	ssize_t	read_len;
-	char	*final_data;
+	t_buff	*res;
 
-	read_len = 1;
-	while (read_len > 0)
+	res = malloc(sizeof *res);
+	if (!res)
+		return (NULL);
+	if (n > src->len)
+		n = src->len;
+	buff_init(res, 0);
+	if (!buff_append(res, src->data, (long)n))
 	{
-		if (buff->cap - buff->len == 0 && !buff_grow(buff, buff->len + 1))
-			return (false);
-		read_len = read(fd, buff->data + buff->len, buff->cap - buff->len);
-		if (read_len == -1 && errno == EINTR)
-			continue ;
-		if (read_len > 0)
-			buff->len += (size_t)read_len;
+		buff_free(res);
+		free(res);
+		return (NULL);
 	}
-	final_data = malloc(buff->len);
-	if (final_data)
+	return (res);
+}
+
+// if len < 0 => it deletes all buffer content from i_start
+void	buff_rm_part(t_buff *buff, size_t i_start, ssize_t len)
+{
+	char	*dst;
+	char	*src;
+	size_t	len_to_move;
+
+	if (i_start >= buff->len)
+		return ;
+	else if (len < 0 || i_start + (size_t)len > buff->len)
 	{
-		ft_memcpy(final_data, buff->data, buff->len);
-		free(buff->data);
-		buff->data = final_data;
-		buff->cap = buff->len;
+		buff->len = i_start;
+		return ;
 	}
-	return (read_len != -1);
+	dst = buff->data + i_start;
+	src = buff->data + i_start + (size_t)len;
+	len_to_move = buff->len - (i_start + (size_t)len);
+	ft_memmove(dst, src, len_to_move);
+	buff->len -= (size_t)len;
 }

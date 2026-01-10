@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:37 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/05 17:25:37 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/10 15:42:21 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,18 @@
 #define DEFAULT_BUFF_CAP 128
 #define BUFF_GROWTH 2
 
+// Can't fail when initial_cap == 0
 bool	buff_init(t_buff *b, size_t initial_cap)
 {
+	b->data = NULL;
 	b->cap = 0;
-	if (initial_cap > 0)
-	{
-		b->data = malloc(initial_cap);
-		if (!b->data)
-			return (false);
-	}
-	else
-		b->data = NULL;
-	b->cap = initial_cap;
 	b->len = 0;
+	if (initial_cap == 0)
+		return (true);
+	b->data = malloc(initial_cap);
+	if (!b->data)
+		return (false);
+	b->cap = initial_cap;
 	return (true);
 }
 
@@ -62,6 +61,28 @@ bool	buff_grow(t_buff *buff, size_t target_len)
 	free(buff->data);
 	buff->data = new_data;
 	buff->cap = new_cap;
+	return (true);
+}
+
+bool	buff_adjust(t_buff *buff)
+{
+	char	*new_data;
+
+	if (buff->len == 0)
+	{
+		if (buff->data)
+			free(buff->data);
+		buff->data = NULL;
+		buff->cap = 0;
+		return (true);
+	}
+	new_data = malloc(buff->len);
+	if (!new_data)
+		return (false);
+	ft_memcpy(new_data, buff->data, buff->len);
+	free(buff->data);
+	buff->data = new_data;
+	buff->cap = buff->len;
 	return (true);
 }
 
