@@ -6,29 +6,50 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:19:45 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 00:51:00 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/10 01:48:59 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
 
-size_t	list_get_size(t_list list)
+void	*list_get_content(t_list list, bool (*select_function)(void*))
 {
-	size_t	size;
 	t_node	*node;
-
+	
+	if (!list || !select_function)
+		return (NULL);
 	node = list;
-	size = 0;
 	while (node)
 	{
-		size++;
+		if (select_function(node->content))
+			return (node->content);
 		node = node->next;
 	}
-	return (size);
+	return (NULL);
 }
 
-t_node	*list_get_n(t_list list, size_t index)
+void	*list_get_content_n(t_list list, size_t index)
+{
+	t_node	*node;
+
+	node = list_get_node_n(list, index);
+	if (!node)
+		return (NULL);
+	return (node->content);
+}
+
+void	*list_get_content_last(t_list list)
+{
+	t_node	*last_node;
+	
+	last_node = list_get_node_last(list);
+	if (!last_node)
+		return (NULL);
+	return (last_node->content);
+}
+
+t_node	*list_get_node_n(t_list list, size_t index)
 {
 	t_node	*node;
 
@@ -38,14 +59,14 @@ t_node	*list_get_n(t_list list, size_t index)
 	while (node && index)
 	{
 		node = node->next;
-		index--;	
+		index--;
 	}
 	if (index > 0)
 		return (NULL);
 	return (node);
 }
 
-t_node	*list_get_last(t_list list)
+t_node	*list_get_node_last(t_list list)
 {
 	t_node	*last_node;
 	

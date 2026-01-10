@@ -6,12 +6,26 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:19:48 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 00:39:13 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/10 01:43:41 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
+
+void	list_iter(t_list lst, void (*f)(void *))
+{
+	t_node	*node;
+
+	if (!lst || !f)
+		return ;
+	node = lst;
+	while (node)
+	{
+		f(node->content);
+		node = node->next;
+	}
+}
 
 t_list	list_map(t_list list, void *(*f)(void *), void (*del)(void *))
 {

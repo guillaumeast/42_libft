@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 00:51:35 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/10 03:14:14 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,10 @@ char	*ft_utoa(unsigned int n);
 char	*ft_ltoa(long n);
 char	*ft_ultoa_base(unsigned long n, const char *base);
 
+/*---------- GNL ----------*/
+
+char	*gnl(int fd);
+
 /*---------- LIST ----------*/
 
 t_node	*node_new(void *content, t_node *prev, t_node *next);
@@ -80,8 +84,11 @@ void	node_free(t_node **node, void (*del_content)(void*));
 bool	list_add_end(t_list *list, void *new_content);
 bool	list_add_start(t_list *list, void *new_content);
 size_t	list_get_size(t_list list);
-t_node	*list_get_n(t_list list, size_t index);
-t_node	*list_get_last(t_list list);
+void	*list_get_content(t_list list, bool (*select_function)(void*));
+void	*list_get_content_n(t_list list, size_t index);
+void	*list_get_content_last(t_list list);
+t_node	*list_get_node_n(t_list list, size_t index);
+t_node	*list_get_node_last(t_list list);
 void	list_iter(t_list lst, void (*f)(void *));
 t_list	list_map(t_list list, void *(*f)(void *), void (*del)(void *));
 void	list_rm(t_list *list, t_node *node, void (*del_content)(void*));

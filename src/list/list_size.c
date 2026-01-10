@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_iter.c                                        :+:      :+:    :+:   */
+/*   list_size.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 19:19:42 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 00:39:57 by gastesan         ###   ########.fr       */
+/*   Created: 2026/01/10 02:56:37 by gastesan          #+#    #+#             */
+/*   Updated: 2026/01/10 02:56:38 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	list_iter(t_list lst, void (*f)(void *))
+size_t	list_get_size(t_list list)
 {
+	size_t	size;
 	t_node	*node;
 
-	if (!lst || !f)
-		return ;
-	node = lst;
+	node = list;
+	size = 0;
 	while (node)
 	{
-		f(node->content);
+		size++;
 		node = node->next;
 	}
+	return (size);
 }
