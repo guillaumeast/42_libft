@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:37 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 21:48:19 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 00:15:08 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,15 @@
 #define DEFAULT_BUFF_CAP 128
 #define BUFF_GROWTH 2
 
-// Can't fail when initial_cap == 0
+/**
+ * @brief Initializes a buffer with the specified initial capacity.
+ *
+ * @note Cannot fail when initial_cap == 0.
+ *
+ * @param b Pointer to the buffer structure.
+ * @param initial_cap Initial capacity of the buffer.
+ * @return true on success, false on memory allocation failure.
+ */
 bool	buff_init(t_buff *b, size_t initial_cap)
 {
 	b->data = NULL;
@@ -31,6 +39,14 @@ bool	buff_init(t_buff *b, size_t initial_cap)
 	return (true);
 }
 
+// TODO: expliciter que la capacity est multipliée si insuffisante pour amortir les growth en 0(1)
+/**
+ * @brief Calculates the required capacity to accommodate a target length.
+ *
+ * @param current_cap Current capacity of the buffer.
+ * @param target_len Target length to accommodate.
+ * @return The new required capacity.
+ */
 size_t	buff_get_required_cap(size_t current_cap, size_t target_len)
 {
 	size_t	new_cap;
@@ -46,6 +62,14 @@ size_t	buff_get_required_cap(size_t current_cap, size_t target_len)
 	return (new_cap);
 }
 
+// TODO: expliciter que le grow n'est effectué que si nécessaire (si la capcity est déjà suffisante -> no-op)
+/**
+ * @brief Grows the buffer to accommodate the target length.
+ *
+ * @param buff Pointer to the buffer.
+ * @param target_len The minimum length the buffer should accommodate.
+ * @return true on success, false on memory allocation failure.
+ */
 bool	buff_grow(t_buff *buff, size_t target_len)
 {
 	size_t	new_cap;
@@ -64,6 +88,12 @@ bool	buff_grow(t_buff *buff, size_t target_len)
 	return (true);
 }
 
+/**
+ * @brief Adjusts buffer capacity to match its current length.
+ *
+ * @param buff Pointer to the buffer.
+ * @return true on success, false on memory allocation failure.
+ */
 bool	buff_adjust(t_buff *buff)
 {
 	char	*new_data;
@@ -86,6 +116,12 @@ bool	buff_adjust(t_buff *buff)
 	return (true);
 }
 
+// TODO: expliciter le fait que c'est le char * interne au buffer qui est free, pas le t_buff lui-même
+/**
+ * @brief Frees the buffer's allocated memory.
+ *
+ * @param b Pointer to the buffer.
+ */
 void	buff_free(t_buff *b)
 {
 	if (b->data)

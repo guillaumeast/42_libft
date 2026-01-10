@@ -6,22 +6,32 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:41 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 22:44:42 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/10 23:57:45 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
+/**
+ * @brief Appends a single character to the buffer.
+ *
+ * @param buff Pointer to the buffer.
+ * @param c Character to append.
+ * @return true on success, false on failure.
+ */
 bool	append_char(t_buff *buff, char c)
 {
-	char	tmp[2];
-
-	tmp[0] = c;
-	tmp[1] = '\0';
-	return (buff_append(buff, tmp, 1));
+	return (buff_append(buff, &c, 1));
 }
 
+/**
+ * @brief Appends an integer to the buffer as a decimal string.
+ *
+ * @param buff Pointer to the buffer.
+ * @param nb Integer to append.
+ * @return true on success, false on failure.
+ */
 bool	append_int(t_buff *buff, int nb)
 {
 	char	*tmp;
@@ -35,6 +45,13 @@ bool	append_int(t_buff *buff, int nb)
 	return (success);
 }
 
+/**
+ * @brief Appends an unsigned integer to the buffer as a decimal string.
+ *
+ * @param buff Pointer to the buffer.
+ * @param nb Unsigned integer to append.
+ * @return true on success, false on failure.
+ */
 bool	append_uint(t_buff *buff, unsigned int nb)
 {
 	char	*tmp;
@@ -48,6 +65,14 @@ bool	append_uint(t_buff *buff, unsigned int nb)
 	return (success);
 }
 
+/**
+ * @brief Appends a number in hexadecimal format to the buffer.
+ *
+ * @param buff Pointer to the buffer.
+ * @param nb Number to convert to hexadecimal.
+ * @param uppercase Use uppercase hex digits if true.
+ * @return true on success, false on failure.
+ */
 bool	append_hex(t_buff *buff, unsigned long nb, bool uppercase)
 {
 	char				*tmp;
@@ -66,6 +91,13 @@ bool	append_hex(t_buff *buff, unsigned long nb, bool uppercase)
 	return (success);
 }
 
+/**
+ * @brief Appends a pointer address to the buffer.
+ *
+ * @param buff Pointer to the buffer.
+ * @param nb Pointer value as unsigned long.
+ * @return true on success, false on failure.
+ */
 bool	append_ptr(t_buff *buff, unsigned long nb)
 {
 	if (nb == 0)

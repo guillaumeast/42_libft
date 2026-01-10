@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:15 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/06 23:33:52 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 00:41:03 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 static void	write_rec(long nbr, int fd);
 
+/**
+ * @brief Writes an integer to a file descriptor.
+ *
+ * @param n Integer to write.
+ * @param fd File descriptor to write to.
+ */
 void	ft_putnbr_fd(int n, int fd)
 {
 	long	nbr;
@@ -27,6 +33,12 @@ void	ft_putnbr_fd(int n, int fd)
 	write_rec(nbr, fd);
 }
 
+/**
+ * @brief Recursively writes digits of a number.
+ *
+ * @param nbr Number to write.
+ * @param fd File descriptor to write to.
+ */
 static void	write_rec(long nbr, int fd)
 {
 	char	c;

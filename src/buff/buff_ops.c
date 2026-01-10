@@ -6,13 +6,22 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 20:37:05 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 00:18:17 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
+// TODO: préciser que le buffer est automatiquement aggrandi si nécessaire
+/**
+ * @brief Prepends a string to the beginning of the buffer.
+ *
+ * @param b Pointer to the buffer.
+ * @param str String to prepend.
+ * @param n Number of bytes to prepend, or -1 to use strlen(str).
+ * @return true on success, false on memory allocation failure.
+ */
 bool	buff_prepend(t_buff *b, const char *str, long n)
 {
 	size_t	strlen;
@@ -41,6 +50,16 @@ bool	buff_prepend(t_buff *b, const char *str, long n)
 	return (true);
 }
 
+// TODO: préciser que le buffer est automatiquement aggrandi si nécessaire
+/**
+ * @brief Inserts a string at a specific index in the buffer.
+ *
+ * @param b Pointer to the buffer.
+ * @param index Position at which to insert the string.
+ * @param str String to insert.
+ * @param n Number of bytes to insert, or -1 to use strlen(str).
+ * @return true on success, false on memory allocation failure.
+ */
 bool	buff_insert(t_buff *b, size_t index, const char *str, long n)
 {
 	size_t	strlen;
@@ -70,6 +89,15 @@ bool	buff_insert(t_buff *b, size_t index, const char *str, long n)
 	return (true);
 }
 
+// TODO: préciser que le buffer est automatiquement aggrandi si nécessaire
+/**
+ * @brief Appends a string to the end of the buffer.
+ *
+ * @param b Pointer to the buffer.
+ * @param str String to append.
+ * @param n Number of bytes to append, or -1 to use strlen(str).
+ * @return true on success, false on memory allocation failure.
+ */
 bool	buff_append(t_buff *b, const char *str, long n)
 {
 	size_t	strlen;
@@ -91,6 +119,14 @@ bool	buff_append(t_buff *b, const char *str, long n)
 	return (true);
 }
 
+// TODO: préciser que c'est au caller de free le buffer qui est retourné
+/**
+ * @brief Duplicates up to n bytes of a buffer into a new buffer.
+ *
+ * @param src Source buffer to duplicate.
+ * @param n Maximum number of bytes to copy.
+ * @return Pointer to the new buffer, or NULL on failure.
+ */
 t_buff	*buff_dup_n(const t_buff *src, size_t n)
 {
 	t_buff	*res;
@@ -110,7 +146,15 @@ t_buff	*buff_dup_n(const t_buff *src, size_t n)
 	return (res);
 }
 
-// if len < 0 => it deletes all buffer content from i_start
+/**
+ * @brief Removes a portion of the buffer starting at i_start.
+ *
+ * @note If len < 0, deletes all buffer content from i_start.
+ *
+ * @param buff Pointer to the buffer.
+ * @param i_start Starting index for removal.
+ * @param len Number of bytes to remove, or negative to remove until end.
+ */
 void	buff_rm_part(t_buff *buff, size_t i_start, ssize_t len)
 {
 	char	*dst;

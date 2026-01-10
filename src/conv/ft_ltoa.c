@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:19:29 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/12 19:30:01 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 00:23:32 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 static size_t	get_len(long n);
 static void		populate(long n, char *str, size_t i);
 
+// TODO: préciser que le caller a la responsabilité de free la string retournée
+/**
+ * @brief Converts a long integer to a string.
+ *
+ * @param n Long integer to convert.
+ * @return Newly allocated string, or NULL on failure.
+ */
 char	*ft_ltoa(long n)
 {
 	size_t	len;
@@ -31,6 +38,12 @@ char	*ft_ltoa(long n)
 	return (res);
 }
 
+/**
+ * @brief Calculates the string length needed for a long number.
+ *
+ * @param n Long number.
+ * @return Length including sign if negative.
+ */
 static size_t	get_len(long n)
 {
 	size_t	len;
@@ -46,6 +59,13 @@ static size_t	get_len(long n)
 	return (len);
 }
 
+/**
+ * @brief Recursively populates a string with digits from a long.
+ *
+ * @param n Long number to convert.
+ * @param str Destination string.
+ * @param i Current index to write to.
+ */
 static void	populate(long n, char *str, size_t i)
 {
 	int	mod;

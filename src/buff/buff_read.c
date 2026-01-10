@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:29:29 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 19:29:30 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 00:20:10 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,14 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-// Returns:
-//  >= 0 : index of c in buff->data
-//  -1   : c not found (EOF reached)
-//  -2   : read error
+/**
+ * @brief Reads from a file descriptor until a specific character is found.
+ *
+ * @param buff Pointer to the buffer.
+ * @param fd File descriptor to read from.
+ * @param c Character to search for.
+ * @return Index of c (>= 0), -1 if c not found (EOF), -2 on read error.
+ */
 int	buff_read_until(t_buff *buff, int fd, char c)
 {
 	ssize_t	read_len;
@@ -43,7 +47,15 @@ int	buff_read_until(t_buff *buff, int fd, char c)
 	return (index);
 }
 
-// Returns false if read failed (but buff->data is not auto free)
+/**
+ * @brief Reads all available data from a file descriptor into buffer.
+ *
+ * @note On failure, buff->data is not automatically freed.
+ *
+ * @param buff Pointer to the buffer.
+ * @param fd File descriptor to read from.
+ * @return true on success, false if read failed.
+ */
 bool	buff_read_all(t_buff *buff, int fd)
 {
 	ssize_t	read_len;

@@ -6,13 +6,20 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 02:56:33 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 20:38:58 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 00:34:48 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
+/**
+ * @brief Adds a new element at the start of the list.
+ *
+ * @param list Pointer to the list.
+ * @param new_content Content for the new node.
+ * @return true on success, false on failure.
+ */
 bool	list_add_start(t_list *list, void *new_content)
 {
 	t_node	*new_node;
@@ -28,6 +35,13 @@ bool	list_add_start(t_list *list, void *new_content)
 	return (true);
 }
 
+/**
+ * @brief Adds a new element at the end of the list.
+ *
+ * @param list Pointer to the list.
+ * @param new_content Content for the new node.
+ * @return true on success, false on failure.
+ */
 bool	list_add_end(t_list *list, void *new_content)
 {
 	t_node	*new_node;
@@ -51,6 +65,13 @@ bool	list_add_end(t_list *list, void *new_content)
 	return (true);
 }
 
+/**
+ * @brief Removes a specific node from the list.
+ *
+ * @param list Pointer to the list.
+ * @param node Node to remove.
+ * @param del_content Function to delete the node's content (can be NULL).
+ */
 void	list_rm(t_list *list, t_node *node, void (*del_content)(void*))
 {
 	t_node	*prev;
@@ -71,6 +92,12 @@ void	list_rm(t_list *list, t_node *node, void (*del_content)(void*))
 	free(node);
 }
 
+/**
+ * @brief Removes all nodes from the list.
+ *
+ * @param list Pointer to the list.
+ * @param del_content Function to delete each node's content (can be NULL).
+ */
 void	list_rm_all(t_list *list, void (*del_content)(void*))
 {
 	t_node	*node;

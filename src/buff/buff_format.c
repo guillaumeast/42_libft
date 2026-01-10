@@ -6,13 +6,21 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:33 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 22:44:34 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 00:07:32 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "buff_format.h"
 #include <stdlib.h>
 
+/**
+ * @brief Appends formatted string to buffer using variadic arguments.
+ *
+ * @param buff Pointer to the buffer.
+ * @param fstring Format string.
+ * @param ... Variadic arguments for format specifiers.
+ * @return true on success, false on failure.
+ */
 bool	buff_append_format(t_buff *buff, const char *fstring, ...)
 {
 	va_list	args;
@@ -24,6 +32,14 @@ bool	buff_append_format(t_buff *buff, const char *fstring, ...)
 	return (success);
 }
 
+/**
+ * @brief Appends formatted string to buffer using va_list.
+ *
+ * @param buff Pointer to the buffer.
+ * @param fstring Format string.
+ * @param args Variable argument list.
+ * @return true on success, false on failure.
+ */
 bool	buff_append_vformat(t_buff *buff, const char *fstring, va_list args)
 {
 	const char	*next_conversion;

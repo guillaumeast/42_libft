@@ -6,13 +6,21 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:55 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/06 23:36:54 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 00:46:42 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
+/**
+ * @brief Extracts a substring from a string.
+ *
+ * @param s Source string.
+ * @param start Starting index.
+ * @param len Maximum length of substring.
+ * @return Newly allocated substring, or NULL on failure.
+ */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;

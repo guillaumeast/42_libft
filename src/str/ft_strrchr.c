@@ -6,12 +6,19 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:49 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/06 23:36:21 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 00:45:51 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
+/**
+ * @brief Locates the last occurrence of a character in a string.
+ *
+ * @param s String to search.
+ * @param c Character to find.
+ * @return Pointer to the character, or NULL if not found.
+ */
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*last;

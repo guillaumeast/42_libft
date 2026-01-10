@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:37 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 22:44:38 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/10 23:56:19 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 
 static bool	append_str(t_buff *buff, t_rules *rules, const char *str);
 
+/**
+ * @brief Appends a formatted argument to the buffer based on conversion type.
+ *
+ * @param buff Pointer to the buffer.
+ * @param rules Pointer to the formatting rules.
+ * @param args Pointer to the variable argument list.
+ * @return true on success, false on failure.
+ */
 bool	append(t_buff *buff, t_rules *rules, va_list *args)
 {
 	t_buff	tmp_buff;
@@ -43,6 +51,14 @@ bool	append(t_buff *buff, t_rules *rules, va_list *args)
 	return (success);
 }
 
+/**
+ * @brief Appends a string to the buffer with null handling.
+ *
+ * @param buff Pointer to the buffer.
+ * @param rules Pointer to the formatting rules.
+ * @param str String to append (can be NULL).
+ * @return true on success, false on failure.
+ */
 static bool	append_str(t_buff *buff, t_rules *rules, const char *str)
 {
 	if (!str)

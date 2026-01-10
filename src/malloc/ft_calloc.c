@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:19:11 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/12 23:05:39 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 00:35:38 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+/**
+ * @brief Allocates and zeroes memory for an array.
+ *
+ * @param count Number of elements.
+ * @param size Size of each element.
+ * @return Pointer to allocated memory, or NULL on failure.
+ */
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*res;

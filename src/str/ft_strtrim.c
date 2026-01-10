@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:52 by gastesan          #+#    #+#             */
-/*   Updated: 2025/12/06 23:36:36 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 00:46:27 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 
 static int	ft_is_in_charset(char const c, char const *set);
 
+/**
+ * @brief Trims characters from the beginning and end of a string.
+ *
+ * @param s1 String to trim.
+ * @param set Characters to trim.
+ * @return Newly allocated trimmed string, or NULL on failure.
+ */
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
@@ -31,6 +38,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (ft_substr(s1, (unsigned int)start, end - start));
 }
 
+/**
+ * @brief Checks if a character is in a set.
+ *
+ * @param c Character to check.
+ * @param set Character set.
+ * @return 1 if found, 0 otherwise.
+ */
 static int	ft_is_in_charset(char const c, char const *set)
 {
 	size_t	i;
