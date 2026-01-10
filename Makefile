@@ -4,7 +4,7 @@ CFLAGS		= -Wall -Wextra -Werror -g3
 
 SRCS		:= \
 	$(wildcard src/buff/*.c) \
-	$(wildcard src/buff/format*.c) \
+	$(wildcard src/buff/format/*.c) \
 	$(wildcard src/chr/*.c) \
 	$(wildcard src/conv/*.c) \
 	$(wildcard src/gnc/*.c) \
@@ -15,7 +15,7 @@ SRCS		:= \
 	$(wildcard src/print/*.c) \
 	$(wildcard src/put/*.c) \
 	$(wildcard src/str/*.c)
-INCLUDES	:= -I.
+INCLUDES	:= -I. -I./src/buff/format -I./src/gnc
 
 OBJ_DIR		:= obj
 OBJ			:= $(SRCS:%.c=$(OBJ_DIR)/%.o)
