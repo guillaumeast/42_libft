@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 02:56:41 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 02:56:42 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/10 20:39:20 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_node	*node_new(void *content, t_node *prev, t_node *next)
 {
 	t_node	*new_node;
 
-	new_node = malloc(sizeof *new_node);
+	new_node = malloc(sizeof * new_node);
 	if (!new_node)
 		return (NULL);
 	new_node->content = content;

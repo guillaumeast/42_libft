@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buff_add.c                                         :+:      :+:    :+:   */
+/*   buff_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 19:27:17 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/10 20:37:05 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ t_buff	*buff_dup_n(const t_buff *src, size_t n)
 {
 	t_buff	*res;
 
-	res = malloc(sizeof *res);
+	res = malloc(sizeof * res);
 	if (!res)
 		return (NULL);
 	if (n > src->len)

@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:19:45 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 01:48:59 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/10 20:39:12 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	*list_get_content(t_list list, bool (*select_function)(void*))
 {
 	t_node	*node;
-	
+
 	if (!list || !select_function)
 		return (NULL);
 	node = list;
@@ -42,7 +42,7 @@ void	*list_get_content_n(t_list list, size_t index)
 void	*list_get_content_last(t_list list)
 {
 	t_node	*last_node;
-	
+
 	last_node = list_get_node_last(list);
 	if (!last_node)
 		return (NULL);
@@ -69,7 +69,7 @@ t_node	*list_get_node_n(t_list list, size_t index)
 t_node	*list_get_node_last(t_list list)
 {
 	t_node	*last_node;
-	
+
 	if (!list)
 		return (NULL);
 	last_node = list;

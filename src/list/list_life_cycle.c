@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 02:56:33 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 02:56:34 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/10 20:38:58 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 bool	list_add_start(t_list *list, void *new_content)
 {
 	t_node	*new_node;
-	
+
 	if (!list)
 		return (false);
 	new_node = node_new(new_content, NULL, *list);

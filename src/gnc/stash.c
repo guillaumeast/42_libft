@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:29:14 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 19:29:15 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/10 20:38:17 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "stash.h"
 #include <stdlib.h>
 
-static t_list	stashs = NULL;
+static t_list	g_stashs = NULL;
 
 t_buff	*get_buffer(int fd)
 {
@@ -22,7 +22,7 @@ t_buff	*get_buffer(int fd)
 	t_stash	*stash;
 	t_stash	*new_stash;
 
-	node = stashs;
+	node = g_stashs;
 	while (node)
 	{
 		stash = node->content;
@@ -30,12 +30,12 @@ t_buff	*get_buffer(int fd)
 			return (&stash->buffer);
 		node = node->next;
 	}
-	new_stash = malloc(sizeof *new_stash);
+	new_stash = malloc(sizeof * new_stash);
 	if (!new_stash)
 		return (NULL);
 	new_stash->fd = fd;
 	buff_init(&new_stash->buffer, 0);
-	if (!list_add_end(&stashs, new_stash))
+	if (!list_add_end(&g_stashs, new_stash))
 	{
 		buff_free(&new_stash->buffer);
 		free(new_stash);
@@ -58,15 +58,15 @@ void	stash_find_and_free(int fd)
 	t_node	*node;
 	t_stash	*stash;
 
-	if (!stashs)
+	if (!g_stashs)
 		return ;
-	node = stashs;
+	node = g_stashs;
 	while (node)
 	{
 		stash = node->content;
 		if (stash->fd == fd)
 		{
-			list_rm(&stashs, node, stash_free);
+			list_rm(&g_stashs, node, stash_free);
 			break ;
 		}
 		node = node->next;
@@ -75,7 +75,7 @@ void	stash_find_and_free(int fd)
 
 void	stashs_free_all(void)
 {
-	if (!stashs)
+	if (!g_stashs)
 		return ;
-	list_rm_all(&stashs, stash_free);
+	list_rm_all(&g_stashs, stash_free);
 }
