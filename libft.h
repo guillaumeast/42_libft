@@ -6,13 +6,14 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 19:27:46 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/10 22:29:29 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdarg.h>
 # include <stddef.h>
 # include <stdbool.h>
 # include <sys/types.h>
@@ -33,7 +34,7 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_node;
 
-typedef t_node *t_list;
+typedef t_node	*t_list;
 
 /*--------- BUFF ----------*/
 
@@ -42,12 +43,19 @@ size_t	buff_get_required_cap(size_t current_cap, size_t target_len);
 bool	buff_grow(t_buff *buff, size_t target_len);
 bool	buff_adjust(t_buff *buff);
 void	buff_free(t_buff *b);
+
 int		buff_get_index(t_buff *buff, char c);
+
 bool	buff_prepend(t_buff *b, const char *str, long n);
 bool	buff_insert(t_buff *b, size_t index, const char *str, long n);
 bool	buff_append(t_buff *b, const char *str, long n);
 t_buff	*buff_dup_n(const t_buff *src, size_t n);
 void	buff_rm_part(t_buff *buff, size_t i_start, ssize_t len);
+
+bool	buff_append_format(t_buff *buff, const char *fstring, ...)\
+	__attribute__((format(printf, 2, 3)));
+bool	buff_append_vformat(t_buff *buff, const char *fstring, va_list args);
+
 int		buff_read_until(t_buff *buff, int fd, char c);
 bool	buff_read_all(t_buff *buff, int fd);
 
@@ -114,6 +122,15 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
+
+/*---------- PRINT ----------*/
+
+int		ft_vdprintf(int fd, const char *fstring, va_list args);
+int		ft_dprintf(int fd, const char *fstring, ...)\
+	__attribute__((format(printf, 2, 3)));
+int		ft_vprintf(const char *fstring, va_list args);
+int		ft_printf(const char *fstring, ...)\
+	__attribute__((format(printf, 1, 2)));
 
 /*---------- PUT ----------*/
 
