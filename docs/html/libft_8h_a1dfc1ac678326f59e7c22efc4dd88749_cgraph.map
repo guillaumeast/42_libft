@@ -1,0 +1,12 @@
+<map id="buff_read_all" name="buff_read_all">
+<area shape="rect" id="Node000001" title="Reads all available data from a file descriptor into buffer." alt="" coords="5,31,101,56"/>
+<area shape="rect" id="Node000002" href="$buff__life__cycle_8c.html#a00a8875c6545b76b6d70edac0f08b6f9" title="Shrinks buffer capacity to match its current length." alt="" coords="149,5,234,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,32,136,28,131,30,102,37"/>
+<area shape="rect" id="Node000004" href="$buff__life__cycle_8c.html#a34269ecefd62c1ff95c0dc2f442664b9" title="Grows the buffer to accommodate the target length if necessary." alt="" coords="152,55,230,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="101,49,139,58,134,59,101,54"/>
+<area shape="rect" id="Node000003" href="$ft__memcpy_8c.html#a5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="314,5,400,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="234,16,301,18,296,19,235,21"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="230,53,296,36,301,35,231,59"/>
+<area shape="rect" id="Node000005" href="$buff__life__cycle_8c.html#ac56b2e828372192af7c1317b6a28f60e" title="Calculates the required capacity to accommodate a target length." alt="" coords="282,55,431,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="231,65,269,67,264,68,231,70"/>
+</map>

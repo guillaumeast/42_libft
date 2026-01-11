@@ -1,0 +1,7 @@
+<map id="buff_rm_part" name="buff_rm_part">
+<area shape="rect" id="Node000001" title="Removes a portion of the buffer starting at i_start." alt="" coords="296,5,390,31"/>
+<area shape="rect" id="Node000002" href="$gnc_8c.html#a357b2a21259bc5329ee0e203446c9457" title="Extracts a chunk from the buffer up to the separator index." alt="" coords="167,5,248,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="278,18,249,21,249,16,283,18"/>
+<area shape="rect" id="Node000003" href="$gnc_8c.html#a82bd3d4dda9db114063a2276e9619aff" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="5,5,119,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="149,18,119,21,119,16,154,18"/>
+</map>

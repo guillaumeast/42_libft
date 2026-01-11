@@ -1,0 +1,5 @@
+<map id="stashs_free_all" name="stashs_free_all">
+<area shape="rect" id="Node000001" title="Frees all stashes and their buffers." alt="" coords="196,5,305,31"/>
+<area shape="rect" id="Node000002" href="$gnc_8c.html#afd9009a1b2f00594f076b1b03cfe11b4" title="Frees all internal stashes used by get_next_chunk." alt="" coords="5,5,148,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,18,148,21,148,16,183,18"/>
+</map>

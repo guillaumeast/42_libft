@@ -1,0 +1,5 @@
+<map id="buff_rm_part" name="buff_rm_part">
+<area shape="rect" id="Node000001" title="Removes a portion of the buffer starting at i_start." alt="" coords="5,5,100,31"/>
+<area shape="rect" id="Node000002" href="$ft__memmove_8c.html#acdc865fa140c03c01a39d74b1f5c2416" title="Copies n bytes from src to dst, handling overlapping memory." alt="" coords="148,5,245,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,16,135,18,130,18,100,21"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="ft_strcpy" name="ft_strcpy">
+<area shape="rect" id="Node000001" title="Copies a string to a destination." alt="" coords="126,5,198,31"/>
+<area shape="rect" id="Node000002" href="$ft__strdup_8c.html#a2ac2079a4250507c9af75d696f2ae476" title="Duplicates a string." alt="" coords="5,5,78,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,19,78,21,78,16,113,18"/>
+</map>

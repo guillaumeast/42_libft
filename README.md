@@ -8,20 +8,93 @@
 [![Grade: 125/100](https://img.shields.io/badge/Grade-125%2F100-darkgreen)]()
 [![Status: Updated after grading](https://img.shields.io/badge/status-Updated%20after%20grading-darkgreen)]()
 
-## 🎓 **Context**
+---
 
-This project is one of the very first steps of the **[42 Paris](https://42.fr/)** curriculum.  
-Its goal is to **reimplement essential C standard library functions** (`strlen`, `memcpy`, `strchr`, etc.) as well as a extra utilities, in order to build a **personal base library**: **libft**.
+## 🎓 Context
 
-This library will be **reused in upcoming 42 projects** (like `ft_printf`, `minishell`, `push_swap`, etc.) and serves as the foundation for all future C exercises.
+This project the very first milestone of the **42 Paris** curriculum.  
+Its purpose is to **reimplement core functions of the C standard library** (`strlen`, `memcpy`, `strchr`, …), while progressively extending it with **higher-level utilities**, in order to build a **robust and reusable personal C library**: **libft**.
 
-## ⚙️ **Objective**
+This library is designed to be reused across most 42 projects  
+(`ft_printf`, `push_swap`, `minishell`, …)  
+and to serve as a **long-term foundation** for all future C developments.
 
-- Recreate basic string, memory, and character manipulation functions.  
-- Implement additional utility functions (`ft_split`, `ft_strjoin`, `ft_itoa`, etc.).  
-- Add linked list management functions (`ft_lst*`) for the **bonus part**.  
-- Add personal utility functions (`buff_*`, `square_root_*`, etc.).
-- Provide a reliable, optimized, and memory-leak-free static library.
+---
+
+## ⚙️ Objectives
+
+- Reimplement **libc fundamentals** (strings, memory, characters, conversions)
+- Provide **safe and reusable abstractions** on top of low-level C APIs
+- Add extended utilities beyond the mandatory subject:
+  - dynamic buffers (`buff_*`)
+  - linked lists
+  - math helpers
+  - formatted output helpers
+- Ensure:
+  - strict **42 Norm** compliance
+  - **no memory leaks**
+  - well-defined API contracts (ownership, lifetime, error handling)
+
+---
+
+## ✨ Highlights
+
+- 📦 **Dynamic growable buffer API** (`buff_*`)  
+  Designed to minimize reallocations and simplify string / I/O manipulation.
+
+- 🧠 **Explicit memory contracts**  
+  Ownership, borrowing, and lifetime rules are documented for all public APIs.
+
+- 🛠 **Extended utility set**  
+  Helpers that go beyond the libc scope while remaining dependency-free.
+
+- 📚 **Fully documented public API**  
+  Automatically generated documentation using **Doxygen**.
+
+---
+
+## 📚 Documentation
+
+The full API documentation is generated from the source code using Doxygen.
+
+➡️ **[Browse the libft API documentation](docs/html/libft_8h.html)**
+
+> The documentation describes:
+> - function contracts
+> - ownership & lifetime rules
+> - warnings and undefined behavior
+> - public data structures
+
+---
+
+## 🗂️ Repository overview
+
+```
+libft/
+├── libft.h            # Public API
+├── src/               # Implementations
+├── docs/
+│   ├── Doxyfile       # Doxygen configuration
+│   └── html/          # Generated API documentation
+├── Makefile
+└── README.md
+```
+
+---
+
+## 🧰 Build
+
+```bash
+make        # build libft.a
+make clean  # remove object files
+make fclean # remove objects and library
+make re     # full rebuild
+```
+
+To generate the documentation locally:
+```bash
+make doc
+```
 
 ---
 

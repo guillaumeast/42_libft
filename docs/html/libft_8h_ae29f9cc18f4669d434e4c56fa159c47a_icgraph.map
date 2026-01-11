@@ -1,0 +1,9 @@
+<map id="list_rm_all" name="list_rm_all">
+<area shape="rect" id="Node000001" title="Removes all nodes from the list." alt="" coords="353,31,433,56"/>
+<area shape="rect" id="Node000002" href="$list__apply_8c.html#a0f4adf7f468df574c302cd02b3b06acf" title="Creates a new list by applying a function to each element." alt="" coords="215,5,286,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="335,34,286,27,286,22,340,34"/>
+<area shape="rect" id="Node000003" href="$stash_8c.html#a06a5679ed16a36fb590692fb889eaa82" title="Frees all stashes and their buffers." alt="" coords="196,55,305,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="340,52,306,61,305,56,335,53"/>
+<area shape="rect" id="Node000004" href="$gnc_8c.html#afd9009a1b2f00594f076b1b03cfe11b4" title="Frees all internal stashes used by get_next_chunk." alt="" coords="5,55,148,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="178,68,148,70,148,65,183,67"/>
+</map>

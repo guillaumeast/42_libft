@@ -1,0 +1,15 @@
+<map id="src/list/list_life_cycle.c" name="src/list/list_life_cycle.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="168,5,274,46"/>
+<area shape="rect" id="Node000002" href="$libft_8h.html" title=" " alt="" coords="153,94,206,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,45,195,82,191,78,209,48"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="230,94,294,120"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="232,44,251,80,246,79,230,49"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,168,74,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="157,122,78,163,76,158,154,118"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="97,168,166,193"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="174,119,150,157,146,153,169,121"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="190,168,265,193"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="189,118,213,155,208,154,186,122"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="288,168,378,193"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="206,118,296,160,291,161,205,123"/>
+</map>

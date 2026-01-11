@@ -1,0 +1,5 @@
+<map id="count_words" name="count_words">
+<area shape="rect" id="Node000001" title="Counts words in a string separated by a delimiter." alt="" coords="114,5,209,31"/>
+<area shape="rect" id="Node000002" href="$ft__split_8c.html#aa65c9de65051c8c589286cf133c4a1f4" title="Splits a string into an array of strings using a delimiter." alt="" coords="5,5,66,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="95,19,66,21,66,16,101,18"/>
+</map>

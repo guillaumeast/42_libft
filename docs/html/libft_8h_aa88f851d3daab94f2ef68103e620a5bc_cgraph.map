@@ -1,0 +1,116 @@
+<map id="buff_append_format" name="buff_append_format">
+<area shape="rect" id="Node000001" title="Appends formatted string to buffer using variadic arguments." alt="" coords="5,1154,142,1179"/>
+<area shape="rect" id="Node000002" href="$buff__format_8c.html#a7ea043ad349cce71b040e8b48b4ddfd7" title="Appends formatted string to buffer using va_list." alt="" coords="380,80,523,106"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,1153,80,948,100,607,115,430,135,273,158,155,172,115,188,91,211,75,238,64,265,58,294,56,351,61,402,74,398,77,350,67,294,62,266,63,239,69,214,80,192,95,177,117,164,156,140,274,120,431,105,607,86,948,78,1153"/>
+<area shape="rect" id="Node000007" href="$ft__memcpy_8c.html#a5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="841,56,927,82"/>
+<area shape="poly" id="edge29_Node000001_Node000007" title=" " alt="" coords="73,1153,81,943,101,592,117,409,136,247,159,123,173,81,188,56,218,29,247,13,276,5,306,3,372,9,450,15,613,15,671,18,728,26,828,50,824,53,727,32,670,23,613,20,450,20,371,14,306,8,277,10,249,18,221,33,192,59,178,83,165,124,141,247,122,410,107,592,86,943,78,1153"/>
+<area shape="rect" id="Node000008" href="$ft__realloc_8c.html#ad1d9ac1f2ff65b565ee0ef2a4fa7f887" title="Reallocates a buffer to a new capacity." alt="" coords="847,106,921,131"/>
+<area shape="poly" id="edge33_Node000001_Node000008" title=" " alt="" coords="73,1153,83,966,105,658,121,499,139,358,162,251,174,215,188,193,219,168,248,154,278,148,308,149,373,159,409,164,450,167,613,167,672,163,731,155,834,132,830,136,732,160,673,169,613,172,450,172,409,170,372,164,307,154,278,154,250,159,221,172,192,196,179,217,167,252,145,359,126,500,110,659,88,966,78,1153"/>
+<area shape="rect" id="Node000045" href="$buff__read_8c.html#a1dfc1ac678326f59e7c22efc4dd88749" title="Reads all available data from a file descriptor into buffer." alt="" coords="213,207,308,233"/>
+<area shape="poly" id="edge7_Node000001_Node000045" title=" " alt="" coords="72,1153,73,989,76,860,84,716,98,569,118,434,132,373,148,320,166,276,188,242,200,233,198,238,192,246,171,279,153,322,137,375,123,435,103,570,89,716,81,860,78,989,77,1153"/>
+<area shape="rect" id="Node000048" href="$buff__read_8c.html#ab994c8260f21ddde8f48200c219e366f" title="Reads from a file descriptor until a specific character is found." alt="" coords="208,256,314,282"/>
+<area shape="poly" id="edge8_Node000001_Node000048" title=" " alt="" coords="72,1154,75,1000,90,745,104,608,124,481,152,374,169,332,188,300,201,288,199,293,192,303,173,335,157,376,130,482,110,609,95,745,81,1000,78,1154"/>
+<area shape="rect" id="Node000040" href="$variants_8c.html#afad2ec371b4188602da9a94db687cb16" title="Converts a string to an integer." alt="" coords="232,408,290,434"/>
+<area shape="poly" id="edge9_Node000001_Node000040" title=" " alt="" coords="73,1153,79,1023,98,814,113,702,132,599,157,512,171,478,188,452,201,439,219,430,216,435,204,444,192,455,176,481,162,514,138,600,118,703,103,814,85,1023,78,1153"/>
+<area shape="rect" id="Node000041" href="$ft__atol_8c.html#a28f47479541ccf0b30b3a8e35fd759b6" title="Converts a string to a long integer." alt="" coords="423,358,480,383"/>
+<area shape="poly" id="edge12_Node000001_Node000041" title=" " alt="" coords="72,1153,74,1011,78,902,86,781,100,659,120,547,134,498,149,455,167,420,188,394,212,376,239,363,269,355,299,351,358,351,410,359,406,362,357,356,299,356,270,360,241,368,215,380,192,398,172,423,154,457,139,499,126,548,105,660,91,781,83,902,79,1012,77,1154"/>
+<area shape="rect" id="Node000042" href="$ft__isspace_8c.html#ac7978b309e3e11366ba16643e447528c" title="Checks if a character is whitespace (9&#45;13)." alt="" coords="571,332,653,358"/>
+<area shape="poly" id="edge22_Node000001_Node000042" title=" " alt="" coords="72,1153,72,1004,75,889,83,761,96,632,117,514,131,463,147,418,166,381,188,354,230,325,277,306,327,296,379,294,430,298,478,305,561,326,556,329,477,310,429,303,379,300,328,302,278,311,232,329,191,358,170,384,152,420,136,464,122,515,101,633,88,761,80,889,77,1004,77,1154"/>
+<area shape="rect" id="Node000050" href="$ft__bzero_8c.html#a5937ab0d08e31d0e3e4a16ec71e293a1" title="Sets n bytes of memory to zero." alt="" coords="418,484,486,510"/>
+<area shape="poly" id="edge13_Node000001_Node000050" title=" " alt="" coords="72,1153,76,1027,91,826,105,721,125,624,152,546,169,517,188,495,212,479,239,469,267,463,297,461,354,467,405,479,400,482,353,472,297,467,268,468,241,474,215,484,191,499,173,520,157,549,130,626,110,722,96,827,81,1027,78,1154"/>
+<area shape="rect" id="Node000051" href="$ft__calloc_8c.html#ae0a6807f9f78ed4bf4f958323582d22f" title="Allocates and zeroes memory for an array." alt="" coords="226,510,296,535"/>
+<area shape="poly" id="edge14_Node000001_Node000051" title=" " alt="" coords="73,1153,81,1038,101,855,116,759,135,670,159,596,172,567,188,545,212,530,209,534,192,549,177,570,164,598,140,671,121,760,106,856,86,1038,78,1154"/>
+<area shape="rect" id="Node000052" href="$ft__isalnum_8c.html#a9c2c3821ea43ebdf97de07b123503f8b" title="Checks if a character is alphanumeric." alt="" coords="220,559,302,585"/>
+<area shape="poly" id="edge16_Node000001_Node000052" title=" " alt="" coords="73,1153,82,1046,103,878,119,790,138,708,161,641,174,614,188,594,207,581,205,586,192,598,178,617,165,643,143,710,124,791,109,879,88,1046,78,1154"/>
+<area shape="rect" id="Node000053" href="$ft__isalpha_8c.html#ac283963beaa3b8c7d09b78851cda297e" title="Checks if a character is alphabetic." alt="" coords="222,608,300,634"/>
+<area shape="poly" id="edge17_Node000001_Node000053" title=" " alt="" coords="73,1153,84,1054,106,901,122,821,140,747,162,686,188,644,209,630,206,635,192,647,167,688,146,749,127,822,111,902,89,1055,79,1154"/>
+<area shape="rect" id="Node000054" href="$ft__isascii_8c.html#abf60ddbec6479540e81f3648cf71f1f4" title="Checks if a character is a valid ASCII character (0&#45;127)." alt="" coords="224,658,298,683"/>
+<area shape="poly" id="edge18_Node000001_Node000054" title=" " alt="" coords="74,1153,86,1062,109,924,125,852,143,786,164,731,188,693,211,679,208,683,192,696,169,733,148,787,130,854,114,925,91,1063,79,1154"/>
+<area shape="rect" id="Node000043" href="$ft__isdigit_8c.html#a2cf15b8a1a277d1e2ce3654101a2003d" title="Checks if a character is a digit (&#39;0&#39;&#45;&#39;9&#39;)." alt="" coords="226,707,296,733"/>
+<area shape="poly" id="edge19_Node000001_Node000043" title=" " alt="" coords="72,1153,73,1082,85,973,99,912,120,851,149,793,188,742,212,727,209,732,191,746,154,796,125,853,104,913,91,974,78,1082,77,1153"/>
+<area shape="rect" id="Node000036" href="$ft__isincharset_8c.html#a901fb11b608a0eb28ce5bd07bd875795" title="Checks if a character is present in a character set." alt="" coords="211,756,310,782"/>
+<area shape="poly" id="edge20_Node000001_Node000036" title=" " alt="" coords="72,1153,76,1089,91,993,105,940,126,886,153,836,188,791,199,784,196,789,192,795,157,839,130,889,110,941,96,994,81,1090,78,1153"/>
+<area shape="rect" id="Node000055" href="$ft__isprint_8c.html#abcdba69692f21146aeea5b3d59b7d0ca" title="Checks if a character is printable (32&#45;126)." alt="" coords="225,806,296,831"/>
+<area shape="poly" id="edge21_Node000001_Node000055" title=" " alt="" coords="73,1153,81,1099,100,1018,115,974,134,929,158,887,188,849,213,832,210,837,192,853,163,890,139,932,120,976,105,1020,86,1100,79,1154"/>
+<area shape="rect" id="Node000015" href="$variants_8c.html#a8a6ea3765dfd826eabfc00d36e28ea38" title="Converts an integer to a string." alt="" coords="232,907,290,933"/>
+<area shape="poly" id="edge23_Node000001_Node000015" title=" " alt="" coords="75,1153,87,1112,109,1056,142,995,163,967,188,942,218,927,216,931,191,946,167,970,147,998,114,1058,92,1114,81,1154"/>
+<area shape="rect" id="Node000016" href="$ft__ltoa_8c.html#a9c7ca392832da91098199a661fa9527d" title="Converts a long integer to a string." alt="" coords="423,907,480,933"/>
+<area shape="poly" id="edge25_Node000001_Node000016" title=" " alt="" coords="73,1153,79,1102,97,1029,112,990,131,953,156,920,188,892,215,879,244,871,273,869,304,870,361,882,411,899,406,902,360,887,303,876,274,874,245,877,217,884,191,897,160,923,136,956,116,992,102,1031,85,1103,78,1154"/>
+<area shape="rect" id="Node000056" href="$min__max_8c.html#aa468cba11bacd87446892eb6cdfeeb03" title="Returns the maximum of two integers." alt="" coords="230,1006,292,1031"/>
+<area shape="poly" id="edge26_Node000001_Node000056" title=" " alt="" coords="81,1152,123,1098,154,1067,188,1040,217,1028,214,1032,191,1045,157,1071,127,1102,86,1154"/>
+<area shape="rect" id="Node000057" href="$ft__memchr_8c.html#abf633e8e48a8afbe61947f61de5ac695" title="Locates the first occurrence of a byte in memory." alt="" coords="219,1055,302,1081"/>
+<area shape="poly" id="edge27_Node000001_Node000057" title=" " alt="" coords="90,1152,134,1121,188,1090,206,1083,203,1088,191,1094,137,1126,95,1155"/>
+<area shape="rect" id="Node000058" href="$ft__memcmp_8c.html#a08f665a1828c402f2ffe2e2187f135fc" title="Compares two memory areas byte by byte." alt="" coords="216,1104,306,1130"/>
+<area shape="poly" id="edge28_Node000001_Node000058" title=" " alt="" coords="123,1151,202,1131,199,1135,127,1155"/>
+<area shape="rect" id="Node000028" href="$ft__memmove_8c.html#acdc865fa140c03c01a39d74b1f5c2416" title="Copies n bytes from src to dst, handling overlapping memory." alt="" coords="212,1154,310,1179"/>
+<area shape="poly" id="edge30_Node000001_Node000028" title=" " alt="" coords="140,1165,199,1165,195,1168,144,1169"/>
+<area shape="rect" id="Node000032" href="$ft__memset_8c.html#a19d0a16cec67fe4c1af22f1571f4f8a6" title="Fills memory with a constant byte." alt="" coords="219,1203,302,1229"/>
+<area shape="poly" id="edge31_Node000001_Node000032" title=" " alt="" coords="124,1178,207,1200,202,1203,127,1182"/>
+<area shape="rect" id="Node000059" href="$min__max_8c.html#ab3702e95ac61d3784ebcb4be203dcc1f" title="Returns the minimum of two integers." alt="" coords="232,1252,290,1278"/>
+<area shape="poly" id="edge32_Node000001_Node000059" title=" " alt="" coords="91,1178,137,1208,191,1239,219,1251,215,1254,188,1244,134,1212,93,1182"/>
+<area shape="rect" id="Node000060" href="$ft__tolower_8c.html#ab86e5297914753b6c82d7e3c3020ce17" title="Converts an uppercase letter to lowercase." alt="" coords="222,1302,300,1327"/>
+<area shape="poly" id="edge34_Node000001_Node000060" title=" " alt="" coords="83,1177,127,1231,157,1262,191,1288,209,1299,205,1301,188,1293,154,1266,123,1235,84,1182"/>
+<area shape="rect" id="Node000061" href="$ft__toupper_8c.html#aef116be7b5bceafff4b59f20a4433d12" title="Converts a lowercase letter to uppercase." alt="" coords="221,1351,300,1377"/>
+<area shape="poly" id="edge35_Node000001_Node000061" title=" " alt="" coords="80,1177,97,1211,120,1254,152,1299,191,1338,209,1349,204,1351,188,1342,148,1302,116,1257,92,1214,81,1183"/>
+<area shape="rect" id="Node000011" href="$ft__ultoa__base_8c.html#a3ea37aed1d06d888b47c0c5c486b7764" title="Converts an unsigned long to a string in a given base." alt="" coords="211,1400,310,1426"/>
+<area shape="poly" id="edge36_Node000001_Node000011" title=" " alt="" coords="78,1177,92,1219,114,1275,147,1335,167,1363,191,1387,200,1394,195,1396,188,1391,163,1366,142,1338,109,1278,87,1221,78,1183"/>
+<area shape="rect" id="Node000022" href="$variants_8c.html#ac8913b32d66b4cdb9b96d5c1aaadc88f" title="Converts an unsigned integer to a string." alt="" coords="230,956,292,982"/>
+<area shape="poly" id="edge37_Node000001_Node000022" title=" " alt="" coords="78,1153,92,1120,116,1077,148,1031,188,991,217,977,214,982,191,995,152,1034,120,1079,97,1122,83,1154"/>
+<area shape="rect" id="Node000062" href="$printer_8c.html#af7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="221,106,300,131"/>
+<area shape="poly" id="edge39_Node000001_Node000062" title=" " alt="" coords="72,1153,72,975,75,833,83,675,96,514,117,363,131,296,147,237,166,188,188,149,208,133,206,138,192,152,170,190,152,239,136,298,122,364,101,514,88,675,80,833,77,975,77,1153"/>
+<area shape="rect" id="Node000063" href="$gnc_8c.html#a82bd3d4dda9db114063a2276e9619aff" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="204,1450,318,1475"/>
+<area shape="poly" id="edge41_Node000001_Node000063" title=" " alt="" coords="76,1177,88,1227,108,1296,123,1334,141,1371,164,1406,192,1437,195,1440,190,1442,188,1441,160,1409,137,1374,118,1336,103,1298,83,1228,77,1182"/>
+<area shape="rect" id="Node000074" href="$gnc_8c.html#afd9009a1b2f00594f076b1b03cfe11b4" title="Frees all internal stashes used by get_next_chunk." alt="" coords="190,1499,332,1525"/>
+<area shape="poly" id="edge42_Node000001_Node000074" title=" " alt="" coords="76,1177,85,1236,102,1318,117,1363,136,1407,161,1449,192,1486,195,1489,190,1491,188,1490,156,1452,131,1410,112,1365,97,1319,79,1236,76,1183"/>
+<area shape="rect" id="Node000065" href="$list__life__cycle_8c.html#a7628e141015c573aaf45b77fd961129a" title="Adds a new element at the end of the list." alt="" coords="404,1600,499,1626"/>
+<area shape="poly" id="edge43_Node000001_Node000065" title=" " alt="" coords="76,1177,92,1262,115,1384,131,1447,149,1504,169,1550,192,1579,213,1595,237,1606,289,1620,341,1623,392,1622,387,1625,341,1629,288,1625,235,1611,210,1599,188,1583,165,1552,144,1505,125,1448,110,1385,86,1263,77,1183"/>
+<area shape="rect" id="Node000066" href="$node_8c.html#aabef2dc222d9220067c6257920cb7a0f" title="Creates a new list node." alt="" coords="572,1600,652,1626"/>
+<area shape="poly" id="edge62_Node000001_Node000066" title=" " alt="" coords="74,1177,79,1245,92,1342,106,1395,126,1447,154,1495,191,1535,218,1550,256,1561,351,1572,449,1577,524,1585,559,1596,554,1597,523,1591,448,1583,350,1578,255,1566,216,1555,188,1539,150,1498,121,1449,101,1397,87,1343,73,1245,74,1183"/>
+<area shape="rect" id="Node000077" href="$list__life__cycle_8c.html#ad477f55e16f0d7f0e2c7ed86f22ac7e8" title="Adds a new element at the start of the list." alt="" coords="402,1739,501,1765"/>
+<area shape="poly" id="edge45_Node000001_Node000077" title=" " alt="" coords="76,1177,86,1286,105,1452,120,1538,139,1617,163,1681,177,1705,191,1722,212,1737,235,1749,286,1762,339,1765,389,1763,385,1766,339,1771,286,1768,234,1754,209,1742,188,1726,172,1708,158,1683,134,1618,115,1539,100,1452,81,1287,75,1183"/>
+<area shape="rect" id="Node000078" href="$list__get_8c.html#a233b9af3e03644b451c9241c1aae5b69" title="Finds content in list matching a selection function." alt="" coords="204,1803,318,1829"/>
+<area shape="poly" id="edge47_Node000001_Node000078" title=" " alt="" coords="76,1177,87,1294,108,1474,123,1570,142,1658,165,1732,178,1760,192,1782,204,1794,198,1796,188,1786,173,1763,160,1734,137,1660,118,1571,103,1475,82,1294,76,1182"/>
+<area shape="rect" id="Node000079" href="$list__get_8c.html#af15e3f19c1bc2b6203f86f4d137d0eb8" title="Gets the content of the last node in the list." alt="" coords="190,1904,332,1930"/>
+<area shape="poly" id="edge48_Node000001_Node000079" title=" " alt="" coords="75,1177,85,1310,103,1521,118,1633,137,1737,162,1824,176,1858,192,1884,203,1895,198,1896,188,1887,171,1860,157,1826,132,1738,112,1634,98,1521,79,1310,75,1182"/>
+<area shape="rect" id="Node000080" href="$list__get_8c.html#aa17484ff6019b155ecac0def508f0f3e" title="Gets the last node in the list." alt="" coords="388,1879,515,1905"/>
+<area shape="poly" id="edge52_Node000001_Node000080" title=" " alt="" coords="75,1177,83,1305,100,1505,114,1610,134,1707,160,1787,175,1817,191,1839,220,1856,266,1869,375,1885,371,1888,265,1874,218,1861,188,1843,170,1820,155,1789,129,1709,109,1611,94,1506,78,1305,75,1182"/>
+<area shape="rect" id="Node000081" href="$list__get_8c.html#a69fabb957bb987e08d0b10330bbbff4e" title="Gets content at a specific index in the list." alt="" coords="197,2006,324,2031"/>
+<area shape="poly" id="edge50_Node000001_Node000081" title=" " alt="" coords="75,1177,82,1326,98,1567,112,1696,132,1816,158,1916,174,1955,192,1985,203,1997,198,1998,188,1988,169,1957,153,1918,127,1817,107,1697,92,1568,77,1326,75,1182"/>
+<area shape="rect" id="Node000082" href="$list__get_8c.html#af390db4f986ab7453a3242d34de857b8" title="Gets the node at a specific index in the list." alt="" coords="396,1980,508,2006"/>
+<area shape="poly" id="edge53_Node000001_Node000082" title=" " alt="" coords="75,1177,80,1322,94,1552,107,1675,128,1787,156,1880,172,1915,191,1941,222,1958,270,1971,383,1987,378,1990,269,1976,220,1963,188,1945,168,1917,151,1881,123,1788,102,1675,88,1553,75,1322,75,1182"/>
+<area shape="rect" id="Node000083" href="$list__size_8c.html#a63848696abcecfd8cec3786d4a8bcb84" title="Calculates the number of nodes in the list." alt="" coords="214,2055,308,2081"/>
+<area shape="poly" id="edge54_Node000001_Node000083" title=" " alt="" coords="75,1177,79,1337,83,1460,92,1596,106,1735,126,1863,139,1920,154,1970,172,2011,192,2042,203,2053,197,2054,188,2046,167,2014,149,1972,134,1921,121,1864,100,1736,86,1597,78,1460,74,1337,75,1183"/>
+<area shape="rect" id="Node000084" href="$list__apply_8c.html#a312ea449a8892c13dc99657bd086e60a" title="Applies a function to each element of the list." alt="" coords="229,2104,292,2130"/>
+<area shape="poly" id="edge55_Node000001_Node000084" title=" " alt="" coords="75,1177,78,1345,81,1475,89,1619,103,1766,123,1902,137,1962,153,2015,171,2058,192,2092,202,2101,217,2109,211,2110,199,2105,188,2095,166,2061,148,2017,132,1963,118,1903,97,1766,84,1620,76,1475,72,1345,75,1183"/>
+<area shape="rect" id="Node000085" href="$list__apply_8c.html#a0f4adf7f468df574c302cd02b3b06acf" title="Creates a new list by applying a function to each element." alt="" coords="226,1651,296,1677"/>
+<area shape="poly" id="edge56_Node000001_Node000085" title=" " alt="" coords="74,1177,77,1256,81,1311,89,1374,103,1441,124,1508,153,1572,192,1630,214,1648,209,1650,188,1634,148,1575,119,1510,98,1442,84,1375,76,1312,72,1256,74,1183"/>
+<area shape="rect" id="Node000076" href="$list__life__cycle_8c.html#ae29f9cc18f4669d434e4c56fa159c47a" title="Removes all nodes from the list." alt="" coords="412,1664,492,1690"/>
+<area shape="poly" id="edge60_Node000001_Node000076" title=" " alt="" coords="76,1177,86,1282,106,1438,121,1518,140,1591,163,1650,177,1672,191,1687,215,1702,242,1711,270,1716,299,1716,355,1708,407,1694,403,1698,356,1713,299,1721,269,1721,240,1716,213,1707,188,1691,173,1675,159,1653,135,1593,116,1519,101,1438,81,1282,76,1183"/>
+<area shape="rect" id="Node000072" href="$list__life__cycle_8c.html#a7d834666645b61d5763fc68ba2d43c86" title="Removes a specific node from the list." alt="" coords="231,2154,291,2179"/>
+<area shape="poly" id="edge59_Node000001_Node000072" title=" " alt="" coords="75,1177,76,1353,79,1490,86,1642,100,1797,121,1940,134,2004,151,2060,170,2106,192,2141,203,2151,218,2159,213,2160,200,2155,188,2144,165,2108,146,2061,129,2005,115,1941,94,1797,81,1642,74,1490,71,1353,74,1183"/>
+<area shape="rect" id="Node000086" href="$node_8c.html#acd4adcceba96f7bda7c3db6ed2dee99a" title="Frees a node and optionally its content." alt="" coords="222,2203,300,2229"/>
+<area shape="poly" id="edge61_Node000001_Node000086" title=" " alt="" coords="76,1177,89,1374,112,1697,128,1865,147,2014,168,2129,180,2167,192,2190,210,2205,204,2206,188,2194,175,2169,163,2130,142,2015,123,1866,107,1698,84,1375,75,1183"/>
+<area shape="rect" id="Node000087" href="$square__root_8c.html#a04b9b4725f6a18ac459739bac60b641e" title="Calculates the exact integer square root." alt="" coords="197,2252,325,2278"/>
+<area shape="poly" id="edge63_Node000001_Node000087" title=" " alt="" coords="75,1177,88,1382,111,1721,127,1898,146,2055,168,2175,179,2215,192,2240,193,2243,188,2242,187,2243,174,2217,162,2176,140,2055,122,1898,106,1722,83,1383,75,1182"/>
+<area shape="rect" id="Node000088" href="$square__root_8c.html#acd4b5febd4f83add3e2ce9c04c9b1003" title="Calculates the nearest integer square root." alt="" coords="190,2302,332,2327"/>
+<area shape="poly" id="edge64_Node000001_Node000088" title=" " alt="" coords="75,1177,88,1391,110,1746,125,1930,144,2095,167,2221,179,2263,192,2289,193,2292,188,2291,187,2292,174,2265,161,2222,139,2096,120,1931,104,1746,82,1392,75,1183"/>
+<area shape="rect" id="Node000003" href="$append__1_8c.html#adcefd2fbd5b6e80b4f93f6380b884360" title="Appends formatted argument to buffer based on rules." alt="" coords="580,106,644,131"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="523,102,567,110,563,113,525,107"/>
+<area shape="rect" id="Node000005" href="$buff__ops_8c.html#a479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="701,80,793,106"/>
+<area shape="poly" id="edge6_Node000002_Node000005" title=" " alt="" coords="522,91,687,92,683,95,525,96"/>
+<area shape="poly" id="edge3_Node000003_Node000005" title=" " alt="" coords="643,111,687,103,683,107,646,115"/>
+<area shape="poly" id="edge4_Node000005_Node000007" title=" " alt="" coords="792,83,828,78,824,81,795,87"/>
+<area shape="poly" id="edge5_Node000005_Node000008" title=" " alt="" coords="792,99,834,108,829,110,795,104"/>
+<area shape="poly" id="edge10_Node000040_Node000041" title=" " alt="" coords="288,412,410,380,406,384,292,416"/>
+<area shape="poly" id="edge11_Node000041_Node000042" title=" " alt="" coords="479,364,557,352,554,356,483,368"/>
+<area shape="poly" id="edge15_Node000051_Node000050" title=" " alt="" coords="294,516,404,502,400,506,298,520"/>
+<area shape="poly" id="edge24_Node000015_Node000016" title=" " alt="" coords="288,918,409,918,406,922,291,922"/>
+<area shape="poly" id="edge38_Node000022_Node000016" title=" " alt="" coords="290,960,410,929,406,933,294,963"/>
+<area shape="poly" id="edge40_Node000062_Node000002" title=" " alt="" coords="299,111,366,103,362,107,303,115"/>
+<area shape="poly" id="edge44_Node000065_Node000066" title=" " alt="" coords="498,1611,559,1612,554,1615,501,1616"/>
+<area shape="poly" id="edge46_Node000077_Node000066" title=" " alt="" coords="472,1737,522,1701,591,1636,587,1640,525,1705,476,1741"/>
+<area shape="poly" id="edge49_Node000079_Node000080" title=" " alt="" coords="330,1906,375,1901,371,1904,333,1910"/>
+<area shape="poly" id="edge51_Node000081_Node000082" title=" " alt="" coords="324,2008,382,2002,378,2004,326,2013"/>
+<area shape="poly" id="edge57_Node000085_Node000065" title=" " alt="" coords="295,1653,391,1628,388,1632,298,1657"/>
+<area shape="poly" id="edge58_Node000085_Node000076" title=" " alt="" coords="295,1664,398,1672,394,1675,297,1669"/>
+</map>

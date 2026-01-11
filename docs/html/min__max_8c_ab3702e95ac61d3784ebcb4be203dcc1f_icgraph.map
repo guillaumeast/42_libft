@@ -1,0 +1,5 @@
+<map id="ft_min" name="ft_min">
+<area shape="rect" id="Node000001" title="Returns the minimum of two integers." alt="" coords="190,5,247,31"/>
+<area shape="rect" id="Node000002" href="$libft_8h.html#aa88f851d3daab94f2ef68103e620a5bc" title="Appends formatted string to buffer using variadic arguments." alt="" coords="5,5,142,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,18,142,21,142,16,177,18"/>
+</map>

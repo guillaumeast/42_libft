@@ -1,0 +1,5 @@
+<map id="stash_find_and_free" name="stash_find_and_free">
+<area shape="rect" id="Node000001" title="Finds and frees the stash for a file descriptor." alt="" coords="167,5,305,31"/>
+<area shape="rect" id="Node000002" href="$gnc_8c.html#a82bd3d4dda9db114063a2276e9619aff" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="5,5,119,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,18,119,21,119,16,154,18"/>
+</map>

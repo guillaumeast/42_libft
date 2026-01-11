@@ -1,0 +1,17 @@
+<map id="src/buff/buff_format.c" name="src/buff/buff_format.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="158,5,305,31"/>
+<area shape="rect" id="Node000002" href="$buff__format_8h.html" title=" " alt="" coords="130,79,229,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,29,199,68,195,65,221,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="253,79,316,105"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="241,29,269,66,264,66,240,34"/>
+<area shape="rect" id="Node000003" href="$libft_8h.html" title=" " alt="" coords="153,153,206,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="181,103,182,138,177,136,178,107"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,226,74,252"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="157,181,78,221,76,217,154,177"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="97,226,166,252"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="174,177,150,215,146,211,169,180"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="190,226,265,252"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="189,176,213,214,208,213,186,181"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="288,226,378,252"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="206,176,296,219,291,220,205,181"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="buff_grow" name="buff_grow">
+<area shape="rect" id="Node000001" title="Grows the buffer to accommodate the target length if necessary." alt="" coords="474,31,553,56"/>
+<area shape="rect" id="Node000002" href="$buff__read_8c.html#a1dfc1ac678326f59e7c22efc4dd88749" title="Reads all available data from a file descriptor into buffer." alt="" coords="326,5,421,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="456,34,421,29,422,24,461,34"/>
+<area shape="rect" id="Node000003" href="$buff__read_8c.html#ab994c8260f21ddde8f48200c219e366f" title="Reads from a file descriptor until a specific character is found." alt="" coords="320,55,426,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="461,53,427,61,426,56,456,53"/>
+<area shape="rect" id="Node000004" href="$gnc_8c.html#add9ed164a8dbaa0352894623de87216b" title="Reads from file descriptor until separator is found." alt="" coords="167,55,272,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="301,68,273,70,272,65,307,67"/>
+<area shape="rect" id="Node000005" href="$gnc_8c.html#a82bd3d4dda9db114063a2276e9619aff" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="5,55,119,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="148,68,119,70,119,65,153,67"/>
+</map>

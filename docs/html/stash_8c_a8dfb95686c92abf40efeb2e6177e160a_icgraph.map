@@ -1,0 +1,11 @@
+<map id="stash_free" name="stash_free">
+<area shape="rect" id="Node000001" title="Frees a stash structure and its buffer." alt="" coords="382,31,464,56"/>
+<area shape="rect" id="Node000002" href="$stash_8c.html#a19fced6b87ca2bfc47c124aa40673b4c" title="Finds and frees the stash for a file descriptor." alt="" coords="196,5,334,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="364,35,334,32,334,27,369,34"/>
+<area shape="rect" id="Node000004" href="$stash_8c.html#a06a5679ed16a36fb590692fb889eaa82" title="Frees all stashes and their buffers." alt="" coords="210,55,320,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="369,52,320,62,320,57,364,52"/>
+<area shape="rect" id="Node000003" href="$gnc_8c.html#a82bd3d4dda9db114063a2276e9619aff" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="20,5,133,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="178,19,134,21,133,16,183,17"/>
+<area shape="rect" id="Node000005" href="$gnc_8c.html#afd9009a1b2f00594f076b1b03cfe11b4" title="Frees all internal stashes used by get_next_chunk." alt="" coords="5,55,148,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="192,68,148,70,148,65,198,67"/>
+</map>

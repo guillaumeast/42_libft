@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 02:26:44 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 03:53:07 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,8 +195,9 @@ void	buff_rm_part(t_buff *buff, size_t i_start, ssize_t len);
 /**
  * @brief Appends formatted string to buffer using variadic arguments.
  *
- * Supports printf formats: `%c` `%s` `%d` `%i` `%u` `%x` `%X` `%p` `%%`.
- * Supports printf-like flags: `-` `0` `.` ` ` `#` `+`.
+ * > Supports printf formats: 
+ * `%%c` `%%s` `%%d` `%%i` `%%u` `%%x` `%%X` `%%p` `%%`.  
+ * > Supports printf-like flags: `-` `0` `.` ` ` `#` `+` and width.
  *
  * @warning buff must be initialized before calling this function.
  *
@@ -205,8 +206,8 @@ void	buff_rm_part(t_buff *buff, size_t i_start, ssize_t len);
  * @param ... Variadic arguments for format specifiers.
  * @return true on success, false on failure.
  */
-bool	buff_append_format(t_buff *buff, const char *fstring, ...)\
-	__attribute__((format(printf, 2, 3)));
+bool	buff_append_format(t_buff *buff, const char *fstring, ...)
+		__attribute__((format(printf, 2, 3)));
 
 /**
  * @brief Appends formatted string to buffer using va_list.
@@ -692,16 +693,17 @@ int		ft_vdprintf(int fd, const char *fstring, va_list args);
 /**
  * @brief Writes formatted output to a file descriptor.
  *
- * Supports printf formats: `%c` `%s` `%d` `%i` `%u` `%x` `%X` `%p` `%%`.
- * Supports printf-like flags: `-` `0` `.` ` ` `#` `+`.
+ * > Supports printf formats: 
+ * `%%c` `%%s` `%%d` `%%i` `%%u` `%%x` `%%X` `%%p` `%%`.  
+ * > Supports printf-like flags: `-` `0` `.` ` ` `#` `+` and width.
  *
  * @param fd File descriptor to write to.
  * @param fstring Format string.
  * @param ... Variadic arguments for format specifiers.
  * @return Number of bytes written, or -1 on error.
  */
-int		ft_dprintf(int fd, const char *fstring, ...)\
-	__attribute__((format(printf, 2, 3)));
+int		ft_dprintf(int fd, const char *fstring, ...)
+		__attribute__((format(printf, 2, 3)));
 
 /**
  * @brief Writes formatted output to stdout using va_list.
@@ -715,15 +717,16 @@ int		ft_vprintf(const char *fstring, va_list args);
 /**
  * @brief Writes formatted output to stdout.
  *
- * Supports printf formats: `%c` `%s` `%d` `%i` `%u` `%x` `%X` `%p` `%%`.
- * Supports printf-like flags: `-` `0` `.` ` ` `#` `+`.
+ * > Supports printf formats: 
+ * `%%c` `%%s` `%%d` `%%i` `%%u` `%%x` `%%X` `%%p` `%%`.  
+ * > Supports printf-like flags: `-` `0` `.` ` ` `#` `+` and width.
  *
  * @param fstring Format string.
  * @param ... Variadic arguments for format specifiers.
  * @return Number of bytes written, or -1 on error.
  */
-int		ft_printf(const char *fstring, ...)\
-	__attribute__((format(printf, 1, 2)));
+int		ft_printf(const char *fstring, ...)
+		__attribute__((format(printf, 1, 2)));
 
 /*---------- PUT ----------*/
 

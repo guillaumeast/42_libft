@@ -6,11 +6,10 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:29:20 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 01:25:52 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 03:20:15 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "stash.h"
 #include <stdlib.h>
 

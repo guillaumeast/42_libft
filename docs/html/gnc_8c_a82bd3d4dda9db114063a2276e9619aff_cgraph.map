@@ -1,0 +1,56 @@
+<map id="get_next_chunk" name="get_next_chunk">
+<area shape="rect" id="Node000001" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="5,168,119,193"/>
+<area shape="rect" id="Node000002" href="$buff__life__cycle_8c.html#a00a8875c6545b76b6d70edac0f08b6f9" title="Shrinks buffer capacity to match its current length." alt="" coords="518,80,603,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,165,113,129,165,90,214,61,255,41,297,26,352,14,407,3,431,5,460,14,477,25,487,38,495,51,509,65,517,72,512,72,506,69,491,55,482,41,474,29,458,19,430,10,407,9,354,19,298,32,257,46,217,66,168,95,117,133,78,168"/>
+<area shape="rect" id="Node000004" href="$stash_8c.html#ae063deb93715790920703153c1aaf2cd" title="Gets or creates a buffer for a file descriptor." alt="" coords="366,380,446,405"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="70,191,107,252,135,287,168,317,213,342,261,361,309,375,354,386,348,386,308,380,260,366,211,347,165,321,131,291,103,255,69,196"/>
+<area shape="rect" id="Node000009" href="$gnc_8c.html#a357b2a21259bc5329ee0e203446c9457" title="Extracts a chunk from the buffer up to the separator index." alt="" coords="195,105,276,131"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="99,165,185,134,182,138,102,169"/>
+<area shape="rect" id="Node000017" href="$gnc_8c.html#add9ed164a8dbaa0352894623de87216b" title="Reads from file descriptor until separator is found." alt="" coords="183,168,288,193"/>
+<area shape="poly" id="edge20_Node000001_Node000017" title=" " alt="" coords="118,178,170,179,165,182,120,183"/>
+<area shape="rect" id="Node000021" href="$stash_8c.html#a19fced6b87ca2bfc47c124aa40673b4c" title="Finds and frees the stash for a file descriptor." alt="" coords="167,281,305,307"/>
+<area shape="poly" id="edge28_Node000001_Node000021" title=" " alt="" coords="84,191,204,270,199,273,83,196"/>
+<area shape="rect" id="Node000003" href="$ft__memcpy_8c.html#a5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="693,130,780,156"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="604,102,681,126,676,127,604,107"/>
+<area shape="rect" id="Node000005" href="$buff__life__cycle_8c.html#a3825f38fa07df6f1a17b060955d84f04" title="Frees the buffer&#39;s internal data." alt="" coords="524,328,597,353"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="446,376,507,358,512,357,447,382"/>
+<area shape="rect" id="Node000006" href="$buff__life__cycle_8c.html#a5b93ae89b288bf7e0843e34c072c52c6" title="Initializes a buffer with the specified initial capacity." alt="" coords="527,278,594,304"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="441,376,458,366,472,353,481,340,491,327,506,313,510,312,515,310,509,317,495,330,486,343,476,356,461,370,442,382"/>
+<area shape="rect" id="Node000007" href="$list__life__cycle_8c.html#a7628e141015c573aaf45b77fd961129a" title="Adds a new element at the end of the list." alt="" coords="513,380,608,405"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="446,390,501,392,495,392,446,395"/>
+<area shape="rect" id="Node000008" href="$node_8c.html#aabef2dc222d9220067c6257920cb7a0f" title="Creates a new list node." alt="" coords="696,380,776,405"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="608,390,683,392,678,392,608,395"/>
+<area shape="poly" id="edge9_Node000009_Node000002" title=" " alt="" coords="276,112,504,95,500,99,277,117"/>
+<area shape="rect" id="Node000010" href="$buff__ops_8c.html#a5e0fb3fb44e91fcd81504e202aab78f5" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="364,232,449,257"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="264,128,307,153,348,186,384,221,379,220,345,190,303,157,264,134"/>
+<area shape="rect" id="Node000015" href="$buff__ops_8c.html#a537f79a2edd8ce5673de30460c64f4d6" title="Removes a portion of the buffer starting at i_start." alt="" coords="359,29,453,55"/>
+<area shape="poly" id="edge18_Node000009_Node000015" title=" " alt="" coords="265,102,364,59,360,63,268,107"/>
+<area shape="poly" id="edge16_Node000010_Node000005" title=" " alt="" coords="441,255,461,266,485,290,509,314,515,320,510,319,506,318,481,294,458,270,440,260"/>
+<area shape="poly" id="edge17_Node000010_Node000006" title=" " alt="" coords="449,255,515,276,509,277,449,260"/>
+<area shape="rect" id="Node000011" href="$buff__ops_8c.html#a479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="514,229,607,255"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="449,241,501,242,496,243,450,246"/>
+<area shape="poly" id="edge13_Node000011_Node000003" title=" " alt="" coords="595,226,612,216,626,203,635,190,645,178,660,165,676,159,681,157,663,169,649,181,639,193,630,206,615,220,597,231"/>
+<area shape="rect" id="Node000012" href="$buff__life__cycle_8c.html#ac56b2e828372192af7c1317b6a28f60e" title="Calculates the required capacity to accommodate a target length." alt="" coords="662,180,811,205"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="607,226,676,209,671,211,608,231"/>
+<area shape="rect" id="Node000013" href="$ft__realloc_8c.html#ad1d9ac1f2ff65b565ee0ef2a4fa7f887" title="Reallocates a buffer to a new capacity." alt="" coords="699,229,774,255"/>
+<area shape="poly" id="edge14_Node000011_Node000013" title=" " alt="" coords="607,239,686,241,681,242,608,244"/>
+<area shape="rect" id="Node000014" href="$ft__strlen_8c.html#abbb8c6c4ed85d892e7f1509f65f5768a" title="Calculates the length of a string." alt="" coords="702,278,770,304"/>
+<area shape="poly" id="edge15_Node000011_Node000014" title=" " alt="" coords="608,252,690,277,684,277,607,257"/>
+<area shape="rect" id="Node000016" href="$ft__memmove_8c.html#acdc865fa140c03c01a39d74b1f5c2416" title="Copies n bytes from src to dst, handling overlapping memory." alt="" coords="512,29,609,55"/>
+<area shape="poly" id="edge19_Node000015_Node000016" title=" " alt="" coords="453,39,499,41,494,43,455,44"/>
+<area shape="rect" id="Node000018" href="$buff__utils_8c.html#ad3d0b787a96019e20333b55b49c0da9f" title="Finds the index of a character in the buffer." alt="" coords="507,180,614,205"/>
+<area shape="poly" id="edge21_Node000017_Node000018" title=" " alt="" coords="289,180,494,188,490,191,289,185"/>
+<area shape="rect" id="Node000019" href="$buff__read_8c.html#ab994c8260f21ddde8f48200c219e366f" title="Reads from a file descriptor until a specific character is found." alt="" coords="353,130,459,156"/>
+<area shape="poly" id="edge22_Node000017_Node000019" title=" " alt="" coords="288,166,340,157,335,159,290,171"/>
+<area shape="poly" id="edge23_Node000019_Node000002" title=" " alt="" coords="447,127,508,109,503,112,449,132"/>
+<area shape="poly" id="edge24_Node000019_Node000018" title=" " alt="" coords="449,154,506,174,501,175,449,159"/>
+<area shape="rect" id="Node000020" href="$buff__life__cycle_8c.html#a34269ecefd62c1ff95c0dc2f442664b9" title="Grows the buffer to accommodate the target length if necessary." alt="" coords="521,130,600,156"/>
+<area shape="poly" id="edge25_Node000019_Node000020" title=" " alt="" coords="459,140,508,142,503,144,460,146"/>
+<area shape="poly" id="edge27_Node000020_Node000003" title=" " alt="" coords="600,140,680,142,675,144,601,146"/>
+<area shape="poly" id="edge26_Node000020_Node000012" title=" " alt="" coords="600,151,676,175,671,175,600,157"/>
+<area shape="rect" id="Node000022" href="$list__life__cycle_8c.html#a7d834666645b61d5763fc68ba2d43c86" title="Removes a specific node from the list." alt="" coords="376,330,436,356"/>
+<area shape="poly" id="edge29_Node000021_Node000022" title=" " alt="" coords="283,305,364,330,358,330,283,310"/>
+<area shape="rect" id="Node000023" href="$stash_8c.html#a8dfb95686c92abf40efeb2e6177e160a" title="Frees a stash structure and its buffer." alt="" coords="365,281,447,307"/>
+<area shape="poly" id="edge30_Node000021_Node000023" title=" " alt="" coords="305,291,352,293,347,294,306,296"/>
+<area shape="poly" id="edge31_Node000023_Node000005" title=" " alt="" coords="448,303,512,325,507,325,447,309"/>
+</map>

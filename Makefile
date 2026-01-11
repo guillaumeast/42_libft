@@ -37,6 +37,9 @@ test: re
 	$(CC) $(TEST_CFLAGS) $(NAME) $(TEST_SRCS) -o $(TEST_NAME)
 	$(TEST_NAME)
 
+doc:
+	doxygen docs/Doxyfile
+
 clean:
 	rm -rf $(OBJ_DIR)
 	rm -rf $(TEST_NAME).dSYM
@@ -47,4 +50,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all test clean fclean re
+.PHONY: all test doc clean fclean re

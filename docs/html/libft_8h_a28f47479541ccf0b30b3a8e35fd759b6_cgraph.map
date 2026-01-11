@@ -1,0 +1,5 @@
+<map id="ft_atol" name="ft_atol">
+<area shape="rect" id="Node000001" title="Converts a string to a long integer." alt="" coords="5,5,63,31"/>
+<area shape="rect" id="Node000002" href="$ft__isspace_8c.html#ac7978b309e3e11366ba16643e447528c" title="Checks if a character is whitespace (9&#45;13)." alt="" coords="111,5,192,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,16,98,18,93,19,63,21"/>
+</map>

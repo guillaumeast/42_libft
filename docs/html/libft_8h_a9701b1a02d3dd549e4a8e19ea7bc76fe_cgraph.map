@@ -1,0 +1,68 @@
+<map id="ft_printf" name="ft_printf">
+<area shape="rect" id="Node000001" title="Writes formatted output to stdout." alt="" coords="5,533,71,559"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="15,534,11,525,14,515,23,509,38,507,54,509,63,517,59,519,52,514,38,512,25,514,18,518,16,524,20,532"/>
+<area shape="rect" id="Node000002" href="$ft__putchar__fd_8c.html#a8ee15a511946c1397bd2bdea4aed6aee" title="Writes a character to a file descriptor." alt="" coords="119,5,216,31"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="37,532,44,439,58,296,82,150,98,91,116,49,127,39,125,44,121,52,103,93,87,152,63,297,49,439,43,533"/>
+<area shape="rect" id="Node000003" href="$ft__putendl__fd_8c.html#aeb112152acfc553d58d61a5df38afcde" title="Writes a string followed by newline to a file descriptor." alt="" coords="416,407,512,432"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="52,532,81,509,118,488,191,461,267,442,339,430,402,423,398,426,340,435,268,448,193,467,120,493,84,513,56,534"/>
+<area shape="rect" id="Node000004" href="$ft__strlen_8c.html#abbb8c6c4ed85d892e7f1509f65f5768a" title="Calculates the length of a string." alt="" coords="570,431,638,456"/>
+<area shape="poly" id="edge29_Node000001_Node000004" title=" " alt="" coords="41,532,67,475,89,442,117,413,153,390,186,380,263,366,336,344,395,325,423,320,453,320,485,327,522,341,545,356,564,375,592,417,587,417,560,378,541,360,519,346,484,332,452,326,423,325,396,330,337,349,265,371,187,385,156,395,120,418,93,445,72,478,46,534"/>
+<area shape="rect" id="Node000005" href="$ft__putnbr__fd_8c.html#a63cc0aec12256d125d3f85e472280972" title="Writes an integer to a file descriptor." alt="" coords="122,709,212,735"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="43,557,71,623,93,662,121,696,123,699,118,701,117,700,88,665,66,625,43,562"/>
+<area shape="rect" id="Node000007" href="$ft__putstr__fd_8c.html#acefce9ac519f8f8b7d3fde33dbafe469" title="Writes a string to a file descriptor." alt="" coords="420,456,508,482"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="69,531,118,516,195,499,273,487,407,472,403,475,273,492,196,504,119,521,73,535"/>
+<area shape="rect" id="Node000008" href="$ft__split_8c.html#aa65c9de65051c8c589286cf133c4a1f4" title="Splits a string into an array of strings using a delimiter." alt="" coords="137,180,198,206"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="38,533,45,484,59,412,82,329,116,248,143,214,141,219,121,250,87,331,64,413,50,485,43,533"/>
+<area shape="rect" id="Node000012" href="$ft__substr_8c.html#a78c402cbf3d55b1374693c3b7d34f71d" title="Extracts a substring from a string." alt="" coords="428,131,500,156"/>
+<area shape="poly" id="edge39_Node000001_Node000012" title=" " alt="" coords="38,532,46,458,62,349,85,241,100,197,116,166,142,136,168,113,195,96,223,86,253,80,285,80,360,92,397,104,431,122,426,124,395,109,359,97,285,85,253,86,224,91,197,101,171,117,146,140,121,169,105,199,91,242,67,350,51,459,43,533"/>
+<area shape="rect" id="Node000015" href="$ft__strchr_8c.html#aa6d0c2d180f32ee585485e1a1ce3d55d" title="Locates the first occurrence of a character in a string." alt="" coords="133,759,202,784"/>
+<area shape="poly" id="edge18_Node000001_Node000015" title=" " alt="" coords="41,557,51,595,65,644,88,698,121,746,123,749,118,749,117,749,83,700,60,646,46,596,41,562"/>
+<area shape="rect" id="Node000016" href="$ft__strdup_8c.html#a2ac2079a4250507c9af75d696f2ae476" title="Duplicates a string." alt="" coords="131,660,204,686"/>
+<area shape="poly" id="edge19_Node000001_Node000016" title=" " alt="" coords="48,557,80,596,120,639,133,650,128,651,117,643,76,599,49,562"/>
+<area shape="rect" id="Node000018" href="$ft__striteri_8c.html#ada722cffd2c6c8169ae339afd0f9763c" title="Applies a function to each character of a string with its index." alt="" coords="131,808,204,834"/>
+<area shape="poly" id="edge22_Node000001_Node000018" title=" " alt="" coords="40,557,47,603,59,665,83,733,100,766,121,795,122,798,117,798,117,798,95,768,78,735,54,666,42,603,40,562"/>
+<area shape="rect" id="Node000019" href="$ft__strjoin_8c.html#a91e6e3e428bcc9f2291b700e1829b82b" title="Concatenates two strings into a new string." alt="" coords="428,557,500,583"/>
+<area shape="poly" id="edge23_Node000001_Node000019" title=" " alt="" coords="71,545,414,565,411,570,72,551"/>
+<area shape="rect" id="Node000020" href="$ft__strlcat_8c.html#a7531453313e0cbfde6fe51662c9c3208" title="Appends src to dst with size limit." alt="" coords="428,356,500,382"/>
+<area shape="poly" id="edge25_Node000001_Node000020" title=" " alt="" coords="45,532,73,492,94,471,117,453,154,433,193,417,273,392,349,377,415,371,410,374,350,382,275,397,195,422,156,438,120,458,97,475,78,496,50,534"/>
+<area shape="rect" id="Node000021" href="$ft__strlcpy_8c.html#a12f759eb9793cf306fede66d0b7de0fc" title="Copies src to dst with size limit." alt="" coords="274,609,349,635"/>
+<area shape="poly" id="edge27_Node000001_Node000021" title=" " alt="" coords="58,557,88,573,120,588,191,606,260,617,256,620,190,611,118,593,85,578,60,562"/>
+<area shape="rect" id="Node000022" href="$ft__strmapi_8c.html#a668b60557bfc9d60c2d3ccda8afadf49" title="Creates a new string by applying a function to each character." alt="" coords="424,507,504,532"/>
+<area shape="poly" id="edge30_Node000001_Node000022" title=" " alt="" coords="69,541,118,537,410,520,407,524,119,542,73,545"/>
+<area shape="rect" id="Node000023" href="$ft__strncmp_8c.html#a9d2fe792187aa4ed08e5864fb2c4d6dc" title="Compares at most n characters of two strings." alt="" coords="126,857,209,883"/>
+<area shape="poly" id="edge32_Node000001_Node000023" title=" " alt="" coords="39,557,44,610,54,685,64,727,78,769,97,808,121,845,122,847,117,847,117,848,92,811,73,770,59,728,49,686,39,611,39,562"/>
+<area shape="rect" id="Node000024" href="$ft__strnstr_8c.html#ae00229613cc0bf361e86dca72ad92591" title="Locates a substring within a string, limited by length." alt="" coords="131,907,204,932"/>
+<area shape="poly" id="edge33_Node000001_Node000024" title=" " alt="" coords="41,557,52,628,69,728,92,827,106,867,121,894,122,897,117,896,116,897,101,869,87,829,64,729,47,629,41,562"/>
+<area shape="rect" id="Node000025" href="$ft__strrchr_8c.html#a49c260cf80f9997975d6f3ec74ead582" title="Locates the last occurrence of a character in a string." alt="" coords="131,956,204,982"/>
+<area shape="poly" id="edge34_Node000001_Node000025" title=" " alt="" coords="41,557,51,637,66,751,90,866,104,912,121,943,122,946,117,945,116,946,99,914,84,867,61,752,46,637,40,562"/>
+<area shape="rect" id="Node000026" href="$ft__strtrim_8c.html#a60352c5b39fab08469b3e28131a79e25" title="Trims characters from the beginning and end of a string." alt="" coords="275,255,348,280"/>
+<area shape="poly" id="edge35_Node000001_Node000026" title=" " alt="" coords="36,533,39,487,49,424,59,389,73,355,92,324,117,297,150,277,187,265,225,260,262,261,258,264,225,266,188,271,152,282,120,302,97,327,78,358,64,391,54,425,44,488,42,533"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="512,425,557,434,552,436,513,430"/>
+<area shape="rect" id="Node000006" href="$ft__putnbr__fd_8c.html#a1c20d51e332eef3532918f0818e1decb" title="Recursively writes digits of a number." alt="" coords="274,784,349,810"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="195,733,217,744,275,775,270,777,215,749,196,738"/>
+<area shape="poly" id="edge7_Node000006_Node000006" title=" " alt="" coords="286,783,282,775,285,766,295,760,312,757,329,760,340,769,335,769,327,765,312,763,297,765,289,769,287,775,292,784"/>
+<area shape="poly" id="edge9_Node000007_Node000004" title=" " alt="" coords="507,459,556,451,552,454,509,463"/>
+<area shape="rect" id="Node000009" href="$ft__split_8c.html#a830c5f8b4d1b754d8c3f238424b55fdb" title="Counts words in a string separated by a delimiter." alt="" coords="264,156,359,182"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="196,186,251,177,247,181,200,190"/>
+<area shape="rect" id="Node000010" href="$ft__split_8c.html#afa1f9b6da52f25237b6ba5c5ef96d50f" title="Frees all strings in a null&#45;terminated array and the tab itself." alt="" coords="280,205,343,231"/>
+<area shape="poly" id="edge12_Node000008_Node000010" title=" " alt="" coords="197,196,267,208,262,212,199,200"/>
+<area shape="rect" id="Node000011" href="$ft__split_8c.html#a56d56b162e8a5aa289431a1eaaf1ab70" title="Extracts a word from a string until the separator." alt="" coords="274,107,349,132"/>
+<area shape="poly" id="edge13_Node000008_Node000011" title=" " alt="" coords="193,178,273,138,269,142,197,181"/>
+<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="348,123,414,134,410,137,350,128"/>
+<area shape="poly" id="edge17_Node000012_Node000004" title=" " alt="" coords="485,154,506,170,523,190,554,249,577,311,592,369,601,416,596,415,587,371,572,313,549,251,518,193,502,174,486,160"/>
+<area shape="rect" id="Node000013" href="$ft__calloc_8c.html#ae0a6807f9f78ed4bf4f958323582d22f" title="Allocates and zeroes memory for an array." alt="" coords="569,131,639,156"/>
+<area shape="poly" id="edge15_Node000012_Node000013" title=" " alt="" coords="499,141,555,142,551,145,502,146"/>
+<area shape="rect" id="Node000014" href="$ft__bzero_8c.html#a5937ab0d08e31d0e3e4a16ec71e293a1" title="Sets n bytes of memory to zero." alt="" coords="687,131,755,156"/>
+<area shape="poly" id="edge16_Node000013_Node000014" title=" " alt="" coords="638,141,674,142,669,145,641,146"/>
+<area shape="poly" id="edge21_Node000016_Node000004" title=" " alt="" coords="203,681,264,694,342,702,374,702,404,698,432,690,460,677,489,658,519,631,549,593,571,550,586,507,596,474,599,469,591,509,576,552,553,596,523,635,492,662,463,682,434,695,405,704,374,707,341,707,264,699,205,687"/>
+<area shape="rect" id="Node000017" href="$ft__strdup_8c.html#a272bf7af57fd1596c3555072c329a9f3" title="Copies a string to a destination." alt="" coords="276,659,348,684"/>
+<area shape="poly" id="edge20_Node000016_Node000017" title=" " alt="" coords="203,670,262,671,258,673,205,675"/>
+<area shape="poly" id="edge24_Node000019_Node000004" title=" " alt="" coords="499,555,519,543,556,506,585,471,588,468,560,509,522,547,502,559"/>
+<area shape="poly" id="edge26_Node000020_Node000004" title=" " alt="" coords="496,380,522,392,571,421,566,422,519,397,497,385"/>
+<area shape="poly" id="edge28_Node000021_Node000004" title=" " alt="" coords="349,624,388,626,432,623,478,613,519,593,547,567,568,534,583,501,594,474,597,469,588,503,573,537,551,570,522,598,480,618,433,628,388,631,351,630"/>
+<area shape="poly" id="edge31_Node000022_Node000004" title=" " alt="" coords="495,504,519,492,572,463,568,466,522,497,498,508"/>
+<area shape="poly" id="edge37_Node000026_Node000004" title=" " alt="" coords="347,262,387,261,432,265,479,276,522,297,550,323,571,354,587,386,597,416,592,415,582,388,567,357,546,326,519,302,477,281,432,270,387,266,350,266"/>
+<area shape="poly" id="edge38_Node000026_Node000012" title=" " alt="" coords="340,252,358,241,382,217,405,190,436,164,433,169,409,193,386,220,361,246,344,256"/>
+<area shape="rect" id="Node000027" href="$ft__strtrim_8c.html#a165b649f009877d909c5c77a396620bf" title="Checks if a character is in a set." alt="" coords="407,204,521,230"/>
+<area shape="poly" id="edge36_Node000026_Node000027" title=" " alt="" coords="347,253,411,233,407,237,351,257"/>
+</map>

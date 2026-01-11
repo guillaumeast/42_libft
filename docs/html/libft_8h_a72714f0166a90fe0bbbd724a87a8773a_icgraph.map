@@ -1,0 +1,19 @@
+<map id="buff_append_vformat" name="buff_append_vformat">
+<area shape="rect" id="Node000001" title="Appends formatted string to buffer using va_list." alt="" coords="494,56,638,82"/>
+<area shape="rect" id="Node000002" href="$buff__format_8c.html#a75ff0446dc6dde1e38c64e697573ecff" title=" " alt="" coords="310,5,446,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="498,52,428,34,428,29,503,51"/>
+<area shape="rect" id="Node000003" href="$libft_8h.html#aa88f851d3daab94f2ef68103e620a5bc" title="Appends formatted string to buffer using variadic arguments." alt="" coords="126,56,262,82"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="476,70,263,71,262,66,481,67"/>
+<area shape="rect" id="Node000004" href="$printer_8c.html#af7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="338,107,418,132"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="503,86,419,111,418,106,498,87"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="321,105,243,85,243,80,326,104"/>
+<area shape="rect" id="Node000005" href="$printer_8c.html#a5b8ad0c8c498e56c305ded9def43e224" title=" " alt="" coords="158,105,230,131"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="320,120,231,121,230,116,325,118"/>
+<area shape="rect" id="Node000006" href="$printer_8c.html#a7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="158,155,230,180"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="326,133,231,161,230,156,321,134"/>
+<area shape="rect" id="Node000007" href="$libft_8h.html#aff22e05364426423245b4fdf2c577068" title="Writes formatted output to a file descriptor." alt="" coords="5,129,78,155"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="140,161,78,151,78,145,144,157"/>
+<area shape="rect" id="Node000008" href="$printer_8c.html#ae4d46392a495b787c36ecf34e54f7077" title=" " alt="" coords="9,179,74,204"/>
+<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="140,177,75,189,74,184,144,174"/>
+<area shape="poly" id="edge8_Node000007_Node000007" title=" " alt="" coords="66,115,58,110,41,108,26,110,18,115,16,120,20,128,15,130,10,121,13,111,24,105,42,103,60,105,71,113"/>
+</map>

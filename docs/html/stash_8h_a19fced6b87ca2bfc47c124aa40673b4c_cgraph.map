@@ -1,0 +1,9 @@
+<map id="stash_find_and_free" name="stash_find_and_free">
+<area shape="rect" id="Node000001" title="Finds and frees the stash for a file descriptor." alt="" coords="5,31,144,56"/>
+<area shape="rect" id="Node000002" href="$list__life__cycle_8c.html#a7d834666645b61d5763fc68ba2d43c86" title="Removes a specific node from the list." alt="" coords="203,5,263,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,30,190,25,185,26,145,35"/>
+<area shape="rect" id="Node000003" href="$stash_8c.html#a8dfb95686c92abf40efeb2e6177e160a" title="Frees a stash structure and its buffer." alt="" coords="192,55,274,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="144,51,179,59,173,59,144,57"/>
+<area shape="rect" id="Node000004" href="$buff__life__cycle_8c.html#a3825f38fa07df6f1a17b060955d84f04" title="Frees the buffer&#39;s internal data." alt="" coords="322,55,394,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="274,65,309,67,304,68,274,70"/>
+</map>

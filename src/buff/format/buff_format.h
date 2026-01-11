@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:44 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 02:14:27 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 03:17:19 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define BUFF_FORMAT_H
 
 # include "libft.h"
-# include <stdbool.h>
-# include <stddef.h>
 
 /**
  * @struct s_rules

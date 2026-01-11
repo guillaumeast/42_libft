@@ -1,0 +1,9 @@
+<map id="ft_vdprintf" name="ft_vdprintf">
+<area shape="rect" id="Node000001" title="Writes formatted output to a file descriptor using va_list." alt="" coords="239,31,318,56"/>
+<area shape="rect" id="Node000002" href="$printer_8c.html#a5b8ad0c8c498e56c305ded9def43e224" title="Writes formatted output to a file descriptor." alt="" coords="119,5,191,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,33,192,28,192,23,226,32"/>
+<area shape="rect" id="Node000003" href="$printer_8c.html#a7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="119,55,191,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="226,54,192,63,191,58,221,55"/>
+<area shape="rect" id="Node000004" href="$printer_8c.html#ae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,55,71,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="100,68,71,70,71,65,105,67"/>
+</map>
