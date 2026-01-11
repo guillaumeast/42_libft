@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "buff_internal.h"
 #include <errno.h>
 #include <stdlib.h>
 #include <unistd.h>

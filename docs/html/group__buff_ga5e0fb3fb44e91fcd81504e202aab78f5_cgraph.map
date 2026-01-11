@@ -1,17 +1,18 @@
 <map id="buff_dup_n" name="buff_dup_n">
-<area shape="rect" id="Node000001" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="5,128,91,154"/>
-<area shape="rect" id="Node000002" href="$group__buff.html#ga479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="139,79,231,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,125,135,109,130,112,87,130"/>
-<area shape="rect" id="Node000007" href="$group__buff.html#ga3825f38fa07df6f1a17b060955d84f04" title="Frees the buffer&#39;s internal data." alt="" coords="149,128,221,154"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="91,138,135,140,131,142,92,143"/>
-<area shape="rect" id="Node000008" href="$group__buff.html#ga5b93ae89b288bf7e0843e34c072c52c6" title="Initializes a buffer with the specified initial capacity." alt="" coords="151,177,218,203"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="86,152,139,172,134,174,86,157"/>
-<area shape="rect" id="Node000003" href="$buff__life__cycle_8c.html#ac56b2e828372192af7c1317b6a28f60e" title="Calculates the required capacity to accommodate a target length." alt="" coords="279,5,428,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="207,76,278,40,295,35,291,38,280,45,210,81"/>
-<area shape="rect" id="Node000004" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="310,55,397,80"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="231,82,298,75,293,77,232,88"/>
-<area shape="rect" id="Node000005" href="$group__malloc.html#gad1d9ac1f2ff65b565ee0ef2a4fa7f887" title="Reallocates a buffer to a new capacity." alt="" coords="316,104,391,130"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="231,96,304,108,299,110,232,101"/>
-<area shape="rect" id="Node000006" href="$group__str.html#gabbb8c6c4ed85d892e7f1509f65f5768a" title="Calculates the length of a string." alt="" coords="320,153,388,179"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="212,102,232,113,280,140,307,152,302,152,278,145,230,118,211,108"/>
+<area shape="rect" id="Node000001" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="5,105,91,131"/>
+<area shape="rect" id="Node000002" href="$group__buff.html#ga479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="139,56,231,82"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,102,135,86,130,89,87,107"/>
+<area shape="rect" id="Node000007" href="$group__buff.html#ga3825f38fa07df6f1a17b060955d84f04" title="Frees the buffer&#39;s internal data." alt="" coords="149,105,221,131"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="91,116,135,117,131,119,92,121"/>
+<area shape="rect" id="Node000008" href="$group__buff.html#ga5b93ae89b288bf7e0843e34c072c52c6" title="Initializes a buffer with the specified initial capacity." alt="" coords="151,155,218,180"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="86,129,139,149,134,151,86,134"/>
+<area shape="rect" id="Node000003" href="$buff__life__cycle_8c.html#a34269ecefd62c1ff95c0dc2f442664b9" title="Grows the buffer to accommodate the target length if necessary." alt="" coords="279,5,357,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="220,53,271,36,266,38,222,58"/>
+<area shape="rect" id="Node000005" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="437,55,523,80"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="231,66,423,66,419,69,231,71"/>
+<area shape="rect" id="Node000006" href="$group__str.html#gabbb8c6c4ed85d892e7f1509f65f5768a" title="Calculates the length of a string." alt="" coords="284,107,352,132"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="221,80,272,101,267,101,221,85"/>
+<area shape="rect" id="Node000004" href="$buff__life__cycle_8c.html#ac56b2e828372192af7c1317b6a28f60e" title="Calculates the required capacity to accommodate a target length." alt="" coords="405,5,555,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="357,16,393,18,388,19,358,21"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="358,27,425,50,419,50,358,33"/>
 </map>

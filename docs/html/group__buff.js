@@ -7,7 +7,6 @@ var group__buff =
     [ "buff_dup_n", "group__buff.html#ga5e0fb3fb44e91fcd81504e202aab78f5", null ],
     [ "buff_free", "group__buff.html#ga3825f38fa07df6f1a17b060955d84f04", null ],
     [ "buff_get_index", "group__buff.html#gad3d0b787a96019e20333b55b49c0da9f", null ],
-    [ "buff_grow", "group__buff.html#ga34269ecefd62c1ff95c0dc2f442664b9", null ],
     [ "buff_init", "group__buff.html#ga5b93ae89b288bf7e0843e34c072c52c6", null ],
     [ "buff_insert", "group__buff.html#ga4c4fe940783715f94d9b2a933c73ecd6", null ],
     [ "buff_prepend", "group__buff.html#ga254f0c67338ac419cbe9ac8c215b1c58", null ],

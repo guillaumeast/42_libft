@@ -1,19 +1,23 @@
 <map id="src/buff/buff_read.c" name="src/buff/buff_read.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="236,5,371,31"/>
-<area shape="rect" id="Node000002" href="$libft_8h.html" title=" " alt="" coords="153,79,206,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="285,30,215,73,212,69,280,33"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="230,79,292,105"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="299,30,278,67,274,64,294,33"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="316,79,379,105"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="312,29,335,66,329,65,310,34"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="403,79,470,105"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="327,29,403,71,398,71,326,34"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,153,74,178"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="157,107,78,148,76,143,154,103"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="97,153,166,178"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="174,104,150,142,146,138,169,106"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="190,153,265,178"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="189,103,213,140,208,139,186,107"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="288,153,378,178"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="206,103,296,145,291,146,205,108"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="370,5,504,31"/>
+<area shape="rect" id="Node000002" href="$libft_8h.html" title=" " alt="" coords="214,153,268,178"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="367,29,316,48,290,62,268,81,252,108,245,138,240,135,247,106,264,77,287,58,314,43,372,27"/>
+<area shape="rect" id="Node000007" href="$buff__internal_8h.html" title=" " alt="" coords="278,79,382,105"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="421,30,362,72,360,68,416,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="406,79,468,105"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="438,29,439,65,435,62,435,33"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="492,79,555,105"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="452,29,500,69,495,69,451,34"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="579,79,646,105"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="467,29,572,72,566,73,466,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,226,74,252"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="215,179,89,223,87,218,213,174"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="309,226,378,252"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="259,176,316,217,311,217,257,181"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="98,226,173,252"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="226,178,167,220,165,215,220,180"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="196,226,286,252"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="243,177,243,212,239,209,239,180"/>
+<area shape="poly" id="edge7_Node000007_Node000002" title=" " alt="" coords="317,104,269,145,266,141,313,106"/>
+<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="333,103,343,212,339,210,329,107"/>
 </map>

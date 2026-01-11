@@ -4,7 +4,7 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,52,158,35,154,38,102,56"/>
 <area shape="rect" id="Node000004" href="$group__buff.html#gad3d0b787a96019e20333b55b49c0da9f" title="Finds the index of a character in the buffer." alt="" coords="160,55,266,80"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="112,65,147,67,142,68,112,70"/>
-<area shape="rect" id="Node000005" href="$group__buff.html#ga34269ecefd62c1ff95c0dc2f442664b9" title="Grows the buffer to accommodate the target length if necessary." alt="" coords="174,104,252,130"/>
+<area shape="rect" id="Node000005" href="$buff__life__cycle_8c.html#a34269ecefd62c1ff95c0dc2f442664b9" title="Grows the buffer to accommodate the target length if necessary." alt="" coords="174,104,252,130"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="102,78,161,99,156,101,101,84"/>
 <area shape="rect" id="Node000003" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="346,31,432,56"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="256,22,333,35,328,36,256,27"/>

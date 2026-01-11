@@ -100,19 +100,25 @@ $(function(){initNavTree('buff__internal_8h_source.html','',''); });
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/*   By: gastesan &lt;gastesan@student.42.fr&gt;          +#+  +:+       +#+        */</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/*                                                +#+#+#+#+#+   +#+           */</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/*   Created: 2026/01/11 02:13:40 by gastesan          #+#    #+#             */</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*   Updated: 2026/01/11 02:13:41 by gastesan         ###   ########.fr       */</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*   Updated: 2026/01/11 05:50:55 by gastesan         ###   ########.fr       */</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/*                                                                            */</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/* ************************************************************************** */</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#ifndef BUFF_INTERNAL_H</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor"># define BUFF_INTERNAL_H</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor"># include &lt;stddef.h&gt;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">size_t</span>  <a class="code hl_function" href="buff__internal_8h.html#ac56b2e828372192af7c1317b6a28f60e">buff_get_required_cap</a>(<span class="keywordtype">size_t</span> current_cap, <span class="keywordtype">size_t</span> target_len);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor"># include &quot;<a class="code" href="libft_8h.html">libft.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor"># include &lt;stddef.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keywordtype">size_t</span>  <a class="code hl_function" href="buff__internal_8h.html#ac56b2e828372192af7c1317b6a28f60e">buff_get_required_cap</a>(<span class="keywordtype">size_t</span> current_cap, <span class="keywordtype">size_t</span> target_len);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">bool</span>    <a class="code hl_function" href="buff__internal_8h.html#a34269ecefd62c1ff95c0dc2f442664b9">buff_grow</a>(<a class="code hl_typedef" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> *buff, <span class="keywordtype">size_t</span> target_len);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="abuff__internal_8h_html_a34269ecefd62c1ff95c0dc2f442664b9"><div class="ttname"><a href="buff__internal_8h.html#a34269ecefd62c1ff95c0dc2f442664b9">buff_grow</a></div><div class="ttdeci">bool buff_grow(t_buff *buff, size_t target_len)</div><div class="ttdoc">Grows the buffer to accommodate the target length if necessary.</div><div class="ttdef"><b>Definition</b> buff_life_cycle.c:48</div></div>
 <div class="ttc" id="abuff__internal_8h_html_ac56b2e828372192af7c1317b6a28f60e"><div class="ttname"><a href="buff__internal_8h.html#ac56b2e828372192af7c1317b6a28f60e">buff_get_required_cap</a></div><div class="ttdeci">size_t buff_get_required_cap(size_t current_cap, size_t target_len)</div><div class="ttdoc">Calculates the required capacity to accommodate a target length.</div><div class="ttdef"><b>Definition</b> buff_life_cycle.c:33</div></div>
+<div class="ttc" id="alibft_8h_html"><div class="ttname"><a href="libft_8h.html">libft.h</a></div></div>
+<div class="ttc" id="alibft_8h_html_a01ae3bcbd1d4e4a25d85bdbd66b1a01b"><div class="ttname"><a href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a></div><div class="ttdeci">struct s_buff t_buff</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

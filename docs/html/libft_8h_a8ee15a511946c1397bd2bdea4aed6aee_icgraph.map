@@ -1,11 +1,4 @@
 <map id="ft_putchar_fd" name="ft_putchar_fd">
-<area shape="rect" id="Node000001" title="Writes a character to a file descriptor." alt="" coords="334,43,431,68"/>
-<area shape="rect" id="Node000002" href="$libft_8h.html#ada4cd2f4a6f999b6f185d954f96a5dd5" title="Writes formatted output to stdout." alt="" coords="190,43,286,68"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="316,56,287,58,286,53,321,55"/>
-<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="261,27,254,24,238,21,223,23,215,28,213,34,218,43,213,41,208,34,211,25,221,18,238,16,256,19,266,28"/>
-<area shape="rect" id="Node000003" href="$libft_8h.html#aa88f851d3daab94f2ef68103e620a5bc" title="Appends formatted string to buffer using variadic arguments." alt="" coords="5,5,142,31"/>
-<area shape="poly" id="edge3_Node000002_Node000003" title=" " alt="" coords="172,42,133,34,133,29,177,40"/>
-<area shape="rect" id="Node000004" href="$libft_8h.html#aff22e05364426423245b4fdf2c577068" title="Writes formatted output to a file descriptor." alt="" coords="37,79,110,104"/>
-<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="177,69,111,86,109,81,172,70"/>
-<area shape="poly" id="edge5_Node000004_Node000004" title=" " alt="" coords="100,64,92,60,73,57,56,59,47,64,45,69,50,78,45,78,40,70,43,60,55,54,74,52,94,55,105,63"/>
+<area shape="rect" id="Node000001" title="Writes a character to a file descriptor." alt="" coords="5,29,103,55"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="69,14,64,10,54,8,45,10,40,14,38,20,41,29,36,29,33,21,35,12,42,5,54,3,67,5,74,14"/>
 </map>

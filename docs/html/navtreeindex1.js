@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"stash_8c.html#a06a5679ed16a36fb590692fb889eaa82":[2,0,0,3,1,3],
 "stash_8c.html#a19fced6b87ca2bfc47c124aa40673b4c":[2,0,0,3,1,1],
 "stash_8c.html#a32c48e433b75e63a7a52ac5d955f919b":[2,0,0,3,1,4],
 "stash_8c.html#a8dfb95686c92abf40efeb2e6177e160a":[2,0,0,3,1,2],

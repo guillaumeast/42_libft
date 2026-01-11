@@ -67,6 +67,8 @@ and to serve as a **long-term foundation** for all future C developments.
 
 The full API documentation is generated from the source code using Doxygen.
 
+It focuses on public interfaces, while internal helpers remain accessible through call graphs for deeper understanding.
+
 ➡️ **[Browse the libft API documentation](https://guillaumeast.github.io/42_libft/html/topics)**
 
 > The documentation describes:

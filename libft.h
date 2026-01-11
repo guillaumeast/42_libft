@@ -146,20 +146,6 @@ bool	buff_init(t_buff *b, size_t initial_cap);
 
 /**
  * @ingroup buff
- * @brief Grows the buffer to accommodate the target length if necessary.
- *
- * No-op if current capacity is already sufficient.
- *
- * @warning buff must be initialized before calling this function.
- *
- * @param buff Pointer to an initialized buffer (borrowed).
- * @param target_len The minimum length the buffer should accommodate.
- * @return true on success, false on memory allocation failure.
- */
-bool	buff_grow(t_buff *buff, size_t target_len);
-
-/**
- * @ingroup buff
  * @brief Shrinks buffer capacity to match its current length.
  *
  * @warning buff must be initialized before calling this function.

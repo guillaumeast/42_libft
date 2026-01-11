@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:18:17 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 05:56:25 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,19 +74,13 @@ bool	buff_insert(t_buff *b, size_t index, const char *str, long n)
 bool	buff_append(t_buff *b, const char *str, long n)
 {
 	size_t	strlen;
-	size_t	new_cap;
 
 	if (n < 0)
 		strlen = ft_strlen(str);
 	else
 		strlen = (size_t)n;
-	new_cap = buff_get_required_cap(b->cap, b->len + strlen);
-	if (new_cap > b->cap)
-	{
-		if (!ft_realloc(&b->data, b->cap, new_cap))
-			return (false);
-		b->cap = new_cap;
-	}
+	if (!buff_grow(b, b->len + strlen))
+		return (false);
 	ft_memcpy(b->data + b->len, str, strlen);
 	b->len = b->len + strlen;
 	return (true);
