@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:29:17 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:31:00 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 02:15:17 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@
  */
 typedef struct s_stash
 {
+	/** @brief File descriptor. */
 	int			fd;
+	/** @brief Buffer for storing read data (owned). */
 	t_buff		buffer;
 }	t_stash;
 
@@ -32,7 +34,7 @@ typedef struct s_stash
  * @brief Gets or creates a buffer for a file descriptor.
  *
  * @param fd File descriptor.
- * @return Pointer to the buffer, or NULL on failure.
+ * @return Pointer to the buffer (borrowed), or NULL on failure.
  */
 t_buff	*get_buffer(int fd);
 
@@ -44,7 +46,7 @@ t_buff	*get_buffer(int fd);
 void	stash_find_and_free(int fd);
 
 /**
- * @brief Frees all stashs and their buffers.
+ * @brief Frees all stashes and their buffers.
  */
 void	stashs_free_all(void);
 

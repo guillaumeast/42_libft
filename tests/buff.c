@@ -1,5 +1,6 @@
 #include "fut.h"
 #include "libft.h"
+#include "../src/buff/buff_internal.h"
 #include <stdio.h>
 
 #define MAX_LEN 1000000
@@ -27,7 +28,6 @@ Test(test_buff_init, 1)
 
 /*-------------------- get_required_cap --------------------*/
 
-size_t	buff_get_required_cap(size_t current_cap, size_t target_len);
 Test(test_buff_get_required_cap, 1)
 {
 	t_buff	buff;

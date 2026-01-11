@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 01:20:43 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 02:26:44 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,17 @@
  * @struct s_buff
  * @brief Dynamic buffer structure for efficient string/data manipulation.
  *
- * @var s_buff::data Pointer to the allocated data.
+ * @var s_buff::data Pointer to the allocated data (owned by the buffer).
  * @var s_buff::cap Current allocated capacity.
  * @var s_buff::len Current length of data in the buffer.
  */
 typedef struct s_buff
 {
+	/** @brief Pointer to the allocated data (owned by the buffer). */
 	char	*data;
+	/** @brief Current allocated capacity (in bytes). */
 	size_t	cap;
+	/** @brief Current length of data in the buffer (in bytes). */
 	size_t	len;
 }	t_buff;
 
@@ -39,14 +42,17 @@ typedef struct s_buff
  * @struct s_node
  * @brief Doubly linked list node structure.
  *
- * @var s_node::content Pointer to the node's content.
- * @var s_node::prev Pointer to the previous node.
- * @var s_node::next Pointer to the next node.
+ * @var s_node::content Pointer to the node's content (owned by the node).
+ * @var s_node::prev Pointer to the previous node (borrowed, may be NULL).
+ * @var s_node::next Pointer to the next node (borrowed, may be NULL).
  */
 typedef struct s_node
 {
+	/** @brief Pointer to the node's content (owned by the node). */
 	void			*content;
+	/** @brief Pointer to the previous node (borrowed, may be NULL). */
 	struct s_node	*prev;
+	/** @brief Pointer to the next node (borrowed, may be NULL). */
 	struct s_node	*next;
 }	t_node;
 
@@ -61,46 +67,34 @@ typedef t_node	*t_list;
 /**
  * @brief Initializes a buffer with the specified initial capacity.
  *
- * @param b Pointer to the buffer structure to initialize.
+ * @note Cannot fail when initial_cap == 0.
+ *
+ * @param b Pointer to the buffer structure to initialize (uninitialized).
  * @param initial_cap Initial capacity of the buffer.
  * @return true on success, false on memory allocation failure.
- *
- * @note Cannot fail when initial_cap == 0.
  */
 bool	buff_init(t_buff *b, size_t initial_cap);
-
-/**
- * @brief Calculates the required capacity to accommodate a target length.
- *
- * Uses exponential growth strategy (doubles capacity) to amortize
- * multiple growth operations to O(1) on average.
- *
- * @param current_cap Current capacity of the buffer.
- * @param target_len Target length to accommodate.
- * @return The new required capacity.
- */
-size_t	buff_get_required_cap(size_t current_cap, size_t target_len);
 
 /**
  * @brief Grows the buffer to accommodate the target length if necessary.
  *
  * No-op if current capacity is already sufficient.
  *
- * @param buff Pointer to an initialized buffer.
+ * @warning buff must be initialized before calling this function.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed).
  * @param target_len The minimum length the buffer should accommodate.
  * @return true on success, false on memory allocation failure.
- *
- * @warning buff must be initialized before calling this function.
  */
 bool	buff_grow(t_buff *buff, size_t target_len);
 
 /**
  * @brief Shrinks buffer capacity to match its current length.
  *
- * @param buff Pointer to an initialized buffer.
- * @return true on success, false on memory allocation failure.
- *
  * @warning buff must be initialized before calling this function.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed).
+ * @return true on success, false on memory allocation failure.
  */
 bool	buff_adjust(t_buff *buff);
 
@@ -109,20 +103,20 @@ bool	buff_adjust(t_buff *buff);
  *
  * Sets buff->data to NULL after freeing.
  *
- * @param b Pointer to the buffer.
+ * @warning Does not free the t_buff struct itself, only its internal data.
  *
- * @warning Does not free the t_buff struct, only its internal char* data.
+ * @param b Pointer to the buffer (borrowed).
  */
 void	buff_free(t_buff *b);
 
 /**
  * @brief Finds the index of a character in the buffer.
  *
- * @param buff Pointer to an initialized buffer.
+ * @warning buff must be initialized before calling this function.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed).
  * @param c Character to find.
  * @return Index of the character, or -1 if not found.
- *
- * @warning buff must be initialized before calling this function.
  */
 int		buff_get_index(t_buff *buff, char c);
 
@@ -131,13 +125,13 @@ int		buff_get_index(t_buff *buff, char c);
  *
  * Buffer is automatically grown if necessary.
  *
- * @param b Pointer to an initialized buffer.
- * @param str String to prepend.
- * @param n Number of bytes to prepend, or -1 to use strlen(str).
- * @return true on success, false on memory allocation failure.
- *
  * @warning b must be initialized before calling this function.
  * @warning UB if n > 0 and str is shorter than n bytes.
+ *
+ * @param b Pointer to an initialized buffer (borrowed).
+ * @param str String to prepend (borrowed, not modified).
+ * @param n Number of bytes to prepend, or -1 to use strlen(str).
+ * @return true on success, false on memory allocation failure.
  */
 bool	buff_prepend(t_buff *b, const char *str, long n);
 
@@ -146,15 +140,15 @@ bool	buff_prepend(t_buff *b, const char *str, long n);
  *
  * Buffer is automatically grown if necessary.
  *
- * @param b Pointer to an initialized buffer.
- * @param index Position at which to insert the string.
- * @param str String to insert.
- * @param n Number of bytes to insert, or -1 to use strlen(str).
- * @return true on success, false on memory allocation failure.
- *
  * @warning b must be initialized before calling this function.
  * @warning UB if index > b->len.
  * @warning UB if n > 0 and str is shorter than n bytes.
+ *
+ * @param b Pointer to an initialized buffer (borrowed).
+ * @param index Position at which to insert the string.
+ * @param str String to insert (borrowed, not modified).
+ * @param n Number of bytes to insert, or -1 to use strlen(str).
+ * @return true on success, false on memory allocation failure.
  */
 bool	buff_insert(t_buff *b, size_t index, const char *str, long n);
 
@@ -163,38 +157,38 @@ bool	buff_insert(t_buff *b, size_t index, const char *str, long n);
  *
  * Buffer is automatically grown if necessary.
  *
- * @param b Pointer to an initialized buffer.
- * @param str String to append.
- * @param n Number of bytes to append, or -1 to use strlen(str).
- * @return true on success, false on memory allocation failure.
- *
  * @warning b must be initialized before calling this function.
  * @warning UB if n > 0 and str is shorter than n bytes.
+ *
+ * @param b Pointer to an initialized buffer (borrowed).
+ * @param str String to append (borrowed, not modified).
+ * @param n Number of bytes to append, or -1 to use strlen(str).
+ * @return true on success, false on memory allocation failure.
  */
 bool	buff_append(t_buff *b, const char *str, long n);
 
 /**
  * @brief Duplicates up to n bytes of a buffer into a new buffer.
  *
- * @param src Source buffer to duplicate.
- * @param n Maximum number of bytes to copy.
- * @return Pointer to a newly allocated t_buff, or NULL on failure.
- *
- * @note Caller is responsible for freeing both the returned t_buff
+ * @note Caller owns the returned t_buff and must free both the struct
  *       and its internal data (use buff_free then free).
+ *
+ * @param src Source buffer to duplicate (borrowed).
+ * @param n Maximum number of bytes to copy.
+ * @return Pointer to a newly allocated t_buff (owned), or NULL on failure.
  */
 t_buff	*buff_dup_n(const t_buff *src, size_t n);
 
 /**
  * @brief Removes a portion of the buffer starting at i_start.
  *
- * @param buff Pointer to an initialized buffer.
- * @param i_start Starting index for removal.
- * @param len Number of bytes to remove, or negative to remove until end.
- *
  * @note If len < 0, deletes all buffer content from i_start to end.
  *
  * @warning buff must be initialized before calling this function.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed).
+ * @param i_start Starting index for removal.
+ * @param len Number of bytes to remove, or negative to remove until end.
  */
 void	buff_rm_part(t_buff *buff, size_t i_start, ssize_t len);
 
@@ -204,12 +198,12 @@ void	buff_rm_part(t_buff *buff, size_t i_start, ssize_t len);
  * Supports printf formats: `%c` `%s` `%d` `%i` `%u` `%x` `%X` `%p` `%%`.
  * Supports printf-like flags: `-` `0` `.` ` ` `#` `+`.
  *
- * @param buff Pointer to an initialized buffer.
- * @param fstring Format string.
+ * @warning buff must be initialized before calling this function.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed).
+ * @param fstring Format string (borrowed).
  * @param ... Variadic arguments for format specifiers.
  * @return true on success, false on failure.
- *
- * @warning buff must be initialized before calling this function.
  */
 bool	buff_append_format(t_buff *buff, const char *fstring, ...)\
 	__attribute__((format(printf, 2, 3)));
@@ -217,37 +211,37 @@ bool	buff_append_format(t_buff *buff, const char *fstring, ...)\
 /**
  * @brief Appends formatted string to buffer using va_list.
  *
- * @param buff Pointer to an initialized buffer.
- * @param fstring Format string.
+ * @warning buff must be initialized before calling this function.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed).
+ * @param fstring Format string (borrowed).
  * @param args Variable argument list.
  * @return true on success, false on failure.
- *
- * @warning buff must be initialized before calling this function.
  */
 bool	buff_append_vformat(t_buff *buff, const char *fstring, va_list args);
 
 /**
  * @brief Reads from a file descriptor until a specific character is found.
  *
- * @param buff Pointer to an initialized buffer.
+ * @warning buff must be initialized before calling this function.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed).
  * @param fd File descriptor to read from.
  * @param c Character to search for.
  * @return Index of c (>= 0), -1 if EOF reached before c, -2 on error.
- *
- * @warning buff must be initialized before calling this function.
  */
 int		buff_read_until(t_buff *buff, int fd, char c);
 
 /**
  * @brief Reads all available data from a file descriptor into buffer.
  *
- * @param buff Pointer to an initialized buffer.
- * @param fd File descriptor to read from.
- * @return true on success, false if read failed.
- *
  * @note On failure, buff->data is NOT automatically freed.
  *
  * @warning buff must be initialized before calling this function.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed).
+ * @param fd File descriptor to read from.
+ * @return true on success, false if read failed.
  */
 bool	buff_read_all(t_buff *buff, int fd);
 
@@ -347,41 +341,41 @@ long	ft_atol(const char *str);
 /**
  * @brief Converts an integer to a string.
  *
- * @param n Integer to convert.
- * @return Newly allocated string, or NULL on failure.
+ * @note Caller owns the returned string and must free it.
  *
- * @note Caller is responsible for freeing the returned string.
+ * @param n Integer to convert.
+ * @return Newly allocated string (owned), or NULL on failure.
  */
 char	*ft_itoa(int n);
 
 /**
  * @brief Converts an unsigned integer to a string.
  *
- * @param n Unsigned integer to convert.
- * @return Newly allocated string, or NULL on failure.
+ * @note Caller owns the returned string and must free it.
  *
- * @note Caller is responsible for freeing the returned string.
+ * @param n Unsigned integer to convert.
+ * @return Newly allocated string (owned), or NULL on failure.
  */
 char	*ft_utoa(unsigned int n);
 
 /**
  * @brief Converts a long integer to a string.
  *
- * @param n Long integer to convert.
- * @return Newly allocated string, or NULL on failure.
+ * @note Caller owns the returned string and must free it.
  *
- * @note Caller is responsible for freeing the returned string.
+ * @param n Long integer to convert.
+ * @return Newly allocated string (owned), or NULL on failure.
  */
 char	*ft_ltoa(long n);
 
 /**
  * @brief Converts an unsigned long to a string in a given base.
  *
- * @param n Number to convert.
- * @param base String representing the base characters (must be >= 2 chars).
- * @return Newly allocated string, or NULL on failure.
+ * @note Caller owns the returned string and must free it.
  *
- * @note Caller is responsible for freeing the returned string.
+ * @param n Number to convert.
+ * @param base String representing the base characters (borrowed, >= 2 chars).
+ * @return Newly allocated string (owned), or NULL on failure.
  */
 char	*ft_ultoa_base(unsigned long n, const char *base);
 
@@ -393,12 +387,12 @@ char	*ft_ultoa_base(unsigned long n, const char *base);
  * Returns the chunk even if EOF is reached before separator is found.
  * Returns NULL only when called after EOF has already been reached.
  *
+ * @note Caller owns the returned t_buff and must free both the struct
+ *       and its internal data (use buff_free then free).
+ *
  * @param fd File descriptor to read from.
  * @param separator Character to stop reading at (included in returned chunk).
- * @return Pointer to a newly allocated t_buff, or NULL on error/EOF.
- *
- * @note Caller is responsible for freeing the returned t_buff
- *       and its internal data (use buff_free then free).
+ * @return Pointer to a newly allocated t_buff (owned), or NULL on error/EOF.
  */
 t_buff	*get_next_chunk(int fd, char separator);
 
@@ -414,12 +408,12 @@ void	get_next_chunk_free(void);
 /**
  * @brief Creates a new list node.
  *
- * @param content Content for the new node (ownership transferred to node).
- * @param prev Pointer to the previous node (can be NULL).
- * @param next Pointer to the next node (can be NULL).
- * @return Pointer to the new node, or NULL on failure.
+ * @note Ownership of content is transferred to the node on success.
  *
- * @note Ownership of content is transferred to the node.
+ * @param content Content for the new node (ownership transferred).
+ * @param prev Pointer to the previous node (borrowed, can be NULL).
+ * @param next Pointer to the next node (borrowed, can be NULL).
+ * @return Pointer to the new node (owned), or NULL on allocation failure.
  */
 t_node	*node_new(void *content, t_node *prev, t_node *next);
 
@@ -434,22 +428,24 @@ void	node_free(t_node **node, void (*del_content)(void*));
 /**
  * @brief Adds a new element at the end of the list.
  *
- * @param list Pointer to the list pointer.
- * @param new_content Content for the new node.
- * @return true on success, false on failure.
- *
  * @note Ownership of new_content is transferred to the list on success.
+ *       On failure, caller retains ownership of new_content.
+ *
+ * @param list Pointer to the list pointer (borrowed).
+ * @param new_content Content for the new node (ownership transferred).
+ * @return true on success, false on allocation failure.
  */
 bool	list_add_end(t_list *list, void *new_content);
 
 /**
  * @brief Adds a new element at the start of the list.
  *
- * @param list Pointer to the list pointer.
- * @param new_content Content for the new node.
- * @return true on success, false on failure.
- *
  * @note Ownership of new_content is transferred to the list on success.
+ *       On failure, caller retains ownership of new_content.
+ *
+ * @param list Pointer to the list pointer (borrowed).
+ * @param new_content Content for the new node (ownership transferred).
+ * @return true on success, false on allocation failure.
  */
 bool	list_add_start(t_list *list, void *new_content);
 
@@ -464,56 +460,65 @@ size_t	list_get_size(t_list list);
 /**
  * @brief Finds content in list matching a selection function.
  *
- * @param list List to search.
- * @param select_function Function returning true for desired content.
- * @return Matching content (not a copy), or NULL if not found.
+ * @note Returned pointer is borrowed from the list. Do not free it directly;
+ *       the list retains ownership. Pointer becomes invalid if node is removed.
  *
- * @note Returned pointer is NOT a copy; do not free it directly.
+ * @param list List to search (borrowed).
+ * @param select_function Function returning true for desired content.
+ * @return Matching content (borrowed), or NULL if not found.
  */
 void	*list_get_content(t_list list, bool (*select_function)(void*));
 
 /**
  * @brief Gets content at a specific index in the list.
  *
- * @param list List to search.
- * @param index Zero-based index.
- * @return Content at index (not a copy), or NULL if index out of bounds.
+ * @note Returned pointer is borrowed from the list. Do not free it directly;
+ *       the list retains ownership. Pointer becomes invalid if node is removed.
  *
- * @note Returned pointer is NOT a copy; do not free it directly.
+ * @param list List to search (borrowed).
+ * @param index Zero-based index.
+ * @return Content at index (borrowed), or NULL if index out of bounds.
  */
 void	*list_get_content_n(t_list list, size_t index);
 
 /**
  * @brief Gets the content of the last node in the list.
  *
- * @param list List to search.
- * @return Content of last node (not a copy), or NULL if list is empty.
+ * @note Returned pointer is borrowed from the list. Do not free it directly;
+ *       the list retains ownership. Pointer becomes invalid if node is removed.
  *
- * @note Returned pointer is NOT a copy; do not free it directly.
+ * @param list List to search (borrowed).
+ * @return Content of last node (borrowed), or NULL if list is empty.
  */
 void	*list_get_content_last(t_list list);
 
 /**
  * @brief Gets the node at a specific index in the list.
  *
- * @param list List to search.
+ * @note Returned pointer is borrowed from the list. Do not free it directly;
+ *       the list retains ownership. Pointer becomes invalid if node is removed.
+ *
+ * @param list List to search (borrowed).
  * @param index Zero-based index.
- * @return Node at index, or NULL if index out of bounds.
+ * @return Node at index (borrowed), or NULL if index out of bounds.
  */
 t_node	*list_get_node_n(t_list list, size_t index);
 
 /**
  * @brief Gets the last node in the list.
  *
- * @param list List to search.
- * @return Last node, or NULL if list is empty.
+ * @note Returned pointer is borrowed from the list. Do not free it directly;
+ *       the list retains ownership. Pointer becomes invalid if node is removed.
+ *
+ * @param list List to search (borrowed).
+ * @return Last node (borrowed), or NULL if list is empty.
  */
 t_node	*list_get_node_last(t_list list);
 
 /**
  * @brief Applies a function to each element of the list.
  *
- * @param lst List to iterate over.
+ * @param lst List to iterate over (borrowed).
  * @param f Function to apply to each element's content.
  */
 void	list_iter(t_list lst, void (*f)(void *));
@@ -521,20 +526,20 @@ void	list_iter(t_list lst, void (*f)(void *));
 /**
  * @brief Creates a new list by applying a function to each element.
  *
- * @param list Source list.
- * @param f Function to apply to each element (returns new content).
- * @param del Function to delete content on failure.
- * @return New list (caller owns it), or NULL on failure.
+ * @note Caller owns the returned list and must free it with list_rm_all.
  *
- * @note Caller is responsible for freeing the returned list.
+ * @param list Source list (borrowed).
+ * @param f Function to apply to each element (returns new content, owned).
+ * @param del Function to delete content on failure.
+ * @return New list (owned), or NULL on failure.
  */
 t_list	list_map(t_list list, void *(*f)(void *), void (*del)(void *));
 
 /**
  * @brief Removes a specific node from the list.
  *
- * @param list Pointer to the list pointer.
- * @param node Node to remove.
+ * @param list Pointer to the list pointer (borrowed).
+ * @param node Node to remove (ownership taken, will be freed).
  * @param del_content Function to delete the node's content (can be NULL).
  */
 void	list_rm(t_list *list, t_node *node, void (*del_content)(void*));
@@ -552,23 +557,23 @@ void	list_rm_all(t_list *list, void (*del_content)(void*));
 /**
  * @brief Allocates and zeroes memory for an array.
  *
+ * @note Caller owns the returned memory and must free it.
+ *
  * @param count Number of elements.
  * @param size Size of each element.
- * @return Pointer to allocated zeroed memory, or NULL on failure.
- *
- * @note Caller is responsible for freeing the returned memory.
+ * @return Pointer to allocated zeroed memory (owned), or NULL on failure.
  */
 void	*ft_calloc(size_t count, size_t size);
 
 /**
  * @brief Reallocates a buffer to a new capacity.
  *
- * @param buff Pointer to the buffer pointer.
+ * @note If newcap is 0, *buff is freed and set to NULL.
+ *
+ * @param buff Pointer to the buffer pointer (owned, reallocated in place).
  * @param cap Current capacity.
  * @param newcap New capacity (0 to free the buffer).
- * @return true on success, false on failure.
- *
- * @note If newcap is 0, *buff is freed and set to NULL.
+ * @return true on success, false on failure (original buffer unchanged).
  */
 bool	ft_realloc(char **buff, size_t cap, size_t newcap);
 
@@ -621,10 +626,12 @@ void	ft_bzero(void *s, size_t n);
 /**
  * @brief Locates the first occurrence of a byte in memory.
  *
- * @param s Memory area to search.
+ * @note Returned pointer is borrowed from s. Do not free it directly.
+ *
+ * @param s Memory area to search (borrowed).
  * @param c Byte to search for (converted to unsigned char).
  * @param n Number of bytes to search.
- * @return Pointer to the byte, or NULL if not found.
+ * @return Pointer to the byte (borrowed), or NULL if not found.
  */
 void	*ft_memchr(const void *s, int c, size_t n);
 
@@ -641,12 +648,12 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 /**
  * @brief Copies n bytes from src to dst.
  *
- * @param dst Destination memory area.
- * @param src Source memory area.
+ * @warning Memory areas must not overlap. Use ft_memmove for overlapping.
+ *
+ * @param dst Destination memory area (borrowed).
+ * @param src Source memory area (borrowed).
  * @param n Number of bytes to copy.
  * @return Pointer to dst.
- *
- * @warning Memory areas must not overlap. Use ft_memmove for overlapping.
  */
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 
@@ -757,32 +764,34 @@ void	ft_putstr_fd(char *s, int fd);
 /**
  * @brief Splits a string into an array of strings using a delimiter.
  *
- * @param s String to split.
- * @param c Delimiter character.
- * @return NULL-terminated array of strings, or NULL on failure.
+ * @note Caller owns the returned array and each string within it.
+ *       Free each string then free the array itself.
  *
- * @note Caller is responsible for freeing each string and the array.
+ * @param s String to split (borrowed).
+ * @param c Delimiter character.
+ * @return NULL-terminated array of strings (owned), or NULL on failure.
  */
 char	**ft_split(char const *s, char c);
 
 /**
  * @brief Locates the first occurrence of a character in a string.
  *
- * @param s String to search.
- * @param c Character to find.
- * @return Pointer to the character, or NULL if not found.
- *
+ * @note Returned pointer is borrowed from s. Do not free it directly.
  * @note If c is '\\0', returns pointer to the terminating null.
+ *
+ * @param s String to search (borrowed).
+ * @param c Character to find.
+ * @return Pointer to the character (borrowed), or NULL if not found.
  */
 char	*ft_strchr(const char *s, int c);
 
 /**
  * @brief Duplicates a string.
  *
- * @param s1 String to duplicate.
- * @return Newly allocated copy, or NULL on failure.
+ * @note Caller owns the returned string and must free it.
  *
- * @note Caller is responsible for freeing the returned string.
+ * @param s1 String to duplicate (borrowed).
+ * @return Newly allocated copy (owned), or NULL on failure.
  */
 char	*ft_strdup(const char *s1);
 
@@ -797,11 +806,11 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 /**
  * @brief Concatenates two strings into a new string.
  *
- * @param s1 First string.
- * @param s2 Second string.
- * @return Newly allocated concatenated string, or NULL on failure.
+ * @note Caller owns the returned string and must free it.
  *
- * @note Caller is responsible for freeing the returned string.
+ * @param s1 First string (borrowed).
+ * @param s2 Second string (borrowed).
+ * @return Newly allocated concatenated string (owned), or NULL on failure.
  */
 char	*ft_strjoin(char const *s1, char const *s2);
 
@@ -836,11 +845,11 @@ size_t	ft_strlen(const char *s);
 /**
  * @brief Creates a new string by applying a function to each character.
  *
- * @param s String to transform.
- * @param f Function taking index and character, returning new character.
- * @return Newly allocated transformed string, or NULL on failure.
+ * @note Caller owns the returned string and must free it.
  *
- * @note Caller is responsible for freeing the returned string.
+ * @param s String to transform (borrowed).
+ * @param f Function taking index and character, returning new character.
+ * @return Newly allocated transformed string (owned), or NULL on failure.
  */
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
@@ -857,44 +866,47 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 /**
  * @brief Locates a substring within a string, limited by length.
  *
- * @param haystack String to search in.
- * @param needle Substring to find.
+ * @note Returned pointer is borrowed from haystack. Do not free it directly.
+ *
+ * @param haystack String to search in (borrowed).
+ * @param needle Substring to find (borrowed).
  * @param len Maximum characters to search.
- * @return Pointer to start of substring, or NULL if not found.
+ * @return Pointer to start of substring (borrowed), or NULL if not found.
  */
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
 /**
  * @brief Locates the last occurrence of a character in a string.
  *
- * @param s String to search.
- * @param c Character to find.
- * @return Pointer to the character, or NULL if not found.
- *
+ * @note Returned pointer is borrowed from s. Do not free it directly.
  * @note If c is '\\0', returns pointer to the terminating null.
+ *
+ * @param s String to search (borrowed).
+ * @param c Character to find.
+ * @return Pointer to the character (borrowed), or NULL if not found.
  */
 char	*ft_strrchr(const char *s, int c);
 
 /**
  * @brief Trims characters from the beginning and end of a string.
  *
- * @param s1 String to trim.
- * @param set Characters to trim.
- * @return Newly allocated trimmed string, or NULL on failure.
+ * @note Caller owns the returned string and must free it.
  *
- * @note Caller is responsible for freeing the returned string.
+ * @param s1 String to trim (borrowed).
+ * @param set Characters to trim (borrowed).
+ * @return Newly allocated trimmed string (owned), or NULL on failure.
  */
 char	*ft_strtrim(char const *s1, char const *set);
 
 /**
  * @brief Extracts a substring from a string.
  *
- * @param s Source string.
+ * @note Caller owns the returned string and must free it.
+ *
+ * @param s Source string (borrowed).
  * @param start Starting index.
  * @param len Maximum length of substring.
- * @return Newly allocated substring, or NULL on failure.
- *
- * @note Caller is responsible for freeing the returned string.
+ * @return Newly allocated substring (owned), or NULL on failure.
  */
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 

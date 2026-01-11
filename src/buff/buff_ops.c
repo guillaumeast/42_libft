@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "buff_internal.h"
 #include <stdlib.h>
 
 bool	buff_prepend(t_buff *b, const char *str, long n)

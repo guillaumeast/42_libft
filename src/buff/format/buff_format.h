@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:44 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:07:14 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 02:14:27 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,25 @@
  */
 typedef struct s_rules
 {
+	/** @brief Display '+' sign for positive numbers. */
 	bool	plus;
+	/** @brief Display space before positive numbers. */
 	bool	space;
+	/** @brief Display '0x' or '0X' prefix for hex numbers. */
 	bool	hex_prefix;
+	/** @brief Pad with zeros instead of spaces. */
 	bool	zero_padding;
+	/** @brief Right-align the output. */
 	bool	right_padding;
+	/** @brief Precision value, -1 if not set. */
 	int		precision;
+	/** @brief Width specifier is enabled. */
 	bool	width_enabled;
+	/** @brief Minimum field width. */
 	int		width;
+	/** @brief Conversion specifier character. */
 	char	conversion;
+	/** @brief Value is zero (used for special cases). */
 	bool	is_zero;
 }	t_rules;
 
