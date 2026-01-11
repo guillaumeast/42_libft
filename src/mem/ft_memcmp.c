@@ -6,20 +6,12 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:00 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:36:59 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 01:27:23 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-/**
- * @brief Compares two memory areas byte by byte.
- *
- * @param s1 First memory area.
- * @param s2 Second memory area.
- * @param n Number of bytes to compare.
- * @return Difference of first differing bytes, or 0 if equal.
- */
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	const unsigned char	*str1;

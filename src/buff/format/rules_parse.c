@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:50 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:01:04 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 01:29:45 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@ static void	parse_width(t_rules *rules, const char **fstring);
 static void	parse_precision(t_rules *rules, const char **fstring);
 static void	normalize(t_rules *rules);
 
-/**
- * @brief Parses format specifiers from a format string into rules structure.
- *
- * @param rules Pointer to the rules structure to populate.
- * @param fstring Pointer to format string pointer (advanced during parsing).
- */
 void	rules_parse(t_rules *rules, const char **fstring)
 {
 	const char	conversion_set[] = "csdiuxXp";

@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:38:08 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:25:16 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 01:25:29 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,6 @@
 static size_t	get_base_len(const char *base);
 static size_t	get_res_len(unsigned long n, size_t base_len);
 
-// TODO: préciser que c'est au caller de
-/**
- * @brief Converts an unsigned long to a string in a given base.
- *
- * @param n Number to convert.
- * @param base String representing the base characters.
- * @return Newly allocated string, or NULL on failure.
- */
 char	*ft_ultoa_base(unsigned long n, const char *base)
 {
 	size_t	base_len;

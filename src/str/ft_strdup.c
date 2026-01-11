@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:26 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:43:55 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 01:28:33 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 
 static	void	ft_strcpy(char *dst, const char *src);
 
-/**
- * @brief Duplicates a string.
- *
- * @param s1 String to duplicate.
- * @return Newly allocated copy, or NULL on failure.
- */
 char	*ft_strdup(const char *s1)
 {
 	char	*res;

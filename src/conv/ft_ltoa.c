@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:19:29 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:23:32 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 01:25:14 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,6 @@
 static size_t	get_len(long n);
 static void		populate(long n, char *str, size_t i);
 
-// TODO: préciser que le caller a la responsabilité de free la string retournée
-/**
- * @brief Converts a long integer to a string.
- *
- * @param n Long integer to convert.
- * @return Newly allocated string, or NULL on failure.
- */
 char	*ft_ltoa(long n)
 {
 	size_t	len;

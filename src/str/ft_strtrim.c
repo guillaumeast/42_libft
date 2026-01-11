@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:52 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:46:27 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 01:28:36 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,6 @@
 
 static int	ft_is_in_charset(char const c, char const *set);
 
-/**
- * @brief Trims characters from the beginning and end of a string.
- *
- * @param s1 String to trim.
- * @param set Characters to trim.
- * @return Newly allocated trimmed string, or NULL on failure.
- */
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;

@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:47 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/10 23:59:20 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 01:29:45 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,6 @@ static bool	apply_plus_space(t_buff *buff, t_rules *r);
 static bool	apply_hex_prefix(t_buff *buff, t_rules *rules);
 static bool	apply_width(t_buff *buff, t_rules *rules);
 
-/**
- * @brief Applies all formatting rules to the buffer content.
- *
- * @param buff Pointer to the buffer.
- * @param rules Pointer to the formatting rules.
- * @return true on success, false on failure.
- */
 bool	rules_apply(t_buff *buff, t_rules *rules)
 {
 	if (buff->len == 1 && buff->data[0] == '0')

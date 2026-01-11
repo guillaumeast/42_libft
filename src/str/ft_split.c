@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:20 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:43:29 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 01:29:55 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,6 @@ static size_t	count_words(char const *s, char sep);
 static char		*get_word(char const *s, char sep);
 static char		**free_all(char **tab);
 
-// TODO: préciser que c'est au caller de free les strings retournées ainsi que le tableau
-/**
- * @brief Splits a string into an array of strings using a delimiter.
- *
- * @param s String to split.
- * @param c Delimiter character.
- * @return Array of strings, or NULL on failure.
- */
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
@@ -82,13 +74,14 @@ static size_t	count_words(char const *s, char sep)
 	return (count);
 }
 
-// TODO: préciser que c'est au caller de free le word retourné
 /**
  * @brief Extracts a word from a string until the separator.
  *
  * @param s String to extract from.
  * @param sep Delimiter character.
  * @return Newly allocated word, or NULL on failure.
+ *
+ * @note Caller is responsible for freeing the returned string.
  */
 static char	*get_word(char const *s, char sep)
 {

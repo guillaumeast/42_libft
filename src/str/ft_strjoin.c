@@ -6,20 +6,13 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:31 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:44:40 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 01:28:34 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-/**
- * @brief Concatenates two strings into a new string.
- *
- * @param s1 First string.
- * @param s2 Second string.
- * @return Newly allocated concatenated string, or NULL on failure.
- */
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	len;

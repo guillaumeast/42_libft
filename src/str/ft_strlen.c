@@ -6,18 +6,12 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:38 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:45:06 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 01:28:35 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-/**
- * @brief Calculates the length of a string.
- *
- * @param s String to measure.
- * @return Length of the string.
- */
 size_t	ft_strlen(const char *s)
 {
 	size_t	len;

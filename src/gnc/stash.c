@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:29:14 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:32:02 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 01:26:05 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@
 
 static t_list	g_stashs = NULL;
 
-/**
- * @brief Gets or creates a buffer for a file descriptor.
- *
- * @param fd File descriptor.
- * @return Pointer to the buffer, or NULL on failure.
- */
 t_buff	*get_buffer(int fd)
 {
 	t_node	*node;
@@ -64,11 +58,6 @@ void	stash_free(void *stash_ptr)
 	free(stash);
 }
 
-/**
- * @brief Finds and frees the stash associated with a file descriptor.
- *
- * @param fd File descriptor.
- */
 void	stash_find_and_free(int fd)
 {
 	t_node	*node;
@@ -89,9 +78,6 @@ void	stash_find_and_free(int fd)
 	}
 }
 
-/**
- * @brief Frees all stashs and their buffers in the global list.
- */
 void	stashs_free_all(void)
 {
 	if (!g_stashs)

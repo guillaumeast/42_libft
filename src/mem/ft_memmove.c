@@ -6,21 +6,12 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:05 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:38:04 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 01:27:32 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-// TODO: ajouter une note pour dire que dst et src peuvent se chevaucher
-/**
- * @brief Copies n bytes from src to dst, handling overlaps.
- *
- * @param dst Destination memory area.
- * @param src Source memory area.
- * @param len Number of bytes to copy.
- * @return Pointer to dst.
- */
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;

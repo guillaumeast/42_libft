@@ -6,20 +6,12 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:36 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:44:56 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 01:28:34 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**
- * @brief Copies src to dst with size limit.
- *
- * @param dst Destination buffer.
- * @param src Source string.
- * @param dstsize Size of destination buffer.
- * @return Length of src.
- */
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;

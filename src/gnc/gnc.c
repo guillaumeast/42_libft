@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:29:20 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:29:34 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 01:25:52 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,6 @@
 static int		read_until_sep(t_buff *buff, int fd, char separator);
 static t_buff	*get_chunk(t_buff *buff, int sep_index);
 
-// TODO: préciser que la fonction renvoie le chunk si EOF avant que le separator soit trouvé (elle ne renvoie NULL que lorsqu'elle est appellée alors qu'on a déjà atteint EOF !)
-/**
- * @brief Reads the next chunk from a file descriptor until separator is found.
- *
- * @param fd File descriptor to read from.
- * @param separator Character to stop reading at.
- * @return Pointer to a new buffer containing the chunk, or NULL on error/EOF.
- */
 t_buff	*get_next_chunk(int fd, char separator)
 {
 	t_buff			*buff;
@@ -66,12 +58,11 @@ static int	read_until_sep(t_buff *buff, int fd, char separator)
 	return (sep_index);
 }
 
-// TODO: préciser que -1 est pour extraire tout le contenu du buffer
 /**
  * @brief Extracts a chunk from the buffer up to the separator index.
  *
  * @param buff Source buffer.
- * @param sep_index Index of the separator (-1 if not found).
+ * @param sep_index Index of the separator, or -1 to extract entire buffer.
  * @return Pointer to the new chunk buffer, or NULL on failure.
  */
 static t_buff	*get_chunk(t_buff *buff, int sep_index)
@@ -93,9 +84,6 @@ static t_buff	*get_chunk(t_buff *buff, int sep_index)
 	return (chunk);
 }
 
-/**
- * @brief Frees all stashed buffers used by get_next_chunk.
- */
 void	get_next_chunk_free(void)
 {
 	stashs_free_all();
