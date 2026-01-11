@@ -2,6 +2,7 @@
 
 > _Rebuilding the fundamental bricks of the C standard library and creating a personal reusable library for future 42 projects._
 
+[![42](https://img.shields.io/badge/-black?logo=42&style=flat)](https://42.fr/)
 [![Language: C](https://img.shields.io/badge/language-C-lightgrey)](https://en.wikipedia.org/wiki/C_(programming_language))
 [![Type: Library](https://img.shields.io/badge/Type-Library-8b949e)](https://en.wikipedia.org/wiki/Library_(computing))
 [![Platform: macOS/Linux](https://img.shields.io/badge/platform-macOS%20%26%20Linux-blue)](https://en.wikipedia.org/wiki/Unix-like)
