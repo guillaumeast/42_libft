@@ -1,0 +1,5 @@
+<map id="list_get_node_last" name="list_get_node_last">
+<area shape="rect" id="Node000001" title="Gets the last node in the list." alt="" coords="195,5,321,31"/>
+<area shape="rect" id="Node000002" href="$group__list.html#gaf15e3f19c1bc2b6203f86f4d137d0eb8" title="Gets the content of the last node in the list." alt="" coords="5,5,147,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,18,147,21,147,16,182,18"/>
+</map>

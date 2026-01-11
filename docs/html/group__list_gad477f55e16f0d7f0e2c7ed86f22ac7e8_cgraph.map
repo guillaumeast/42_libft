@@ -1,0 +1,5 @@
+<map id="list_add_start" name="list_add_start">
+<area shape="rect" id="Node000001" title="Adds a new element at the start of the list." alt="" coords="5,5,105,31"/>
+<area shape="rect" id="Node000002" href="$group__list.html#gaabef2dc222d9220067c6257920cb7a0f" title="Creates a new list node." alt="" coords="153,5,233,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,16,140,18,134,18,105,21"/>
+</map>

@@ -117,98 +117,11 @@ Include dependency graph for node.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aabef2dc222d9220067c6257920cb7a0f" id="r_aabef2dc222d9220067c6257920cb7a0f"><td class="memItemLeft"><a class="el" href="libft_8h.html#a3f46128da7b9ed932ecb00df9677e301">t_node</a> *&#160;</td><td class="memItemRight"><a class="el" href="#aabef2dc222d9220067c6257920cb7a0f">node_new</a> (void *content, <a class="el" href="libft_8h.html#a3f46128da7b9ed932ecb00df9677e301">t_node</a> *prev, <a class="el" href="libft_8h.html#a3f46128da7b9ed932ecb00df9677e301">t_node</a> *next)</td></tr>
-<tr class="memdesc:aabef2dc222d9220067c6257920cb7a0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new list node.  <br /></td></tr>
-<tr class="memitem:acd4adcceba96f7bda7c3db6ed2dee99a" id="r_acd4adcceba96f7bda7c3db6ed2dee99a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acd4adcceba96f7bda7c3db6ed2dee99a">node_free</a> (<a class="el" href="libft_8h.html#a3f46128da7b9ed932ecb00df9677e301">t_node</a> **node, void(*del_content)(void *))</td></tr>
-<tr class="memdesc:acd4adcceba96f7bda7c3db6ed2dee99a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees a node and optionally its content.  <br /></td></tr>
+<tr class="memitem:gaabef2dc222d9220067c6257920cb7a0f" id="r_gaabef2dc222d9220067c6257920cb7a0f"><td class="memItemLeft"><a class="el" href="libft_8h.html#a3f46128da7b9ed932ecb00df9677e301">t_node</a> *&#160;</td><td class="memItemRight"><a class="el" href="group__list.html#gaabef2dc222d9220067c6257920cb7a0f">node_new</a> (void *content, <a class="el" href="libft_8h.html#a3f46128da7b9ed932ecb00df9677e301">t_node</a> *prev, <a class="el" href="libft_8h.html#a3f46128da7b9ed932ecb00df9677e301">t_node</a> *next)</td></tr>
+<tr class="memdesc:gaabef2dc222d9220067c6257920cb7a0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new list node.  <br /></td></tr>
+<tr class="memitem:gacd4adcceba96f7bda7c3db6ed2dee99a" id="r_gacd4adcceba96f7bda7c3db6ed2dee99a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group__list.html#gacd4adcceba96f7bda7c3db6ed2dee99a">node_free</a> (<a class="el" href="libft_8h.html#a3f46128da7b9ed932ecb00df9677e301">t_node</a> **node, void(*del_content)(void *))</td></tr>
+<tr class="memdesc:gacd4adcceba96f7bda7c3db6ed2dee99a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees a node and optionally its content.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="acd4adcceba96f7bda7c3db6ed2dee99a" name="acd4adcceba96f7bda7c3db6ed2dee99a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd4adcceba96f7bda7c3db6ed2dee99a">&#9670;&#160;</a></span>node_free()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void node_free </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="libft_8h.html#a3f46128da7b9ed932ecb00df9677e301">t_node</a> **</td>          <td class="paramname"><span class="paramname"><em>node</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void(*</td>          <td class="paramname"><span class="paramname"><em>del_content&#160;</em></span>)(void *)&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Frees a node and optionally its content. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">node</td><td>Pointer to the node pointer (set to NULL after freeing). </td></tr>
-    <tr><td class="paramname">del_content</td><td>Function to delete the content (can be NULL to skip). </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aabef2dc222d9220067c6257920cb7a0f" name="aabef2dc222d9220067c6257920cb7a0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabef2dc222d9220067c6257920cb7a0f">&#9670;&#160;</a></span>node_new()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="libft_8h.html#a3f46128da7b9ed932ecb00df9677e301">t_node</a> * node_new </td>
-          <td>(</td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>content</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="libft_8h.html#a3f46128da7b9ed932ecb00df9677e301">t_node</a> *</td>          <td class="paramname"><span class="paramname"><em>prev</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="libft_8h.html#a3f46128da7b9ed932ecb00df9677e301">t_node</a> *</td>          <td class="paramname"><span class="paramname"><em>next</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Creates a new list node. </p>
-<dl class="section note"><dt>Note</dt><dd>Ownership of content is transferred to the node on success.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">content</td><td>Content for the new node (ownership transferred). </td></tr>
-    <tr><td class="paramname">prev</td><td>Pointer to the previous node (borrowed, can be NULL). </td></tr>
-    <tr><td class="paramname">next</td><td>Pointer to the next node (borrowed, can be NULL). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the new node (owned), or NULL on allocation failure. </dd></dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="node_8c_aabef2dc222d9220067c6257920cb7a0f_icgraph.png" border="0" usemap="#anode_8c_aabef2dc222d9220067c6257920cb7a0f_icgraph" loading="lazy" alt=""/></div>
-<map name="anode_8c_aabef2dc222d9220067c6257920cb7a0f_icgraph" id="anode_8c_aabef2dc222d9220067c6257920cb7a0f_icgraph">
-<area shape="rect" title="Creates a new list node." alt="" coords="441,55,522,80"/>
-<area shape="rect" href="list__life__cycle_8c.html#a7628e141015c573aaf45b77fd961129a" title="Adds a new element at the end of the list." alt="" coords="296,29,391,55"/>
-<area shape="poly" title=" " alt="" coords="423,57,391,54,392,48,428,57"/>
-<area shape="rect" href="list__life__cycle_8c.html#ad477f55e16f0d7f0e2c7ed86f22ac7e8" title="Adds a new element at the start of the list." alt="" coords="294,79,393,104"/>
-<area shape="poly" title=" " alt="" coords="428,77,394,85,394,80,423,77"/>
-<area shape="rect" href="stash_8c.html#ae063deb93715790920703153c1aaf2cd" title="Gets or creates a buffer for a file descriptor." alt="" coords="167,5,246,31"/>
-<area shape="poly" title=" " alt="" coords="279,32,247,28,246,22,284,31"/>
-<area shape="rect" href="list__apply_8c.html#a0f4adf7f468df574c302cd02b3b06acf" title="Creates a new list by applying a function to each element." alt="" coords="171,55,242,80"/>
-<area shape="poly" title=" " alt="" coords="284,53,242,64,241,58,278,54"/>
-<area shape="rect" href="gnc_8c.html#a82bd3d4dda9db114063a2276e9619aff" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="5,5,119,31"/>
-<area shape="poly" title=" " alt="" coords="148,19,120,21,118,16,153,17"/>
-</map>
-</div>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

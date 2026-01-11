@@ -1,11 +1,11 @@
 <map id="get_buffer" name="get_buffer">
 <area shape="rect" id="Node000001" title="Gets or creates a buffer for a file descriptor." alt="" coords="5,55,85,80"/>
-<area shape="rect" id="Node000002" href="$buff__life__cycle_8c.html#a3825f38fa07df6f1a17b060955d84f04" title="Frees the buffer&#39;s internal data." alt="" coords="144,5,216,31"/>
+<area shape="rect" id="Node000002" href="$group__buff.html#ga3825f38fa07df6f1a17b060955d84f04" title="Frees the buffer&#39;s internal data." alt="" coords="144,5,216,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,52,131,35,127,38,84,56"/>
-<area shape="rect" id="Node000003" href="$buff__life__cycle_8c.html#a5b93ae89b288bf7e0843e34c072c52c6" title="Initializes a buffer with the specified initial capacity." alt="" coords="146,55,214,80"/>
+<area shape="rect" id="Node000003" href="$group__buff.html#ga5b93ae89b288bf7e0843e34c072c52c6" title="Initializes a buffer with the specified initial capacity." alt="" coords="146,55,214,80"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="85,65,133,66,128,69,86,70"/>
-<area shape="rect" id="Node000004" href="$list__life__cycle_8c.html#a7628e141015c573aaf45b77fd961129a" title="Adds a new element at the end of the list." alt="" coords="133,104,227,130"/>
+<area shape="rect" id="Node000004" href="$group__list.html#ga7628e141015c573aaf45b77fd961129a" title="Adds a new element at the end of the list." alt="" coords="133,104,227,130"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="83,78,131,97,126,99,82,84"/>
-<area shape="rect" id="Node000005" href="$node_8c.html#aabef2dc222d9220067c6257920cb7a0f" title="Creates a new list node." alt="" coords="275,104,355,130"/>
+<area shape="rect" id="Node000005" href="$group__list.html#gaabef2dc222d9220067c6257920cb7a0f" title="Creates a new list node." alt="" coords="275,104,355,130"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="228,114,262,117,257,117,228,119"/>
 </map>

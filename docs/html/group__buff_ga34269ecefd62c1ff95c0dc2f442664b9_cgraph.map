@@ -1,0 +1,7 @@
+<map id="buff_grow" name="buff_grow">
+<area shape="rect" id="Node000001" title="Grows the buffer to accommodate the target length if necessary." alt="" coords="5,31,84,56"/>
+<area shape="rect" id="Node000002" href="$buff__life__cycle_8c.html#ac56b2e828372192af7c1317b6a28f60e" title="Calculates the required capacity to accommodate a target length." alt="" coords="132,5,281,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,35,119,31,114,33,85,40"/>
+<area shape="rect" id="Node000003" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="163,55,250,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="84,47,150,58,145,60,84,52"/>
+</map>

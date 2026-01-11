@@ -1,0 +1,7 @@
+<map id="ft_ultoa_base" name="ft_ultoa_base">
+<area shape="rect" id="Node000001" title="Converts an unsigned long to a string in a given base." alt="" coords="5,31,105,56"/>
+<area shape="rect" id="Node000002" href="$ft__ultoa__base_8c.html#a2501259f8f92f2a86ca35c3293713774" title="Calculates the length of a base string." alt="" coords="153,5,251,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,32,140,28,135,30,106,38"/>
+<area shape="rect" id="Node000003" href="$ft__ultoa__base_8c.html#a43316e70eab4a93ccf23ef1b8f43113d" title="Calculates the result string length for a number in a given base." alt="" coords="158,55,246,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="105,49,145,57,139,58,105,54"/>
+</map>

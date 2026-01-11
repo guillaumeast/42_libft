@@ -1,0 +1,13 @@
+<map id="node_new" name="node_new">
+<area shape="rect" id="Node000001" title="Creates a new list node." alt="" coords="441,55,522,80"/>
+<area shape="rect" id="Node000002" href="$group__list.html#ga7628e141015c573aaf45b77fd961129a" title="Adds a new element at the end of the list." alt="" coords="296,29,391,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="423,57,391,54,392,48,428,57"/>
+<area shape="rect" id="Node000006" href="$group__list.html#gad477f55e16f0d7f0e2c7ed86f22ac7e8" title="Adds a new element at the start of the list." alt="" coords="294,79,393,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="428,77,394,85,394,80,423,77"/>
+<area shape="rect" id="Node000003" href="$stash_8c.html#ae063deb93715790920703153c1aaf2cd" title="Gets or creates a buffer for a file descriptor." alt="" coords="167,5,246,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="279,32,247,28,246,22,284,31"/>
+<area shape="rect" id="Node000005" href="$group__list.html#ga0f4adf7f468df574c302cd02b3b06acf" title="Creates a new list by applying a function to each element." alt="" coords="171,55,242,80"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="284,53,242,64,241,58,278,54"/>
+<area shape="rect" id="Node000004" href="$group__gnl.html#ga82bd3d4dda9db114063a2276e9619aff" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="5,5,119,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="148,19,120,21,118,16,153,17"/>
+</map>

@@ -7,5 +7,7 @@ var searchData=
   ['populate_4',['populate',['../ft__ltoa_8c.html#af12a39b2cec391f0762f1e08c22432f3',1,'ft_ltoa.c']]],
   ['precision_5',['precision',['../structs__rules.html#acb05d7f81f9dac46e5cab7f519d77d6a',1,'s_rules']]],
   ['prev_6',['prev',['../structs__node.html#ae95cd17e93d1c2de3174acef62c8dce1',1,'s_node']]],
-  ['printer_2ec_7',['printer.c',['../printer_8c.html',1,'']]]
+  ['print_20functions_7',['Print Functions',['../group__print.html',1,'']]],
+  ['printer_2ec_8',['printer.c',['../printer_8c.html',1,'']]],
+  ['put_20functions_9',['Put Functions',['../group__put.html',1,'']]]
 ];

@@ -57,7 +57,7 @@ and to serve as a **long-term foundation** for all future C developments.
 
 The full API documentation is generated from the source code using Doxygen.
 
-➡️ **[Browse the libft API documentation](docs/html/libft_8h.html)**
+➡️ **[Browse the libft API documentation](https://guillaumeast.github.io/42_libft/html/topics)**
 
 > The documentation describes:
 > - function contracts

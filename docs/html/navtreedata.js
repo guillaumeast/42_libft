@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "Libft", "index.html", [
+    [ "Topics", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -49,7 +50,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"libft_8h.html#acdc865fa140c03c01a39d74b1f5c2416"
+"stash_8c.html#a19fced6b87ca2bfc47c124aa40673b4c"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

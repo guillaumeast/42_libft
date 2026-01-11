@@ -123,8 +123,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:a56d56b162e8a5aa289431a1eaaf1ab70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts a word from a string until the separator.  <br /></td></tr>
 <tr class="memitem:afa1f9b6da52f25237b6ba5c5ef96d50f" id="r_afa1f9b6da52f25237b6ba5c5ef96d50f"><td class="memItemLeft">static char **&#160;</td><td class="memItemRight"><a class="el" href="#afa1f9b6da52f25237b6ba5c5ef96d50f">free_all</a> (char **tab)</td></tr>
 <tr class="memdesc:afa1f9b6da52f25237b6ba5c5ef96d50f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees all strings in a null-terminated array and the tab itself.  <br /></td></tr>
-<tr class="memitem:aa65c9de65051c8c589286cf133c4a1f4" id="r_aa65c9de65051c8c589286cf133c4a1f4"><td class="memItemLeft">char **&#160;</td><td class="memItemRight"><a class="el" href="#aa65c9de65051c8c589286cf133c4a1f4">ft_split</a> (char const *s, char c)</td></tr>
-<tr class="memdesc:aa65c9de65051c8c589286cf133c4a1f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits a string into an array of strings using a delimiter.  <br /></td></tr>
+<tr class="memitem:gaa65c9de65051c8c589286cf133c4a1f4" id="r_gaa65c9de65051c8c589286cf133c4a1f4"><td class="memItemLeft">char **&#160;</td><td class="memItemRight"><a class="el" href="group__str.html#gaa65c9de65051c8c589286cf133c4a1f4">ft_split</a> (char const *s, char c)</td></tr>
+<tr class="memdesc:gaa65c9de65051c8c589286cf133c4a1f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Splits a string into an array of strings using a delimiter.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a830c5f8b4d1b754d8c3f238424b55fdb" name="a830c5f8b4d1b754d8c3f238424b55fdb"></a>
@@ -169,7 +169,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="ft__split_8c_a830c5f8b4d1b754d8c3f238424b55fdb_icgraph.png" border="0" usemap="#aft__split_8c_a830c5f8b4d1b754d8c3f238424b55fdb_icgraph" loading="lazy" alt=""/></div>
 <map name="aft__split_8c_a830c5f8b4d1b754d8c3f238424b55fdb_icgraph" id="aft__split_8c_a830c5f8b4d1b754d8c3f238424b55fdb_icgraph">
 <area shape="rect" title="Counts words in a string separated by a delimiter." alt="" coords="114,5,209,31"/>
-<area shape="rect" href="ft__split_8c.html#aa65c9de65051c8c589286cf133c4a1f4" title="Splits a string into an array of strings using a delimiter." alt="" coords="5,5,66,31"/>
+<area shape="rect" href="group__str.html#gaa65c9de65051c8c589286cf133c4a1f4" title="Splits a string into an array of strings using a delimiter." alt="" coords="5,5,66,31"/>
 <area shape="poly" title=" " alt="" coords="95,19,66,21,66,16,101,18"/>
 </map>
 </div>
@@ -213,62 +213,8 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="ft__split_8c_afa1f9b6da52f25237b6ba5c5ef96d50f_icgraph.png" border="0" usemap="#aft__split_8c_afa1f9b6da52f25237b6ba5c5ef96d50f_icgraph" loading="lazy" alt=""/></div>
 <map name="aft__split_8c_afa1f9b6da52f25237b6ba5c5ef96d50f_icgraph" id="aft__split_8c_afa1f9b6da52f25237b6ba5c5ef96d50f_icgraph">
 <area shape="rect" title="Frees all strings in a null&#45;terminated array and the tab itself." alt="" coords="114,5,177,31"/>
-<area shape="rect" href="ft__split_8c.html#aa65c9de65051c8c589286cf133c4a1f4" title="Splits a string into an array of strings using a delimiter." alt="" coords="5,5,66,31"/>
+<area shape="rect" href="group__str.html#gaa65c9de65051c8c589286cf133c4a1f4" title="Splits a string into an array of strings using a delimiter." alt="" coords="5,5,66,31"/>
 <area shape="poly" title=" " alt="" coords="95,19,66,21,66,16,100,18"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aa65c9de65051c8c589286cf133c4a1f4" name="aa65c9de65051c8c589286cf133c4a1f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa65c9de65051c8c589286cf133c4a1f4">&#9670;&#160;</a></span>ft_split()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char ** ft_split </td>
-          <td>(</td>
-          <td class="paramtype">char const *</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Splits a string into an array of strings using a delimiter. </p>
-<dl class="section note"><dt>Note</dt><dd>Caller owns the returned array and each string within it. Free each string then free the array itself.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">s</td><td>String to split (borrowed). </td></tr>
-    <tr><td class="paramname">c</td><td>Delimiter character. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>NULL-terminated array of strings (owned), or NULL on failure. </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="ft__split_8c_aa65c9de65051c8c589286cf133c4a1f4_cgraph.png" border="0" usemap="#aft__split_8c_aa65c9de65051c8c589286cf133c4a1f4_cgraph" loading="lazy" alt=""/></div>
-<map name="aft__split_8c_aa65c9de65051c8c589286cf133c4a1f4_cgraph" id="aft__split_8c_aa65c9de65051c8c589286cf133c4a1f4_cgraph">
-<area shape="rect" title="Splits a string into an array of strings using a delimiter." alt="" coords="5,55,66,80"/>
-<area shape="rect" href="ft__split_8c.html#a830c5f8b4d1b754d8c3f238424b55fdb" title="Counts words in a string separated by a delimiter." alt="" coords="114,5,209,31"/>
-<area shape="poly" title=" " alt="" coords="65,54,114,35,111,39,67,58"/>
-<area shape="rect" href="ft__split_8c.html#afa1f9b6da52f25237b6ba5c5ef96d50f" title="Frees all strings in a null&#45;terminated array and the tab itself." alt="" coords="130,55,193,80"/>
-<area shape="poly" title=" " alt="" coords="65,65,116,66,112,69,67,70"/>
-<area shape="rect" href="ft__split_8c.html#a56d56b162e8a5aa289431a1eaaf1ab70" title="Extracts a word from a string until the separator." alt="" coords="124,104,198,130"/>
-<area shape="poly" title=" " alt="" coords="66,77,115,97,110,99,66,82"/>
-<area shape="rect" href="ft__substr_8c.html#a78c402cbf3d55b1374693c3b7d34f71d" title="Extracts a substring from a string." alt="" coords="257,104,329,130"/>
-<area shape="poly" title=" " alt="" coords="199,114,244,117,239,117,199,119"/>
-<area shape="rect" href="ft__calloc_8c.html#ae0a6807f9f78ed4bf4f958323582d22f" title="Allocates and zeroes memory for an array." alt="" coords="377,79,448,104"/>
-<area shape="poly" title=" " alt="" coords="329,107,359,103,365,102,330,112"/>
-<area shape="rect" href="ft__strlen_8c.html#abbb8c6c4ed85d892e7f1509f65f5768a" title="Calculates the length of a string." alt="" coords="378,128,447,154"/>
-<area shape="poly" title=" " alt="" coords="330,121,366,131,360,131,329,127"/>
-<area shape="rect" href="ft__bzero_8c.html#a5937ab0d08e31d0e3e4a16ec71e293a1" title="Sets n bytes of memory to zero." alt="" coords="496,79,564,104"/>
-<area shape="poly" title=" " alt="" coords="448,89,483,91,477,92,448,94"/>
 </map>
 </div>
 
@@ -317,13 +263,13 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="ft__split_8c_a56d56b162e8a5aa289431a1eaaf1ab70_cgraph.png" border="0" usemap="#aft__split_8c_a56d56b162e8a5aa289431a1eaaf1ab70_cgraph" loading="lazy" alt=""/></div>
 <map name="aft__split_8c_a56d56b162e8a5aa289431a1eaaf1ab70_cgraph" id="aft__split_8c_a56d56b162e8a5aa289431a1eaaf1ab70_cgraph">
 <area shape="rect" title="Extracts a word from a string until the separator." alt="" coords="5,31,80,56"/>
-<area shape="rect" href="ft__substr_8c.html#a78c402cbf3d55b1374693c3b7d34f71d" title="Extracts a substring from a string." alt="" coords="128,31,200,56"/>
+<area shape="rect" href="group__str.html#ga78c402cbf3d55b1374693c3b7d34f71d" title="Extracts a substring from a string." alt="" coords="128,31,200,56"/>
 <area shape="poly" title=" " alt="" coords="80,41,115,43,110,44,80,46"/>
-<area shape="rect" href="ft__calloc_8c.html#ae0a6807f9f78ed4bf4f958323582d22f" title="Allocates and zeroes memory for an array." alt="" coords="248,5,318,31"/>
+<area shape="rect" href="group__malloc.html#gae0a6807f9f78ed4bf4f958323582d22f" title="Allocates and zeroes memory for an array." alt="" coords="248,5,318,31"/>
 <area shape="poly" title=" " alt="" coords="200,33,235,28,230,29,201,39"/>
-<area shape="rect" href="ft__strlen_8c.html#abbb8c6c4ed85d892e7f1509f65f5768a" title="Calculates the length of a string." alt="" coords="249,55,317,80"/>
+<area shape="rect" href="group__str.html#gabbb8c6c4ed85d892e7f1509f65f5768a" title="Calculates the length of a string." alt="" coords="249,55,317,80"/>
 <area shape="poly" title=" " alt="" coords="200,48,236,58,231,58,200,53"/>
-<area shape="rect" href="ft__bzero_8c.html#a5937ab0d08e31d0e3e4a16ec71e293a1" title="Sets n bytes of memory to zero." alt="" coords="366,5,435,31"/>
+<area shape="rect" href="group__mem.html#ga5937ab0d08e31d0e3e4a16ec71e293a1" title="Sets n bytes of memory to zero." alt="" coords="366,5,435,31"/>
 <area shape="poly" title=" " alt="" coords="319,16,353,18,348,18,319,21"/>
 </map>
 </div>
@@ -333,7 +279,7 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="ft__split_8c_a56d56b162e8a5aa289431a1eaaf1ab70_icgraph.png" border="0" usemap="#aft__split_8c_a56d56b162e8a5aa289431a1eaaf1ab70_icgraph" loading="lazy" alt=""/></div>
 <map name="aft__split_8c_a56d56b162e8a5aa289431a1eaaf1ab70_icgraph" id="aft__split_8c_a56d56b162e8a5aa289431a1eaaf1ab70_icgraph">
 <area shape="rect" title="Extracts a word from a string until the separator." alt="" coords="114,5,188,31"/>
-<area shape="rect" href="ft__split_8c.html#aa65c9de65051c8c589286cf133c4a1f4" title="Splits a string into an array of strings using a delimiter." alt="" coords="5,5,66,31"/>
+<area shape="rect" href="group__str.html#gaa65c9de65051c8c589286cf133c4a1f4" title="Splits a string into an array of strings using a delimiter." alt="" coords="5,5,66,31"/>
 <area shape="poly" title=" " alt="" coords="96,19,66,21,66,16,101,18"/>
 </map>
 </div>

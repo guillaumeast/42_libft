@@ -1,5 +1,5 @@
 <map id="ft_is_in_charset" name="ft_is_in_charset">
 <area shape="rect" id="Node000001" title="Checks if a character is in a set." alt="" coords="127,5,240,31"/>
-<area shape="rect" id="Node000002" href="$ft__strtrim_8c.html#a60352c5b39fab08469b3e28131a79e25" title="Trims characters from the beginning and end of a string." alt="" coords="5,5,79,31"/>
+<area shape="rect" id="Node000002" href="$group__str.html#ga60352c5b39fab08469b3e28131a79e25" title="Trims characters from the beginning and end of a string." alt="" coords="5,5,79,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,19,79,21,79,16,114,18"/>
 </map>

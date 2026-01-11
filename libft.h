@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 03:53:07 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/11 04:25:28 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,78 @@ typedef struct s_node
  */
 typedef t_node	*t_list;
 
-/*--------- BUFF ----------*/
+/** @defgroup buff Buffer API
+ *  @brief Dynamic growable buffer utilities.
+ *
+ *  Functions to initialize, grow, shrink and manipulate dynamic buffers.
+ */
+
+/** @defgroup chr Character Functions
+ *  @brief Character classification and conversion.
+ *
+ *  Functions to test and transform individual characters.
+ */
+
+/** @defgroup conv Conversion Functions
+ *  @brief String/number conversion utilities.
+ *
+ *  Functions to convert between strings and numeric types.
+ */
+
+/** @defgroup gnl Get Next Chunk
+ *  @brief Chunk-by-chunk file reading (customizable separator).
+ *
+ *  Functions to read chunks from file descriptors with persistent state.
+ */
+
+/** @defgroup list Linked List API
+ *  @brief Doubly linked list utilities.
+ *
+ *  Functions to create, manipulate and traverse doubly linked lists.
+ */
+
+/** @defgroup malloc Memory Allocation
+ *  @brief Memory allocation utilities.
+ *
+ *  Functions for allocating and reallocating memory.
+ */
+
+/** @defgroup math Math Functions
+ *  @brief Mathematical utilities.
+ *
+ *  Functions for common mathematical operations.
+ */
+
+/** @defgroup mem Memory Functions
+ *  @brief Low-level memory operations.
+ *
+ *  Functions to manipulate raw memory blocks.
+ */
+
+/** @defgroup print Print Functions
+ *  @brief Formatted output utilities.
+ *
+ *  Printf-like functions for formatted output to file descriptors.
+ */
+
+/** @defgroup put Put Functions
+ *  @brief Basic output functions.
+ *
+ *  Functions to write characters, strings and numbers to file descriptors.
+ */
+
+/** @defgroup str String Functions
+ *  @brief String manipulation utilities.
+ *
+ *  Functions to search, copy, compare and transform strings.
+ */
+
+/* ************************************************************************* */
+/*                                   BUFF                                    */
+/* ************************************************************************* */
 
 /**
+ * @ingroup buff
  * @brief Initializes a buffer with the specified initial capacity.
  *
  * @note Cannot fail when initial_cap == 0.
@@ -76,6 +145,7 @@ typedef t_node	*t_list;
 bool	buff_init(t_buff *b, size_t initial_cap);
 
 /**
+ * @ingroup buff
  * @brief Grows the buffer to accommodate the target length if necessary.
  *
  * No-op if current capacity is already sufficient.
@@ -89,6 +159,7 @@ bool	buff_init(t_buff *b, size_t initial_cap);
 bool	buff_grow(t_buff *buff, size_t target_len);
 
 /**
+ * @ingroup buff
  * @brief Shrinks buffer capacity to match its current length.
  *
  * @warning buff must be initialized before calling this function.
@@ -99,6 +170,7 @@ bool	buff_grow(t_buff *buff, size_t target_len);
 bool	buff_adjust(t_buff *buff);
 
 /**
+ * @ingroup buff
  * @brief Frees the buffer's internal data.
  *
  * Sets buff->data to NULL after freeing.
@@ -110,6 +182,7 @@ bool	buff_adjust(t_buff *buff);
 void	buff_free(t_buff *b);
 
 /**
+ * @ingroup buff
  * @brief Finds the index of a character in the buffer.
  *
  * @warning buff must be initialized before calling this function.
@@ -121,6 +194,7 @@ void	buff_free(t_buff *b);
 int		buff_get_index(t_buff *buff, char c);
 
 /**
+ * @ingroup buff
  * @brief Prepends a string to the beginning of the buffer.
  *
  * Buffer is automatically grown if necessary.
@@ -136,6 +210,7 @@ int		buff_get_index(t_buff *buff, char c);
 bool	buff_prepend(t_buff *b, const char *str, long n);
 
 /**
+ * @ingroup buff
  * @brief Inserts a string at a specific index in the buffer.
  *
  * Buffer is automatically grown if necessary.
@@ -153,6 +228,7 @@ bool	buff_prepend(t_buff *b, const char *str, long n);
 bool	buff_insert(t_buff *b, size_t index, const char *str, long n);
 
 /**
+ * @ingroup buff
  * @brief Appends a string to the end of the buffer.
  *
  * Buffer is automatically grown if necessary.
@@ -168,6 +244,7 @@ bool	buff_insert(t_buff *b, size_t index, const char *str, long n);
 bool	buff_append(t_buff *b, const char *str, long n);
 
 /**
+ * @ingroup buff
  * @brief Duplicates up to n bytes of a buffer into a new buffer.
  *
  * @note Caller owns the returned t_buff and must free both the struct
@@ -180,6 +257,7 @@ bool	buff_append(t_buff *b, const char *str, long n);
 t_buff	*buff_dup_n(const t_buff *src, size_t n);
 
 /**
+ * @ingroup buff
  * @brief Removes a portion of the buffer starting at i_start.
  *
  * @note If len < 0, deletes all buffer content from i_start to end.
@@ -193,6 +271,7 @@ t_buff	*buff_dup_n(const t_buff *src, size_t n);
 void	buff_rm_part(t_buff *buff, size_t i_start, ssize_t len);
 
 /**
+ * @ingroup buff
  * @brief Appends formatted string to buffer using variadic arguments.
  *
  * > Supports printf formats: 
@@ -210,6 +289,7 @@ bool	buff_append_format(t_buff *buff, const char *fstring, ...)
 		__attribute__((format(printf, 2, 3)));
 
 /**
+ * @ingroup buff
  * @brief Appends formatted string to buffer using va_list.
  *
  * @warning buff must be initialized before calling this function.
@@ -222,6 +302,7 @@ bool	buff_append_format(t_buff *buff, const char *fstring, ...)
 bool	buff_append_vformat(t_buff *buff, const char *fstring, va_list args);
 
 /**
+ * @ingroup buff
  * @brief Reads from a file descriptor until a specific character is found.
  *
  * @warning buff must be initialized before calling this function.
@@ -234,6 +315,7 @@ bool	buff_append_vformat(t_buff *buff, const char *fstring, va_list args);
 int		buff_read_until(t_buff *buff, int fd, char c);
 
 /**
+ * @ingroup buff
  * @brief Reads all available data from a file descriptor into buffer.
  *
  * @note On failure, buff->data is NOT automatically freed.
@@ -246,9 +328,12 @@ int		buff_read_until(t_buff *buff, int fd, char c);
  */
 bool	buff_read_all(t_buff *buff, int fd);
 
-/*---------- CHR ----------*/
+/* ************************************************************************* */
+/*                                   CHR                                     */
+/* ************************************************************************* */
 
 /**
+ * @ingroup chr
  * @brief Checks if a character is alphanumeric.
  *
  * @param c Character to check.
@@ -257,6 +342,7 @@ bool	buff_read_all(t_buff *buff, int fd);
 int		ft_isalnum(int c);
 
 /**
+ * @ingroup chr
  * @brief Checks if a character is alphabetic.
  *
  * @param c Character to check.
@@ -265,6 +351,7 @@ int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 
 /**
+ * @ingroup chr
  * @brief Checks if a character is a valid ASCII character (0-127).
  *
  * @param c Character to check.
@@ -273,6 +360,7 @@ int		ft_isalpha(int c);
 int		ft_isascii(int c);
 
 /**
+ * @ingroup chr
  * @brief Checks if a character is a digit ('0'-'9').
  *
  * @param c Character to check.
@@ -281,6 +369,7 @@ int		ft_isascii(int c);
 int		ft_isdigit(int c);
 
 /**
+ * @ingroup chr
  * @brief Checks if a character is present in a character set.
  *
  * @param c Character to check.
@@ -290,6 +379,7 @@ int		ft_isdigit(int c);
 bool	ft_isincharset(char c, const char *charset);
 
 /**
+ * @ingroup chr
  * @brief Checks if a character is printable (32-126).
  *
  * @param c Character to check.
@@ -298,6 +388,7 @@ bool	ft_isincharset(char c, const char *charset);
 int		ft_isprint(int c);
 
 /**
+ * @ingroup chr
  * @brief Checks if a character is whitespace (9-13).
  *
  * @param c Character to check.
@@ -306,6 +397,7 @@ int		ft_isprint(int c);
 int		ft_isspace(char c);
 
 /**
+ * @ingroup chr
  * @brief Converts an uppercase letter to lowercase.
  *
  * @param c Character to convert.
@@ -314,6 +406,7 @@ int		ft_isspace(char c);
 int		ft_tolower(int c);
 
 /**
+ * @ingroup chr
  * @brief Converts a lowercase letter to uppercase.
  *
  * @param c Character to convert.
@@ -321,9 +414,12 @@ int		ft_tolower(int c);
  */
 int		ft_toupper(int c);
 
-/*--------- CONV ----------*/
+/* ************************************************************************* */
+/*                                   CONV                                    */
+/* ************************************************************************* */
 
 /**
+ * @ingroup conv
  * @brief Converts a string to an integer.
  *
  * @param str String to convert.
@@ -332,6 +428,7 @@ int		ft_toupper(int c);
 int		ft_atoi(const char *str);
 
 /**
+ * @ingroup conv
  * @brief Converts a string to a long integer.
  *
  * @param str String to convert.
@@ -340,6 +437,7 @@ int		ft_atoi(const char *str);
 long	ft_atol(const char *str);
 
 /**
+ * @ingroup conv
  * @brief Converts an integer to a string.
  *
  * @note Caller owns the returned string and must free it.
@@ -350,6 +448,7 @@ long	ft_atol(const char *str);
 char	*ft_itoa(int n);
 
 /**
+ * @ingroup conv
  * @brief Converts an unsigned integer to a string.
  *
  * @note Caller owns the returned string and must free it.
@@ -360,6 +459,7 @@ char	*ft_itoa(int n);
 char	*ft_utoa(unsigned int n);
 
 /**
+ * @ingroup conv
  * @brief Converts a long integer to a string.
  *
  * @note Caller owns the returned string and must free it.
@@ -370,6 +470,7 @@ char	*ft_utoa(unsigned int n);
 char	*ft_ltoa(long n);
 
 /**
+ * @ingroup conv
  * @brief Converts an unsigned long to a string in a given base.
  *
  * @note Caller owns the returned string and must free it.
@@ -380,9 +481,12 @@ char	*ft_ltoa(long n);
  */
 char	*ft_ultoa_base(unsigned long n, const char *base);
 
-/*---------- GNL ----------*/
+/* ************************************************************************* */
+/*                                   GNL                                     */
+/* ************************************************************************* */
 
 /**
+ * @ingroup gnl
  * @brief Reads the next chunk from a file descriptor until separator is found.
  *
  * Returns the chunk even if EOF is reached before separator is found.
@@ -398,15 +502,19 @@ char	*ft_ultoa_base(unsigned long n, const char *base);
 t_buff	*get_next_chunk(int fd, char separator);
 
 /**
+ * @ingroup gnl
  * @brief Frees all internal stashes used by get_next_chunk.
  *
  * Call this to clean up when done reading from all file descriptors.
  */
 void	get_next_chunk_free(void);
 
-/*---------- LIST ----------*/
+/* ************************************************************************* */
+/*                                   LIST                                    */
+/* ************************************************************************* */
 
 /**
+ * @ingroup list
  * @brief Creates a new list node.
  *
  * @note Ownership of content is transferred to the node on success.
@@ -419,6 +527,7 @@ void	get_next_chunk_free(void);
 t_node	*node_new(void *content, t_node *prev, t_node *next);
 
 /**
+ * @ingroup list
  * @brief Frees a node and optionally its content.
  *
  * @param node Pointer to the node pointer (set to NULL after freeing).
@@ -427,6 +536,7 @@ t_node	*node_new(void *content, t_node *prev, t_node *next);
 void	node_free(t_node **node, void (*del_content)(void*));
 
 /**
+ * @ingroup list
  * @brief Adds a new element at the end of the list.
  *
  * @note Ownership of new_content is transferred to the list on success.
@@ -439,6 +549,7 @@ void	node_free(t_node **node, void (*del_content)(void*));
 bool	list_add_end(t_list *list, void *new_content);
 
 /**
+ * @ingroup list
  * @brief Adds a new element at the start of the list.
  *
  * @note Ownership of new_content is transferred to the list on success.
@@ -451,6 +562,7 @@ bool	list_add_end(t_list *list, void *new_content);
 bool	list_add_start(t_list *list, void *new_content);
 
 /**
+ * @ingroup list
  * @brief Calculates the number of nodes in the list.
  *
  * @param list List to count.
@@ -459,6 +571,7 @@ bool	list_add_start(t_list *list, void *new_content);
 size_t	list_get_size(t_list list);
 
 /**
+ * @ingroup list
  * @brief Finds content in list matching a selection function.
  *
  * @note Returned pointer is borrowed from the list. Do not free it directly;
@@ -471,6 +584,7 @@ size_t	list_get_size(t_list list);
 void	*list_get_content(t_list list, bool (*select_function)(void*));
 
 /**
+ * @ingroup list
  * @brief Gets content at a specific index in the list.
  *
  * @note Returned pointer is borrowed from the list. Do not free it directly;
@@ -483,6 +597,7 @@ void	*list_get_content(t_list list, bool (*select_function)(void*));
 void	*list_get_content_n(t_list list, size_t index);
 
 /**
+ * @ingroup list
  * @brief Gets the content of the last node in the list.
  *
  * @note Returned pointer is borrowed from the list. Do not free it directly;
@@ -494,6 +609,7 @@ void	*list_get_content_n(t_list list, size_t index);
 void	*list_get_content_last(t_list list);
 
 /**
+ * @ingroup list
  * @brief Gets the node at a specific index in the list.
  *
  * @note Returned pointer is borrowed from the list. Do not free it directly;
@@ -506,6 +622,7 @@ void	*list_get_content_last(t_list list);
 t_node	*list_get_node_n(t_list list, size_t index);
 
 /**
+ * @ingroup list
  * @brief Gets the last node in the list.
  *
  * @note Returned pointer is borrowed from the list. Do not free it directly;
@@ -517,6 +634,7 @@ t_node	*list_get_node_n(t_list list, size_t index);
 t_node	*list_get_node_last(t_list list);
 
 /**
+ * @ingroup list
  * @brief Applies a function to each element of the list.
  *
  * @param lst List to iterate over (borrowed).
@@ -525,6 +643,7 @@ t_node	*list_get_node_last(t_list list);
 void	list_iter(t_list lst, void (*f)(void *));
 
 /**
+ * @ingroup list
  * @brief Creates a new list by applying a function to each element.
  *
  * @note Caller owns the returned list and must free it with list_rm_all.
@@ -537,6 +656,7 @@ void	list_iter(t_list lst, void (*f)(void *));
 t_list	list_map(t_list list, void *(*f)(void *), void (*del)(void *));
 
 /**
+ * @ingroup list
  * @brief Removes a specific node from the list.
  *
  * @param list Pointer to the list pointer (borrowed).
@@ -546,6 +666,7 @@ t_list	list_map(t_list list, void *(*f)(void *), void (*del)(void *));
 void	list_rm(t_list *list, t_node *node, void (*del_content)(void*));
 
 /**
+ * @ingroup list
  * @brief Removes all nodes from the list.
  *
  * @param list Pointer to the list pointer (set to NULL after).
@@ -553,9 +674,12 @@ void	list_rm(t_list *list, t_node *node, void (*del_content)(void*));
  */
 void	list_rm_all(t_list *list, void (*del_content)(void*));
 
-/*--------- MALLOC --------*/
+/* ************************************************************************* */
+/*                                  MALLOC                                   */
+/* ************************************************************************* */
 
 /**
+ * @ingroup malloc
  * @brief Allocates and zeroes memory for an array.
  *
  * @note Caller owns the returned memory and must free it.
@@ -567,6 +691,7 @@ void	list_rm_all(t_list *list, void (*del_content)(void*));
 void	*ft_calloc(size_t count, size_t size);
 
 /**
+ * @ingroup malloc
  * @brief Reallocates a buffer to a new capacity.
  *
  * @note If newcap is 0, *buff is freed and set to NULL.
@@ -578,9 +703,12 @@ void	*ft_calloc(size_t count, size_t size);
  */
 bool	ft_realloc(char **buff, size_t cap, size_t newcap);
 
-/*--------- MATH --------*/
+/* ************************************************************************* */
+/*                                   MATH                                    */
+/* ************************************************************************* */
 
 /**
+ * @ingroup math
  * @brief Calculates the exact integer square root.
  *
  * @param nb Number to find square root of.
@@ -589,6 +717,7 @@ bool	ft_realloc(char **buff, size_t cap, size_t newcap);
 int		square_root_exact(int nb);
 
 /**
+ * @ingroup math
  * @brief Calculates the nearest integer square root.
  *
  * @param nb Number to find square root of.
@@ -597,6 +726,7 @@ int		square_root_exact(int nb);
 int		square_root_rounded(int nb);
 
 /**
+ * @ingroup math
  * @brief Returns the minimum of two integers.
  *
  * @param a First integer.
@@ -606,6 +736,7 @@ int		square_root_rounded(int nb);
 int		ft_min(int a, int b);
 
 /**
+ * @ingroup math
  * @brief Returns the maximum of two integers.
  *
  * @param a First integer.
@@ -614,9 +745,12 @@ int		ft_min(int a, int b);
  */
 int		ft_max(int a, int b);
 
-/*---------- MEM ----------*/
+/* ************************************************************************* */
+/*                                   MEM                                     */
+/* ************************************************************************* */
 
 /**
+ * @ingroup mem
  * @brief Sets n bytes of memory to zero.
  *
  * @param s Pointer to memory area.
@@ -625,6 +759,7 @@ int		ft_max(int a, int b);
 void	ft_bzero(void *s, size_t n);
 
 /**
+ * @ingroup mem
  * @brief Locates the first occurrence of a byte in memory.
  *
  * @note Returned pointer is borrowed from s. Do not free it directly.
@@ -637,6 +772,7 @@ void	ft_bzero(void *s, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 
 /**
+ * @ingroup mem
  * @brief Compares two memory areas byte by byte.
  *
  * @param s1 First memory area.
@@ -647,6 +783,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 /**
+ * @ingroup mem
  * @brief Copies n bytes from src to dst.
  *
  * @warning Memory areas must not overlap. Use ft_memmove for overlapping.
@@ -659,6 +796,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 
 /**
+ * @ingroup mem
  * @brief Copies n bytes from src to dst, handling overlapping memory.
  *
  * @param dst Destination memory area.
@@ -669,6 +807,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 
 /**
+ * @ingroup mem
  * @brief Fills memory with a constant byte.
  *
  * @param b Memory area to fill.
@@ -678,9 +817,12 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
  */
 void	*ft_memset(void *b, int c, size_t len);
 
-/*---------- PRINT ----------*/
+/* ************************************************************************* */
+/*                                  PRINT                                    */
+/* ************************************************************************* */
 
 /**
+ * @ingroup print
  * @brief Writes formatted output to a file descriptor using va_list.
  *
  * @param fd File descriptor to write to.
@@ -691,6 +833,7 @@ void	*ft_memset(void *b, int c, size_t len);
 int		ft_vdprintf(int fd, const char *fstring, va_list args);
 
 /**
+ * @ingroup print
  * @brief Writes formatted output to a file descriptor.
  *
  * > Supports printf formats: 
@@ -706,6 +849,7 @@ int		ft_dprintf(int fd, const char *fstring, ...)
 		__attribute__((format(printf, 2, 3)));
 
 /**
+ * @ingroup print
  * @brief Writes formatted output to stdout using va_list.
  *
  * @param fstring Format string.
@@ -715,6 +859,7 @@ int		ft_dprintf(int fd, const char *fstring, ...)
 int		ft_vprintf(const char *fstring, va_list args);
 
 /**
+ * @ingroup print
  * @brief Writes formatted output to stdout.
  *
  * > Supports printf formats: 
@@ -728,7 +873,9 @@ int		ft_vprintf(const char *fstring, va_list args);
 int		ft_printf(const char *fstring, ...)
 		__attribute__((format(printf, 1, 2)));
 
-/*---------- PUT ----------*/
+/* ************************************************************************* */
+/*                                   PUT                                     */
+/* ************************************************************************* */
 
 /**
  * @brief Writes a character to a file descriptor.
@@ -739,6 +886,7 @@ int		ft_printf(const char *fstring, ...)
 void	ft_putchar_fd(char c, int fd);
 
 /**
+ * @ingroup put
  * @brief Writes a string followed by newline to a file descriptor.
  *
  * @param s String to write (NULL prints "(null)").
@@ -747,6 +895,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 
 /**
+ * @ingroup put
  * @brief Writes an integer to a file descriptor.
  *
  * @param n Integer to write.
@@ -755,6 +904,7 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 /**
+ * @ingroup put
  * @brief Writes a string to a file descriptor.
  *
  * @param s String to write (NULL prints "(null)").
@@ -762,9 +912,12 @@ void	ft_putnbr_fd(int n, int fd);
  */
 void	ft_putstr_fd(char *s, int fd);
 
-/*---------- STR ----------*/
+/* ************************************************************************* */
+/*                                   STR                                     */
+/* ************************************************************************* */
 
 /**
+ * @ingroup str
  * @brief Splits a string into an array of strings using a delimiter.
  *
  * @note Caller owns the returned array and each string within it.
@@ -777,6 +930,7 @@ void	ft_putstr_fd(char *s, int fd);
 char	**ft_split(char const *s, char c);
 
 /**
+ * @ingroup str
  * @brief Locates the first occurrence of a character in a string.
  *
  * @note Returned pointer is borrowed from s. Do not free it directly.
@@ -789,6 +943,7 @@ char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
 
 /**
+ * @ingroup str
  * @brief Duplicates a string.
  *
  * @note Caller owns the returned string and must free it.
@@ -799,6 +954,7 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
 
 /**
+ * @ingroup str
  * @brief Applies a function to each character of a string with its index.
  *
  * @param s String to iterate (modified in place).
@@ -807,6 +963,7 @@ char	*ft_strdup(const char *s1);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 /**
+ * @ingroup str
  * @brief Concatenates two strings into a new string.
  *
  * @note Caller owns the returned string and must free it.
@@ -818,6 +975,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strjoin(char const *s1, char const *s2);
 
 /**
+ * @ingroup str
  * @brief Appends src to dst with size limit.
  *
  * @param dst Destination buffer (must be null-terminated).
@@ -828,6 +986,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 
 /**
+ * @ingroup str
  * @brief Copies src to dst with size limit.
  *
  * @param dst Destination buffer.
@@ -838,6 +997,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 /**
+ * @ingroup str
  * @brief Calculates the length of a string.
  *
  * @param s String to measure.
@@ -846,6 +1006,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlen(const char *s);
 
 /**
+ * @ingroup str
  * @brief Creates a new string by applying a function to each character.
  *
  * @note Caller owns the returned string and must free it.
@@ -857,6 +1018,7 @@ size_t	ft_strlen(const char *s);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 /**
+ * @ingroup str
  * @brief Compares at most n characters of two strings.
  *
  * @param s1 First string.
@@ -867,6 +1029,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /**
+ * @ingroup str
  * @brief Locates a substring within a string, limited by length.
  *
  * @note Returned pointer is borrowed from haystack. Do not free it directly.
@@ -879,6 +1042,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
 /**
+ * @ingroup str
  * @brief Locates the last occurrence of a character in a string.
  *
  * @note Returned pointer is borrowed from s. Do not free it directly.
@@ -891,6 +1055,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *s, int c);
 
 /**
+ * @ingroup str
  * @brief Trims characters from the beginning and end of a string.
  *
  * @note Caller owns the returned string and must free it.
@@ -902,6 +1067,7 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char const *s1, char const *set);
 
 /**
+ * @ingroup str
  * @brief Extracts a substring from a string.
  *
  * @note Caller owns the returned string and must free it.

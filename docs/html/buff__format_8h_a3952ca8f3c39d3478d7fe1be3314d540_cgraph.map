@@ -2,18 +2,18 @@
 <area shape="rect" id="Node000001" title="Appends a pointer address to the buffer." alt="" coords="5,129,91,155"/>
 <area shape="rect" id="Node000002" href="$append__2_8c.html#adb33e3aec703c2d7a612547bed00676c" title="Appends a number in hexadecimal format to the buffer." alt="" coords="139,155,230,180"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,148,126,155,121,157,92,153"/>
-<area shape="rect" id="Node000003" href="$buff__ops_8c.html#a479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="282,104,374,130"/>
+<area shape="rect" id="Node000003" href="$group__buff.html#ga479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="282,104,374,130"/>
 <area shape="poly" id="edge10_Node000001_Node000003" title=" " alt="" coords="90,136,267,120,265,125,91,141"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,152,278,134,273,136,224,157"/>
-<area shape="rect" id="Node000008" href="$ft__ultoa__base_8c.html#a3ea37aed1d06d888b47c0c5c486b7764" title="Converts an unsigned long to a string in a given base." alt="" coords="278,203,377,228"/>
+<area shape="rect" id="Node000008" href="$group__conv.html#ga3ea37aed1d06d888b47c0c5c486b7764" title="Converts an unsigned long to a string in a given base." alt="" coords="278,203,377,228"/>
 <area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="225,178,276,197,270,198,225,184"/>
 <area shape="rect" id="Node000004" href="$buff__life__cycle_8c.html#ac56b2e828372192af7c1317b6a28f60e" title="Calculates the required capacity to accommodate a target length." alt="" coords="425,5,575,31"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="341,101,377,71,424,40,438,36,433,38,427,44,380,75,344,106"/>
-<area shape="rect" id="Node000005" href="$ft__memcpy_8c.html#a5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="457,55,543,80"/>
+<area shape="rect" id="Node000005" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="457,55,543,80"/>
 <area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="374,101,444,83,439,85,375,106"/>
-<area shape="rect" id="Node000006" href="$ft__realloc_8c.html#ad1d9ac1f2ff65b565ee0ef2a4fa7f887" title="Reallocates a buffer to a new capacity." alt="" coords="463,104,537,130"/>
+<area shape="rect" id="Node000006" href="$group__malloc.html#gad1d9ac1f2ff65b565ee0ef2a4fa7f887" title="Reallocates a buffer to a new capacity." alt="" coords="463,104,537,130"/>
 <area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="374,114,450,116,444,117,375,119"/>
-<area shape="rect" id="Node000007" href="$ft__strlen_8c.html#abbb8c6c4ed85d892e7f1509f65f5768a" title="Calculates the length of a string." alt="" coords="466,153,534,179"/>
+<area shape="rect" id="Node000007" href="$group__str.html#gabbb8c6c4ed85d892e7f1509f65f5768a" title="Calculates the length of a string." alt="" coords="466,153,534,179"/>
 <area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="375,127,454,152,448,153,374,133"/>
 <area shape="rect" id="Node000009" href="$ft__ultoa__base_8c.html#a2501259f8f92f2a86ca35c3293713774" title="Calculates the length of a base string." alt="" coords="451,203,549,228"/>
 <area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="377,213,438,215,433,216,378,218"/>

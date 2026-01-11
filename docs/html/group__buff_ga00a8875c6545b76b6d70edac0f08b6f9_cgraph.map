@@ -1,0 +1,5 @@
+<map id="buff_adjust" name="buff_adjust">
+<area shape="rect" id="Node000001" title="Shrinks buffer capacity to match its current length." alt="" coords="5,5,91,31"/>
+<area shape="rect" id="Node000002" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="139,5,225,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,16,126,18,120,18,91,21"/>
+</map>

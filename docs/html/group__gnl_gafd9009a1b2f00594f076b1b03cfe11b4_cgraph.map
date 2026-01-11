@@ -1,0 +1,11 @@
+<map id="get_next_chunk_free" name="get_next_chunk_free">
+<area shape="rect" id="Node000001" title="Frees all internal stashes used by get_next_chunk." alt="" coords="5,31,148,56"/>
+<area shape="rect" id="Node000002" href="$stash_8c.html#a06a5679ed16a36fb590692fb889eaa82" title="Frees all stashes and their buffers." alt="" coords="196,31,305,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,41,183,43,178,44,148,46"/>
+<area shape="rect" id="Node000003" href="$group__list.html#gae29f9cc18f4669d434e4c56fa159c47a" title="Removes all nodes from the list." alt="" coords="354,5,434,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="305,31,336,28,341,27,306,36"/>
+<area shape="rect" id="Node000004" href="$stash_8c.html#a8dfb95686c92abf40efeb2e6177e160a" title="Frees a stash structure and its buffer." alt="" coords="353,55,435,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="306,50,340,58,335,58,305,55"/>
+<area shape="rect" id="Node000005" href="$group__buff.html#ga3825f38fa07df6f1a17b060955d84f04" title="Frees the buffer&#39;s internal data." alt="" coords="483,55,556,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="436,65,470,67,465,68,436,70"/>
+</map>

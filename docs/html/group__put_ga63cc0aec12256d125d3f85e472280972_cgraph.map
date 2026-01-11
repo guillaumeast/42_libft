@@ -1,0 +1,6 @@
+<map id="ft_putnbr_fd" name="ft_putnbr_fd">
+<area shape="rect" id="Node000001" title="Writes an integer to a file descriptor." alt="" coords="5,29,96,55"/>
+<area shape="rect" id="Node000002" href="$ft__putnbr__fd_8c.html#a1c20d51e332eef3532918f0818e1decb" title="Recursively writes digits of a number." alt="" coords="144,29,218,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,40,131,42,126,42,96,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="158,28,154,21,156,11,166,5,181,3,197,5,207,15,201,14,195,10,181,8,168,10,161,14,159,20,163,30"/>
+</map>

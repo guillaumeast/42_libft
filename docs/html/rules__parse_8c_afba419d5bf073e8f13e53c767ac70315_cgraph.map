@@ -1,11 +1,11 @@
 <map id="parse_width" name="parse_width">
 <area shape="rect" id="Node000001" title="Parses width specifier from the format string." alt="" coords="5,31,97,56"/>
-<area shape="rect" id="Node000002" href="$variants_8c.html#afad2ec371b4188602da9a94db687cb16" title="Converts a string to an integer." alt="" coords="151,5,208,31"/>
+<area shape="rect" id="Node000002" href="$group__conv.html#gafad2ec371b4188602da9a94db687cb16" title="Converts a string to an integer." alt="" coords="151,5,208,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,32,138,26,133,28,98,37"/>
-<area shape="rect" id="Node000005" href="$ft__isdigit_8c.html#a2cf15b8a1a277d1e2ce3654101a2003d" title="Checks if a character is a digit (&#39;0&#39;&#45;&#39;9&#39;)." alt="" coords="145,55,215,80"/>
+<area shape="rect" id="Node000005" href="$group__chr.html#ga2cf15b8a1a277d1e2ce3654101a2003d" title="Checks if a character is a digit (&#39;0&#39;&#45;&#39;9&#39;)." alt="" coords="145,55,215,80"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="97,49,132,58,127,59,97,55"/>
-<area shape="rect" id="Node000003" href="$ft__atol_8c.html#a28f47479541ccf0b30b3a8e35fd759b6" title="Converts a string to a long integer." alt="" coords="263,5,320,31"/>
+<area shape="rect" id="Node000003" href="$group__conv.html#ga28f47479541ccf0b30b3a8e35fd759b6" title="Converts a string to a long integer." alt="" coords="263,5,320,31"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="208,16,250,18,245,19,209,21"/>
-<area shape="rect" id="Node000004" href="$ft__isspace_8c.html#ac7978b309e3e11366ba16643e447528c" title="Checks if a character is whitespace (9&#45;13)." alt="" coords="368,5,450,31"/>
+<area shape="rect" id="Node000004" href="$group__chr.html#gac7978b309e3e11366ba16643e447528c" title="Checks if a character is whitespace (9&#45;13)." alt="" coords="368,5,450,31"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="321,16,356,18,350,18,321,21"/>
 </map>

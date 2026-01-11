@@ -1,0 +1,5 @@
+<map id="ft_vprintf" name="ft_vprintf">
+<area shape="rect" id="Node000001" title="Writes formatted output to stdout using va_list." alt="" coords="119,5,191,31"/>
+<area shape="rect" id="Node000002" href="$group__print.html#gae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,5,71,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,19,71,21,71,16,105,18"/>
+</map>
