@@ -17,6 +17,7 @@
 - [Documentation](#-documentation)
 - [Repository Overview](#️-repository-overview)
 - [Build](#-build)
+- [42 Peer-to-Peer Evaluations](#-42-peer-to-peer-evaluations)
 
 ---
 
@@ -123,6 +124,14 @@ Run unit tests (using my own [test framework](https://github.com/guillaumeast/42
 ```bash
 make test	# run unit tests
 ```
+
+---
+
+## 💯 42 Peer-to-Peer Evaluations
+
+<img src="https://github.com/user-attachments/assets/7f59c216-4e14-48ee-865e-b3e4f5cfca6d" style="width:100%;height:100%;object-fit:cover;" />
+<img src="https://github.com/user-attachments/assets/6cb1b3f3-7726-479d-9984-28480428a680" style="width:100%;height:100%;object-fit:cover;" />
+<img src="https://github.com/user-attachments/assets/42e6e4b2-ffa3-4244-b7a4-18c99cdcb1d9" style="width:100%;height:100%;object-fit:cover;" />
 
 ---
 
