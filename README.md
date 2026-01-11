@@ -10,6 +10,16 @@
 
 ---
 
+## Table of contents
+- [Context](#-context)
+- [Objectives](#️-objectives)
+- [Highlights](#-highlights)
+- [Documentation](#-documentation)
+- [Repository Overview](#️-repository-overview)
+- [Build](#-build)
+
+---
+
 ## 🎓 Context
 
 This project the very first milestone of the **42 Paris** curriculum.  
@@ -84,16 +94,31 @@ libft/
 
 ## 🧰 Build
 
+Basic build:
 ```bash
 make        # build libft.a
+```
+
+Clean up:
+```bash
 make clean  # remove object files
 make fclean # remove objects and library
+```
+
+Rebuild:
+```bash
 make re     # full rebuild
 ```
 
-To generate the documentation locally:
+Generate documentation locally:
 ```bash
-make doc
+make doc	# generate docs/html/* files
+```
+
+Run unit tests (using my own [test framework](https://github.com/guillaumeast/42_ultimate_tester))
+
+```bash
+make test	# run unit tests
 ```
 
 ---
