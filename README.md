@@ -22,7 +22,8 @@
 
 ## 🎓 Context
 
-This project the very first milestone of the **42 Paris** curriculum.  
+This project is the very first milestone of the **42 Paris** curriculum.  
+
 Its purpose is to **reimplement core functions of the C standard library** (`strlen`, `memcpy`, `strchr`, …), while progressively extending it with **higher-level utilities**, in order to build a **robust and reusable personal C library**: **libft**.
 
 This library is designed to be reused across most 42 projects  
