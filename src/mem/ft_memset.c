@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:08 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 01:27:37 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/13 02:44:36 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	i = 0;
 	while (i < len)
 	{
-		((unsigned char *)b)[i] = (unsigned char)c;
+		((int *)b)[i] = c;
 		i++;
 	}
 	return (b);
