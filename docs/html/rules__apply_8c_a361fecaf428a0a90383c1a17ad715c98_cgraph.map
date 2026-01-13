@@ -1,29 +1,25 @@
 <map id="apply_width" name="apply_width">
-<area shape="rect" id="Node000001" title="Applies width padding to the buffer." alt="" coords="5,96,96,122"/>
-<area shape="rect" id="Node000002" href="$group__buff.html#ga479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="144,20,236,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,94,152,52,150,56,77,98"/>
-<area shape="rect" id="Node000007" href="$group__buff.html#ga4c4fe940783715f94d9b2a933c73ecd6" title="Inserts a string at a specific index in the buffer." alt="" coords="291,120,373,146"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="96,110,277,126,274,131,96,116"/>
-<area shape="rect" id="Node000009" href="$group__buff.html#ga254f0c67338ac419cbe9ac8c215b1c58" title="Prepends a string to the beginning of the buffer." alt="" coords="284,71,380,97"/>
-<area shape="poly" id="edge12_Node000001_Node000009" title=" " alt="" coords="96,102,269,87,268,92,97,108"/>
-<area shape="rect" id="Node000010" href="$group__mem.html#ga19d0a16cec67fe4c1af22f1571f4f8a6" title="Fills memory with a constant byte." alt="" coords="148,172,232,198"/>
-<area shape="poly" id="edge17_Node000001_Node000010" title=" " alt="" coords="76,120,153,163,149,166,75,125"/>
-<area shape="rect" id="Node000003" href="$buff__life__cycle_8c.html#a34269ecefd62c1ff95c0dc2f442664b9" title="Grows the buffer to accommodate the target length if necessary." alt="" coords="293,22,371,47"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="236,31,280,33,275,35,237,36"/>
-<area shape="rect" id="Node000005" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="460,22,546,47"/>
-<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="233,17,284,6,332,3,381,6,447,19,442,21,380,12,332,8,284,12,235,22"/>
-<area shape="rect" id="Node000006" href="$group__str.html#gabbb8c6c4ed85d892e7f1509f65f5768a" title="Calculates the length of a string." alt="" coords="469,170,537,195"/>
-<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="198,44,230,101,255,132,285,156,327,174,371,183,415,186,456,188,451,188,415,191,370,188,325,179,283,161,251,136,225,104,195,49"/>
-<area shape="rect" id="Node000004" href="$buff__life__cycle_8c.html#ac56b2e828372192af7c1317b6a28f60e" title="Calculates the required capacity to accommodate a target length." alt="" coords="428,71,578,97"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="372,43,444,66,439,67,372,48"/>
+<area shape="rect" id="Node000001" title="Applies width padding to the buffer." alt="" coords="5,95,96,120"/>
+<area shape="rect" id="Node000002" href="$group__buff.html#ga479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="144,19,236,44"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,92,152,50,150,55,77,97"/>
+<area shape="rect" id="Node000006" href="$group__buff.html#ga4c4fe940783715f94d9b2a933c73ecd6" title="Inserts a string at a specific index in the buffer." alt="" coords="291,71,373,96"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="96,101,276,86,274,91,97,106"/>
+<area shape="rect" id="Node000008" href="$group__buff.html#ga254f0c67338ac419cbe9ac8c215b1c58" title="Prepends a string to the beginning of the buffer." alt="" coords="284,120,380,146"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="96,109,270,125,267,130,96,114"/>
+<area shape="rect" id="Node000009" href="$group__mem.html#ga19d0a16cec67fe4c1af22f1571f4f8a6" title="Fills memory with a constant byte." alt="" coords="148,171,232,196"/>
+<area shape="poly" id="edge14_Node000001_Node000009" title=" " alt="" coords="76,118,153,162,149,164,75,123"/>
+<area shape="rect" id="Node000003" href="$buff__life__cycle_8c.html#a34269ecefd62c1ff95c0dc2f442664b9" title="Grows the buffer to accommodate the target length if necessary." alt="" coords="293,21,371,47"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="236,30,280,32,275,34,237,35"/>
+<area shape="rect" id="Node000005" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="460,21,546,47"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="236,16,284,6,332,3,381,6,447,19,442,20,380,12,332,8,284,12,238,21"/>
+<area shape="rect" id="Node000004" href="$buff__life__cycle_8c.html#ac56b2e828372192af7c1317b6a28f60e" title="Calculates the required capacity to accommodate a target length." alt="" coords="428,71,578,96"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="372,43,444,66,439,66,372,48"/>
 <area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="371,32,447,34,442,35,372,37"/>
-<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="373,119,439,102,444,101,374,124"/>
-<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="362,117,379,107,393,94,402,81,411,69,427,56,443,51,448,49,430,61,415,73,406,85,397,97,382,111,364,122"/>
-<area shape="poly" id="edge11_Node000007_Node000006" title=" " alt="" coords="374,142,457,168,451,168,373,148"/>
-<area shape="rect" id="Node000008" href="$group__mem.html#gacdc865fa140c03c01a39d74b1f5c2416" title="Copies n bytes from src to dst, handling overlapping memory." alt="" coords="454,120,552,146"/>
-<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="374,130,442,133,437,133,374,136"/>
-<area shape="poly" id="edge13_Node000009_Node000004" title=" " alt="" coords="380,81,415,83,410,84,381,86"/>
-<area shape="poly" id="edge14_Node000009_Node000005" title=" " alt="" coords="379,68,448,50,442,52,380,73"/>
-<area shape="poly" id="edge16_Node000009_Node000006" title=" " alt="" coords="364,94,382,106,397,119,406,132,415,144,430,156,456,171,451,170,427,161,411,148,402,135,393,123,379,110,363,100"/>
-<area shape="poly" id="edge15_Node000009_Node000008" title=" " alt="" coords="380,95,444,115,439,116,379,100"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="373,81,415,83,410,84,374,86"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="373,69,448,50,443,52,375,74"/>
+<area shape="rect" id="Node000007" href="$group__mem.html#gacdc865fa140c03c01a39d74b1f5c2416" title="Copies n bytes from src to dst, handling overlapping memory." alt="" coords="454,120,552,146"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="374,93,444,115,439,115,374,98"/>
+<area shape="poly" id="edge11_Node000008_Node000004" title=" " alt="" coords="379,117,439,102,444,101,380,122"/>
+<area shape="poly" id="edge12_Node000008_Node000005" title=" " alt="" coords="362,117,379,107,393,94,402,81,411,69,427,56,443,51,448,48,430,61,415,72,406,85,397,97,382,111,364,122"/>
+<area shape="poly" id="edge13_Node000008_Node000007" title=" " alt="" coords="381,130,442,133,436,133,381,136"/>
 </map>

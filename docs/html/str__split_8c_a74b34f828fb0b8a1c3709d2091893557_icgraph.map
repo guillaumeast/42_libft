@@ -1,0 +1,5 @@
+<map id="str_array_free" name="str_array_free">
+<area shape="rect" id="Node000001" title="Frees all strings in a null&#45;terminated array and the tab itself." alt="" coords="121,5,222,31"/>
+<area shape="rect" id="Node000002" href="$group__str.html#ga00c1938d92c06ac622dba20581ce52ce" title="Splits a string into an array of strings using a delimiter." alt="" coords="5,5,73,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,19,73,21,73,16,108,18"/>
+</map>

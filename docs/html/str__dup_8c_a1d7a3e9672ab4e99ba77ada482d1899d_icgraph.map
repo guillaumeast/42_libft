@@ -1,0 +1,5 @@
+<map id="str_cpy" name="str_cpy">
+<area shape="rect" id="Node000001" title="Copies a string to a destination." alt="" coords="118,5,182,31"/>
+<area shape="rect" id="Node000002" href="$group__str.html#gab8fd2d5ba4442234fa2dc3255101c3c0" title="Duplicates a string." alt="" coords="5,5,70,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,19,70,21,70,16,105,18"/>
+</map>

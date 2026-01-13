@@ -1,23 +1,21 @@
 <map id="append_int" name="append_int">
-<area shape="rect" id="Node000001" title="Appends an integer to the buffer as a string." alt="" coords="5,107,90,132"/>
-<area shape="rect" id="Node000002" href="$group__buff.html#ga479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="138,81,230,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,109,124,104,120,107,91,114"/>
-<area shape="rect" id="Node000007" href="$group__conv.html#ga8a6ea3765dfd826eabfc00d36e28ea38" title="Converts an integer to a string." alt="" coords="155,131,212,156"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="90,124,142,134,137,137,90,130"/>
+<area shape="rect" id="Node000001" title="Appends an integer to the buffer as a string." alt="" coords="5,81,90,107"/>
+<area shape="rect" id="Node000002" href="$group__buff.html#ga479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="138,56,230,82"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,84,124,79,120,82,91,89"/>
+<area shape="rect" id="Node000006" href="$group__conv.html#ga8a6ea3765dfd826eabfc00d36e28ea38" title="Converts an integer to a string." alt="" coords="155,105,212,131"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="90,99,142,109,137,112,90,104"/>
 <area shape="rect" id="Node000003" href="$buff__life__cycle_8c.html#a34269ecefd62c1ff95c0dc2f442664b9" title="Grows the buffer to accommodate the target length if necessary." alt="" coords="278,5,356,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="207,79,282,37,278,40,209,83"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="219,53,270,36,265,38,221,58"/>
 <area shape="rect" id="Node000005" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="436,55,522,80"/>
-<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="230,87,422,71,418,74,231,93"/>
-<area shape="rect" id="Node000006" href="$group__str.html#gabbb8c6c4ed85d892e7f1509f65f5768a" title="Calculates the length of a string." alt="" coords="283,107,351,132"/>
-<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="230,100,270,110,265,111,231,106"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="230,66,422,66,418,69,231,71"/>
 <area shape="rect" id="Node000004" href="$buff__life__cycle_8c.html#ac56b2e828372192af7c1317b6a28f60e" title="Calculates the required capacity to accommodate a target length." alt="" coords="404,5,554,31"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="356,16,392,17,387,19,357,21"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="357,27,424,49,418,50,357,33"/>
-<area shape="rect" id="Node000008" href="$group__conv.html#ga9c7ca392832da91098199a661fa9527d" title="Converts a long integer to a string." alt="" coords="288,156,346,182"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="213,146,276,160,271,161,213,152"/>
-<area shape="rect" id="Node000009" href="$ft__ltoa_8c.html#a7d6cb40888d5500975981d43a3cc75d9" title="Calculates the string length needed for a long number." alt="" coords="447,129,511,155"/>
-<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="346,162,435,149,429,150,347,167"/>
-<area shape="rect" id="Node000010" href="$ft__ltoa_8c.html#af12a39b2cec391f0762f1e08c22432f3" title="Recursively populates a string with digits from a long." alt="" coords="444,203,514,228"/>
-<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="347,174,432,201,427,201,346,180"/>
-<area shape="poly" id="edge11_Node000010_Node000010" title=" " alt="" coords="451,201,446,194,449,184,461,178,479,176,499,179,510,188,505,187,497,184,479,181,462,183,453,188,451,193,456,204"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="357,27,424,50,418,50,357,33"/>
+<area shape="rect" id="Node000007" href="$group__conv.html#ga9c7ca392832da91098199a661fa9527d" title="Converts a long integer to a string." alt="" coords="288,107,346,132"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="213,116,276,118,271,120,213,121"/>
+<area shape="rect" id="Node000008" href="$ft__ltoa_8c.html#a7d6cb40888d5500975981d43a3cc75d9" title="Calculates the string length needed for a long number." alt="" coords="447,105,511,131"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="346,117,435,118,429,119,346,122"/>
+<area shape="rect" id="Node000009" href="$ft__ltoa_8c.html#af12a39b2cec391f0762f1e08c22432f3" title="Recursively populates a string with digits from a long." alt="" coords="444,179,514,204"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="347,129,437,172,432,172,346,135"/>
+<area shape="poly" id="edge10_Node000009_Node000009" title=" " alt="" coords="451,177,446,170,449,160,461,154,479,152,499,155,510,164,505,163,497,160,479,157,462,159,453,164,451,169,456,180"/>
 </map>

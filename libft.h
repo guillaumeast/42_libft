@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/13 02:54:06 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/13 17:14:19 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -913,7 +913,24 @@ void	ft_putstr_fd(char *s, int fd);
  * @param c Delimiter character.
  * @return NULL-terminated array of strings (owned), or NULL on failure.
  */
-char	**ft_split(char const *s, char c);
+char	**str_split(char const *s, char c);
+
+/**
+ * @brief Counts words in a string separated by a delimiter.
+ *
+ * @param s String to analyze.
+ * @param sep Delimiter character.
+ * @return Number of words.
+ */
+size_t	str_count_words(char const *s, char sep);
+
+/**
+ * @brief Frees all strings in a null-terminated array and the tab itself.
+ *
+ * @param tab Array of strings to free.
+ * @return NULL always.
+ */
+void	str_array_free(char ***tab_ptr);
 
 /**
  * @ingroup str
@@ -926,7 +943,7 @@ char	**ft_split(char const *s, char c);
  * @param c Character to find.
  * @return Pointer to the character (borrowed), or NULL if not found.
  */
-char	*ft_strchr(const char *s, int c);
+char	*str_chr(const char *s, int c);
 
 /**
  * @ingroup str
@@ -937,7 +954,7 @@ char	*ft_strchr(const char *s, int c);
  * @param s1 String to duplicate (borrowed).
  * @return Newly allocated copy (owned), or NULL on failure.
  */
-char	*ft_strdup(const char *s1);
+char	*str_dup(const char *s1);
 
 /**
  * @ingroup str
@@ -946,7 +963,7 @@ char	*ft_strdup(const char *s1);
  * @param s String to iterate (modified in place).
  * @param f Function taking index and character pointer.
  */
-void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	str_iteri(char *s, void (*f)(unsigned int, char*));
 
 /**
  * @ingroup str
@@ -958,7 +975,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
  * @param s2 Second string (borrowed).
  * @return Newly allocated concatenated string (owned), or NULL on failure.
  */
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*str_join(char const *s1, char const *s2);
 
 /**
  * @ingroup str
@@ -969,7 +986,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
  * @param dstsize Total size of destination buffer.
  * @return Total length of string it tried to create.
  */
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+size_t	str_lcat(char *dst, const char *src, size_t dstsize);
 
 /**
  * @ingroup str
@@ -980,7 +997,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
  * @param dstsize Size of destination buffer.
  * @return Length of src.
  */
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t	str_lcpy(char *dst, const char *src, size_t dstsize);
 
 /**
  * @ingroup str
@@ -989,7 +1006,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
  * @param s String to measure.
  * @return Length of the string (not including null terminator).
  */
-size_t	ft_strlen(const char *s);
+size_t	str_len(const char *s);
 
 /**
  * @ingroup str
@@ -1001,7 +1018,7 @@ size_t	ft_strlen(const char *s);
  * @param f Function taking index and character, returning new character.
  * @return Newly allocated transformed string (owned), or NULL on failure.
  */
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	*str_mapi(char const *s, char (*f)(unsigned int, char));
 
 /**
  * @ingroup str
@@ -1012,7 +1029,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
  * @param n Maximum number of characters to compare.
  * @return Difference of first differing characters, or 0 if equal.
  */
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		str_ncmp(const char *s1, const char *s2, size_t n);
 
 /**
  * @ingroup str
@@ -1025,7 +1042,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
  * @param len Maximum characters to search.
  * @return Pointer to start of substring (borrowed), or NULL if not found.
  */
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+char	*str_nstr(const char *haystack, const char *needle, size_t len);
 
 /**
  * @ingroup str
@@ -1038,7 +1055,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
  * @param c Character to find.
  * @return Pointer to the character (borrowed), or NULL if not found.
  */
-char	*ft_strrchr(const char *s, int c);
+char	*str_rchr(const char *s, int c);
 
 /**
  * @ingroup str
@@ -1050,7 +1067,7 @@ char	*ft_strrchr(const char *s, int c);
  * @param set Characters to trim (borrowed).
  * @return Newly allocated trimmed string (owned), or NULL on failure.
  */
-char	*ft_strtrim(char const *s1, char const *set);
+char	*str_trim(char const *s1, char const *set);
 
 /**
  * @ingroup str
@@ -1063,6 +1080,6 @@ char	*ft_strtrim(char const *s1, char const *set);
  * @param len Maximum length of substring.
  * @return Newly allocated substring (owned), or NULL on failure.
  */
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*str_sub(char const *s, unsigned int start, size_t len);
 
 #endif

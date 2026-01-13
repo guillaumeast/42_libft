@@ -2,5 +2,19 @@ var searchData=
 [
   ['square_5froot_2ec_0',['square_root.c',['../square__root_8c.html',1,'']]],
   ['stash_2ec_1',['stash.c',['../stash_8c.html',1,'']]],
-  ['stash_2eh_2',['stash.h',['../stash_8h.html',1,'']]]
+  ['stash_2eh_2',['stash.h',['../stash_8h.html',1,'']]],
+  ['str_5fdup_2ec_3',['str_dup.c',['../str__dup_8c.html',1,'']]],
+  ['str_5fiteri_2ec_4',['str_iteri.c',['../str__iteri_8c.html',1,'']]],
+  ['str_5fjoin_2ec_5',['str_join.c',['../str__join_8c.html',1,'']]],
+  ['str_5flcat_2ec_6',['str_lcat.c',['../str__lcat_8c.html',1,'']]],
+  ['str_5flcpy_2ec_7',['str_lcpy.c',['../str__lcpy_8c.html',1,'']]],
+  ['str_5flen_2ec_8',['str_len.c',['../str__len_8c.html',1,'']]],
+  ['str_5fmapi_2ec_9',['str_mapi.c',['../str__mapi_8c.html',1,'']]],
+  ['str_5fncmp_2ec_10',['str_ncmp.c',['../str__ncmp_8c.html',1,'']]],
+  ['str_5fnstr_2ec_11',['str_nstr.c',['../str__nstr_8c.html',1,'']]],
+  ['str_5frchr_2ec_12',['str_rchr.c',['../str__rchr_8c.html',1,'']]],
+  ['str_5fsplit_2ec_13',['str_split.c',['../str__split_8c.html',1,'']]],
+  ['str_5fstrchr_2ec_14',['str_strchr.c',['../str__strchr_8c.html',1,'']]],
+  ['str_5fsub_2ec_15',['str_sub.c',['../str__sub_8c.html',1,'']]],
+  ['str_5ftrim_2ec_16',['str_trim.c',['../str__trim_8c.html',1,'']]]
 ];

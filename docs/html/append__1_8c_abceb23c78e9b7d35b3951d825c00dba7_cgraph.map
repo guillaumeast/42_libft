@@ -1,14 +1,12 @@
 <map id="append_str" name="append_str">
-<area shape="rect" id="Node000001" title="Appends a string to the buffer with null handling." alt="" coords="5,56,91,82"/>
-<area shape="rect" id="Node000002" href="$group__buff.html#ga479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="139,56,231,82"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,66,125,68,121,70,92,71"/>
+<area shape="rect" id="Node000001" title="Appends a string to the buffer with null handling." alt="" coords="5,31,91,56"/>
+<area shape="rect" id="Node000002" href="$group__buff.html#ga479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="139,31,231,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,41,126,43,121,44,91,46"/>
 <area shape="rect" id="Node000003" href="$buff__life__cycle_8c.html#a34269ecefd62c1ff95c0dc2f442664b9" title="Grows the buffer to accommodate the target length if necessary." alt="" coords="279,5,357,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="220,53,266,38,271,36,222,58"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="231,32,266,28,261,29,232,37"/>
 <area shape="rect" id="Node000005" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="437,55,523,80"/>
-<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="231,66,423,66,419,69,231,71"/>
-<area shape="rect" id="Node000006" href="$group__str.html#gabbb8c6c4ed85d892e7f1509f65f5768a" title="Calculates the length of a string." alt="" coords="284,107,352,132"/>
-<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="221,80,272,101,267,101,220,85"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="231,45,424,62,419,64,231,50"/>
 <area shape="rect" id="Node000004" href="$buff__life__cycle_8c.html#ac56b2e828372192af7c1317b6a28f60e" title="Calculates the required capacity to accommodate a target length." alt="" coords="405,5,555,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="357,16,393,18,388,19,358,21"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="357,16,393,18,388,18,358,21"/>
 <area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="358,27,425,50,419,50,357,33"/>
 </map>

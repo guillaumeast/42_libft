@@ -1,13 +1,11 @@
 <map id="apply_hex_prefix" name="apply_hex_prefix">
-<area shape="rect" id="Node000001" title="Applies hexadecimal prefix (0x or 0X) to the buffer." alt="" coords="5,80,125,106"/>
-<area shape="rect" id="Node000002" href="$group__buff.html#ga254f0c67338ac419cbe9ac8c215b1c58" title="Prepends a string to the beginning of the buffer." alt="" coords="173,80,269,106"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,90,159,92,154,94,126,95"/>
+<area shape="rect" id="Node000001" title="Applies hexadecimal prefix (0x or 0X) to the buffer." alt="" coords="5,55,125,80"/>
+<area shape="rect" id="Node000002" href="$group__buff.html#ga254f0c67338ac419cbe9ac8c215b1c58" title="Prepends a string to the beginning of the buffer." alt="" coords="173,55,269,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,65,160,67,154,68,126,70"/>
 <area shape="rect" id="Node000003" href="$buff__life__cycle_8c.html#ac56b2e828372192af7c1317b6a28f60e" title="Calculates the required capacity to accommodate a target length." alt="" coords="317,5,466,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="243,77,316,40,333,36,329,38,318,45,246,82"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="267,51,327,37,333,35,269,57"/>
 <area shape="rect" id="Node000004" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="348,55,435,80"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="269,83,336,75,331,77,270,88"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="269,65,335,67,330,68,270,70"/>
 <area shape="rect" id="Node000005" href="$group__mem.html#gacdc865fa140c03c01a39d74b1f5c2416" title="Copies n bytes from src to dst, handling overlapping memory." alt="" coords="343,104,440,130"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="269,97,330,108,325,108,269,102"/>
-<area shape="rect" id="Node000006" href="$group__str.html#gabbb8c6c4ed85d892e7f1509f65f5768a" title="Calculates the length of a string." alt="" coords="358,153,426,179"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="246,104,318,140,345,152,340,152,316,145,245,109"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="268,78,333,99,327,99,268,84"/>
 </map>

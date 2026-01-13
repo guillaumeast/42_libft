@@ -1,17 +1,17 @@
 var dir_3626fa24880620b7f1cffd2b3442ca73 =
 [
-    [ "ft_split.c", "ft__split_8c.html", "ft__split_8c" ],
-    [ "ft_strchr.c", "ft__strchr_8c.html", "ft__strchr_8c" ],
-    [ "ft_strdup.c", "ft__strdup_8c.html", "ft__strdup_8c" ],
-    [ "ft_striteri.c", "ft__striteri_8c.html", "ft__striteri_8c" ],
-    [ "ft_strjoin.c", "ft__strjoin_8c.html", "ft__strjoin_8c" ],
-    [ "ft_strlcat.c", "ft__strlcat_8c.html", "ft__strlcat_8c" ],
-    [ "ft_strlcpy.c", "ft__strlcpy_8c.html", "ft__strlcpy_8c" ],
-    [ "ft_strlen.c", "ft__strlen_8c.html", "ft__strlen_8c" ],
-    [ "ft_strmapi.c", "ft__strmapi_8c.html", "ft__strmapi_8c" ],
-    [ "ft_strncmp.c", "ft__strncmp_8c.html", "ft__strncmp_8c" ],
-    [ "ft_strnstr.c", "ft__strnstr_8c.html", "ft__strnstr_8c" ],
-    [ "ft_strrchr.c", "ft__strrchr_8c.html", "ft__strrchr_8c" ],
-    [ "ft_strtrim.c", "ft__strtrim_8c.html", "ft__strtrim_8c" ],
-    [ "ft_substr.c", "ft__substr_8c.html", "ft__substr_8c" ]
+    [ "str_dup.c", "str__dup_8c.html", "str__dup_8c" ],
+    [ "str_iteri.c", "str__iteri_8c.html", "str__iteri_8c" ],
+    [ "str_join.c", "str__join_8c.html", "str__join_8c" ],
+    [ "str_lcat.c", "str__lcat_8c.html", "str__lcat_8c" ],
+    [ "str_lcpy.c", "str__lcpy_8c.html", "str__lcpy_8c" ],
+    [ "str_len.c", "str__len_8c.html", "str__len_8c" ],
+    [ "str_mapi.c", "str__mapi_8c.html", "str__mapi_8c" ],
+    [ "str_ncmp.c", "str__ncmp_8c.html", "str__ncmp_8c" ],
+    [ "str_nstr.c", "str__nstr_8c.html", "str__nstr_8c" ],
+    [ "str_rchr.c", "str__rchr_8c.html", "str__rchr_8c" ],
+    [ "str_split.c", "str__split_8c.html", "str__split_8c" ],
+    [ "str_strchr.c", "str__strchr_8c.html", "str__strchr_8c" ],
+    [ "str_sub.c", "str__sub_8c.html", "str__sub_8c" ],
+    [ "str_trim.c", "str__trim_8c.html", "str__trim_8c" ]
 ];

@@ -1,0 +1,5 @@
+<map id="str_mapi" name="str_mapi">
+<area shape="rect" id="Node000001" title="Creates a new string by applying a function to each character." alt="" coords="5,5,77,31"/>
+<area shape="rect" id="Node000002" href="$group__str.html#ga08b8150070493b3bf2dbc420b965b7bb" title="Calculates the length of a string." alt="" coords="125,5,185,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,16,112,18,106,19,77,21"/>
+</map>

@@ -1,12 +1,10 @@
 <map id="buff_append" name="buff_append">
-<area shape="rect" id="Node000001" title="Appends a string to the end of the buffer." alt="" coords="5,56,98,82"/>
+<area shape="rect" id="Node000001" title="Appends a string to the end of the buffer." alt="" coords="5,31,98,56"/>
 <area shape="rect" id="Node000002" href="$buff__life__cycle_8c.html#a34269ecefd62c1ff95c0dc2f442664b9" title="Grows the buffer to accommodate the target length if necessary." alt="" coords="146,5,224,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,53,137,35,133,39,89,58"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,32,133,27,128,29,99,37"/>
 <area shape="rect" id="Node000004" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="304,55,390,80"/>
-<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="98,66,289,65,287,70,98,71"/>
-<area shape="rect" id="Node000005" href="$group__str.html#gabbb8c6c4ed85d892e7f1509f65f5768a" title="Calculates the length of a string." alt="" coords="151,107,219,132"/>
-<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="88,80,138,100,133,102,87,85"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="98,45,289,60,287,65,98,50"/>
 <area shape="rect" id="Node000003" href="$buff__life__cycle_8c.html#ac56b2e828372192af7c1317b6a28f60e" title="Calculates the required capacity to accommodate a target length." alt="" coords="272,5,421,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="224,16,259,17,254,19,225,21"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="224,27,291,49,286,50,224,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="224,16,260,18,254,19,225,21"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="225,27,291,50,286,50,224,33"/>
 </map>

@@ -1,17 +1,17 @@
 var group__str =
 [
-    [ "ft_split", "group__str.html#gaa65c9de65051c8c589286cf133c4a1f4", null ],
-    [ "ft_strchr", "group__str.html#gaa6d0c2d180f32ee585485e1a1ce3d55d", null ],
-    [ "ft_strdup", "group__str.html#ga2ac2079a4250507c9af75d696f2ae476", null ],
-    [ "ft_striteri", "group__str.html#gada722cffd2c6c8169ae339afd0f9763c", null ],
-    [ "ft_strjoin", "group__str.html#ga91e6e3e428bcc9f2291b700e1829b82b", null ],
-    [ "ft_strlcat", "group__str.html#ga7531453313e0cbfde6fe51662c9c3208", null ],
-    [ "ft_strlcpy", "group__str.html#ga12f759eb9793cf306fede66d0b7de0fc", null ],
-    [ "ft_strlen", "group__str.html#gabbb8c6c4ed85d892e7f1509f65f5768a", null ],
-    [ "ft_strmapi", "group__str.html#ga668b60557bfc9d60c2d3ccda8afadf49", null ],
-    [ "ft_strncmp", "group__str.html#ga9d2fe792187aa4ed08e5864fb2c4d6dc", null ],
-    [ "ft_strnstr", "group__str.html#gae00229613cc0bf361e86dca72ad92591", null ],
-    [ "ft_strrchr", "group__str.html#ga49c260cf80f9997975d6f3ec74ead582", null ],
-    [ "ft_strtrim", "group__str.html#ga60352c5b39fab08469b3e28131a79e25", null ],
-    [ "ft_substr", "group__str.html#ga78c402cbf3d55b1374693c3b7d34f71d", null ]
+    [ "str_chr", "group__str.html#ga8fce34424d70d8f5e165a4711659e222", null ],
+    [ "str_dup", "group__str.html#gab8fd2d5ba4442234fa2dc3255101c3c0", null ],
+    [ "str_iteri", "group__str.html#gaa2a4f0339084120e3e48a0e940330979", null ],
+    [ "str_join", "group__str.html#ga011e81255172329fdfe56dbbb44aa17a", null ],
+    [ "str_lcat", "group__str.html#ga07cfcb9b36715c306215fb73d7124b87", null ],
+    [ "str_lcpy", "group__str.html#ga0977f5bf45cca11eeb40152f7ab42498", null ],
+    [ "str_len", "group__str.html#ga08b8150070493b3bf2dbc420b965b7bb", null ],
+    [ "str_mapi", "group__str.html#ga1a479072ad4474f52c11ad4927a09169", null ],
+    [ "str_ncmp", "group__str.html#gaff0855d3da8e8f71380b2ff24d290f12", null ],
+    [ "str_nstr", "group__str.html#ga3467bbad5f36c6b668c6e5805a10f4b9", null ],
+    [ "str_rchr", "group__str.html#ga5b96b8cc910b8524ba94ac9c6a5f636b", null ],
+    [ "str_split", "group__str.html#ga00c1938d92c06ac622dba20581ce52ce", null ],
+    [ "str_sub", "group__str.html#ga55d2155d5e3087d3f8dfee8bc5254a2c", null ],
+    [ "str_trim", "group__str.html#gab50abb536077775efcbc5cc5bff8e5bf", null ]
 ];

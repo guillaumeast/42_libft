@@ -1,0 +1,7 @@
+<map id="str_dup" name="str_dup">
+<area shape="rect" id="Node000001" title="Duplicates a string." alt="" coords="5,31,70,56"/>
+<area shape="rect" id="Node000002" href="$str__dup_8c.html#a1d7a3e9672ab4e99ba77ada482d1899d" title="Copies a string to a destination." alt="" coords="118,5,182,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,34,105,27,100,30,71,39"/>
+<area shape="rect" id="Node000003" href="$group__str.html#ga08b8150070493b3bf2dbc420b965b7bb" title="Calculates the length of a string." alt="" coords="120,55,180,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="70,48,107,57,102,59,70,53"/>
+</map>

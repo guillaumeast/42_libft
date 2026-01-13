@@ -1,11 +1,9 @@
 <map id="buff_prepend" name="buff_prepend">
-<area shape="rect" id="Node000001" title="Prepends a string to the beginning of the buffer." alt="" coords="5,80,102,106"/>
+<area shape="rect" id="Node000001" title="Prepends a string to the beginning of the buffer." alt="" coords="5,55,102,80"/>
 <area shape="rect" id="Node000002" href="$buff__life__cycle_8c.html#ac56b2e828372192af7c1317b6a28f60e" title="Calculates the required capacity to accommodate a target length." alt="" coords="150,5,299,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,77,149,40,166,35,161,38,151,45,79,82"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,52,165,34,161,38,102,56"/>
 <area shape="rect" id="Node000003" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="181,55,268,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="101,83,168,74,164,78,103,88"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="102,65,168,66,163,69,102,70"/>
 <area shape="rect" id="Node000004" href="$group__mem.html#gacdc865fa140c03c01a39d74b1f5c2416" title="Copies n bytes from src to dst, handling overlapping memory." alt="" coords="176,104,273,130"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="102,97,163,107,158,109,102,102"/>
-<area shape="rect" id="Node000005" href="$group__str.html#gabbb8c6c4ed85d892e7f1509f65f5768a" title="Calculates the length of a string." alt="" coords="190,153,258,179"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="79,104,151,140,178,152,173,152,149,145,77,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="101,78,165,98,160,100,100,84"/>
 </map>

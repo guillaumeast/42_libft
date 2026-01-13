@@ -1,0 +1,5 @@
+<map id="str_join" name="str_join">
+<area shape="rect" id="Node000001" title="Concatenates two strings into a new string." alt="" coords="5,5,69,31"/>
+<area shape="rect" id="Node000002" href="$group__str.html#ga08b8150070493b3bf2dbc420b965b7bb" title="Calculates the length of a string." alt="" coords="117,5,177,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="69,16,104,18,98,19,69,21"/>
+</map>
