@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/13 02:46:10 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/13 02:54:06 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -797,7 +797,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
  * @brief Fills memory with a constant byte.
  *
  * @param b Memory area to fill.
- * @param c Byte value to set.
+ * @param c Byte value to set (converted to unsigned char).
  * @param len Number of bytes to set.
  * @return Pointer to b.
  */
