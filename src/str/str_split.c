@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:20 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/13 17:14:41 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/14 03:46:41 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	str_array_free(char ***tab_ptr)
 	size_t	i;
 
 	i = 0;
-	while (*(tab_ptr)[i])
+	while ((*tab_ptr)[i])
 		free((*tab_ptr)[i++]);
 	free(*tab_ptr);
 	*tab_ptr = NULL;
