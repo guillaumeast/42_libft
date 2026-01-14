@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:33 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 00:07:32 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/14 03:27:41 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	buff_append_vformat(t_buff *buff, const char *fstring, va_list args)
 	const char	*next_conversion;
 	t_rules		rules;
 
-	next_conversion = ft_strchr(fstring, '%');
+	next_conversion = str_chr(fstring, '%');
 	while (next_conversion)
 	{
 		if (!buff_append(buff, fstring, next_conversion - fstring))
@@ -43,7 +43,7 @@ bool	buff_append_vformat(t_buff *buff, const char *fstring, va_list args)
 		}
 		else if (!append(buff, &rules, &args))
 			return (false);
-		next_conversion = ft_strchr(fstring, '%');
+		next_conversion = str_chr(fstring, '%');
 	}
 	return (buff_append(buff, fstring, -1));
 }

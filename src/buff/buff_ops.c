@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 05:56:25 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/14 03:27:51 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ bool	buff_prepend(t_buff *b, const char *str, long n)
 	size_t	new_cap;
 
 	if (n < 0)
-		strlen = ft_strlen(str);
+		strlen = str_len(str);
 	else
 		strlen = (size_t)n;
 	new_cap = buff_get_required_cap(b->cap, b->len + strlen);
@@ -49,7 +49,7 @@ bool	buff_insert(t_buff *b, size_t index, const char *str, long n)
 	size_t	new_cap;
 
 	if (n < 0)
-		strlen = ft_strlen(str);
+		strlen = str_len(str);
 	else
 		strlen = (size_t)n;
 	new_cap = buff_get_required_cap(b->cap, b->len + strlen);
@@ -76,7 +76,7 @@ bool	buff_append(t_buff *b, const char *str, long n)
 	size_t	strlen;
 
 	if (n < 0)
-		strlen = ft_strlen(str);
+		strlen = str_len(str);
 	else
 		strlen = (size_t)n;
 	if (!buff_grow(b, b->len + strlen))

@@ -1,21 +1,23 @@
 <map id="append_ptr" name="append_ptr">
-<area shape="rect" id="Node000001" title="Appends a pointer address to the buffer." alt="" coords="5,81,91,107"/>
-<area shape="rect" id="Node000002" href="$append__2_8c.html#adb33e3aec703c2d7a612547bed00676c" title="Appends a number in hexadecimal format to the buffer." alt="" coords="139,107,230,132"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,99,126,107,121,109,92,105"/>
-<area shape="rect" id="Node000003" href="$group__buff.html#ga479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="282,56,374,82"/>
-<area shape="poly" id="edge10_Node000001_Node000003" title=" " alt="" coords="90,88,267,72,265,77,91,93"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,104,273,88,278,86,224,109"/>
-<area shape="rect" id="Node000007" href="$group__conv.html#ga3ea37aed1d06d888b47c0c5c486b7764" title="Converts an unsigned long to a string in a given base." alt="" coords="278,107,377,132"/>
-<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="230,117,265,119,260,120,231,122"/>
+<area shape="rect" id="Node000001" title="Appends a pointer address to the buffer." alt="" coords="5,107,91,132"/>
+<area shape="rect" id="Node000002" href="$append__2_8c.html#adb33e3aec703c2d7a612547bed00676c" title="Appends a number in hexadecimal format to the buffer." alt="" coords="139,132,230,158"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,125,126,132,121,135,92,130"/>
+<area shape="rect" id="Node000003" href="$group__buff.html#ga479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="282,81,374,107"/>
+<area shape="poly" id="edge11_Node000001_Node000003" title=" " alt="" coords="90,113,267,97,265,102,91,118"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="222,129,278,112,273,114,224,134"/>
+<area shape="rect" id="Node000008" href="$group__conv.html#ga3ea37aed1d06d888b47c0c5c486b7764" title="Converts an unsigned long to a string in a given base." alt="" coords="278,156,377,182"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="230,150,265,158,260,158,231,155"/>
 <area shape="rect" id="Node000004" href="$buff__life__cycle_8c.html#a34269ecefd62c1ff95c0dc2f442664b9" title="Grows the buffer to accommodate the target length if necessary." alt="" coords="435,5,514,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="366,53,418,37,423,36,368,58"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="353,78,432,40,437,37,356,83"/>
 <area shape="rect" id="Node000006" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="603,55,690,80"/>
-<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="374,66,590,67,585,69,374,71"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="374,88,590,71,585,73,375,93"/>
+<area shape="rect" id="Node000007" href="$group__str.html#ga08b8150070493b3bf2dbc420b965b7bb" title="Calculates the length of a string." alt="" coords="444,107,505,132"/>
+<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="374,99,432,111,426,112,374,105"/>
 <area shape="rect" id="Node000005" href="$buff__life__cycle_8c.html#ac56b2e828372192af7c1317b6a28f60e" title="Calculates the required capacity to accommodate a target length." alt="" coords="572,5,721,31"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="514,16,558,18,553,19,515,21"/>
 <area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="514,27,591,51,585,51,514,32"/>
-<area shape="rect" id="Node000008" href="$ft__ultoa__base_8c.html#a2501259f8f92f2a86ca35c3293713774" title="Calculates the length of a base string." alt="" coords="425,107,524,132"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="378,117,412,119,407,120,378,122"/>
-<area shape="rect" id="Node000009" href="$ft__ultoa__base_8c.html#a43316e70eab4a93ccf23ef1b8f43113d" title="Calculates the result string length for a number in a given base." alt="" coords="430,156,519,182"/>
-<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="369,130,422,151,417,150,368,136"/>
+<area shape="rect" id="Node000009" href="$ft__ultoa__base_8c.html#a2501259f8f92f2a86ca35c3293713774" title="Calculates the length of a base string." alt="" coords="425,156,524,182"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="378,166,412,169,407,169,378,171"/>
+<area shape="rect" id="Node000010" href="$ft__ultoa__base_8c.html#a43316e70eab4a93ccf23ef1b8f43113d" title="Calculates the result string length for a number in a given base." alt="" coords="430,205,519,231"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="369,180,422,200,417,200,368,185"/>
 </map>
