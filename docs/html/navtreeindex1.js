@@ -1,5 +1,9 @@
 var NAVTREEINDEX1 =
 {
+"str__lcat_8c.html":[2,0,0,10,3],
+"str__lcpy_8c.html":[2,0,0,10,4],
+"str__len_8c.html":[2,0,0,10,5],
+"str__mapi_8c.html":[2,0,0,10,6],
 "str__ncmp_8c.html":[2,0,0,10,7],
 "str__nstr_8c.html":[2,0,0,10,8],
 "str__rchr_8c.html":[2,0,0,10,9],

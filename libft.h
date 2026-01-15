@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/13 17:14:19 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/15 14:26:47 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -695,6 +695,38 @@ bool	ft_realloc(char **buff, size_t cap, size_t newcap);
 
 /**
  * @ingroup math
+ * @brief Returns the minimum of two integers.
+ *
+ * @param a First integer.
+ * @param b Second integer.
+ * @return The smaller value.
+ */
+int		min(int a, int b);
+
+/**
+ * @ingroup math
+ * @brief Returns the maximum of two integers.
+ *
+ * @param a First integer.
+ * @param b Second integer.
+ * @return The larger value.
+ */
+int		max(int a, int b);
+
+/**
+ * @ingroup math
+ * @brief Computes the modulo of a signed integer with an unsigned modulus.
+ *
+ * Handles negative values of a by ensuring the result is always positive.
+ *
+ * @param a Dividend (can be negative).
+ * @param b Divisor (must be > 0).
+ * @return Remainder in range [0, b-1].
+ */
+size_t	modulo(long a, size_t b);
+
+/**
+ * @ingroup math
  * @brief Calculates the exact integer square root.
  *
  * @param nb Number to find square root of.
@@ -710,26 +742,6 @@ int		square_root_exact(int nb);
  * @return Nearest integer square root, -1 if nb <= 0.
  */
 int		square_root_rounded(int nb);
-
-/**
- * @ingroup math
- * @brief Returns the minimum of two integers.
- *
- * @param a First integer.
- * @param b Second integer.
- * @return The smaller value.
- */
-int		ft_min(int a, int b);
-
-/**
- * @ingroup math
- * @brief Returns the maximum of two integers.
- *
- * @param a First integer.
- * @param b Second integer.
- * @return The larger value.
- */
-int		ft_max(int a, int b);
 
 /* ************************************************************************* */
 /*                                   MEM                                     */
