@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/15 14:26:47 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/15 14:36:53 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -695,23 +695,23 @@ bool	ft_realloc(char **buff, size_t cap, size_t newcap);
 
 /**
  * @ingroup math
- * @brief Returns the minimum of two integers.
+ * @brief Returns the minimum of two long integers.
  *
- * @param a First integer.
- * @param b Second integer.
+ * @param a First long integer.
+ * @param b Second long integer.
  * @return The smaller value.
  */
-int		min(int a, int b);
+long	min(long a, long b);
 
 /**
  * @ingroup math
- * @brief Returns the maximum of two integers.
+ * @brief Returns the maximum of two long integers.
  *
- * @param a First integer.
- * @param b Second integer.
+ * @param a First long integer.
+ * @param b Second long integer.
  * @return The larger value.
  */
-int		max(int a, int b);
+long	max(long a, long b);
 
 /**
  * @ingroup math
