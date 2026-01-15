@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"str__iteri_8c.html":[2,0,0,10,1],
+"str__join_8c.html":[2,0,0,10,2],
 "str__lcat_8c.html":[2,0,0,10,3],
 "str__lcpy_8c.html":[2,0,0,10,4],
 "str__len_8c.html":[2,0,0,10,5],
@@ -38,5 +40,5 @@ var NAVTREEINDEX1 =
 "structs__stash.html#a2daff6de1103206ba28b89725abbe68f":[1,0,3,1],
 "structs__stash.html#adc739a0c28645ccb5473aa40c3fb3ce5":[1,0,3,0],
 "topics.html":[0],
-"variants_8c.html":[2,0,0,2,3]
+"variants_8c.html":[2,0,0,2,4]
 };

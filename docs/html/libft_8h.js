@@ -69,6 +69,7 @@ var libft_8h =
     [ "modulo", "group__math.html#ga068c470f68bb90bc6f2ee600aff01947", null ],
     [ "node_free", "group__list.html#gacd4adcceba96f7bda7c3db6ed2dee99a", null ],
     [ "node_new", "group__list.html#gaabef2dc222d9220067c6257920cb7a0f", null ],
+    [ "parse_int", "group__conv.html#ga45107a29f5c80a551889af176574431f", null ],
     [ "square_root_exact", "group__math.html#ga04b9b4725f6a18ac459739bac60b641e", null ],
     [ "square_root_rounded", "group__math.html#gacd4b5febd4f83add3e2ce9c04c9b1003", null ],
     [ "str_array_free", "libft_8h.html#a74b34f828fb0b8a1c3709d2091893557", null ],

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Libft: src/conv Directory Reference</title>
+<title>Libft: src/conv/parse_int.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('dir_2de06308c5b2775de45e66f168db1a20.html','',''); });
+$(function(){initNavTree('parse__int_8c.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -89,26 +89,28 @@ $(function(){initNavTree('dir_2de06308c5b2775de45e66f168db1a20.html','',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">conv Directory Reference</div></div>
+  <div class="headertitle"><div class="title">parse_int.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Directory dependency graph for conv:</div>
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;limits.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for parse_int.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="dir_2de06308c5b2775de45e66f168db1a20_dep.png" border="0" usemap="#adir__2de06308c5b2775de45e66f168db1a20__dep" loading="lazy" alt="src/conv"/></div>
-<map name="adir__2de06308c5b2775de45e66f168db1a20__dep" id="adir__2de06308c5b2775de45e66f168db1a20__dep">
-<area shape="rect" href="dir_2de06308c5b2775de45e66f168db1a20.html" title="conv" alt="" coords="27,52,77,78"/>
-<area shape="rect" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html" title="src" alt="" coords="16,16,88,89"/>
+<div class="center"><img src="parse__int_8c__incl.png" border="0" usemap="#asrc_2conv_2parse__int_8c" loading="lazy" alt=""/></div>
+<map name="asrc_2conv_2parse__int_8c" id="asrc_2conv_2parse__int_8c">
+<area shape="rect" title=" " alt="" coords="20,5,159,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,80,105"/>
+<area shape="poly" title=" " alt="" coords="84,30,61,68,57,64,79,33"/>
+<area shape="rect" title=" " alt="" coords="104,79,168,105"/>
+<area shape="poly" title=" " alt="" coords="98,29,122,66,117,66,96,34"/>
 </map>
 </div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-files" class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:ft_5Fatol_2Ec" id="r_ft_5Fatol_2Ec"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="ft__atol_8c.html">ft_atol.c</a></td></tr>
-<tr class="memitem:ft_5Fltoa_2Ec" id="r_ft_5Fltoa_2Ec"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="ft__ltoa_8c.html">ft_ltoa.c</a></td></tr>
-<tr class="memitem:ft_5Fultoa_5Fbase_2Ec" id="r_ft_5Fultoa_5Fbase_2Ec"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="ft__ultoa__base_8c.html">ft_ultoa_base.c</a></td></tr>
-<tr class="memitem:parse_5Fint_2Ec" id="r_parse_5Fint_2Ec"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="parse__int_8c.html">parse_int.c</a></td></tr>
-<tr class="memitem:variants_2Ec" id="r_variants_2Ec"><td class="memItemLeft"><span class="icondoc"><div class="doc-icon"></div></span>&#160;</td><td class="memItemRight"><a class="el" href="variants_8c.html">variants.c</a></td></tr>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga45107a29f5c80a551889af176574431f" id="r_ga45107a29f5c80a551889af176574431f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="group__conv.html#ga45107a29f5c80a551889af176574431f">parse_int</a> (char *s, int *out)</td></tr>
+<tr class="memdesc:ga45107a29f5c80a551889af176574431f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a string to an integer with overflow detection.  <br /></td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -123,7 +125,7 @@ Files</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_2de06308c5b2775de45e66f168db1a20.html">conv</a></li>
+    <li class="navelem"><a href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a href="dir_2de06308c5b2775de45e66f168db1a20.html">conv</a></li><li class="navelem"><a href="parse__int_8c.html">parse_int.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.0 </li>
   </ul>
 </div>

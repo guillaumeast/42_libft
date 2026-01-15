@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/15 14:36:53 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/15 21:15:04 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -466,6 +466,20 @@ char	*ft_ltoa(long n);
  * @return Newly allocated string (owned), or NULL on failure.
  */
 char	*ft_ultoa_base(unsigned long n, const char *base);
+
+/**
+ * @ingroup conv
+ * @brief Parses a string to an integer with overflow detection.
+ *
+ * Accepts an optional leading '+' or '-' sign followed by digits.
+ * Returns false if the string is empty, contains non-digit characters,
+ * or the value would overflow an int.
+ *
+ * @param s String to parse (borrowed).
+ * @param out Pointer to store the parsed integer (modified on success).
+ * @return true on success, false if parsing failed or value out of range.
+ */
+bool	parse_int(char *s, int *out);
 
 /* ************************************************************************* */
 /*                                   GNL                                     */
