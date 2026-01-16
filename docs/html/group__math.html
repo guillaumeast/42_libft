@@ -102,6 +102,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga04a42f8bdb11b05ec4a03a191b426081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minimum of two long integers.  <br /></td></tr>
 <tr class="memitem:ga9881a990a03d466ac29ae1fb645fe1a4" id="r_ga9881a990a03d466ac29ae1fb645fe1a4"><td class="memItemLeft">long&#160;</td><td class="memItemRight"><a class="el" href="#ga9881a990a03d466ac29ae1fb645fe1a4">max</a> (long a, long b)</td></tr>
 <tr class="memdesc:ga9881a990a03d466ac29ae1fb645fe1a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum of two long integers.  <br /></td></tr>
+<tr class="memitem:gaec1e002df072470b9e222ada3bda1ceb" id="r_gaec1e002df072470b9e222ada3bda1ceb"><td class="memItemLeft">long&#160;</td><td class="memItemRight"><a class="el" href="#gaec1e002df072470b9e222ada3bda1ceb">power</a> (int a, int b)</td></tr>
+<tr class="memdesc:gaec1e002df072470b9e222ada3bda1ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a raised to the power of b.  <br /></td></tr>
 <tr class="memitem:ga068c470f68bb90bc6f2ee600aff01947" id="r_ga068c470f68bb90bc6f2ee600aff01947"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ga068c470f68bb90bc6f2ee600aff01947">modulo</a> (long a, size_t b)</td></tr>
 <tr class="memdesc:ga068c470f68bb90bc6f2ee600aff01947"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the modulo of a signed integer with an unsigned modulus.  <br /></td></tr>
 <tr class="memitem:ga04b9b4725f6a18ac459739bac60b641e" id="r_ga04b9b4725f6a18ac459739bac60b641e"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ga04b9b4725f6a18ac459739bac60b641e">square_root_exact</a> (int nb)</td></tr>
@@ -204,6 +206,40 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Remainder in range [0, b-1]. </dd></dl>
+
+</div>
+</div>
+<a id="gaec1e002df072470b9e222ada3bda1ceb" name="gaec1e002df072470b9e222ada3bda1ceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaec1e002df072470b9e222ada3bda1ceb">&#9670;&#160;</a></span>power()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long power </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes a raised to the power of b. </p>
+<dl class="section warning"><dt>Warning</dt><dd>UB if the result overflows a long. </dd>
+<dd>
+Returns 0 for negative exponents (cannot represent fractions).</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Base value. </td></tr>
+    <tr><td class="paramname">b</td><td>Exponent (must be &gt;= 0 for meaningful result). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a^b, or 0 if b &lt; 0. </dd></dl>
 
 </div>
 </div>

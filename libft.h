@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/15 21:15:04 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/16 19:12:56 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -726,6 +726,19 @@ long	min(long a, long b);
  * @return The larger value.
  */
 long	max(long a, long b);
+
+/**
+ * @ingroup math
+ * @brief Computes a raised to the power of b.
+ *
+ * @warning UB if the result overflows a long.
+ * @warning Returns 0 for negative exponents (cannot represent fractions).
+ *
+ * @param a Base value.
+ * @param b Exponent (must be >= 0 for meaningful result).
+ * @return a^b, or 0 if b < 0.
+ */
+long	power(int a, int b);
 
 /**
  * @ingroup math

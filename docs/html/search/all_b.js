@@ -7,9 +7,11 @@ var searchData=
   ['parse_5fwidth_4',['parse_width',['../rules__parse_8c.html#afba419d5bf073e8f13e53c767ac70315',1,'rules_parse.c']]],
   ['plus_5',['plus',['../structs__rules.html#a61b4a41103228264a5344643481a0779',1,'s_rules']]],
   ['populate_6',['populate',['../ft__ltoa_8c.html#af12a39b2cec391f0762f1e08c22432f3',1,'ft_ltoa.c']]],
-  ['precision_7',['precision',['../structs__rules.html#acb05d7f81f9dac46e5cab7f519d77d6a',1,'s_rules']]],
-  ['prev_8',['prev',['../structs__node.html#ae95cd17e93d1c2de3174acef62c8dce1',1,'s_node']]],
-  ['print_20functions_9',['Print Functions',['../group__print.html',1,'']]],
-  ['printer_2ec_10',['printer.c',['../printer_8c.html',1,'']]],
-  ['put_20functions_11',['Put Functions',['../group__put.html',1,'']]]
+  ['power_7',['power',['../group__math.html#gaec1e002df072470b9e222ada3bda1ceb',1,'power(int a, int b):&#160;power.c'],['../group__math.html#gaec1e002df072470b9e222ada3bda1ceb',1,'power(int a, int b):&#160;power.c']]],
+  ['power_2ec_8',['power.c',['../power_8c.html',1,'']]],
+  ['precision_9',['precision',['../structs__rules.html#acb05d7f81f9dac46e5cab7f519d77d6a',1,'s_rules']]],
+  ['prev_10',['prev',['../structs__node.html#ae95cd17e93d1c2de3174acef62c8dce1',1,'s_node']]],
+  ['print_20functions_11',['Print Functions',['../group__print.html',1,'']]],
+  ['printer_2ec_12',['printer.c',['../printer_8c.html',1,'']]],
+  ['put_20functions_13',['Put Functions',['../group__put.html',1,'']]]
 ];

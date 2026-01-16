@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"str__dup_8c.html":[2,0,0,10,0],
+"str__dup_8c.html#a1d7a3e9672ab4e99ba77ada482d1899d":[2,0,0,10,0,0],
 "str__iteri_8c.html":[2,0,0,10,1],
 "str__join_8c.html":[2,0,0,10,2],
 "str__lcat_8c.html":[2,0,0,10,3],
