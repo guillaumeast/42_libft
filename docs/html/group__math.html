@@ -229,6 +229,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Computes a raised to the power of b. </p>
+<p>Uses bit shifting optimization when a == 2.</p>
 <dl class="section warning"><dt>Warning</dt><dd>UB if the result overflows a long. </dd>
 <dd>
 Returns 0 for negative exponents (cannot represent fractions).</dd></dl>
