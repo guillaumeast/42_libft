@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/17 03:24:04 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/23 03:07:16 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -726,6 +726,15 @@ long	min(long a, long b);
  * @return The larger value.
  */
 long	max(long a, long b);
+
+/**
+ * @ingroup math
+ * @brief Returns the absolute value of a long integer.
+ *
+ * @param nbr Number to get absolute value of.
+ * @return Absolute value as size_t (always positive).
+ */
+size_t	absolute(long nbr);
 
 /**
  * @ingroup math

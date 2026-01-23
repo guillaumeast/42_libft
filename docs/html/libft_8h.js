@@ -6,6 +6,7 @@ var libft_8h =
     [ "t_buff", "libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b", null ],
     [ "t_list", "libft_8h.html#ad825deab6587ce2527f4705d09c4c0df", null ],
     [ "t_node", "libft_8h.html#a3f46128da7b9ed932ecb00df9677e301", null ],
+    [ "absolute", "group__math.html#gaed8a7c021f3f84279527cb9d33ef4f10", null ],
     [ "buff_adjust", "group__buff.html#ga00a8875c6545b76b6d70edac0f08b6f9", null ],
     [ "buff_append", "group__buff.html#ga479d86ec7b4c43589bc6e03c96438a29", null ],
     [ "buff_append_format", "group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff", null ],
