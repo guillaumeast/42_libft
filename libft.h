@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/23 03:07:16 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/01/30 23:30:35 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -482,34 +482,6 @@ char	*ft_ultoa_base(unsigned long n, const char *base);
 bool	parse_int(char *s, int *out);
 
 /* ************************************************************************* */
-/*                                   GNL                                     */
-/* ************************************************************************* */
-
-/**
- * @ingroup gnl
- * @brief Reads the next chunk from a file descriptor until separator is found.
- *
- * Returns the chunk even if EOF is reached before separator is found.
- * Returns NULL only when called after EOF has already been reached.
- *
- * @note Caller owns the returned t_buff and must free both the struct
- *       and its internal data (use buff_free then free).
- *
- * @param fd File descriptor to read from.
- * @param separator Character to stop reading at (included in returned chunk).
- * @return Pointer to a newly allocated t_buff (owned), or NULL on error/EOF.
- */
-t_buff	*get_next_chunk(int fd, char separator);
-
-/**
- * @ingroup gnl
- * @brief Frees all internal stashes used by get_next_chunk.
- *
- * Call this to clean up when done reading from all file descriptors.
- */
-void	get_next_chunk_free(void);
-
-/* ************************************************************************* */
 /*                                   LIST                                    */
 /* ************************************************************************* */
 
@@ -952,27 +924,6 @@ void	ft_putstr_fd(char *s, int fd);
 /*                                   STR                                     */
 /* ************************************************************************* */
 
-/**
- * @ingroup str
- * @brief Splits a string into an array of strings using a delimiter.
- *
- * @note Caller owns the returned array and each string within it.
- *       Free each string then free the array itself.
- *
- * @param s String to split (borrowed).
- * @param c Delimiter character.
- * @return NULL-terminated array of strings (owned), or NULL on failure.
- */
-char	**str_split(char const *s, char c);
-
-/**
- * @brief Counts words in a string separated by a delimiter.
- *
- * @param s String to analyze.
- * @param sep Delimiter character.
- * @return Number of words.
- */
-size_t	str_count_words(char const *s, char sep);
 
 /**
  * @brief Frees all strings in a null-terminated array and the tab itself.
@@ -994,6 +945,15 @@ void	str_array_free(char ***tab_ptr);
  * @return Pointer to the character (borrowed), or NULL if not found.
  */
 char	*str_chr(const char *s, int c);
+
+/**
+ * @brief Counts words in a string separated by a delimiter.
+ *
+ * @param s String to analyze.
+ * @param sep Delimiter character.
+ * @return Number of words.
+ */
+size_t	str_count_words(char const *s, char sep);
 
 /**
  * @ingroup str
@@ -1109,15 +1069,16 @@ char	*str_rchr(const char *s, int c);
 
 /**
  * @ingroup str
- * @brief Trims characters from the beginning and end of a string.
+ * @brief Splits a string into an array of strings using a delimiter.
  *
- * @note Caller owns the returned string and must free it.
+ * @note Caller owns the returned array and each string within it.
+ *       Free each string then free the array itself.
  *
- * @param s1 String to trim (borrowed).
- * @param set Characters to trim (borrowed).
- * @return Newly allocated trimmed string (owned), or NULL on failure.
+ * @param s String to split (borrowed).
+ * @param c Delimiter character.
+ * @return NULL-terminated array of strings (owned), or NULL on failure.
  */
-char	*str_trim(char const *s1, char const *set);
+char	**str_split(char const *s, char c);
 
 /**
  * @ingroup str
@@ -1131,5 +1092,17 @@ char	*str_trim(char const *s1, char const *set);
  * @return Newly allocated substring (owned), or NULL on failure.
  */
 char	*str_sub(char const *s, unsigned int start, size_t len);
+
+/**
+ * @ingroup str
+ * @brief Trims characters from the beginning and end of a string.
+ *
+ * @note Caller owns the returned string and must free it.
+ *
+ * @param s1 String to trim (borrowed).
+ * @param set Characters to trim (borrowed).
+ * @return Newly allocated trimmed string (owned), or NULL on failure.
+ */
+char	*str_trim(char const *s1, char const *set);
 
 #endif
