@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/02/01 23:35:33 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/02/02 00:46:54 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -497,29 +497,32 @@ bool	parse_int(char *s, int *out);
  * @ingroup error
  * @brief Prints "Error\n" to stderr with optional message and errno.
  *
- * If print_errno is true, uses perror() to print the errno message.
- * Otherwise, prints the message followed by a newline if message is not NULL.
+ * If print_errno is false and message is NULL, only "Error\n" is printed.
+ * If print_errno is true, uses strerror() to print the errno description.
+ * If message is not NULL, prints the message.
+ * '\n' is always printed at the end.
  *
- * @param print_errno If true, prints errno value using perror().
+ * @param print_errno If true, prints errno description using strerror().
  * @param message Optional message to print (borrowed, can be NULL).
  */
 void	print_err(bool print_errno, const char *message);
 
 /**
  * @ingroup error
- * @brief Prints "Error\n" to stderr with formatted message and optional errno.
+ * @brief Prints "Error\n" to stderr with safe prefix + formatted suffix.
  *
- * Uses printf-style formatting for the error message.
- * If formatting fails, prints the fallback string instead.
+ * Prints safe prefix always, then attempts to format and append fmt.
+ * If formatting fails, only the safe prefix is printed.
+ * '\n' is always printed at the end.
  *
- * @warning fallback and fmt must NOT be NULL.
+ * @warning safe and fmt must NOT be NULL, use print_err() otherwise.
  *
- * @param print_errno If true, prints errno value using perror().
- * @param fallback Fallback string if formatting fails (borrowed).
- * @param fmt Format string (borrowed).
+ * @param print_errno If true, prints errno description using strerror().
+ * @param safe Safe prefix printed unconditionally (borrowed).
+ * @param fmt Format string for suffix (borrowed).
  * @param ... Variadic arguments for format specifiers.
  */
-void	fprint_err(bool print_errno, const char *fallback, const char *fmt, ...)
+void	fprint_err(bool print_errno, const char *safe, const char *fmt, ...)
 		__attribute__((format(printf, 3, 4)));
 
 /* ************************************************************************* */
@@ -964,7 +967,6 @@ void	ft_putstr_fd(char *s, int fd);
 /* ************************************************************************* */
 /*                                   STR                                     */
 /* ************************************************************************* */
-
 
 /**
  * @brief Frees all strings in a null-terminated array and the tab itself.
