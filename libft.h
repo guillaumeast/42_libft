@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/30 23:30:35 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/02/01 23:35:33 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 # include <sys/types.h>
 
 # define BUFFER_SIZE 128
+
+/* ************************************************************************* */
+/*                                   TYPES                                   */
+/* ************************************************************************* */
 
 /**
  * @struct s_buff
@@ -62,6 +66,10 @@ typedef struct s_node
  */
 typedef t_node	*t_list;
 
+/* ************************************************************************* */
+/*                                   GROUPS                                  */
+/* ************************************************************************* */
+
 /** @defgroup buff Buffer API
  *  @brief Dynamic growable buffer utilities.
  *
@@ -80,10 +88,10 @@ typedef t_node	*t_list;
  *  Functions to convert between strings and numeric types.
  */
 
-/** @defgroup gnl Get Next Chunk
- *  @brief Chunk-by-chunk file reading (customizable separator).
+/** @defgroup error Error Functions
+ *  @brief Error reporting utilities.
  *
- *  Functions to read chunks from file descriptors with persistent state.
+ *  Functions to print formatted error messages to stderr.
  */
 
 /** @defgroup list Linked List API
@@ -480,6 +488,39 @@ char	*ft_ultoa_base(unsigned long n, const char *base);
  * @return true on success, false if parsing failed or value out of range.
  */
 bool	parse_int(char *s, int *out);
+
+/* ************************************************************************* */
+/*                                  ERROR                                    */
+/* ************************************************************************* */
+
+/**
+ * @ingroup error
+ * @brief Prints "Error\n" to stderr with optional message and errno.
+ *
+ * If print_errno is true, uses perror() to print the errno message.
+ * Otherwise, prints the message followed by a newline if message is not NULL.
+ *
+ * @param print_errno If true, prints errno value using perror().
+ * @param message Optional message to print (borrowed, can be NULL).
+ */
+void	print_err(bool print_errno, const char *message);
+
+/**
+ * @ingroup error
+ * @brief Prints "Error\n" to stderr with formatted message and optional errno.
+ *
+ * Uses printf-style formatting for the error message.
+ * If formatting fails, prints the fallback string instead.
+ *
+ * @warning fallback and fmt must NOT be NULL.
+ *
+ * @param print_errno If true, prints errno value using perror().
+ * @param fallback Fallback string if formatting fails (borrowed).
+ * @param fmt Format string (borrowed).
+ * @param ... Variadic arguments for format specifiers.
+ */
+void	fprint_err(bool print_errno, const char *fallback, const char *fmt, ...)
+		__attribute__((format(printf, 3, 4)));
 
 /* ************************************************************************* */
 /*                                   LIST                                    */
