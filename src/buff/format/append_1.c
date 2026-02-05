@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:37 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 01:29:42 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/02/05 12:13:57 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static bool	append_str(t_buff *buff, t_rules *rules, const char *str);
 
-bool	append(t_buff *buff, t_rules *rules, va_list *args)
+bool	append(t_buff *buff, t_rules *rules, va_list args)
 {
 	t_buff	tmp_buff;
 	bool	success;
@@ -22,19 +22,19 @@ bool	append(t_buff *buff, t_rules *rules, va_list *args)
 	buff_init(&tmp_buff, 0);
 	success = false;
 	if (rules->conversion == 'c')
-		success = append_char(&tmp_buff, va_arg(*args, int));
+		success = append_char(&tmp_buff, va_arg(args, int));
 	else if (rules->conversion == 's')
-		success = append_str(&tmp_buff, rules, va_arg(*args, char *));
+		success = append_str(&tmp_buff, rules, va_arg(args, char *));
 	else if (rules->conversion == 'd' || rules->conversion == 'i')
-		success = append_int(&tmp_buff, va_arg(*args, int));
+		success = append_int(&tmp_buff, va_arg(args, int));
 	else if (rules->conversion == 'u')
-		success = append_uint(&tmp_buff, va_arg(*args, unsigned int));
+		success = append_uint(&tmp_buff, va_arg(args, unsigned int));
 	else if (rules->conversion == 'x')
-		success = append_hex(&tmp_buff, va_arg(*args, unsigned int), false);
+		success = append_hex(&tmp_buff, va_arg(args, unsigned int), false);
 	else if (rules->conversion == 'X')
-		success = append_hex(&tmp_buff, va_arg(*args, unsigned int), true);
+		success = append_hex(&tmp_buff, va_arg(args, unsigned int), true);
 	else if (rules->conversion == 'p')
-		success = append_ptr(&tmp_buff, (unsigned long)va_arg(*args, void *));
+		success = append_ptr(&tmp_buff, (unsigned long)va_arg(args, void *));
 	if (success)
 		success = rules_apply(&tmp_buff, rules);
 	if (success)

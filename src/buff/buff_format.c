@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:33 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/14 03:27:41 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/02/05 12:14:59 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ bool	buff_append_vformat(t_buff *buff, const char *fstring, va_list args)
 			if (!buff_append(buff, "%", 1))
 				return (false);
 		}
-		else if (!append(buff, &rules, &args))
+		else if (!append(buff, &rules, args))
 			return (false);
 		next_conversion = str_chr(fstring, '%');
 	}
