@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:44 by gastesan          #+#    #+#             */
-/*   Updated: 2026/02/05 12:14:23 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/02/05 16:50:31 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ bool	rules_apply(t_buff *buff, t_rules *rules);
  *
  * @param buff Pointer to the buffer.
  * @param rules Pointer to the formatting rules.
- * @param args The variable argument list.
+ * @param args Pointer to the variable argument list.
  * @return true on success, false on failure.
  */
-bool	append(t_buff *buff, t_rules *rules, va_list args);
+bool	append(t_buff *buff, t_rules *rules, va_list *args);
 
 /**
  * @brief Appends a character to the buffer.
