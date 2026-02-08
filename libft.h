@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/02/02 00:46:54 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/02/08 11:35:19 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -971,8 +971,9 @@ void	ft_putstr_fd(char *s, int fd);
 /**
  * @brief Frees all strings in a null-terminated array and the tab itself.
  *
+ * @note The tab is set at NULL after beeing freed.
+ *
  * @param tab Array of strings to free.
- * @return NULL always.
  */
 void	str_array_free(char ***tab_ptr);
 
