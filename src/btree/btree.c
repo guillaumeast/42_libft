@@ -1,4 +1,4 @@
-#include "btree.h"
+#include "libft.h"
 #include <stdlib.h>
 
 t_btree_node	*btree_new(void *data)
