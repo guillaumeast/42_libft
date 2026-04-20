@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/02/08 11:35:19 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/04/20 17:56:14 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,36 @@ typedef struct s_node
  */
 typedef t_node	*t_list;
 
+/**
+ * @struct s_btree_node
+ * @brief Binary tree node structure.
+ *
+ * @var s_btree_node::parent Pointer to the parent node (borrowed, may be NULL).
+ * @var s_btree_node::left Pointer to the left child (borrowed, may be NULL).
+ * @var s_btree_node::right Pointer to the right child (borrowed, may be NULL).
+ * @var s_btree_node::data Pointer to node payload (owned by the node, may be NULL).
+ */
+typedef struct s_btree_node
+{
+	/** @brief Pointer to the parent node (borrowed, may be NULL). */
+	struct s_btree_node	*parent;
+	/** @brief Pointer to the left child (borrowed, may be NULL). */
+	struct s_btree_node	*left;
+	/** @brief Pointer to the right child (borrowed, may be NULL). */
+	struct s_btree_node	*right;
+	/** @brief Pointer to node payload (owned by the node, may be NULL). */
+	void				*data;
+}	t_btree_node;
+
 /* ************************************************************************* */
 /*                                   GROUPS                                  */
 /* ************************************************************************* */
+
+/** @defgroup btree Binary Tree API
+ *  @brief Binary tree node utilities.
+ *
+ *  Functions to create, link, detach and recursively free binary tree nodes.
+ */
 
 /** @defgroup buff Buffer API
  *  @brief Dynamic growable buffer utilities.
@@ -135,6 +162,86 @@ typedef t_node	*t_list;
  *
  *  Functions to search, copy, compare and transform strings.
  */
+
+/* ************************************************************************* */
+/*                                  BTREE                                    */
+/* ************************************************************************* */
+
+/**
+ * @ingroup btree
+ * @brief Creates a new binary tree node.
+ *
+ * @note Ownership of data is transferred to the new node on success.
+ *       On failure, caller retains ownership of data.
+ *
+ * @param data Payload for the new node (ownership transferred on success).
+ * @return Pointer to the new node (owned), or NULL on allocation failure.
+ */
+t_btree_node	*btree_new(void *data);
+
+/**
+ * @ingroup btree
+ * @brief Sets the left child of a parent node.
+ *
+ * Links child under parent and updates child->parent accordingly.
+ *
+ * @warning parent and child must not be NULL.
+ *
+ * @param parent Parent node to update (borrowed).
+ * @param child Child node to attach as left child (borrowed).
+ */
+void			btree_set_left(t_btree_node *parent, t_btree_node *child);
+
+/**
+ * @ingroup btree
+ * @brief Sets the right child of a parent node.
+ *
+ * Links child under parent and updates child->parent accordingly.
+ *
+ * @warning parent and child must not be NULL.
+ *
+ * @param parent Parent node to update (borrowed).
+ * @param child Child node to attach as right child (borrowed).
+ */
+void			btree_set_right(t_btree_node *parent, t_btree_node *child);
+
+/**
+ * @ingroup btree
+ * @brief Detaches and returns the left child of a parent node.
+ *
+ * Updates both parent->left and the detached child's parent pointer to NULL.
+ *
+ * @warning parent and parent->left must not be NULL.
+ *
+ * @param parent Parent node to detach from (borrowed).
+ * @return Detached left child node (owned by caller), or NULL if none.
+ */
+t_btree_node	*btree_detach_left(t_btree_node *parent);
+
+/**
+ * @ingroup btree
+ * @brief Detaches and returns the right child of a parent node.
+ *
+ * Updates both parent->right and the detached child's parent pointer to NULL.
+ *
+ * @warning parent and parent->right must not be NULL.
+ *
+ * @param parent Parent node to detach from (borrowed).
+ * @return Detached right child node (owned by caller), or NULL if none.
+ */
+t_btree_node	*btree_detach_right(t_btree_node *parent);
+
+/**
+ * @ingroup btree
+ * @brief Recursively frees a node and its descendants.
+ *
+ * Performs a post-order traversal and frees each node. If data_free is
+ * provided, it is called for each non-NULL node payload before node free.
+ *
+ * @param node Pointer to the root node pointer (set to NULL after freeing).
+ * @param data_free Optional payload destructor (can be NULL).
+ */
+void			btree_free(t_btree_node **node, void (*data_free)(void *data));
 
 /* ************************************************************************* */
 /*                                   BUFF                                    */
