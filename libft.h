@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/04/20 17:56:14 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/04/23 00:33:04 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -293,6 +293,24 @@ void	buff_free(t_buff *b);
  * @return Index of the character, or -1 if not found.
  */
 int		buff_get_index(t_buff *buff, char c);
+
+/**
+ * @ingroup buff
+ * @brief Returns a newly allocated copy of the buffer content.
+ *
+ * If the buffer data is not null-terminated, a trailing '\0' is added in the
+ * returned string.
+ *
+ * @warning buff must be initialized before calling this function.
+ *
+ * @note Caller owns the returned string and must free it.
+ * @note The caller remains owner of the t_buff.
+ * @note The t_buff remains owner of the buff->data.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed).
+ * @return Newly allocated string (owned by caller), or NULL on failure.
+ */
+char	*buff_get_string(t_buff *buff);
 
 /**
  * @ingroup buff
