@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/04/23 00:33:04 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/04/28 14:12:57 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -275,6 +275,7 @@ bool	buff_adjust(t_buff *buff);
  * @brief Frees the buffer's internal data.
  *
  * Sets buff->data to NULL after freeing.
+ * Sets buff->len and buff->cap to 0 after freeing.
  *
  * @warning Does not free the t_buff struct itself, only its internal data.
  *
@@ -364,16 +365,18 @@ bool	buff_append(t_buff *b, const char *str, long n);
 
 /**
  * @ingroup buff
- * @brief Duplicates up to n bytes of a buffer into a new buffer.
+ * @brief Copies up to n bytes from a source buffer into an existing buffer.
  *
- * @note Caller owns the returned t_buff and must free both the struct
- *       and its internal data (use buff_free then free).
+ * @warning dst and src must be initialized before calling this function.
+ * @warning The previous logical content of dst is replaced, whether the
+ *          function succeeds or fails.
  *
- * @param src Source buffer to duplicate (borrowed).
+ * @param dst Destination buffer to overwrite (borrowed, initialized).
+ * @param src Source buffer to duplicate (borrowed, initialized).
  * @param n Maximum number of bytes to copy.
- * @return Pointer to a newly allocated t_buff (owned), or NULL on failure.
+ * @return true on success, false on memory allocation failure.
  */
-t_buff	*buff_dup_n(const t_buff *src, size_t n);
+bool	buff_dup_n(t_buff *dst, const t_buff *src, size_t n);
 
 /**
  * @ingroup buff

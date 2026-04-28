@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:37 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 02:14:04 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/04/28 14:18:31 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,7 @@ void	buff_free(t_buff *b)
 {
 	if (b->data)
 		free(b->data);
+	b->len = 0;
+	b->cap = 0;
 	b->data = NULL;
 }

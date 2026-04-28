@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/14 03:27:51 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/04/28 14:02:37 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,23 +86,17 @@ bool	buff_append(t_buff *b, const char *str, long n)
 	return (true);
 }
 
-t_buff	*buff_dup_n(const t_buff *src, size_t n)
+bool	buff_dup_n(t_buff *dst, const t_buff *src, size_t n)
 {
-	t_buff	*res;
-
-	res = malloc(sizeof * res);
-	if (!res)
-		return (NULL);
 	if (n > src->len)
 		n = src->len;
-	buff_init(res, 0);
-	if (!buff_append(res, src->data, (long)n))
+	dst->len = 0;
+	if (!buff_append(dst, src->data, (long)n))
 	{
-		buff_free(res);
-		free(res);
-		return (NULL);
+		buff_free(dst);
+		return (false);
 	}
-	return (res);
+	return (true);
 }
 
 void	buff_rm_part(t_buff *buff, size_t i_start, ssize_t len)
