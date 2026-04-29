@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/04/28 14:12:57 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/04/30 01:12:56 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <stdbool.h>
 # include <sys/types.h>
 
-# define BUFFER_SIZE 128
+# define BUFFER_SIZE		128
+# define VECTOR_INIT_CAP	16
 
 /* ************************************************************************* */
 /*                                   TYPES                                   */
@@ -86,6 +87,33 @@ typedef struct s_btree_node
 	/** @brief Pointer to node payload (owned by the node, may be NULL). */
 	void				*data;
 }	t_btree_node;
+
+/**
+ * @struct s_vector
+ * @brief Dynamic array storing contiguous fixed-size items.
+ *
+ * The vector owns a single allocated memory block containing items stored
+ * contiguously, with no gaps between them.
+ *
+ * @var s_vector::data Pointer to the allocated contiguous array of items
+ *                     (owned by the vector, may be NULL).
+ * @var s_vector::cap Current allocated capacity, expressed in items.
+ * @var s_vector::len Current number of stored items, expressed in items.
+ * @var s_vector::item_size Size of each item, expressed in bytes.
+ */
+typedef struct s_vector
+{
+	/** @brief Pointer to the allocated contiguous array of items
+	*         (owned by the vector, may be NULL).
+	*/
+	void	*data;
+	/** @brief Current allocated capacity, expressed in items. */
+	size_t	cap;
+	/** @brief Current number of stored items, expressed in items. */
+	size_t	len;
+	/** @brief Size of each item, expressed in bytes. */
+	size_t	item_size;
+}	t_vector;
 
 /* ************************************************************************* */
 /*                                   GROUPS                                  */
@@ -161,6 +189,13 @@ typedef struct s_btree_node
  *  @brief String manipulation utilities.
  *
  *  Functions to search, copy, compare and transform strings.
+ */
+
+/** @defgroup vector Vector API
+ *  @brief Dynamic array utilities for contiguous fixed-size items.
+ *
+ *  Functions to initialize, grow, shrink, duplicate and manipulate dynamic
+ *  arrays storing items contiguously in memory.
  */
 
 /* ************************************************************************* */
@@ -1276,5 +1311,170 @@ char	*str_sub(char const *s, unsigned int start, size_t len);
  * @return Newly allocated trimmed string (owned), or NULL on failure.
  */
 char	*str_trim(char const *s1, char const *set);
+
+/* ************************************************************************* */
+/*                                  VECTOR                                   */
+/* ************************************************************************* */
+
+/**
+ * @ingroup vector
+ * @brief Initializes a vector with a given item size and initial capacity.
+ *
+ * @note Cannot fail when cap == 0.
+ *
+ * @warning vector must NOT already own allocated data. Call vector_free()
+ *          first if needed.
+ *
+ * @param vector Pointer to the vector to initialize (borrowed, uninitialized).
+ * @param item_size Size of each item, in bytes (must be > 0).
+ * @param cap Initial capacity, expressed in items.
+ * @return true on success, false on invalid item_size, overflow, or allocation
+ *         failure.
+ */
+bool	vector_init(t_vector *vector, size_t item_size, size_t cap);
+
+/**
+ * @ingroup vector
+ * @brief Grows vector capacity, usually by doubling it.
+ *
+ * Existing items are preserved. If current capacity is 0, grows to
+ * VECTOR_INIT_CAP.
+ *
+ * @warning vector must be initialized before calling this function.
+ *
+ * @param vector Pointer to an initialized vector (borrowed).
+ * @return true on success, false on overflow or allocation failure.
+ */
+bool	vector_grow(t_vector *vector);
+
+/**
+ * @ingroup vector
+ * @brief Shrinks vector capacity to match its current length.
+ *
+ * Existing items are preserved. If vector length is 0, internal storage is
+ * freed.
+ *
+ * @warning vector must be initialized before calling this function.
+ *
+ * @param vector Pointer to an initialized vector (borrowed).
+ * @return true on success, false on allocation failure.
+ */
+bool	vector_adjust(t_vector *vector);
+
+/**
+ * @ingroup vector
+ * @brief Duplicates a vector into another one.
+ *
+ * A new internal storage is allocated for dst. Items are copied byte-for-byte;
+ * item payloads themselves are not deep-copied.
+ *
+ * @note On success, dst is initialized and owns its internal storage.
+ *       Caller must later release it with vector_free().
+ *
+ * @warning dst must NOT be initialized, or must be freed before calling this
+ *          function.
+ * @warning dst and src must be different.
+ *
+ * @param dst Destination vector to initialize and fill (borrowed).
+ * @param src Source vector to duplicate (borrowed).
+ * @return true on success, false on failure.
+ */
+bool	vector_dup(t_vector *dst, t_vector *src);
+
+/**
+ * @ingroup vector
+ * @brief Frees the vector's internal storage.
+ *
+ * Sets vector->data to NULL after freeing.
+ * Sets vector->len and vector->cap to 0 after freeing.
+ *
+ * @warning Does not free the t_vector struct itself, only its internal data.
+ *
+ * @param vector Pointer to the vector (borrowed).
+ */
+void	vector_free(t_vector *vector);
+
+/**
+ * @ingroup vector
+ * @brief Appends one item at the end of the vector.
+ *
+ * Vector is automatically grown if necessary.
+ *
+ * @warning vector must be initialized before calling this function.
+ * @warning item must NOT point inside vector->data.
+ *
+ * @param vector Pointer to an initialized vector (borrowed).
+ * @param item Item to append (borrowed, not modified).
+ * @return true on success, false on allocation failure.
+ */
+bool	vector_push(t_vector *vector, const void *item);
+
+/**
+ * @ingroup vector
+ * @brief Removes the last item from the vector.
+ *
+ * If dst is not NULL, the removed item is copied there before removal.
+ *
+ * @warning vector must be initialized before calling this function.
+ *
+ * @param vector Pointer to an initialized vector (borrowed).
+ * @param dst Optional destination buffer receiving the removed item (borrowed,
+ *            can be NULL).
+ * @return true on success, false if the vector is empty.
+ */
+bool	vector_pop(t_vector *vector, void *dst);
+
+/**
+ * @ingroup vector
+ * @brief Inserts one item at a specific index.
+ *
+ * Existing items at and after index are shifted to the right. Vector is
+ * automatically grown if necessary.
+ *
+ * @warning vector must be initialized before calling this function.
+ * @warning item must NOT point inside vector->data.
+ *
+ * @param vector Pointer to an initialized vector (borrowed).
+ * @param index Insertion index, in range [0, vector->len].
+ * @param item Item to insert (borrowed, not modified).
+ * @return true on success, false on invalid index or allocation failure.
+ */
+bool	vector_insert(t_vector *vector, size_t index, const void *item);
+
+/**
+ * @ingroup vector
+ * @brief Removes one item at a specific index.
+ *
+ * Items after index are shifted left to fill the gap. If dst is not NULL, the
+ * removed item is copied there before removal.
+ *
+ * @warning vector must be initialized before calling this function.
+ *
+ * @param vector Pointer to an initialized vector (borrowed).
+ * @param index Index of the item to remove.
+ * @param dst Optional destination buffer receiving the removed item (borrowed,
+ *            can be NULL).
+ * @return true on success, false if index is out of bounds.
+ */
+bool	vector_remove(t_vector *vector, size_t index, void *dst);
+
+/**
+ * @ingroup vector
+ * @brief Inserts all items from src into dst at a specific index.
+ *
+ * Items are copied byte-for-byte from src into dst. Source and destination
+ * storages remain independent after the merge.
+ *
+ * @warning dst and src must be initialized before calling this function.
+ * @warning dst and src must be different.
+ * @warning dst and src must use the same item_size.
+ *
+ * @param dst Destination vector receiving the inserted items (borrowed).
+ * @param src Source vector providing items to copy (borrowed).
+ * @param index Insertion index in dst, in range [0, dst->len].
+ * @return true on success, false on invalid input, overflow, or allocation
+ *         failure.
+ */
+bool	vector_merge(t_vector *dst, t_vector *src, size_t index);
 
 #endif
