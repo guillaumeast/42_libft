@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/04/30 01:12:56 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/04/30 20:19:46 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 /**
  * @struct s_buff
- * @brief Dynamic buffer structure for efficient string/data manipulation.
+ * @brief Dynamic buffer structure for efficient string/data manipulation. [CI TEST]
  *
  * @var s_buff::data Pointer to the allocated data (owned by the buffer).
  * @var s_buff::cap Current allocated capacity.
