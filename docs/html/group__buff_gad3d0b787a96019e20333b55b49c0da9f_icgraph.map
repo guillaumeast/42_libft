@@ -1,5 +1,0 @@
-<map id="buff_get_index" name="buff_get_index">
-<area shape="rect" id="Node000001" title="Finds the index of a character in the buffer." alt="" coords="160,5,266,31"/>
-<area shape="rect" id="Node000002" href="$group__buff.html#gab994c8260f21ddde8f48200c219e366f" title="Reads from a file descriptor until a specific character is found." alt="" coords="5,5,112,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,18,112,21,112,16,147,18"/>
-</map>

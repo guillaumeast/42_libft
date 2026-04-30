@@ -1,7 +1,0 @@
-<map id="vector_free" name="vector_free">
-<area shape="rect" id="Node000001" title="Frees the vector&#39;s internal storage." alt="" coords="153,31,239,56"/>
-<area shape="rect" id="Node000002" href="$group__vector.html#gac45e5b948703b7b1f8a4508e0151a938" title="Shrinks vector capacity to match its current length." alt="" coords="5,5,105,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,34,105,30,105,24,140,32"/>
-<area shape="rect" id="Node000003" href="$group__vector.html#ga53cb7897120843a17236c66ec22fc39b" title="Duplicates a vector into another one." alt="" coords="12,55,98,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="135,54,99,63,98,58,140,53"/>
-</map>

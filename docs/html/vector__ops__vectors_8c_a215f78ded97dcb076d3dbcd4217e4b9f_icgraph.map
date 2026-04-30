@@ -1,9 +1,0 @@
-<map id="compute_new_cap" name="compute_new_cap">
-<area shape="rect" id="Node000001" title=" " alt="" coords="455,5,586,31"/>
-<area shape="rect" id="Node000002" href="$vector__ops__vectors_8c.html#a22d1e26dfd18fb169ee56621631d9687" title=" " alt="" coords="287,5,407,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="437,18,408,21,408,16,443,18"/>
-<area shape="rect" id="Node000003" href="$group__vector.html#ga54a3652c537ec31f1a9d00f26fcab16f" title="Inserts all items from src into dst at a specific index." alt="" coords="139,5,239,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="269,18,239,21,239,16,274,18"/>
-<area shape="rect" id="Node000004" href="$group__vector.html#ga53cb7897120843a17236c66ec22fc39b" title="Duplicates a vector into another one." alt="" coords="5,5,91,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="120,18,91,21,91,16,126,18"/>
-</map>

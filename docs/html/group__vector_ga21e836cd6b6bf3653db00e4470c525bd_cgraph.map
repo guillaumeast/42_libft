@@ -1,5 +1,0 @@
-<map id="vector_grow" name="vector_grow">
-<area shape="rect" id="Node000001" title="Grows vector capacity, usually by doubling it." alt="" coords="5,5,98,31"/>
-<area shape="rect" id="Node000002" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="146,5,232,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,16,133,18,127,18,98,21"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="list_rm_all" name="list_rm_all">
-<area shape="rect" id="Node000001" title="Removes all nodes from the list." alt="" coords="124,5,204,31"/>
-<area shape="rect" id="Node000002" href="$group__list.html#ga0f4adf7f468df574c302cd02b3b06acf" title="Creates a new list by applying a function to each element." alt="" coords="5,5,76,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,19,76,21,76,16,111,18"/>
-</map>

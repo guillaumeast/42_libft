@@ -1,5 +1,0 @@
-<map id="ft_putstr_fd" name="ft_putstr_fd">
-<area shape="rect" id="Node000001" title="Writes a string to a file descriptor." alt="" coords="5,5,93,31"/>
-<area shape="rect" id="Node000002" href="$group__str.html#ga08b8150070493b3bf2dbc420b965b7bb" title="Calculates the length of a string." alt="" coords="141,5,201,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,16,128,18,122,18,93,21"/>
-</map>

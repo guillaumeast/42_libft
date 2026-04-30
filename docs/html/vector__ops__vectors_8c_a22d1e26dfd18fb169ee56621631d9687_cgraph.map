@@ -1,7 +1,0 @@
-<map id="grow_and_merge" name="grow_and_merge">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,126,56"/>
-<area shape="rect" id="Node000002" href="$vector__ops__vectors_8c.html#a215f78ded97dcb076d3dbcd4217e4b9f" title=" " alt="" coords="174,5,304,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,32,161,29,156,31,127,37"/>
-<area shape="rect" id="Node000003" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="196,55,282,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="126,49,183,59,178,60,126,54"/>
-</map>

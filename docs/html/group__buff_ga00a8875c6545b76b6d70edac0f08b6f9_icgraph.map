@@ -1,7 +1,0 @@
-<map id="buff_adjust" name="buff_adjust">
-<area shape="rect" id="Node000001" title="Shrinks buffer capacity to match its current length." alt="" coords="160,31,245,56"/>
-<area shape="rect" id="Node000002" href="$group__buff.html#ga1dfc1ac678326f59e7c22efc4dd88749" title="Reads all available data from a file descriptor into buffer." alt="" coords="11,5,106,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,34,106,29,106,24,147,33"/>
-<area shape="rect" id="Node000003" href="$group__buff.html#gab994c8260f21ddde8f48200c219e366f" title="Reads from a file descriptor until a specific character is found." alt="" coords="5,55,112,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,54,112,61,111,56,147,53"/>
-</map>
