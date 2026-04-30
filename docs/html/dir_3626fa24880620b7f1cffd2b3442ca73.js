@@ -8,6 +8,7 @@ var dir_3626fa24880620b7f1cffd2b3442ca73 =
     [ "str_len.c", "str__len_8c.html", "str__len_8c" ],
     [ "str_mapi.c", "str__mapi_8c.html", "str__mapi_8c" ],
     [ "str_ncmp.c", "str__ncmp_8c.html", "str__ncmp_8c" ],
+    [ "str_ncpy.c", "str__ncpy_8c.html", "str__ncpy_8c" ],
     [ "str_nstr.c", "str__nstr_8c.html", "str__nstr_8c" ],
     [ "str_rchr.c", "str__rchr_8c.html", "str__rchr_8c" ],
     [ "str_split.c", "str__split_8c.html", "str__split_8c" ],

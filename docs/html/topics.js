@@ -1,9 +1,10 @@
 var topics =
 [
+    [ "Binary Tree API", "group__btree.html", "group__btree" ],
     [ "Buffer API", "group__buff.html", "group__buff" ],
     [ "Character Functions", "group__chr.html", "group__chr" ],
     [ "Conversion Functions", "group__conv.html", "group__conv" ],
-    [ "Get Next Chunk", "group__gnl.html", "group__gnl" ],
+    [ "Error Functions", "group__error.html", "group__error" ],
     [ "Linked List API", "group__list.html", "group__list" ],
     [ "Memory Allocation", "group__malloc.html", "group__malloc" ],
     [ "Math Functions", "group__math.html", "group__math" ],

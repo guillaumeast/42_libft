@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['string_20functions_0',['String Functions',['../group__str.html',1,'']]]
+  ['tree_20api_0',['Binary Tree API',['../group__btree.html',1,'']]]
 ];

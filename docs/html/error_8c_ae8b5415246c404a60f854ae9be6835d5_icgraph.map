@@ -1,0 +1,7 @@
+<map id="_print" name="_print">
+<area shape="rect" id="Node000001" title=" " alt="" coords="126,31,179,56"/>
+<area shape="rect" id="Node000002" href="$group__error.html#ga52348e66c7bd8fde3535edb6140746ce" title="Prints &quot;Error\n&quot; to stderr with safe prefix + formatted suffix." alt="" coords="5,5,78,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,35,78,29,78,24,113,33"/>
+<area shape="rect" id="Node000003" href="$group__error.html#ga10c5ad43d195a463fa6f8043e55e4827" title="Prints &quot;Error\n&quot; to stderr with optional message and errno." alt="" coords="7,55,76,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="108,53,77,63,75,58,113,52"/>
+</map>

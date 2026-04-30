@@ -1,0 +1,8 @@
+<map id="print_err" name="print_err">
+<area shape="rect" id="Node000001" title="Prints &quot;Error\n&quot; to stderr with optional message and errno." alt="" coords="5,31,74,56"/>
+<area shape="rect" id="Node000002" href="$error_8c.html#ae8b5415246c404a60f854ae9be6835d5" title=" " alt="" coords="122,5,175,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,33,109,27,104,29,75,38"/>
+<area shape="rect" id="Node000003" href="$group__str.html#ga08b8150070493b3bf2dbc420b965b7bb" title="Calculates the length of a string." alt="" coords="223,31,283,56"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="74,41,208,41,207,46,74,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="176,22,211,33,205,33,175,27"/>
+</map>

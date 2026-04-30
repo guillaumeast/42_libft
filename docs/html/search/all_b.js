@@ -1,17 +1,11 @@
 var searchData=
 [
-  ['parse_5fflags_0',['parse_flags',['../rules__parse_8c.html#ab6a5581095c145c77dc32e7571b44a24',1,'rules_parse.c']]],
-  ['parse_5fint_1',['parse_int',['../group__conv.html#ga45107a29f5c80a551889af176574431f',1,'parse_int(char *s, int *out):&#160;parse_int.c'],['../group__conv.html#ga45107a29f5c80a551889af176574431f',1,'parse_int(char *s, int *out):&#160;parse_int.c']]],
-  ['parse_5fint_2ec_2',['parse_int.c',['../parse__int_8c.html',1,'']]],
-  ['parse_5fprecision_3',['parse_precision',['../rules__parse_8c.html#af8fbe48b449831a471e6cc7ef32ca336',1,'rules_parse.c']]],
-  ['parse_5fwidth_4',['parse_width',['../rules__parse_8c.html#afba419d5bf073e8f13e53c767ac70315',1,'rules_parse.c']]],
-  ['plus_5',['plus',['../structs__rules.html#a61b4a41103228264a5344643481a0779',1,'s_rules']]],
-  ['populate_6',['populate',['../ft__ltoa_8c.html#af12a39b2cec391f0762f1e08c22432f3',1,'ft_ltoa.c']]],
-  ['power_7',['power',['../group__math.html#gaec1e002df072470b9e222ada3bda1ceb',1,'power(int a, int b):&#160;power.c'],['../group__math.html#gaec1e002df072470b9e222ada3bda1ceb',1,'power(int a, int b):&#160;power.c']]],
-  ['power_2ec_8',['power.c',['../power_8c.html',1,'']]],
-  ['precision_9',['precision',['../structs__rules.html#acb05d7f81f9dac46e5cab7f519d77d6a',1,'s_rules']]],
-  ['prev_10',['prev',['../structs__node.html#ae95cd17e93d1c2de3174acef62c8dce1',1,'s_node']]],
-  ['print_20functions_11',['Print Functions',['../group__print.html',1,'']]],
-  ['printer_2ec_12',['printer.c',['../printer_8c.html',1,'']]],
-  ['put_20functions_13',['Put Functions',['../group__put.html',1,'']]]
+  ['math_20functions_0',['Math Functions',['../group__math.html',1,'']]],
+  ['max_1',['max',['../group__math.html#ga9881a990a03d466ac29ae1fb645fe1a4',1,'max(long a, long b):&#160;min_max_abs.c'],['../group__math.html#ga9881a990a03d466ac29ae1fb645fe1a4',1,'max(long a, long b):&#160;min_max_abs.c']]],
+  ['memory_20allocation_2',['Memory Allocation',['../group__malloc.html',1,'']]],
+  ['memory_20functions_3',['Memory Functions',['../group__mem.html',1,'']]],
+  ['min_4',['min',['../group__math.html#ga04a42f8bdb11b05ec4a03a191b426081',1,'min(long a, long b):&#160;min_max_abs.c'],['../group__math.html#ga04a42f8bdb11b05ec4a03a191b426081',1,'min(long a, long b):&#160;min_max_abs.c']]],
+  ['min_5fmax_5fabs_2ec_5',['min_max_abs.c',['../min__max__abs_8c.html',1,'']]],
+  ['modulo_6',['modulo',['../group__math.html#ga068c470f68bb90bc6f2ee600aff01947',1,'modulo(long a, size_t b):&#160;modulo.c'],['../group__math.html#ga068c470f68bb90bc6f2ee600aff01947',1,'modulo(long a, size_t b):&#160;modulo.c']]],
+  ['modulo_2ec_7',['modulo.c',['../modulo_8c.html',1,'']]]
 ];

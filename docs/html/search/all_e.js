@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['t_5fbuff_0',['t_buff',['../libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b',1,'libft.h']]],
-  ['t_5flist_1',['t_list',['../libft_8h.html#ad825deab6587ce2527f4705d09c4c0df',1,'libft.h']]],
-  ['t_5fnode_2',['t_node',['../libft_8h.html#a3f46128da7b9ed932ecb00df9677e301',1,'libft.h']]],
-  ['t_5frules_3',['t_rules',['../buff__format_8h.html#ae0691034cd87bb4269c048376b16901c',1,'buff_format.h']]],
-  ['t_5fstash_4',['t_stash',['../stash_8h.html#a422df7a2c6d8fbbc8644e36ac0f552aa',1,'stash.h']]]
+  ['right_0',['right',['../structs__btree__node.html#a924199bab2a7b625d2459b58e2a07e8e',1,'s_btree_node']]],
+  ['right_5fpadding_1',['right_padding',['../structs__rules.html#ab574652e014aa7101e35040646ef694f',1,'s_rules']]],
+  ['rules_5fapply_2',['rules_apply',['../buff__format_8h.html#a8c7a90d2acec7c11adf4401378907be7',1,'rules_apply(t_buff *buff, t_rules *rules):&#160;rules_apply.c'],['../rules__apply_8c.html#a8c7a90d2acec7c11adf4401378907be7',1,'rules_apply(t_buff *buff, t_rules *rules):&#160;rules_apply.c']]],
+  ['rules_5fapply_2ec_3',['rules_apply.c',['../rules__apply_8c.html',1,'']]],
+  ['rules_5fparse_4',['rules_parse',['../buff__format_8h.html#a233832619898e496a89a2ad025d14043',1,'rules_parse(t_rules *rules, const char **fstring):&#160;rules_parse.c'],['../rules__parse_8c.html#a233832619898e496a89a2ad025d14043',1,'rules_parse(t_rules *rules, const char **fstring):&#160;rules_parse.c']]],
+  ['rules_5fparse_2ec_5',['rules_parse.c',['../rules__parse_8c.html',1,'']]]
 ];

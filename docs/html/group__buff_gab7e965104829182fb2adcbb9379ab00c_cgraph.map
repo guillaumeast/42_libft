@@ -1,0 +1,5 @@
+<map id="buff_get_string" name="buff_get_string">
+<area shape="rect" id="Node000001" title="Returns a newly allocated copy of the buffer content." alt="" coords="5,5,113,31"/>
+<area shape="rect" id="Node000002" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="161,5,247,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,16,148,18,142,18,113,21"/>
+</map>

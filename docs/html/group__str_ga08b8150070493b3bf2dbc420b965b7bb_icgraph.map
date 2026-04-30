@@ -1,88 +1,94 @@
 <map id="str_len" name="str_len">
-<area shape="rect" id="Node000001" title="Calculates the length of a string." alt="" coords="1237,504,1297,530"/>
-<area shape="rect" id="Node000002" href="$group__buff.html#ga479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="1095,331,1187,356"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1255,488,1230,430,1211,398,1187,369,1174,359,1175,354,1191,366,1215,395,1235,428,1260,490"/>
-<area shape="rect" id="Node000021" href="$group__buff.html#ga4c4fe940783715f94d9b2a933c73ecd6" title="Inserts a string at a specific index in the buffer." alt="" coords="1100,153,1182,179"/>
-<area shape="poly" id="edge29_Node000001_Node000021" title=" " alt="" coords="1253,488,1145,182,1148,177,1259,490"/>
-<area shape="rect" id="Node000023" href="$group__buff.html#ga254f0c67338ac419cbe9ac8c215b1c58" title="Prepends a string to the beginning of the buffer." alt="" coords="1093,80,1189,106"/>
-<area shape="poly" id="edge33_Node000001_Node000023" title=" " alt="" coords="1263,487,1259,424,1247,335,1225,237,1208,188,1187,142,1173,123,1159,109,1160,104,1177,120,1191,139,1213,186,1230,235,1253,334,1264,423,1268,490"/>
-<area shape="rect" id="Node000026" href="$group__put.html#gaeb112152acfc553d58d61a5df38afcde" title="Writes a string followed by newline to a file descriptor." alt="" coords="1093,380,1189,406"/>
-<area shape="poly" id="edge39_Node000001_Node000026" title=" " alt="" coords="1248,490,1222,455,1187,419,1173,409,1174,404,1191,415,1226,452,1253,492"/>
-<area shape="rect" id="Node000027" href="$group__put.html#gacefce9ac519f8f8b7d3fde33dbafe469" title="Writes a string to a file descriptor." alt="" coords="1097,429,1184,455"/>
-<area shape="poly" id="edge40_Node000001_Node000027" title=" " alt="" coords="1232,495,1188,468,1169,458,1170,453,1190,464,1238,496"/>
-<area shape="rect" id="Node000028" href="$group__str.html#gab8fd2d5ba4442234fa2dc3255101c3c0" title="Duplicates a string." alt="" coords="1109,479,1173,504"/>
-<area shape="poly" id="edge41_Node000001_Node000028" title=" " alt="" coords="1219,508,1173,501,1173,495,1225,508"/>
-<area shape="rect" id="Node000029" href="$group__str.html#ga011e81255172329fdfe56dbbb44aa17a" title="Concatenates two strings into a new string." alt="" coords="1109,528,1172,554"/>
-<area shape="poly" id="edge42_Node000001_Node000029" title=" " alt="" coords="1219,526,1174,537,1172,532,1224,525"/>
-<area shape="rect" id="Node000030" href="$group__str.html#ga07cfcb9b36715c306215fb73d7124b87" title="Appends src to dst with size limit." alt="" coords="1109,577,1173,603"/>
-<area shape="poly" id="edge43_Node000001_Node000030" title=" " alt="" coords="1236,537,1190,568,1170,579,1168,574,1188,564,1231,539"/>
-<area shape="rect" id="Node000031" href="$group__str.html#ga0977f5bf45cca11eeb40152f7ab42498" title="Copies src to dst with size limit." alt="" coords="1107,627,1174,652"/>
-<area shape="poly" id="edge44_Node000001_Node000031" title=" " alt="" coords="1252,541,1226,581,1191,618,1174,629,1172,624,1187,613,1222,578,1248,544"/>
-<area shape="rect" id="Node000032" href="$group__str.html#ga1a479072ad4474f52c11ad4927a09169" title="Creates a new string by applying a function to each character." alt="" coords="1105,676,1176,702"/>
-<area shape="poly" id="edge45_Node000001_Node000032" title=" " alt="" coords="1259,543,1234,605,1215,637,1191,667,1176,678,1174,673,1187,663,1211,634,1230,603,1255,546"/>
-<area shape="rect" id="Node000033" href="$group__str.html#ga55d2155d5e3087d3f8dfee8bc5254a2c" title="Extracts a substring from a string." alt="" coords="1109,725,1173,751"/>
-<area shape="poly" id="edge46_Node000001_Node000033" title=" " alt="" coords="1263,543,1256,583,1241,628,1220,674,1191,716,1175,729,1173,724,1187,712,1216,671,1236,626,1250,581,1259,547"/>
-<area shape="rect" id="Node000036" href="$group__str.html#gab50abb536077775efcbc5cc5bff8e5bf" title="Trims characters from the beginning and end of a string." alt="" coords="949,775,1015,800"/>
-<area shape="poly" id="edge50_Node000001_Node000036" title=" " alt="" coords="1268,543,1266,594,1255,654,1245,685,1231,715,1213,742,1191,766,1170,779,1148,789,1101,799,1054,800,1015,796,1015,791,1054,795,1100,794,1146,784,1168,774,1187,761,1209,739,1227,712,1240,683,1250,653,1260,593,1264,547"/>
-<area shape="rect" id="Node000003" href="$append__1_8c.html#adcefd2fbd5b6e80b4f93f6380b884360" title="Appends formatted argument to buffer based on rules." alt="" coords="640,356,703,382"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1092,325,1030,306,950,288,907,283,863,281,819,285,777,295,750,308,725,324,687,358,683,353,722,320,747,303,775,290,818,280,862,276,907,277,951,282,1031,301,1097,324"/>
-<area shape="rect" id="Node000004" href="$group__buff.html#ga7ea043ad349cce71b040e8b48b4ddfd7" title="Appends formatted string to buffer using va_list." alt="" coords="423,457,567,483"/>
-<area shape="poly" id="edge25_Node000002_Node000004" title=" " alt="" coords="1096,365,1095,369,1082,390,1076,411,1075,452,1072,492,1064,512,1046,531,1015,553,981,569,945,580,907,586,830,587,754,575,680,555,614,530,520,486,521,481,616,525,682,549,755,569,831,581,907,581,943,575,979,564,1012,548,1043,527,1059,509,1067,491,1070,452,1070,410,1077,388,1091,366,1092,368"/>
-<area shape="rect" id="Node000010" href="$append__2_8c.html#aa054d33bdac73cf0d4b9ec8d5d5b681e" title="Appends a character to the buffer." alt="" coords="776,204,871,230"/>
-<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="1119,318,1087,283,1066,266,1043,251,1000,235,955,225,872,218,871,213,955,219,1002,229,1046,246,1069,261,1091,279,1124,319"/>
-<area shape="rect" id="Node000011" href="$append__2_8c.html#adb33e3aec703c2d7a612547bed00676c" title="Appends a number in hexadecimal format to the buffer." alt="" coords="936,407,1028,432"/>
-<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="1101,362,1012,409,1010,404,1096,365"/>
-<area shape="rect" id="Node000012" href="$append__2_8c.html#a3952ca8f3c39d3478d7fe1be3314d540" title="Appends a pointer address to the buffer." alt="" coords="781,457,866,483"/>
-<area shape="poly" id="edge17_Node000002_Node000012" title=" " alt="" coords="1098,364,1095,369,1080,389,1073,409,1065,429,1046,447,1002,467,954,477,907,480,867,478,867,473,907,475,953,472,1000,462,1043,443,1060,426,1068,407,1075,387,1091,366,1093,367"/>
-<area shape="rect" id="Node000013" href="$append__2_8c.html#ad381d13423ec9e55b3e32ebaac593557" title="Appends an integer to the buffer as a string." alt="" coords="782,305,866,331"/>
-<area shape="poly" id="edge15_Node000002_Node000013" title=" " alt="" coords="1076,339,867,324,866,319,1082,338"/>
-<area shape="rect" id="Node000014" href="$append__1_8c.html#abceb23c78e9b7d35b3951d825c00dba7" title="Appends a string to the buffer with null handling." alt="" coords="781,356,866,382"/>
-<area shape="poly" id="edge18_Node000002_Node000014" title=" " alt="" coords="1077,349,867,368,866,363,1082,348"/>
-<area shape="rect" id="Node000015" href="$append__2_8c.html#a5365849921a8c40f2512a0c4279cfa96" title="Appends an unsigned integer to the buffer as a string." alt="" coords="778,507,869,532"/>
-<area shape="poly" id="edge20_Node000002_Node000015" title=" " alt="" coords="1096,364,1095,369,1084,384,1078,398,1073,428,1068,456,1060,471,1046,484,1004,508,957,521,910,526,870,526,869,521,910,521,956,516,1002,503,1043,480,1055,467,1063,455,1068,427,1073,397,1079,381,1091,366,1092,367"/>
-<area shape="rect" id="Node000016" href="$rules__apply_8c.html#a361fecaf428a0a90383c1a17ad715c98" title="Applies width padding to the buffer." alt="" coords="937,104,1027,130"/>
-<area shape="poly" id="edge22_Node000002_Node000016" title=" " alt="" coords="1131,315,1120,278,1102,232,1077,184,1043,143,1027,132,1027,127,1046,139,1081,181,1107,229,1125,276,1136,317"/>
-<area shape="rect" id="Node000018" href="$group__buff.html#ga5e0fb3fb44e91fcd81504e202aab78f5" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="939,609,1025,635"/>
-<area shape="poly" id="edge26_Node000002_Node000018" title=" " alt="" coords="1095,365,1095,369,1078,398,1070,425,1069,452,1071,479,1073,505,1072,533,1064,562,1047,592,1023,611,1020,606,1043,588,1059,560,1067,532,1068,506,1066,479,1064,452,1065,424,1073,396,1090,366,1091,368"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="632,391,520,459,518,455,636,388"/>
-<area shape="rect" id="Node000005" href="$group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff" title="Appends formatted string to buffer using variadic arguments." alt="" coords="239,432,375,458"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="405,459,376,457,375,451,411,458"/>
-<area shape="rect" id="Node000006" href="$group__print.html#gaf7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="268,481,347,507"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="406,482,348,492,346,487,411,480"/>
-<area shape="rect" id="Node000007" href="$group__print.html#ga5b8ad0c8c498e56c305ded9def43e224" title="Writes formatted output to a file descriptor." alt="" coords="119,456,191,482"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="250,486,192,477,191,472,254,484"/>
-<area shape="rect" id="Node000008" href="$group__print.html#ga7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="119,505,191,531"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="250,504,193,515,190,510,254,501"/>
-<area shape="rect" id="Node000009" href="$group__print.html#gae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,505,71,531"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="101,520,73,520,70,516,105,516"/>
-<area shape="poly" id="edge10_Node000010_Node000003" title=" " alt="" coords="791,237,778,251,723,308,684,358,680,354,719,305,774,247,786,240"/>
-<area shape="poly" id="edge12_Node000011_Node000003" title=" " alt="" coords="918,415,776,397,704,380,703,375,776,392,923,413"/>
-<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="922,439,867,459,865,454,927,437"/>
-<area shape="poly" id="edge14_Node000012_Node000003" title=" " alt="" coords="787,449,692,385,693,379,793,448"/>
-<area shape="poly" id="edge16_Node000013_Node000003" title=" " alt="" coords="766,338,705,361,702,356,770,335"/>
-<area shape="poly" id="edge19_Node000014_Node000003" title=" " alt="" coords="763,370,704,371,703,366,768,368"/>
-<area shape="poly" id="edge21_Node000015_Node000003" title=" " alt="" coords="777,498,774,498,744,469,716,437,680,385,682,380,721,434,747,465,778,493,782,498"/>
-<area shape="rect" id="Node000017" href="$rules__apply_8c.html#a8c7a90d2acec7c11adf4401378907be7" title="Applies formatting rules to a buffer." alt="" coords="780,104,867,130"/>
-<area shape="poly" id="edge23_Node000016_Node000017" title=" " alt="" coords="919,118,868,119,867,114,924,116"/>
-<area shape="poly" id="edge24_Node000017_Node000003" title=" " alt="" coords="808,141,778,193,682,357,678,354,774,190,804,145"/>
-<area shape="rect" id="Node000019" href="$gnc_8c.html#a357b2a21259bc5329ee0e203446c9457" title="Extracts a chunk from the buffer up to the separator index." alt="" coords="783,609,864,635"/>
-<area shape="poly" id="edge27_Node000018_Node000019" title=" " alt="" coords="921,622,865,625,864,620,926,622"/>
-<area shape="rect" id="Node000020" href="$group__gnl.html#ga82bd3d4dda9db114063a2276e9619aff" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="615,609,728,635"/>
-<area shape="poly" id="edge28_Node000019_Node000020" title=" " alt="" coords="765,623,729,625,728,620,770,622"/>
-<area shape="poly" id="edge32_Node000021_Node000016" title=" " alt="" coords="1082,149,1026,133,1025,128,1088,149"/>
-<area shape="rect" id="Node000022" href="$rules__apply_8c.html#aff5a3f3aa2205810ba4664f48c67ff47" title="Applies precision formatting to the buffer." alt="" coords="926,153,1038,179"/>
-<area shape="poly" id="edge30_Node000021_Node000022" title=" " alt="" coords="1082,167,1039,169,1037,164,1087,165"/>
-<area shape="poly" id="edge31_Node000022_Node000017" title=" " alt="" coords="921,149,868,133,867,128,926,148"/>
-<area shape="poly" id="edge38_Node000023_Node000016" title=" " alt="" coords="1075,103,1029,113,1027,108,1080,101"/>
-<area shape="rect" id="Node000024" href="$rules__apply_8c.html#a2cef79ece98791945cb7311fac7fe6a5" title="Applies hexadecimal prefix (0x or 0X) to the buffer." alt="" coords="922,5,1042,31"/>
-<area shape="poly" id="edge34_Node000023_Node000024" title=" " alt="" coords="1100,72,1044,45,1020,34,1019,29,1046,40,1106,72"/>
-<area shape="rect" id="Node000025" href="$rules__apply_8c.html#afafce58f87b6b0f0a68b06862bcff40b" title="Applies plus or space sign formatting for positive numbers." alt="" coords="919,55,1045,80"/>
-<area shape="poly" id="edge36_Node000023_Node000025" title=" " alt="" coords="1074,83,1045,80,1044,75,1080,82"/>
-<area shape="poly" id="edge35_Node000024_Node000017" title=" " alt="" coords="926,39,921,44,876,76,840,106,837,102,872,72,918,40,930,36"/>
-<area shape="poly" id="edge37_Node000025_Node000017" title=" " alt="" coords="921,87,869,106,866,101,926,84"/>
-<area shape="rect" id="Node000034" href="$str__split_8c.html#a56d56b162e8a5aa289431a1eaaf1ab70" title="Extracts a word from a string until the separator." alt="" coords="945,725,1019,751"/>
-<area shape="poly" id="edge47_Node000033_Node000034" title=" " alt="" coords="1091,738,1020,741,1019,736,1096,738"/>
-<area shape="poly" id="edge49_Node000033_Node000036" title=" " alt="" coords="1096,752,1016,780,1015,775,1091,753"/>
-<area shape="rect" id="Node000035" href="$group__str.html#ga00c1938d92c06ac622dba20581ce52ce" title="Splits a string into an array of strings using a delimiter." alt="" coords="790,725,857,751"/>
-<area shape="poly" id="edge48_Node000034_Node000035" title=" " alt="" coords="926,738,858,741,857,736,932,738"/>
+<area shape="rect" id="Node000001" title="Calculates the length of a string." alt="" coords="1187,763,1247,788"/>
+<area shape="rect" id="Node000002" href="$error_8c.html#ae8b5415246c404a60f854ae9be6835d5" title=" " alt="" coords="1064,56,1118,82"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1213,746,1210,614,1199,424,1190,325,1177,233,1159,157,1137,102,1118,84,1118,78,1141,99,1164,155,1182,232,1195,324,1205,423,1215,614,1218,749"/>
+<area shape="rect" id="Node000003" href="$group__error.html#ga52348e66c7bd8fde3535edb6140746ce" title="Prints &quot;Error\n&quot; to stderr with safe prefix + formatted suffix." alt="" coords="271,120,343,146"/>
+<area shape="poly" id="edge42_Node000001_Node000003" title=" " alt="" coords="1214,746,1214,684,1210,596,1199,494,1177,387,1162,335,1143,286,1120,241,1093,202,1061,169,1024,144,982,128,933,122,645,122,476,126,345,133,342,128,476,121,645,117,933,117,983,123,1027,139,1065,165,1097,198,1125,238,1148,284,1167,333,1183,386,1204,493,1215,596,1219,684,1219,749"/>
+<area shape="rect" id="Node000004" href="$group__error.html#ga10c5ad43d195a463fa6f8043e55e4827" title="Prints &quot;Error\n&quot; to stderr with optional message and errno." alt="" coords="898,5,966,31"/>
+<area shape="poly" id="edge45_Node000001_Node000004" title=" " alt="" coords="1213,746,1206,590,1191,366,1181,255,1169,157,1154,84,1146,60,1137,45,1119,31,1099,21,1053,10,1007,9,968,13,965,9,1006,4,1053,5,1100,16,1122,26,1141,42,1150,57,1159,82,1174,156,1187,254,1197,366,1211,589,1217,748"/>
+<area shape="rect" id="Node000005" href="$group__buff.html#ga479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="1045,436,1137,462"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1203,748,1096,464,1099,460,1208,749"/>
+<area shape="rect" id="Node000022" href="$group__buff.html#ga4c4fe940783715f94d9b2a933c73ecd6" title="Inserts a string at a specific index in the buffer." alt="" coords="1050,664,1132,690"/>
+<area shape="poly" id="edge32_Node000001_Node000022" title=" " alt="" coords="1192,751,1167,728,1137,703,1121,693,1122,688,1141,699,1171,724,1197,752"/>
+<area shape="rect" id="Node000024" href="$group__buff.html#ga254f0c67338ac419cbe9ac8c215b1c58" title="Prepends a string to the beginning of the buffer." alt="" coords="1043,615,1139,640"/>
+<area shape="poly" id="edge36_Node000001_Node000024" title=" " alt="" coords="1202,748,1176,702,1158,676,1137,653,1124,643,1124,638,1141,650,1162,673,1180,699,1207,749"/>
+<area shape="rect" id="Node000027" href="$group__put.html#gaeb112152acfc553d58d61a5df38afcde" title="Writes a string followed by newline to a file descriptor." alt="" coords="1043,713,1139,739"/>
+<area shape="poly" id="edge43_Node000001_Node000027" title=" " alt="" coords="1170,758,1126,742,1126,737,1175,758"/>
+<area shape="rect" id="Node000028" href="$group__put.html#gacefce9ac519f8f8b7d3fde33dbafe469" title="Writes a string to a file descriptor." alt="" coords="1047,763,1134,788"/>
+<area shape="poly" id="edge44_Node000001_Node000028" title=" " alt="" coords="1169,776,1135,778,1134,773,1174,775"/>
+<area shape="rect" id="Node000029" href="$group__str.html#gab8fd2d5ba4442234fa2dc3255101c3c0" title="Duplicates a string." alt="" coords="1059,812,1123,838"/>
+<area shape="poly" id="edge46_Node000001_Node000029" title=" " alt="" coords="1175,792,1124,815,1123,810,1170,794"/>
+<area shape="rect" id="Node000030" href="$group__str.html#ga011e81255172329fdfe56dbbb44aa17a" title="Concatenates two strings into a new string." alt="" coords="1059,861,1122,887"/>
+<area shape="poly" id="edge47_Node000001_Node000030" title=" " alt="" coords="1197,798,1171,827,1141,852,1123,863,1121,858,1137,848,1167,823,1192,801"/>
+<area shape="rect" id="Node000031" href="$group__str.html#ga07cfcb9b36715c306215fb73d7124b87" title="Appends src to dst with size limit." alt="" coords="1059,911,1123,936"/>
+<area shape="poly" id="edge48_Node000001_Node000031" title=" " alt="" coords="1207,801,1180,852,1162,878,1141,902,1125,913,1122,908,1137,897,1158,875,1176,849,1202,804"/>
+<area shape="rect" id="Node000032" href="$group__str.html#ga0977f5bf45cca11eeb40152f7ab42498" title="Copies src to dst with size limit." alt="" coords="1057,960,1124,986"/>
+<area shape="poly" id="edge49_Node000001_Node000032" title=" " alt="" coords="1212,802,1188,875,1168,915,1141,951,1126,962,1124,957,1137,947,1163,912,1183,873,1208,805"/>
+<area shape="rect" id="Node000033" href="$group__str.html#ga1a479072ad4474f52c11ad4927a09169" title="Creates a new string by applying a function to each character." alt="" coords="1055,1009,1126,1035"/>
+<area shape="poly" id="edge50_Node000001_Node000033" title=" " alt="" coords="1215,802,1208,846,1195,898,1173,951,1141,1000,1127,1011,1125,1006,1137,996,1168,949,1190,896,1203,845,1211,806"/>
+<area shape="rect" id="Node000034" href="$group__str.html#ga55d2155d5e3087d3f8dfee8bc5254a2c" title="Extracts a substring from a string." alt="" coords="1059,1059,1123,1084"/>
+<area shape="poly" id="edge51_Node000001_Node000034" title=" " alt="" coords="1217,802,1213,854,1201,919,1178,987,1162,1020,1141,1049,1125,1062,1123,1058,1137,1046,1157,1017,1173,985,1196,918,1208,854,1213,806"/>
+<area shape="rect" id="Node000037" href="$group__str.html#gab50abb536077775efcbc5cc5bff8e5bf" title="Trims characters from the beginning and end of a string." alt="" coords="899,1108,965,1134"/>
+<area shape="poly" id="edge55_Node000001_Node000037" title=" " alt="" coords="1215,802,1207,875,1192,963,1171,1045,1157,1077,1141,1099,1121,1113,1099,1123,1051,1133,1004,1134,965,1130,965,1125,1005,1129,1051,1128,1097,1118,1118,1108,1137,1095,1152,1075,1166,1044,1187,962,1202,874,1211,806"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1047,70,775,72,645,71,560,77,476,91,346,124,342,119,475,86,559,72,645,66,775,66,1051,67"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="1047,57,967,32,966,26,1052,55"/>
+<area shape="poly" id="edge31_Node000005_Node000003" title=" " alt="" coords="1082,420,1072,381,1055,332,1029,283,1012,260,993,240,941,201,894,181,841,174,775,173,645,173,560,170,476,161,345,142,343,137,476,156,560,164,645,168,775,168,842,169,895,176,944,197,996,236,1016,257,1033,280,1059,330,1077,379,1087,422"/>
+<area shape="rect" id="Node000006" href="$append__1_8c.html#adcefd2fbd5b6e80b4f93f6380b884360" title="Appends formatted argument to buffer based on rules." alt="" coords="615,461,678,487"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1027,443,890,439,808,442,727,451,680,464,677,460,725,446,807,436,890,433,1032,441"/>
+<area shape="rect" id="Node000007" href="$group__buff.html#ga7ea043ad349cce71b040e8b48b4ddfd7" title="Appends formatted string to buffer using va_list." alt="" coords="423,208,567,234"/>
+<area shape="poly" id="edge29_Node000005_Node000007" title=" " alt="" coords="1079,420,1068,389,1050,352,1025,315,993,286,942,257,887,236,829,222,771,213,659,208,568,213,566,209,659,203,771,208,830,216,888,231,944,252,996,281,1029,312,1054,349,1073,387,1085,422"/>
+<area shape="rect" id="Node000013" href="$append__2_8c.html#aa054d33bdac73cf0d4b9ec8d5d5b681e" title="Appends a character to the buffer." alt="" coords="726,461,821,487"/>
+<area shape="poly" id="edge13_Node000005_Node000013" title=" " alt="" coords="1027,455,823,473,821,468,1031,453"/>
+<area shape="rect" id="Node000014" href="$append__2_8c.html#adb33e3aec703c2d7a612547bed00676c" title="Appends a number in hexadecimal format to the buffer." alt="" coords="886,512,978,538"/>
+<area shape="poly" id="edge15_Node000005_Node000014" title=" " alt="" coords="1046,470,962,514,959,509,1051,468"/>
+<area shape="rect" id="Node000015" href="$append__2_8c.html#a3952ca8f3c39d3478d7fe1be3314d540" title="Appends a pointer address to the buffer." alt="" coords="731,563,816,588"/>
+<area shape="poly" id="edge21_Node000005_Node000015" title=" " alt="" coords="1075,473,1042,517,1020,537,996,553,950,570,902,579,856,582,817,582,816,576,856,577,901,573,949,564,993,548,1017,532,1038,513,1071,477"/>
+<area shape="rect" id="Node000016" href="$append__2_8c.html#ad381d13423ec9e55b3e32ebaac593557" title="Appends an integer to the buffer as a string." alt="" coords="732,612,816,638"/>
+<area shape="poly" id="edge19_Node000005_Node000016" title=" " alt="" coords="1080,474,1048,533,1025,562,996,586,951,607,903,620,857,627,817,629,816,623,856,621,902,615,949,602,993,581,1021,558,1044,530,1076,478"/>
+<area shape="rect" id="Node000017" href="$append__1_8c.html#abceb23c78e9b7d35b3951d825c00dba7" title="Appends a string to the buffer with null handling." alt="" coords="731,272,816,298"/>
+<area shape="poly" id="edge22_Node000005_Node000017" title=" " alt="" coords="1075,421,1043,371,1020,344,993,323,949,303,902,292,856,286,818,285,816,280,857,281,903,286,951,298,996,319,1024,341,1047,368,1080,422"/>
+<area shape="rect" id="Node000018" href="$append__2_8c.html#a5365849921a8c40f2512a0c4279cfa96" title="Appends an unsigned integer to the buffer as a string." alt="" coords="728,335,819,360"/>
+<area shape="poly" id="edge24_Node000005_Node000018" title=" " alt="" coords="1071,422,1039,383,1018,364,994,350,949,337,903,333,859,335,821,340,818,335,858,330,903,328,950,332,996,345,1021,360,1043,380,1077,423"/>
+<area shape="rect" id="Node000019" href="$rules__apply_8c.html#a361fecaf428a0a90383c1a17ad715c98" title="Applies width padding to the buffer." alt="" coords="887,664,977,690"/>
+<area shape="poly" id="edge26_Node000005_Node000019" title=" " alt="" coords="1084,474,1073,514,1054,559,1029,605,997,647,970,666,967,661,993,643,1025,602,1050,556,1068,512,1081,478"/>
+<area shape="rect" id="Node000021" href="$group__buff.html#ga5e0fb3fb44e91fcd81504e202aab78f5" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="889,360,975,386"/>
+<area shape="poly" id="edge30_Node000005_Node000021" title=" " alt="" coords="1046,429,961,389,961,383,1051,428"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="627,448,503,237,505,231,632,448"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="448,202,422,191,336,149,335,144,424,186,453,200"/>
+<area shape="rect" id="Node000008" href="$group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff" title="Appends formatted string to buffer using variadic arguments." alt="" coords="239,232,375,258"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="406,234,377,238,374,234,410,230"/>
+<area shape="rect" id="Node000009" href="$group__print.html#gaf7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="268,183,347,208"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="406,211,348,203,346,198,411,208"/>
+<area shape="rect" id="Node000010" href="$group__print.html#ga5b8ad0c8c498e56c305ded9def43e224" title="Writes formatted output to a file descriptor." alt="" coords="119,159,191,184"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="250,188,193,179,190,175,254,185"/>
+<area shape="rect" id="Node000011" href="$group__print.html#ga7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="119,208,191,234"/>
+<area shape="poly" id="edge11_Node000009_Node000011" title=" " alt="" coords="250,207,193,217,190,213,254,203"/>
+<area shape="rect" id="Node000012" href="$group__print.html#gae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,208,71,234"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="101,223,73,223,70,219,105,219"/>
+<area shape="poly" id="edge14_Node000013_Node000006" title=" " alt="" coords="708,475,679,477,677,472,713,473"/>
+<area shape="poly" id="edge16_Node000014_Node000006" title=" " alt="" coords="868,521,801,515,725,502,679,488,678,483,727,497,802,510,873,520"/>
+<area shape="poly" id="edge17_Node000014_Node000015" title=" " alt="" coords="873,544,817,565,815,560,877,542"/>
+<area shape="poly" id="edge18_Node000015_Node000006" title=" " alt="" coords="737,554,724,546,662,490,662,485,728,541,743,554"/>
+<area shape="poly" id="edge20_Node000016_Node000006" title=" " alt="" coords="726,603,724,603,699,574,678,542,652,490,654,485,682,540,703,571,728,599,731,603"/>
+<area shape="poly" id="edge23_Node000017_Node000006" title=" " alt="" coords="738,310,728,324,703,360,682,399,655,462,650,459,677,397,698,358,724,320,742,306"/>
+<area shape="poly" id="edge25_Node000018_Node000006" title=" " alt="" coords="747,373,663,463,659,459,751,369"/>
+<area shape="rect" id="Node000020" href="$rules__apply_8c.html#a8c7a90d2acec7c11adf4401378907be7" title="Applies formatting rules to a buffer." alt="" coords="730,713,817,739"/>
+<area shape="poly" id="edge27_Node000019_Node000020" title=" " alt="" coords="871,696,818,715,816,710,876,694"/>
+<area shape="poly" id="edge28_Node000020_Node000006" title=" " alt="" coords="753,700,724,651,680,559,652,490,654,485,685,557,728,649,758,701"/>
+<area shape="poly" id="edge35_Node000022_Node000019" title=" " alt="" coords="1032,677,978,679,977,674,1037,676"/>
+<area shape="rect" id="Node000023" href="$rules__apply_8c.html#aff5a3f3aa2205810ba4664f48c67ff47" title="Applies precision formatting to the buffer." alt="" coords="876,812,988,838"/>
+<area shape="poly" id="edge33_Node000022_Node000023" title=" " alt="" coords="1046,698,1045,703,1028,728,1022,752,1015,777,997,803,980,814,978,809,993,799,1010,775,1017,751,1023,726,1041,699,1042,701"/>
+<area shape="poly" id="edge34_Node000023_Node000020" title=" " alt="" coords="875,805,868,803,822,771,788,742,789,737,826,767,871,799,880,805"/>
+<area shape="poly" id="edge41_Node000024_Node000019" title=" " alt="" coords="1030,647,977,666,975,661,1035,645"/>
+<area shape="rect" id="Node000025" href="$rules__apply_8c.html#a2cef79ece98791945cb7311fac7fe6a5" title="Applies hexadecimal prefix (0x or 0X) to the buffer." alt="" coords="872,763,992,788"/>
+<area shape="poly" id="edge37_Node000024_Node000025" title=" " alt="" coords="1046,648,1045,653,1028,678,1022,703,1015,728,997,753,980,764,978,760,993,750,1010,726,1017,701,1023,676,1041,650,1042,652"/>
+<area shape="rect" id="Node000026" href="$rules__apply_8c.html#afafce58f87b6b0f0a68b06862bcff40b" title="Applies plus or space sign formatting for positive numbers." alt="" coords="869,713,995,739"/>
+<area shape="poly" id="edge39_Node000024_Node000026" title=" " alt="" coords="1049,647,1044,654,1030,667,1021,679,1011,691,996,704,976,715,974,710,993,700,1008,688,1017,676,1026,663,1041,649,1044,650"/>
+<area shape="poly" id="edge38_Node000025_Node000020" title=" " alt="" coords="871,758,818,742,817,737,876,757"/>
+<area shape="poly" id="edge40_Node000026_Node000020" title=" " alt="" coords="851,727,818,729,817,724,856,726"/>
+<area shape="rect" id="Node000035" href="$str__split_8c.html#a56d56b162e8a5aa289431a1eaaf1ab70" title="Extracts a word from a string until the separator." alt="" coords="895,1059,969,1084"/>
+<area shape="poly" id="edge52_Node000034_Node000035" title=" " alt="" coords="1041,1072,970,1074,969,1069,1046,1071"/>
+<area shape="poly" id="edge54_Node000034_Node000037" title=" " alt="" coords="1046,1086,966,1113,965,1108,1041,1086"/>
+<area shape="rect" id="Node000036" href="$group__str.html#ga00c1938d92c06ac622dba20581ce52ce" title="Splits a string into an array of strings using a delimiter." alt="" coords="740,1059,807,1084"/>
+<area shape="poly" id="edge53_Node000035_Node000036" title=" " alt="" coords="876,1072,808,1074,807,1069,882,1071"/>
 </map>

@@ -106,6 +106,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga3825f38fa07df6f1a17b060955d84f04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the buffer's internal data.  <br /></td></tr>
 <tr class="memitem:gad3d0b787a96019e20333b55b49c0da9f" id="r_gad3d0b787a96019e20333b55b49c0da9f"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#gad3d0b787a96019e20333b55b49c0da9f">buff_get_index</a> (<a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> *buff, char c)</td></tr>
 <tr class="memdesc:gad3d0b787a96019e20333b55b49c0da9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the index of a character in the buffer.  <br /></td></tr>
+<tr class="memitem:gab7e965104829182fb2adcbb9379ab00c" id="r_gab7e965104829182fb2adcbb9379ab00c"><td class="memItemLeft">char *&#160;</td><td class="memItemRight"><a class="el" href="#gab7e965104829182fb2adcbb9379ab00c">buff_get_string</a> (<a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> *buff)</td></tr>
+<tr class="memdesc:gab7e965104829182fb2adcbb9379ab00c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a newly allocated copy of the buffer content.  <br /></td></tr>
 <tr class="memitem:ga254f0c67338ac419cbe9ac8c215b1c58" id="r_ga254f0c67338ac419cbe9ac8c215b1c58"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ga254f0c67338ac419cbe9ac8c215b1c58">buff_prepend</a> (<a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> *b, const char *str, long n)</td></tr>
 <tr class="memdesc:ga254f0c67338ac419cbe9ac8c215b1c58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepends a string to the beginning of the buffer.  <br /></td></tr>
 <tr class="memitem:ga4c4fe940783715f94d9b2a933c73ecd6" id="r_ga4c4fe940783715f94d9b2a933c73ecd6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ga4c4fe940783715f94d9b2a933c73ecd6">buff_insert</a> (<a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> *b, size_t index, const char *str, long n)</td></tr>
@@ -168,19 +170,11 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__buff_ga00a8875c6545b76b6d70edac0f08b6f9_icgraph.png" border="0" usemap="#agroup__buff_ga00a8875c6545b76b6d70edac0f08b6f9_icgraph" loading="lazy" alt=""/></div>
 <map name="agroup__buff_ga00a8875c6545b76b6d70edac0f08b6f9_icgraph" id="agroup__buff_ga00a8875c6545b76b6d70edac0f08b6f9_icgraph">
-<area shape="rect" title="Shrinks buffer capacity to match its current length." alt="" coords="474,80,560,106"/>
-<area shape="rect" href="group__buff.html#ga1dfc1ac678326f59e7c22efc4dd88749" title="Reads all available data from a file descriptor into buffer." alt="" coords="326,5,421,31"/>
-<area shape="poly" title=" " alt="" coords="477,72,425,45,404,34,405,29,428,40,483,72"/>
-<area shape="rect" href="group__buff.html#gab994c8260f21ddde8f48200c219e366f" title="Reads from a file descriptor until a specific character is found." alt="" coords="320,55,426,80"/>
-<area shape="poly" title=" " alt="" coords="456,83,427,80,427,74,461,82"/>
-<area shape="rect" href="group__gnl.html#ga82bd3d4dda9db114063a2276e9619aff" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="5,105,119,131"/>
-<area shape="poly" title=" " alt="" coords="459,99,120,118,119,112,459,93"/>
-<area shape="rect" href="gnc_8c.html#a357b2a21259bc5329ee0e203446c9457" title="Extracts a chunk from the buffer up to the separator index." alt="" coords="179,156,260,182"/>
-<area shape="poly" title=" " alt="" coords="483,113,427,139,339,159,261,169,260,164,338,154,426,134,478,114"/>
-<area shape="rect" href="gnc_8c.html#add9ed164a8dbaa0352894623de87216b" title="Reads from file descriptor until separator is found." alt="" coords="167,55,272,80"/>
-<area shape="poly" title=" " alt="" coords="301,68,273,70,272,65,307,67"/>
-<area shape="poly" title=" " alt="" coords="161,87,105,107,103,102,165,84"/>
-<area shape="poly" title=" " alt="" coords="161,152,104,134,104,129,166,150"/>
+<area shape="rect" title="Shrinks buffer capacity to match its current length." alt="" coords="160,31,245,56"/>
+<area shape="rect" href="group__buff.html#ga1dfc1ac678326f59e7c22efc4dd88749" title="Reads all available data from a file descriptor into buffer." alt="" coords="11,5,106,31"/>
+<area shape="poly" title=" " alt="" coords="142,34,106,29,106,24,147,33"/>
+<area shape="rect" href="group__buff.html#gab994c8260f21ddde8f48200c219e366f" title="Reads from a file descriptor until a specific character is found." alt="" coords="5,55,112,80"/>
+<area shape="poly" title=" " alt="" coords="141,54,112,61,111,56,147,53"/>
 </map>
 </div>
 
@@ -246,52 +240,51 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__buff_ga479d86ec7b4c43589bc6e03c96438a29_icgraph.png" border="0" usemap="#agroup__buff_ga479d86ec7b4c43589bc6e03c96438a29_icgraph" loading="lazy" alt=""/></div>
 <map name="agroup__buff_ga479d86ec7b4c43589bc6e03c96438a29_icgraph" id="agroup__buff_ga479d86ec7b4c43589bc6e03c96438a29_icgraph">
-<area shape="rect" title="Appends a string to the end of the buffer." alt="" coords="1059,232,1151,258"/>
-<area shape="rect" href="append__1_8c.html#adcefd2fbd5b6e80b4f93f6380b884360" title="Appends formatted argument to buffer based on rules." alt="" coords="640,207,703,232"/>
-<area shape="poly" title=" " alt="" coords="1080,220,1049,194,1009,169,973,155,943,150,871,146,823,140,802,140,777,146,750,158,725,175,687,208,684,204,722,170,747,154,775,141,802,135,823,135,872,141,943,144,974,150,1012,164,1052,189,1085,221"/>
-<area shape="rect" href="group__buff.html#ga7ea043ad349cce71b040e8b48b4ddfd7" title="Appends formatted string to buffer using va_list." alt="" coords="423,308,567,334"/>
-<area shape="poly" title=" " alt="" coords="1098,271,1087,305,1069,340,1044,373,1012,399,979,415,945,425,874,435,802,432,731,419,664,399,605,377,520,337,521,332,607,372,666,394,732,414,802,427,874,430,944,420,977,410,1009,395,1040,370,1064,337,1082,303,1094,274"/>
-<area shape="rect" href="append__2_8c.html#aa054d33bdac73cf0d4b9ec8d5d5b681e" title="Appends a character to the buffer." alt="" coords="776,156,871,182"/>
-<area shape="poly" title=" " alt="" coords="1069,223,1041,210,1010,197,938,180,872,173,872,168,939,175,1011,192,1044,205,1074,224"/>
-<area shape="rect" href="append__2_8c.html#adb33e3aec703c2d7a612547bed00676c" title="Appends a number in hexadecimal format to the buffer." alt="" coords="919,207,1011,232"/>
-<area shape="poly" title=" " alt="" coords="1041,234,1011,230,1011,225,1046,234"/>
-<area shape="rect" href="append__2_8c.html#a3952ca8f3c39d3478d7fe1be3314d540" title="Appends a pointer address to the buffer." alt="" coords="781,257,866,283"/>
-<area shape="poly" title=" " alt="" coords="1040,251,867,269,866,264,1046,250"/>
-<area shape="rect" href="append__2_8c.html#ad381d13423ec9e55b3e32ebaac593557" title="Appends an integer to the buffer as a string." alt="" coords="782,307,866,332"/>
-<area shape="poly" title=" " alt="" coords="1046,260,867,311,866,306,1041,262"/>
-<area shape="rect" href="append__1_8c.html#abceb23c78e9b7d35b3951d825c00dba7" title="Appends a string to the buffer with null handling." alt="" coords="922,359,1008,384"/>
-<area shape="poly" title=" " alt="" coords="1084,268,1012,342,987,361,985,356,1009,337,1080,270"/>
-<area shape="rect" href="append__2_8c.html#a5365849921a8c40f2512a0c4279cfa96" title="Appends an unsigned integer to the buffer as a string." alt="" coords="919,5,1011,31"/>
-<area shape="poly" title=" " alt="" coords="1095,216,1083,180,1065,134,1041,87,1009,44,997,34,998,29,1013,40,1045,84,1070,132,1088,178,1099,218"/>
-<area shape="rect" href="rules__apply_8c.html#a361fecaf428a0a90383c1a17ad715c98" title="Applies width padding to the buffer." alt="" coords="920,55,1010,80"/>
-<area shape="poly" title=" " alt="" coords="1088,217,1055,163,1033,131,1009,101,988,84,989,78,1013,98,1038,128,1060,160,1093,219"/>
-<area shape="rect" href="group__buff.html#ga5e0fb3fb44e91fcd81504e202aab78f5" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="922,460,1008,486"/>
-<area shape="poly" title=" " alt="" coords="1097,271,1067,353,1043,400,1013,443,990,462,988,457,1009,439,1038,397,1062,351,1093,274"/>
-<area shape="poly" title=" " alt="" coords="637,239,520,310,518,305,632,241"/>
-<area shape="rect" href="group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff" title="Appends formatted string to buffer using variadic arguments." alt="" coords="239,283,375,308"/>
-<area shape="poly" title=" " alt="" coords="405,310,376,307,375,302,411,309"/>
-<area shape="rect" href="group__print.html#gaf7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="268,332,347,358"/>
-<area shape="poly" title=" " alt="" coords="406,333,348,342,347,337,411,331"/>
-<area shape="rect" href="group__print.html#ga5b8ad0c8c498e56c305ded9def43e224" title="Writes formatted output to a file descriptor." alt="" coords="119,307,191,332"/>
-<area shape="poly" title=" " alt="" coords="250,337,192,328,191,323,254,335"/>
-<area shape="rect" href="group__print.html#ga7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="119,356,191,382"/>
-<area shape="poly" title=" " alt="" coords="250,355,192,366,191,361,254,352"/>
-<area shape="rect" href="group__print.html#gae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,356,71,382"/>
-<area shape="poly" title=" " alt="" coords="101,370,72,371,70,366,105,367"/>
-<area shape="poly" title=" " alt="" coords="766,188,704,212,703,207,771,186"/>
-<area shape="poly" title=" " alt="" coords="901,220,704,222,703,217,906,219"/>
-<area shape="poly" title=" " alt="" coords="915,237,862,259,861,254,910,239"/>
-<area shape="poly" title=" " alt="" coords="765,252,703,233,704,227,771,252"/>
-<area shape="poly" title=" " alt="" coords="779,299,775,298,689,236,690,230,777,293,784,299"/>
-<area shape="poly" title=" " alt="" coords="904,374,841,370,807,361,775,347,741,322,713,290,678,235,680,230,717,287,744,318,777,343,809,356,842,365,910,374"/>
-<area shape="poly" title=" " alt="" coords="901,14,840,21,807,30,777,44,756,61,738,82,709,128,689,173,678,208,674,205,684,171,704,126,734,79,753,58,775,40,805,25,839,15,906,12"/>
-<area shape="rect" href="rules__apply_8c.html#a8c7a90d2acec7c11adf4401378907be7" title="Applies formatting rules to a buffer." alt="" coords="780,55,867,80"/>
-<area shape="poly" title=" " alt="" coords="902,68,868,70,867,65,907,67"/>
-<area shape="poly" title=" " alt="" coords="791,88,778,101,723,159,684,208,681,204,719,155,774,98,786,91"/>
-<area shape="rect" href="gnc_8c.html#a357b2a21259bc5329ee0e203446c9457" title="Extracts a chunk from the buffer up to the separator index." alt="" coords="783,460,864,486"/>
-<area shape="poly" title=" " alt="" coords="904,473,865,475,865,470,909,473"/>
-<area shape="rect" href="group__gnl.html#ga82bd3d4dda9db114063a2276e9619aff" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="615,460,728,486"/>
-<area shape="poly" title=" " alt="" coords="765,473,728,475,728,470,770,473"/>
+<area shape="rect" title="Appends a string to the end of the buffer." alt="" coords="1009,259,1101,284"/>
+<area shape="rect" href="append__1_8c.html#adcefd2fbd5b6e80b4f93f6380b884360" title="Appends formatted argument to buffer based on rules." alt="" coords="615,208,678,234"/>
+<area shape="poly" title=" " alt="" coords="1036,245,1004,205,983,185,959,169,924,153,894,149,821,147,772,140,752,140,727,147,705,160,686,176,658,210,655,205,682,172,702,155,725,142,751,135,773,135,822,142,894,143,925,148,962,164,987,181,1008,202,1041,246"/>
+<area shape="rect" href="group__buff.html#ga7ea043ad349cce71b040e8b48b4ddfd7" title="Appends formatted string to buffer using va_list." alt="" coords="423,411,567,436"/>
+<area shape="poly" title=" " alt="" coords="1031,294,999,323,962,348,913,372,861,391,807,405,753,416,652,427,568,429,567,424,651,421,752,410,806,400,859,386,911,367,959,344,996,319,1027,296"/>
+<area shape="rect" href="group__error.html#ga52348e66c7bd8fde3535edb6140746ce" title="Prints &quot;Error\n&quot; to stderr with safe prefix + formatted suffix." alt="" coords="271,461,343,487"/>
+<area shape="poly" title=" " alt="" coords="1040,297,1008,346,986,370,962,392,916,429,876,456,833,472,775,477,645,477,344,477,344,472,645,472,775,472,832,466,874,451,913,425,959,388,982,367,1004,343,1036,299"/>
+<area shape="rect" href="append__2_8c.html#aa054d33bdac73cf0d4b9ec8d5d5b681e" title="Appends a character to the buffer." alt="" coords="726,157,821,183"/>
+<area shape="poly" title=" " alt="" coords="1029,247,998,222,960,198,925,186,889,178,822,172,822,167,890,173,926,181,962,193,1002,217,1034,248"/>
+<area shape="rect" href="append__2_8c.html#adb33e3aec703c2d7a612547bed00676c" title="Appends a number in hexadecimal format to the buffer." alt="" coords="869,208,961,234"/>
+<area shape="poly" title=" " alt="" coords="1000,253,952,237,953,232,1006,253"/>
+<area shape="rect" href="append__2_8c.html#a3952ca8f3c39d3478d7fe1be3314d540" title="Appends a pointer address to the buffer." alt="" coords="731,259,816,284"/>
+<area shape="poly" title=" " alt="" coords="990,272,817,274,816,269,996,271"/>
+<area shape="rect" href="append__2_8c.html#ad381d13423ec9e55b3e32ebaac593557" title="Appends an integer to the buffer as a string." alt="" coords="732,308,816,334"/>
+<area shape="poly" title=" " alt="" coords="990,283,817,316,816,311,996,282"/>
+<area shape="rect" href="append__1_8c.html#abceb23c78e9b7d35b3951d825c00dba7" title="Appends a string to the buffer with null handling." alt="" coords="731,359,816,384"/>
+<area shape="poly" title=" " alt="" coords="1010,290,962,311,818,361,816,356,960,306,1005,291"/>
+<area shape="rect" href="append__2_8c.html#a5365849921a8c40f2512a0c4279cfa96" title="Appends an unsigned integer to the buffer as a string." alt="" coords="869,5,961,31"/>
+<area shape="poly" title=" " alt="" coords="1046,242,1035,202,1018,149,993,95,959,45,946,34,946,29,963,42,997,92,1023,147,1040,200,1051,244"/>
+<area shape="rect" href="rules__apply_8c.html#a361fecaf428a0a90383c1a17ad715c98" title="Applies width padding to the buffer." alt="" coords="870,56,960,82"/>
+<area shape="poly" title=" " alt="" coords="1041,243,1009,177,986,138,959,103,938,85,939,79,963,99,990,135,1014,175,1046,245"/>
+<area shape="rect" href="group__buff.html#ga5e0fb3fb44e91fcd81504e202aab78f5" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="872,512,958,538"/>
+<area shape="poly" title=" " alt="" coords="1049,298,1020,391,995,445,963,495,941,514,939,509,959,491,990,442,1015,389,1045,301"/>
+<area shape="poly" title=" " alt="" coords="629,245,508,412,504,408,624,247"/>
+<area shape="rect" href="group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff" title="Appends formatted string to buffer using variadic arguments." alt="" coords="239,412,375,438"/>
+<area shape="poly" title=" " alt="" coords="405,425,376,427,375,422,411,424"/>
+<area shape="poly" title=" " alt="" coords="432,440,344,467,343,462,427,442"/>
+<area shape="rect" href="group__print.html#gaf7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="268,363,347,388"/>
+<area shape="poly" title=" " alt="" coords="424,407,347,388,347,383,430,406"/>
+<area shape="rect" href="group__print.html#ga5b8ad0c8c498e56c305ded9def43e224" title="Writes formatted output to a file descriptor." alt="" coords="119,339,191,364"/>
+<area shape="poly" title=" " alt="" coords="250,368,192,360,191,355,254,366"/>
+<area shape="rect" href="group__print.html#ga7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="119,388,191,414"/>
+<area shape="poly" title=" " alt="" coords="250,386,192,397,190,392,254,383"/>
+<area shape="rect" href="group__print.html#gae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,388,71,414"/>
+<area shape="poly" title=" " alt="" coords="101,402,72,403,70,398,105,399"/>
+<area shape="poly" title=" " alt="" coords="723,190,680,211,677,206,728,188"/>
+<area shape="poly" title=" " alt="" coords="852,222,679,223,678,218,857,220"/>
+<area shape="poly" title=" " alt="" coords="865,239,812,261,811,256,860,240"/>
+<area shape="poly" title=" " alt="" coords="723,253,678,236,679,231,728,252"/>
+<area shape="poly" title=" " alt="" coords="727,299,724,299,686,266,658,236,660,231,690,262,728,295,733,300"/>
+<area shape="poly" title=" " alt="" coords="727,349,724,348,699,319,678,288,652,237,654,232,683,285,703,316,728,344,732,350"/>
+<area shape="poly" title=" " alt="" coords="851,13,822,15,789,20,757,29,728,46,709,63,694,83,671,129,658,174,651,209,647,206,653,173,666,127,689,80,705,59,724,41,755,25,788,15,822,10,856,11"/>
+<area shape="rect" href="rules__apply_8c.html#a8c7a90d2acec7c11adf4401378907be7" title="Applies formatting rules to a buffer." alt="" coords="730,56,817,82"/>
+<area shape="poly" title=" " alt="" coords="852,70,819,71,817,66,857,68"/>
+<area shape="poly" title=" " alt="" coords="739,90,728,103,705,130,685,159,656,209,652,206,680,157,700,127,724,99,735,93"/>
 </map>
 </div>
 
@@ -617,17 +610,19 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__buff_ga7ea043ad349cce71b040e8b48b4ddfd7_icgraph.png" border="0" usemap="#agroup__buff_ga7ea043ad349cce71b040e8b48b4ddfd7_icgraph" loading="lazy" alt=""/></div>
 <map name="agroup__buff_ga7ea043ad349cce71b040e8b48b4ddfd7_icgraph" id="agroup__buff_ga7ea043ad349cce71b040e8b48b4ddfd7_icgraph">
-<area shape="rect" title="Appends formatted string to buffer using va_list." alt="" coords="423,31,567,56"/>
+<area shape="rect" title="Appends formatted string to buffer using va_list." alt="" coords="423,55,567,80"/>
 <area shape="rect" href="group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff" title="Appends formatted string to buffer using variadic arguments." alt="" coords="239,5,375,31"/>
-<area shape="poly" title=" " alt="" coords="405,32,376,30,376,25,411,32"/>
-<area shape="rect" href="group__print.html#gaf7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="268,55,347,80"/>
-<area shape="poly" title=" " alt="" coords="411,54,348,65,347,60,406,55"/>
-<area shape="rect" href="group__print.html#ga5b8ad0c8c498e56c305ded9def43e224" title="Writes formatted output to a file descriptor." alt="" coords="119,29,191,55"/>
-<area shape="poly" title=" " alt="" coords="249,59,191,51,191,45,255,58"/>
-<area shape="rect" href="group__print.html#ga7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="119,79,191,104"/>
-<area shape="poly" title=" " alt="" coords="255,76,192,89,191,83,249,76"/>
-<area shape="rect" href="group__print.html#gae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,79,71,104"/>
-<area shape="poly" title=" " alt="" coords="100,92,71,94,71,89,105,91"/>
+<area shape="poly" title=" " alt="" coords="426,50,359,34,359,29,431,50"/>
+<area shape="rect" href="group__error.html#ga52348e66c7bd8fde3535edb6140746ce" title="Prints &quot;Error\n&quot; to stderr with safe prefix + formatted suffix." alt="" coords="271,55,343,80"/>
+<area shape="poly" title=" " alt="" coords="406,68,344,70,343,65,411,67"/>
+<area shape="rect" href="group__print.html#gaf7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="268,104,347,130"/>
+<area shape="poly" title=" " alt="" coords="431,84,348,109,347,104,426,85"/>
+<area shape="rect" href="group__print.html#ga5b8ad0c8c498e56c305ded9def43e224" title="Writes formatted output to a file descriptor." alt="" coords="119,79,191,104"/>
+<area shape="poly" title=" " alt="" coords="249,108,191,100,191,95,255,107"/>
+<area shape="rect" href="group__print.html#ga7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="119,128,191,154"/>
+<area shape="poly" title=" " alt="" coords="255,125,192,138,191,133,249,126"/>
+<area shape="rect" href="group__print.html#gae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,128,71,154"/>
+<area shape="poly" title=" " alt="" coords="100,141,71,143,71,138,105,140"/>
 </map>
 </div>
 
@@ -685,18 +680,6 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="358,27,425,50,419,50,358,33"/>
 </map>
 </div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group__buff_ga5e0fb3fb44e91fcd81504e202aab78f5_icgraph.png" border="0" usemap="#agroup__buff_ga5e0fb3fb44e91fcd81504e202aab78f5_icgraph" loading="lazy" alt=""/></div>
-<map name="agroup__buff_ga5e0fb3fb44e91fcd81504e202aab78f5_icgraph" id="agroup__buff_ga5e0fb3fb44e91fcd81504e202aab78f5_icgraph">
-<area shape="rect" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="296,5,381,31"/>
-<area shape="rect" href="gnc_8c.html#a357b2a21259bc5329ee0e203446c9457" title="Extracts a chunk from the buffer up to the separator index." alt="" coords="167,5,248,31"/>
-<area shape="poly" title=" " alt="" coords="278,18,249,21,248,16,283,18"/>
-<area shape="rect" href="group__gnl.html#ga82bd3d4dda9db114063a2276e9619aff" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="5,5,119,31"/>
-<area shape="poly" title=" " alt="" coords="149,18,119,21,119,16,154,18"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -729,40 +712,27 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__buff_ga3825f38fa07df6f1a17b060955d84f04_icgraph.png" border="0" usemap="#agroup__buff_ga3825f38fa07df6f1a17b060955d84f04_icgraph" loading="lazy" alt=""/></div>
 <map name="agroup__buff_ga3825f38fa07df6f1a17b060955d84f04_icgraph" id="agroup__buff_ga3825f38fa07df6f1a17b060955d84f04_icgraph">
-<area shape="rect" title="Frees the buffer&#39;s internal data." alt="" coords="754,107,826,132"/>
-<area shape="rect" href="append__1_8c.html#adcefd2fbd5b6e80b4f93f6380b884360" title="Appends formatted argument to buffer based on rules." alt="" coords="632,5,695,31"/>
-<area shape="poly" title=" " alt="" coords="759,96,704,52,682,34,683,29,708,48,764,97"/>
-<area shape="rect" href="group__print.html#gaf7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="270,56,350,82"/>
-<area shape="poly" title=" " alt="" coords="736,102,705,97,606,83,506,75,350,71,350,66,506,70,606,78,707,92,741,102"/>
-<area shape="rect" href="group__buff.html#ga5e0fb3fb44e91fcd81504e202aab78f5" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="621,107,706,132"/>
-<area shape="poly" title=" " alt="" coords="736,120,707,122,706,117,741,119"/>
-<area shape="rect" href="stash_8c.html#ae063deb93715790920703153c1aaf2cd" title="Gets or creates a buffer for a file descriptor." alt="" coords="624,157,703,183"/>
-<area shape="poly" title=" " alt="" coords="745,138,698,159,697,154,740,139"/>
-<area shape="rect" href="stash_8c.html#a8dfb95686c92abf40efeb2e6177e160a" title="Frees a stash structure and its buffer." alt="" coords="622,208,704,234"/>
-<area shape="poly" title=" " alt="" coords="768,142,708,198,689,210,687,205,704,193,763,144"/>
-<area shape="rect" href="group__buff.html#ga7ea043ad349cce71b040e8b48b4ddfd7" title="Appends formatted string to buffer using va_list." alt="" coords="429,5,573,31"/>
-<area shape="poly" title=" " alt="" coords="614,19,574,21,573,16,619,18"/>
-<area shape="rect" href="group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff" title="Appends formatted string to buffer using variadic arguments." alt="" coords="242,5,378,31"/>
-<area shape="poly" title=" " alt="" coords="411,19,379,21,378,16,416,17"/>
-<area shape="poly" title=" " alt="" coords="433,37,351,61,349,56,437,34"/>
-<area shape="rect" href="group__print.html#ga5b8ad0c8c498e56c305ded9def43e224" title="Writes formatted output to a file descriptor." alt="" coords="119,32,191,58"/>
-<area shape="poly" title=" " alt="" coords="253,62,192,53,191,48,257,59"/>
-<area shape="rect" href="group__print.html#ga7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="119,81,191,107"/>
-<area shape="poly" title=" " alt="" coords="253,79,192,91,190,86,257,76"/>
-<area shape="rect" href="group__print.html#gae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,81,71,107"/>
-<area shape="poly" title=" " alt="" coords="101,96,73,97,70,92,105,92"/>
-<area shape="rect" href="gnc_8c.html#a357b2a21259bc5329ee0e203446c9457" title="Extracts a chunk from the buffer up to the separator index." alt="" coords="460,107,542,132"/>
-<area shape="poly" title=" " alt="" coords="603,120,542,122,541,117,608,119"/>
-<area shape="rect" href="group__gnl.html#ga82bd3d4dda9db114063a2276e9619aff" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="254,157,367,183"/>
-<area shape="poly" title=" " alt="" coords="443,135,362,159,361,154,448,133"/>
-<area shape="poly" title=" " alt="" coords="605,171,367,173,367,168,610,169"/>
-<area shape="rect" href="stash_8c.html#a19fced6b87ca2bfc47c124aa40673b4c" title="Finds and frees the stash for a file descriptor." alt="" coords="432,208,570,234"/>
-<area shape="poly" title=" " alt="" coords="604,221,571,223,570,218,609,221"/>
-<area shape="rect" href="stash_8c.html#a06a5679ed16a36fb590692fb889eaa82" title="Frees all stashes and their buffers." alt="" coords="446,257,556,283"/>
-<area shape="poly" title=" " alt="" coords="610,237,547,259,545,254,605,238"/>
-<area shape="poly" title=" " alt="" coords="432,204,361,186,361,181,438,203"/>
-<area shape="rect" href="group__gnl.html#gafd9009a1b2f00594f076b1b03cfe11b4" title="Frees all internal stashes used by get_next_chunk." alt="" coords="239,257,381,283"/>
-<area shape="poly" title=" " alt="" coords="428,270,382,273,382,268,434,270"/>
+<area shape="rect" title="Frees the buffer&#39;s internal data." alt="" coords="748,80,820,106"/>
+<area shape="rect" href="append__1_8c.html#adcefd2fbd5b6e80b4f93f6380b884360" title="Appends formatted argument to buffer based on rules." alt="" coords="626,55,689,80"/>
+<area shape="poly" title=" " alt="" coords="730,83,689,76,689,71,735,83"/>
+<area shape="rect" href="group__error.html#ga52348e66c7bd8fde3535edb6140746ce" title="Prints &quot;Error\n&quot; to stderr with safe prefix + formatted suffix." alt="" coords="271,5,343,31"/>
+<area shape="poly" title=" " alt="" coords="752,70,728,57,699,45,651,32,600,23,500,14,411,14,344,17,343,12,411,8,501,9,601,18,652,27,701,40,730,52,757,71"/>
+<area shape="rect" href="group__print.html#gaf7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="268,104,347,130"/>
+<area shape="poly" title=" " alt="" coords="732,98,347,118,347,112,734,93"/>
+<area shape="rect" href="group__buff.html#ga5e0fb3fb44e91fcd81504e202aab78f5" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="615,156,700,182"/>
+<area shape="poly" title=" " alt="" coords="751,113,681,158,680,153,746,115"/>
+<area shape="rect" href="group__buff.html#ga7ea043ad349cce71b040e8b48b4ddfd7" title="Appends formatted string to buffer using va_list." alt="" coords="423,55,567,80"/>
+<area shape="poly" title=" " alt="" coords="608,68,567,70,567,65,613,67"/>
+<area shape="rect" href="group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff" title="Appends formatted string to buffer using variadic arguments." alt="" coords="239,55,375,80"/>
+<area shape="poly" title=" " alt="" coords="405,68,376,70,375,65,411,67"/>
+<area shape="poly" title=" " alt="" coords="426,51,344,30,344,25,431,50"/>
+<area shape="poly" title=" " alt="" coords="431,84,348,109,347,104,426,85"/>
+<area shape="rect" href="group__print.html#ga5b8ad0c8c498e56c305ded9def43e224" title="Writes formatted output to a file descriptor." alt="" coords="119,79,191,104"/>
+<area shape="poly" title=" " alt="" coords="249,108,191,100,191,95,255,107"/>
+<area shape="rect" href="group__print.html#ga7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="119,128,191,154"/>
+<area shape="poly" title=" " alt="" coords="249,126,192,138,191,133,255,125"/>
+<area shape="rect" href="group__print.html#gae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,128,71,154"/>
+<area shape="poly" title=" " alt="" coords="100,142,72,143,71,138,105,140"/>
 </map>
 </div>
 
@@ -802,14 +772,52 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__buff_gad3d0b787a96019e20333b55b49c0da9f_icgraph.png" border="0" usemap="#agroup__buff_gad3d0b787a96019e20333b55b49c0da9f_icgraph" loading="lazy" alt=""/></div>
 <map name="agroup__buff_gad3d0b787a96019e20333b55b49c0da9f_icgraph" id="agroup__buff_gad3d0b787a96019e20333b55b49c0da9f_icgraph">
-<area shape="rect" title="Finds the index of a character in the buffer." alt="" coords="474,31,581,56"/>
-<area shape="rect" href="group__buff.html#gab994c8260f21ddde8f48200c219e366f" title="Reads from a file descriptor until a specific character is found." alt="" coords="320,5,426,31"/>
-<area shape="poly" title=" " alt="" coords="456,32,427,30,427,24,462,32"/>
-<area shape="rect" href="gnc_8c.html#add9ed164a8dbaa0352894623de87216b" title="Reads from file descriptor until separator is found." alt="" coords="167,31,272,56"/>
-<area shape="poly" title=" " alt="" coords="456,44,273,46,273,41,461,43"/>
-<area shape="poly" title=" " alt="" coords="307,29,273,37,272,32,302,30"/>
-<area shape="rect" href="group__gnl.html#ga82bd3d4dda9db114063a2276e9619aff" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="5,31,119,56"/>
-<area shape="poly" title=" " alt="" coords="148,44,119,46,119,41,153,43"/>
+<area shape="rect" title="Finds the index of a character in the buffer." alt="" coords="160,5,266,31"/>
+<area shape="rect" href="group__buff.html#gab994c8260f21ddde8f48200c219e366f" title="Reads from a file descriptor until a specific character is found." alt="" coords="5,5,112,31"/>
+<area shape="poly" title=" " alt="" coords="142,18,112,21,112,16,147,18"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="gab7e965104829182fb2adcbb9379ab00c" name="gab7e965104829182fb2adcbb9379ab00c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab7e965104829182fb2adcbb9379ab00c">&#9670;&#160;</a></span>buff_get_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * buff_get_string </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> *</td>          <td class="paramname"><span class="paramname"><em>buff</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a newly allocated copy of the buffer content. </p>
+<p>If the buffer data is not null-terminated, a trailing '\0' is added in the returned string.</p>
+<dl class="section warning"><dt>Warning</dt><dd>buff must be initialized before calling this function.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Caller owns the returned string and must free it. </dd>
+<dd>
+The caller remains owner of the <a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a>. </dd>
+<dd>
+The <a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> remains owner of the buff-&gt;data.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buff</td><td>Pointer to an initialized buffer (borrowed). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Newly allocated string (owned by caller), or NULL on failure. </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="group__buff_gab7e965104829182fb2adcbb9379ab00c_cgraph.png" border="0" usemap="#agroup__buff_gab7e965104829182fb2adcbb9379ab00c_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__buff_gab7e965104829182fb2adcbb9379ab00c_cgraph" id="agroup__buff_gab7e965104829182fb2adcbb9379ab00c_cgraph">
+<area shape="rect" title="Returns a newly allocated copy of the buffer content." alt="" coords="5,5,113,31"/>
+<area shape="rect" href="group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="161,5,247,31"/>
+<area shape="poly" title=" " alt="" coords="113,16,148,18,142,18,113,21"/>
 </map>
 </div>
 
@@ -849,31 +857,27 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__buff_ga5b93ae89b288bf7e0843e34c072c52c6_icgraph.png" border="0" usemap="#agroup__buff_ga5b93ae89b288bf7e0843e34c072c52c6_icgraph" loading="lazy" alt=""/></div>
 <map name="agroup__buff_ga5b93ae89b288bf7e0843e34c072c52c6_icgraph" id="agroup__buff_ga5b93ae89b288bf7e0843e34c072c52c6_icgraph">
-<area shape="rect" title="Initializes a buffer with the specified initial capacity." alt="" coords="748,81,815,107"/>
-<area shape="rect" href="append__1_8c.html#adcefd2fbd5b6e80b4f93f6380b884360" title="Appends formatted argument to buffer based on rules." alt="" coords="626,5,689,31"/>
-<area shape="poly" title=" " alt="" coords="744,73,679,34,681,29,749,74"/>
-<area shape="rect" href="group__print.html#gaf7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="268,56,347,82"/>
-<area shape="poly" title=" " alt="" coords="731,94,347,74,347,68,734,89"/>
-<area shape="rect" href="group__buff.html#ga5e0fb3fb44e91fcd81504e202aab78f5" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="615,107,700,132"/>
-<area shape="poly" title=" " alt="" coords="735,104,701,113,700,108,730,104"/>
-<area shape="rect" href="stash_8c.html#ae063deb93715790920703153c1aaf2cd" title="Gets or creates a buffer for a file descriptor." alt="" coords="455,156,535,182"/>
-<area shape="poly" title=" " alt="" coords="755,116,729,134,701,147,657,159,613,167,535,172,535,167,612,161,656,154,699,142,726,130,749,117"/>
-<area shape="rect" href="group__buff.html#ga7ea043ad349cce71b040e8b48b4ddfd7" title="Appends formatted string to buffer using va_list." alt="" coords="423,5,567,31"/>
-<area shape="poly" title=" " alt="" coords="608,19,567,21,567,16,613,18"/>
-<area shape="rect" href="group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff" title="Appends formatted string to buffer using variadic arguments." alt="" coords="239,5,375,31"/>
-<area shape="poly" title=" " alt="" coords="405,19,376,21,375,16,411,18"/>
-<area shape="poly" title=" " alt="" coords="427,36,348,61,347,56,432,35"/>
-<area shape="rect" href="group__print.html#ga5b8ad0c8c498e56c305ded9def43e224" title="Writes formatted output to a file descriptor." alt="" coords="119,32,191,58"/>
-<area shape="poly" title=" " alt="" coords="249,61,192,53,191,48,255,59"/>
-<area shape="rect" href="group__print.html#ga7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="119,81,191,107"/>
-<area shape="poly" title=" " alt="" coords="250,79,192,91,191,86,254,77"/>
-<area shape="rect" href="group__print.html#gae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,81,71,107"/>
-<area shape="poly" title=" " alt="" coords="101,96,72,97,71,92,105,93"/>
-<area shape="rect" href="gnc_8c.html#a357b2a21259bc5329ee0e203446c9457" title="Extracts a chunk from the buffer up to the separator index." alt="" coords="454,107,536,132"/>
-<area shape="poly" title=" " alt="" coords="597,120,536,122,536,117,602,119"/>
-<area shape="rect" href="group__gnl.html#ga82bd3d4dda9db114063a2276e9619aff" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="250,131,364,156"/>
-<area shape="poly" title=" " alt="" coords="441,126,365,139,364,134,436,127"/>
-<area shape="poly" title=" " alt="" coords="437,161,364,154,365,148,443,161"/>
+<area shape="rect" title="Initializes a buffer with the specified initial capacity." alt="" coords="748,80,815,106"/>
+<area shape="rect" href="append__1_8c.html#adcefd2fbd5b6e80b4f93f6380b884360" title="Appends formatted argument to buffer based on rules." alt="" coords="626,55,689,80"/>
+<area shape="poly" title=" " alt="" coords="730,83,689,77,689,71,736,83"/>
+<area shape="rect" href="group__error.html#ga52348e66c7bd8fde3535edb6140746ce" title="Prints &quot;Error\n&quot; to stderr with safe prefix + formatted suffix." alt="" coords="271,5,343,31"/>
+<area shape="poly" title=" " alt="" coords="750,70,727,57,699,45,651,32,601,23,501,14,411,13,344,17,343,12,411,8,501,8,601,17,652,26,701,40,729,52,755,71"/>
+<area shape="rect" href="group__print.html#gaf7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="268,104,347,130"/>
+<area shape="poly" title=" " alt="" coords="731,98,347,118,347,112,733,93"/>
+<area shape="rect" href="group__buff.html#ga5e0fb3fb44e91fcd81504e202aab78f5" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="615,156,700,182"/>
+<area shape="poly" title=" " alt="" coords="749,113,681,158,679,153,744,115"/>
+<area shape="rect" href="group__buff.html#ga7ea043ad349cce71b040e8b48b4ddfd7" title="Appends formatted string to buffer using va_list." alt="" coords="423,55,567,80"/>
+<area shape="poly" title=" " alt="" coords="608,68,567,70,567,65,613,67"/>
+<area shape="rect" href="group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff" title="Appends formatted string to buffer using variadic arguments." alt="" coords="239,55,375,80"/>
+<area shape="poly" title=" " alt="" coords="405,68,376,70,375,65,411,67"/>
+<area shape="poly" title=" " alt="" coords="426,51,344,30,344,25,431,50"/>
+<area shape="poly" title=" " alt="" coords="431,84,348,109,347,104,426,85"/>
+<area shape="rect" href="group__print.html#ga5b8ad0c8c498e56c305ded9def43e224" title="Writes formatted output to a file descriptor." alt="" coords="119,79,191,104"/>
+<area shape="poly" title=" " alt="" coords="249,108,191,100,191,95,255,107"/>
+<area shape="rect" href="group__print.html#ga7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="119,128,191,154"/>
+<area shape="poly" title=" " alt="" coords="249,126,192,138,191,133,255,125"/>
+<area shape="rect" href="group__print.html#gae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,128,71,154"/>
+<area shape="poly" title=" " alt="" coords="100,142,72,143,71,138,105,140"/>
 </map>
 </div>
 
@@ -946,28 +950,30 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__buff_ga4c4fe940783715f94d9b2a933c73ecd6_icgraph.png" border="0" usemap="#agroup__buff_ga4c4fe940783715f94d9b2a933c73ecd6_icgraph" loading="lazy" alt=""/></div>
 <map name="agroup__buff_ga4c4fe940783715f94d9b2a933c73ecd6_icgraph" id="agroup__buff_ga4c4fe940783715f94d9b2a933c73ecd6_icgraph">
-<area shape="rect" title="Inserts a string at a specific index in the buffer." alt="" coords="1021,31,1103,56"/>
-<area shape="rect" href="rules__apply_8c.html#aff5a3f3aa2205810ba4664f48c67ff47" title="Applies precision formatting to the buffer." alt="" coords="861,5,973,31"/>
-<area shape="poly" title=" " alt="" coords="1003,34,973,31,973,25,1008,34"/>
-<area shape="rect" href="rules__apply_8c.html#a361fecaf428a0a90383c1a17ad715c98" title="Applies width padding to the buffer." alt="" coords="872,55,962,80"/>
-<area shape="poly" title=" " alt="" coords="1008,53,963,63,962,57,1003,53"/>
-<area shape="rect" href="rules__apply_8c.html#a8c7a90d2acec7c11adf4401378907be7" title="Applies formatting rules to a buffer." alt="" coords="726,31,813,56"/>
-<area shape="poly" title=" " alt="" coords="849,30,814,39,813,33,843,31"/>
-<area shape="rect" href="append__1_8c.html#adcefd2fbd5b6e80b4f93f6380b884360" title="Appends formatted argument to buffer based on rules." alt="" coords="615,31,678,56"/>
-<area shape="poly" title=" " alt="" coords="708,44,679,46,679,41,713,43"/>
-<area shape="rect" href="group__buff.html#ga7ea043ad349cce71b040e8b48b4ddfd7" title="Appends formatted string to buffer using va_list." alt="" coords="423,31,567,56"/>
-<area shape="poly" title=" " alt="" coords="596,44,567,46,567,41,602,43"/>
+<area shape="rect" title="Inserts a string at a specific index in the buffer." alt="" coords="1021,55,1103,80"/>
+<area shape="rect" href="rules__apply_8c.html#aff5a3f3aa2205810ba4664f48c67ff47" title="Applies precision formatting to the buffer." alt="" coords="861,29,973,55"/>
+<area shape="poly" title=" " alt="" coords="1003,58,973,55,973,49,1008,58"/>
+<area shape="rect" href="rules__apply_8c.html#a361fecaf428a0a90383c1a17ad715c98" title="Applies width padding to the buffer." alt="" coords="872,79,962,104"/>
+<area shape="poly" title=" " alt="" coords="1008,77,963,87,962,81,1003,77"/>
+<area shape="rect" href="rules__apply_8c.html#a8c7a90d2acec7c11adf4401378907be7" title="Applies formatting rules to a buffer." alt="" coords="726,55,813,80"/>
+<area shape="poly" title=" " alt="" coords="849,54,814,63,813,57,843,55"/>
+<area shape="rect" href="append__1_8c.html#adcefd2fbd5b6e80b4f93f6380b884360" title="Appends formatted argument to buffer based on rules." alt="" coords="615,55,678,80"/>
+<area shape="poly" title=" " alt="" coords="708,68,679,70,679,65,713,67"/>
+<area shape="rect" href="group__buff.html#ga7ea043ad349cce71b040e8b48b4ddfd7" title="Appends formatted string to buffer using va_list." alt="" coords="423,55,567,80"/>
+<area shape="poly" title=" " alt="" coords="596,68,567,70,567,65,602,67"/>
 <area shape="rect" href="group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff" title="Appends formatted string to buffer using variadic arguments." alt="" coords="239,5,375,31"/>
-<area shape="poly" title=" " alt="" coords="405,32,376,30,376,25,411,32"/>
-<area shape="rect" href="group__print.html#gaf7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="268,55,347,80"/>
-<area shape="poly" title=" " alt="" coords="411,54,348,65,347,60,406,55"/>
-<area shape="rect" href="group__print.html#ga5b8ad0c8c498e56c305ded9def43e224" title="Writes formatted output to a file descriptor." alt="" coords="119,29,191,55"/>
-<area shape="poly" title=" " alt="" coords="249,59,191,51,191,45,255,58"/>
-<area shape="rect" href="group__print.html#ga7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="119,79,191,104"/>
-<area shape="poly" title=" " alt="" coords="255,76,192,89,191,83,249,76"/>
-<area shape="rect" href="group__print.html#gae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,79,71,104"/>
-<area shape="poly" title=" " alt="" coords="100,92,71,94,71,89,105,91"/>
-<area shape="poly" title=" " alt="" coords="854,58,814,53,814,48,859,58"/>
+<area shape="poly" title=" " alt="" coords="426,50,359,34,359,29,431,50"/>
+<area shape="rect" href="group__error.html#ga52348e66c7bd8fde3535edb6140746ce" title="Prints &quot;Error\n&quot; to stderr with safe prefix + formatted suffix." alt="" coords="271,55,343,80"/>
+<area shape="poly" title=" " alt="" coords="406,68,344,70,343,65,411,67"/>
+<area shape="rect" href="group__print.html#gaf7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="268,104,347,130"/>
+<area shape="poly" title=" " alt="" coords="431,84,348,109,347,104,426,85"/>
+<area shape="rect" href="group__print.html#ga5b8ad0c8c498e56c305ded9def43e224" title="Writes formatted output to a file descriptor." alt="" coords="119,79,191,104"/>
+<area shape="poly" title=" " alt="" coords="249,108,191,100,191,95,255,107"/>
+<area shape="rect" href="group__print.html#ga7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="119,128,191,154"/>
+<area shape="poly" title=" " alt="" coords="255,125,192,138,191,133,249,126"/>
+<area shape="rect" href="group__print.html#gae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,128,71,154"/>
+<area shape="poly" title=" " alt="" coords="100,141,71,143,71,138,105,140"/>
+<area shape="poly" title=" " alt="" coords="854,82,814,77,814,72,859,82"/>
 </map>
 </div>
 
@@ -1045,18 +1051,20 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="708,68,679,70,679,65,713,67"/>
 <area shape="rect" href="group__buff.html#ga7ea043ad349cce71b040e8b48b4ddfd7" title="Appends formatted string to buffer using va_list." alt="" coords="423,55,567,80"/>
 <area shape="poly" title=" " alt="" coords="596,68,567,70,567,65,602,67"/>
-<area shape="rect" href="group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff" title="Appends formatted string to buffer using variadic arguments." alt="" coords="239,29,375,55"/>
-<area shape="poly" title=" " alt="" coords="405,56,376,54,376,49,411,56"/>
-<area shape="rect" href="group__print.html#gaf7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="268,79,347,104"/>
-<area shape="poly" title=" " alt="" coords="411,78,348,89,347,84,406,79"/>
-<area shape="rect" href="group__print.html#ga5b8ad0c8c498e56c305ded9def43e224" title="Writes formatted output to a file descriptor." alt="" coords="119,53,191,79"/>
-<area shape="poly" title=" " alt="" coords="249,83,191,75,191,69,255,82"/>
-<area shape="rect" href="group__print.html#ga7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="119,103,191,128"/>
-<area shape="poly" title=" " alt="" coords="255,100,192,113,191,107,249,100"/>
-<area shape="rect" href="group__print.html#gae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,103,71,128"/>
-<area shape="poly" title=" " alt="" coords="100,116,71,118,71,113,105,115"/>
-<area shape="poly" title=" " alt="" coords="843,68,814,70,814,65,849,67"/>
-<area shape="poly" title=" " alt="" coords="864,98,812,84,813,78,870,99"/>
+<area shape="rect" href="group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff" title="Appends formatted string to buffer using variadic arguments." alt="" coords="239,5,375,31"/>
+<area shape="poly" title=" " alt="" coords="426,50,359,34,359,29,431,50"/>
+<area shape="rect" href="group__error.html#ga52348e66c7bd8fde3535edb6140746ce" title="Prints &quot;Error\n&quot; to stderr with safe prefix + formatted suffix." alt="" coords="271,55,343,80"/>
+<area shape="poly" title=" " alt="" coords="406,68,344,70,343,65,411,67"/>
+<area shape="rect" href="group__print.html#gaf7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="268,104,347,130"/>
+<area shape="poly" title=" " alt="" coords="431,84,348,109,347,104,426,85"/>
+<area shape="rect" href="group__print.html#ga5b8ad0c8c498e56c305ded9def43e224" title="Writes formatted output to a file descriptor." alt="" coords="119,79,191,104"/>
+<area shape="poly" title=" " alt="" coords="249,108,191,100,191,95,255,107"/>
+<area shape="rect" href="group__print.html#ga7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="119,128,191,154"/>
+<area shape="poly" title=" " alt="" coords="255,125,192,138,191,133,249,126"/>
+<area shape="rect" href="group__print.html#gae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,128,71,154"/>
+<area shape="poly" title=" " alt="" coords="100,141,71,143,71,138,105,140"/>
+<area shape="poly" title=" " alt="" coords="843,68,814,70,813,65,849,67"/>
+<area shape="poly" title=" " alt="" coords="864,99,812,84,813,78,870,99"/>
 </map>
 </div>
 
@@ -1166,18 +1174,6 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="253,114,301,117,295,117,253,119"/>
 </map>
 </div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group__buff_gab994c8260f21ddde8f48200c219e366f_icgraph.png" border="0" usemap="#agroup__buff_gab994c8260f21ddde8f48200c219e366f_icgraph" loading="lazy" alt=""/></div>
-<map name="agroup__buff_gab994c8260f21ddde8f48200c219e366f_icgraph" id="agroup__buff_gab994c8260f21ddde8f48200c219e366f_icgraph">
-<area shape="rect" title="Reads from a file descriptor until a specific character is found." alt="" coords="320,5,426,31"/>
-<area shape="rect" href="gnc_8c.html#add9ed164a8dbaa0352894623de87216b" title="Reads from file descriptor until separator is found." alt="" coords="167,5,272,31"/>
-<area shape="poly" title=" " alt="" coords="301,18,273,21,272,16,307,18"/>
-<area shape="rect" href="group__gnl.html#ga82bd3d4dda9db114063a2276e9619aff" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="5,5,119,31"/>
-<area shape="poly" title=" " alt="" coords="148,18,119,21,119,16,153,18"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -1224,18 +1220,6 @@ Here is the call graph for this function:</div>
 <area shape="rect" title="Removes a portion of the buffer starting at i_start." alt="" coords="5,5,100,31"/>
 <area shape="rect" href="group__mem.html#gacdc865fa140c03c01a39d74b1f5c2416" title="Copies n bytes from src to dst, handling overlapping memory." alt="" coords="148,5,245,31"/>
 <area shape="poly" title=" " alt="" coords="100,16,135,18,130,18,100,21"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="group__buff_ga537f79a2edd8ce5673de30460c64f4d6_icgraph.png" border="0" usemap="#agroup__buff_ga537f79a2edd8ce5673de30460c64f4d6_icgraph" loading="lazy" alt=""/></div>
-<map name="agroup__buff_ga537f79a2edd8ce5673de30460c64f4d6_icgraph" id="agroup__buff_ga537f79a2edd8ce5673de30460c64f4d6_icgraph">
-<area shape="rect" title="Removes a portion of the buffer starting at i_start." alt="" coords="296,5,390,31"/>
-<area shape="rect" href="gnc_8c.html#a357b2a21259bc5329ee0e203446c9457" title="Extracts a chunk from the buffer up to the separator index." alt="" coords="167,5,248,31"/>
-<area shape="poly" title=" " alt="" coords="278,18,249,21,249,16,283,18"/>
-<area shape="rect" href="group__gnl.html#ga82bd3d4dda9db114063a2276e9619aff" title="Reads the next chunk from a file descriptor until separator is found." alt="" coords="5,5,119,31"/>
-<area shape="poly" title=" " alt="" coords="149,18,119,21,119,16,154,18"/>
 </map>
 </div>
 
