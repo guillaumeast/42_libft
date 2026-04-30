@@ -11,5 +11,6 @@ var topics =
     [ "Memory Functions", "group__mem.html", "group__mem" ],
     [ "Print Functions", "group__print.html", "group__print" ],
     [ "Put Functions", "group__put.html", "group__put" ],
-    [ "String Functions", "group__str.html", "group__str" ]
+    [ "String Functions", "group__str.html", "group__str" ],
+    [ "Vector API", "group__vector.html", "group__vector" ]
 ];

@@ -1,0 +1,12 @@
+<map id="vector_merge" name="vector_merge">
+<area shape="rect" id="Node000001" title="Inserts all items from src into dst at a specific index." alt="" coords="5,31,106,56"/>
+<area shape="rect" id="Node000002" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="344,5,430,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,28,153,16,246,10,331,13,326,15,246,15,154,21,100,33"/>
+<area shape="rect" id="Node000003" href="$group__mem.html#gacdc865fa140c03c01a39d74b1f5c2416" title="Copies n bytes from src to dst, handling overlapping memory." alt="" coords="165,31,262,56"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="106,41,152,42,147,45,107,46"/>
+<area shape="rect" id="Node000004" href="$vector__ops__vectors_8c.html#a22d1e26dfd18fb169ee56621631d9687" title=" " alt="" coords="154,80,274,106"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="100,54,158,74,153,76,99,60"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="248,77,273,66,341,38,346,37,275,71,250,82"/>
+<area shape="rect" id="Node000005" href="$vector__ops__vectors_8c.html#a215f78ded97dcb076d3dbcd4217e4b9f" title=" " alt="" coords="322,80,452,106"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="274,90,309,93,304,93,274,95"/>
+</map>

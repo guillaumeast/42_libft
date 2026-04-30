@@ -1,7 +1,7 @@
 var searchData=
 [
   ['left_0',['left',['../structs__btree__node.html#a8ec54f48cf9f3c3c33b69efa20f8e2f8',1,'s_btree_node']]],
-  ['len_1',['len',['../structs__buff.html#a6fde7006cfb6941c7738aa970e04621a',1,'s_buff']]],
+  ['len_1',['len',['../structs__buff.html#a6fde7006cfb6941c7738aa970e04621a',1,'s_buff::len'],['../structs__vector.html#a08a925d664ea02bb1a0f434469d7ea7f',1,'s_vector::len']]],
   ['libft_2eh_2',['libft.h',['../libft_8h.html',1,'']]],
   ['linked_20list_20api_3',['Linked List API',['../group__list.html',1,'']]],
   ['list_20api_4',['Linked List API',['../group__list.html',1,'']]],

@@ -1,0 +1,8 @@
+<map id="vector_push" name="vector_push">
+<area shape="rect" id="Node000001" title="Appends one item at the end of the vector." alt="" coords="5,5,98,31"/>
+<area shape="rect" id="Node000002" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="286,5,372,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,16,271,16,270,21,98,21"/>
+<area shape="rect" id="Node000003" href="$group__vector.html#ga21e836cd6b6bf3653db00e4470c525bd" title="Grows vector capacity, usually by doubling it." alt="" coords="146,31,238,56"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="98,24,133,32,128,33,98,29"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="238,32,268,29,273,29,239,38"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="vector_merge" name="vector_merge">
+<area shape="rect" id="Node000001" title="Inserts all items from src into dst at a specific index." alt="" coords="139,5,239,31"/>
+<area shape="rect" id="Node000002" href="$group__vector.html#ga53cb7897120843a17236c66ec22fc39b" title="Duplicates a vector into another one." alt="" coords="5,5,91,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,18,91,21,91,16,126,18"/>
+</map>

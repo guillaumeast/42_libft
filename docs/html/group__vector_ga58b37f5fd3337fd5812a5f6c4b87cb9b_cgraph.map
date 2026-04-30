@@ -1,0 +1,16 @@
+<map id="vector_insert" name="vector_insert">
+<area shape="rect" id="Node000001" title="Inserts one item at a specific index." alt="" coords="5,58,102,84"/>
+<area shape="rect" id="Node000002" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="459,84,546,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,56,106,35,149,18,223,5,282,6,341,19,412,44,443,57,472,75,467,75,441,62,410,48,339,24,281,11,223,10,150,23,109,40,75,60"/>
+<area shape="rect" id="Node000003" href="$group__mem.html#gacdc865fa140c03c01a39d74b1f5c2416" title="Copies n bytes from src to dst, handling overlapping memory." alt="" coords="150,33,247,59"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="101,60,137,56,132,59,103,65"/>
+<area shape="rect" id="Node000004" href="$vector__ops__items_8c.html#adecca8c74d429ea08524ac6765e674d4" title=" " alt="" coords="295,58,411,84"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="102,69,281,69,279,74,102,74"/>
+<area shape="rect" id="Node000005" href="$group__vector.html#ga265ed3eb66fb18d02d839c522fcce2ec" title="Appends one item at the end of the vector." alt="" coords="152,134,244,160"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="80,82,161,125,156,128,79,87"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="412,79,447,87,441,87,412,84"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="244,137,447,106,441,107,245,142"/>
+<area shape="rect" id="Node000006" href="$group__vector.html#ga21e836cd6b6bf3653db00e4470c525bd" title="Grows vector capacity, usually by doubling it." alt="" coords="307,160,399,185"/>
+<area shape="poly" id="edge7_Node000005_Node000006" title=" " alt="" coords="245,152,294,163,289,163,245,158"/>
+<area shape="poly" id="edge8_Node000006_Node000002" title=" " alt="" coords="379,157,459,117,465,116,381,162"/>
+</map>

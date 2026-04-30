@@ -1,0 +1,18 @@
+<map id="vector_dup" name="vector_dup">
+<area shape="rect" id="Node000001" title="Duplicates a vector into another one." alt="" coords="5,55,91,80"/>
+<area shape="rect" id="Node000002" href="$group__vector.html#ga3ed8fe22ee0f349ee60c2bf0ef5a974e" title="Frees the vector&#39;s internal storage." alt="" coords="146,5,232,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,52,137,35,134,39,88,56"/>
+<area shape="rect" id="Node000003" href="$group__vector.html#gaeb8e959c0182532a346e2f8f78337613" title="Initializes a vector with a given item size and initial capacity." alt="" coords="148,55,230,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="90,65,135,66,130,69,92,70"/>
+<area shape="rect" id="Node000004" href="$group__vector.html#ga54a3652c537ec31f1a9d00f26fcab16f" title="Inserts all items from src into dst at a specific index." alt="" coords="139,104,239,130"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="87,78,138,97,133,99,87,84"/>
+<area shape="rect" id="Node000005" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="477,79,564,104"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="231,101,287,89,379,83,465,87,459,88,379,88,287,94,233,106"/>
+<area shape="rect" id="Node000006" href="$group__mem.html#gacdc865fa140c03c01a39d74b1f5c2416" title="Copies n bytes from src to dst, handling overlapping memory." alt="" coords="298,104,396,130"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="239,114,285,116,280,117,240,119"/>
+<area shape="rect" id="Node000007" href="$vector__ops__vectors_8c.html#a22d1e26dfd18fb169ee56621631d9687" title=" " alt="" coords="287,153,407,179"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="233,128,292,148,286,148,232,133"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="382,150,406,140,474,112,479,111,408,145,383,155"/>
+<area shape="rect" id="Node000008" href="$vector__ops__vectors_8c.html#a215f78ded97dcb076d3dbcd4217e4b9f" title=" " alt="" coords="455,153,586,179"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="408,164,442,166,437,166,408,169"/>
+</map>

@@ -2,7 +2,7 @@ var searchData=
 [
   ['absolute_0',['absolute',['../group__math.html#gaed8a7c021f3f84279527cb9d33ef4f10',1,'absolute(long nbr):&#160;min_max_abs.c'],['../group__math.html#gaed8a7c021f3f84279527cb9d33ef4f10',1,'absolute(long nbr):&#160;min_max_abs.c']]],
   ['allocation_1',['Memory Allocation',['../group__malloc.html',1,'']]],
-  ['api_2',['API',['../group__btree.html',1,'Binary Tree API'],['../group__buff.html',1,'Buffer API'],['../group__list.html',1,'Linked List API']]],
+  ['api_2',['API',['../group__btree.html',1,'Binary Tree API'],['../group__buff.html',1,'Buffer API'],['../group__list.html',1,'Linked List API'],['../group__vector.html',1,'Vector API']]],
   ['append_3',['append',['../append__1_8c.html#adcefd2fbd5b6e80b4f93f6380b884360',1,'append(t_buff *buff, t_rules *rules, va_list *args):&#160;append_1.c'],['../buff__format_8h.html#adcefd2fbd5b6e80b4f93f6380b884360',1,'append(t_buff *buff, t_rules *rules, va_list *args):&#160;append_1.c']]],
   ['append_5f1_2ec_4',['append_1.c',['../append__1_8c.html',1,'']]],
   ['append_5f2_2ec_5',['append_2.c',['../append__2_8c.html',1,'']]],

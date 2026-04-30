@@ -114,8 +114,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga4c4fe940783715f94d9b2a933c73ecd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts a string at a specific index in the buffer.  <br /></td></tr>
 <tr class="memitem:ga479d86ec7b4c43589bc6e03c96438a29" id="r_ga479d86ec7b4c43589bc6e03c96438a29"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ga479d86ec7b4c43589bc6e03c96438a29">buff_append</a> (<a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> *b, const char *str, long n)</td></tr>
 <tr class="memdesc:ga479d86ec7b4c43589bc6e03c96438a29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a string to the end of the buffer.  <br /></td></tr>
-<tr class="memitem:ga5e0fb3fb44e91fcd81504e202aab78f5" id="r_ga5e0fb3fb44e91fcd81504e202aab78f5"><td class="memItemLeft"><a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ga5e0fb3fb44e91fcd81504e202aab78f5">buff_dup_n</a> (const <a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> *src, size_t n)</td></tr>
-<tr class="memdesc:ga5e0fb3fb44e91fcd81504e202aab78f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duplicates up to n bytes of a buffer into a new buffer.  <br /></td></tr>
+<tr class="memitem:gaae33420c26da67d236134561478eb86d" id="r_gaae33420c26da67d236134561478eb86d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#gaae33420c26da67d236134561478eb86d">buff_dup_n</a> (<a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> *dst, const <a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> *src, size_t n)</td></tr>
+<tr class="memdesc:gaae33420c26da67d236134561478eb86d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies up to n bytes from a source buffer into an existing buffer.  <br /></td></tr>
 <tr class="memitem:ga537f79a2edd8ce5673de30460c64f4d6" id="r_ga537f79a2edd8ce5673de30460c64f4d6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga537f79a2edd8ce5673de30460c64f4d6">buff_rm_part</a> (<a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> *buff, size_t i_start, ssize_t len)</td></tr>
 <tr class="memdesc:ga537f79a2edd8ce5673de30460c64f4d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a portion of the buffer starting at i_start.  <br /></td></tr>
 <tr class="memitem:ga75ff0446dc6dde1e38c64e697573ecff" id="r_ga75ff0446dc6dde1e38c64e697573ecff"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ga75ff0446dc6dde1e38c64e697573ecff">buff_append_format</a> (<a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> *buff, const char *fstring,...)</td></tr>
@@ -261,7 +261,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="1046,242,1035,202,1018,149,993,95,959,45,946,34,946,29,963,42,997,92,1023,147,1040,200,1051,244"/>
 <area shape="rect" href="rules__apply_8c.html#a361fecaf428a0a90383c1a17ad715c98" title="Applies width padding to the buffer." alt="" coords="870,56,960,82"/>
 <area shape="poly" title=" " alt="" coords="1041,243,1009,177,986,138,959,103,938,85,939,79,963,99,990,135,1014,175,1046,245"/>
-<area shape="rect" href="group__buff.html#ga5e0fb3fb44e91fcd81504e202aab78f5" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="872,512,958,538"/>
+<area shape="rect" href="group__buff.html#gaae33420c26da67d236134561478eb86d" title="Copies up to n bytes from a source buffer into an existing buffer." alt="" coords="872,512,958,538"/>
 <area shape="poly" title=" " alt="" coords="1049,298,1020,391,995,445,963,495,941,514,939,509,959,491,990,442,1015,389,1045,301"/>
 <area shape="poly" title=" " alt="" coords="629,245,508,412,504,408,624,247"/>
 <area shape="rect" href="group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff" title="Appends formatted string to buffer using variadic arguments." alt="" coords="239,412,375,438"/>
@@ -628,15 +628,20 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ga5e0fb3fb44e91fcd81504e202aab78f5" name="ga5e0fb3fb44e91fcd81504e202aab78f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5e0fb3fb44e91fcd81504e202aab78f5">&#9670;&#160;</a></span>buff_dup_n()</h2>
+<a id="gaae33420c26da67d236134561478eb86d" name="gaae33420c26da67d236134561478eb86d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaae33420c26da67d236134561478eb86d">&#9670;&#160;</a></span>buff_dup_n()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> * buff_dup_n </td>
+          <td class="memname">bool buff_dup_n </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> *</td>          <td class="paramname"><span class="paramname"><em>dst</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const <a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> *</td>          <td class="paramname"><span class="paramname"><em>src</em></span>, </td>
         </tr>
         <tr>
@@ -647,37 +652,38 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Duplicates up to n bytes of a buffer into a new buffer. </p>
-<dl class="section note"><dt>Note</dt><dd>Caller owns the returned <a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> and must free both the struct and its internal data (use buff_free then free).</dd></dl>
+<p>Copies up to n bytes from a source buffer into an existing buffer. </p>
+<dl class="section warning"><dt>Warning</dt><dd>dst and src must be initialized before calling this function. </dd>
+<dd>
+The previous logical content of dst is replaced, whether the function succeeds or fails.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">src</td><td>Source buffer to duplicate (borrowed). </td></tr>
+    <tr><td class="paramname">dst</td><td>Destination buffer to overwrite (borrowed, initialized). </td></tr>
+    <tr><td class="paramname">src</td><td>Source buffer to duplicate (borrowed, initialized). </td></tr>
     <tr><td class="paramname">n</td><td>Maximum number of bytes to copy. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to a newly allocated <a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> (owned), or NULL on failure. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true on success, false on memory allocation failure. </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="group__buff_ga5e0fb3fb44e91fcd81504e202aab78f5_cgraph.png" border="0" usemap="#agroup__buff_ga5e0fb3fb44e91fcd81504e202aab78f5_cgraph" loading="lazy" alt=""/></div>
-<map name="agroup__buff_ga5e0fb3fb44e91fcd81504e202aab78f5_cgraph" id="agroup__buff_ga5e0fb3fb44e91fcd81504e202aab78f5_cgraph">
-<area shape="rect" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="5,105,91,131"/>
+<div class="center"><img src="group__buff_gaae33420c26da67d236134561478eb86d_cgraph.png" border="0" usemap="#agroup__buff_gaae33420c26da67d236134561478eb86d_cgraph" loading="lazy" alt=""/></div>
+<map name="agroup__buff_gaae33420c26da67d236134561478eb86d_cgraph" id="agroup__buff_gaae33420c26da67d236134561478eb86d_cgraph">
+<area shape="rect" title="Copies up to n bytes from a source buffer into an existing buffer." alt="" coords="5,81,91,107"/>
 <area shape="rect" href="group__buff.html#ga479d86ec7b4c43589bc6e03c96438a29" title="Appends a string to the end of the buffer." alt="" coords="139,56,231,82"/>
-<area shape="poly" title=" " alt="" coords="85,102,135,86,130,89,87,107"/>
+<area shape="poly" title=" " alt="" coords="90,84,126,79,121,81,92,89"/>
 <area shape="rect" href="group__buff.html#ga3825f38fa07df6f1a17b060955d84f04" title="Frees the buffer&#39;s internal data." alt="" coords="149,105,221,131"/>
-<area shape="poly" title=" " alt="" coords="91,116,135,117,131,119,92,121"/>
-<area shape="rect" href="group__buff.html#ga5b93ae89b288bf7e0843e34c072c52c6" title="Initializes a buffer with the specified initial capacity." alt="" coords="151,155,218,180"/>
-<area shape="poly" title=" " alt="" coords="86,129,139,149,134,151,86,134"/>
+<area shape="poly" title=" " alt="" coords="91,99,136,108,130,110,91,104"/>
 <area shape="rect" href="buff__life__cycle_8c.html#a34269ecefd62c1ff95c0dc2f442664b9" title="Grows the buffer to accommodate the target length if necessary." alt="" coords="279,5,357,31"/>
-<area shape="poly" title=" " alt="" coords="220,53,271,36,266,38,222,58"/>
+<area shape="poly" title=" " alt="" coords="220,53,266,38,271,36,222,58"/>
 <area shape="rect" href="group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="437,55,523,80"/>
 <area shape="poly" title=" " alt="" coords="231,66,423,66,419,69,231,71"/>
 <area shape="rect" href="group__str.html#ga08b8150070493b3bf2dbc420b965b7bb" title="Calculates the length of a string." alt="" coords="288,107,348,132"/>
-<area shape="poly" title=" " alt="" coords="221,80,276,102,271,103,221,85"/>
+<area shape="poly" title=" " alt="" coords="221,80,276,103,271,103,220,85"/>
 <area shape="rect" href="buff__life__cycle_8c.html#ac56b2e828372192af7c1317b6a28f60e" title="Calculates the required capacity to accommodate a target length." alt="" coords="405,5,555,31"/>
 <area shape="poly" title=" " alt="" coords="357,16,393,18,388,19,358,21"/>
-<area shape="poly" title=" " alt="" coords="358,27,425,50,419,50,358,33"/>
+<area shape="poly" title=" " alt="" coords="358,27,425,50,419,50,357,33"/>
 </map>
 </div>
 
@@ -699,7 +705,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Frees the buffer's internal data. </p>
-<p>Sets buff-&gt;data to NULL after freeing.</p>
+<p>Sets buff-&gt;data to NULL after freeing. Sets buff-&gt;len and buff-&gt;cap to 0 after freeing.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Does not free the <a class="el" href="libft_8h.html#a01ae3bcbd1d4e4a25d85bdbd66b1a01b">t_buff</a> struct itself, only its internal data.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -719,7 +725,7 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="752,70,728,57,699,45,651,32,600,23,500,14,411,14,344,17,343,12,411,8,501,9,601,18,652,27,701,40,730,52,757,71"/>
 <area shape="rect" href="group__print.html#gaf7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="268,104,347,130"/>
 <area shape="poly" title=" " alt="" coords="732,98,347,118,347,112,734,93"/>
-<area shape="rect" href="group__buff.html#ga5e0fb3fb44e91fcd81504e202aab78f5" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="615,156,700,182"/>
+<area shape="rect" href="group__buff.html#gaae33420c26da67d236134561478eb86d" title="Copies up to n bytes from a source buffer into an existing buffer." alt="" coords="615,156,700,182"/>
 <area shape="poly" title=" " alt="" coords="751,113,681,158,680,153,746,115"/>
 <area shape="rect" href="group__buff.html#ga7ea043ad349cce71b040e8b48b4ddfd7" title="Appends formatted string to buffer using va_list." alt="" coords="423,55,567,80"/>
 <area shape="poly" title=" " alt="" coords="608,68,567,70,567,65,613,67"/>
@@ -857,27 +863,25 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__buff_ga5b93ae89b288bf7e0843e34c072c52c6_icgraph.png" border="0" usemap="#agroup__buff_ga5b93ae89b288bf7e0843e34c072c52c6_icgraph" loading="lazy" alt=""/></div>
 <map name="agroup__buff_ga5b93ae89b288bf7e0843e34c072c52c6_icgraph" id="agroup__buff_ga5b93ae89b288bf7e0843e34c072c52c6_icgraph">
-<area shape="rect" title="Initializes a buffer with the specified initial capacity." alt="" coords="748,80,815,106"/>
-<area shape="rect" href="append__1_8c.html#adcefd2fbd5b6e80b4f93f6380b884360" title="Appends formatted argument to buffer based on rules." alt="" coords="626,55,689,80"/>
-<area shape="poly" title=" " alt="" coords="730,83,689,77,689,71,736,83"/>
+<area shape="rect" title="Initializes a buffer with the specified initial capacity." alt="" coords="726,55,793,80"/>
+<area shape="rect" href="append__1_8c.html#adcefd2fbd5b6e80b4f93f6380b884360" title="Appends formatted argument to buffer based on rules." alt="" coords="615,55,678,80"/>
+<area shape="poly" title=" " alt="" coords="708,68,679,70,678,65,713,67"/>
 <area shape="rect" href="group__error.html#ga52348e66c7bd8fde3535edb6140746ce" title="Prints &quot;Error\n&quot; to stderr with safe prefix + formatted suffix." alt="" coords="271,5,343,31"/>
-<area shape="poly" title=" " alt="" coords="750,70,727,57,699,45,651,32,601,23,501,14,411,13,344,17,343,12,411,8,501,8,601,17,652,26,701,40,729,52,755,71"/>
+<area shape="poly" title=" " alt="" coords="708,50,677,45,584,31,490,24,344,20,343,15,490,19,584,26,679,40,714,51"/>
 <area shape="rect" href="group__print.html#gaf7f6b2f5062a06fe93d2d3318e81cefc" title="Writes formatted output to a file descriptor using va_list." alt="" coords="268,104,347,130"/>
-<area shape="poly" title=" " alt="" coords="731,98,347,118,347,112,733,93"/>
-<area shape="rect" href="group__buff.html#ga5e0fb3fb44e91fcd81504e202aab78f5" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="615,156,700,182"/>
-<area shape="poly" title=" " alt="" coords="749,113,681,158,679,153,744,115"/>
+<area shape="poly" title=" " alt="" coords="714,84,679,95,586,109,493,116,347,120,347,115,493,111,585,103,677,90,708,85"/>
 <area shape="rect" href="group__buff.html#ga7ea043ad349cce71b040e8b48b4ddfd7" title="Appends formatted string to buffer using va_list." alt="" coords="423,55,567,80"/>
-<area shape="poly" title=" " alt="" coords="608,68,567,70,567,65,613,67"/>
+<area shape="poly" title=" " alt="" coords="596,68,567,70,567,65,602,67"/>
 <area shape="rect" href="group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff" title="Appends formatted string to buffer using variadic arguments." alt="" coords="239,55,375,80"/>
-<area shape="poly" title=" " alt="" coords="405,68,376,70,375,65,411,67"/>
+<area shape="poly" title=" " alt="" coords="405,68,376,70,376,65,411,67"/>
 <area shape="poly" title=" " alt="" coords="426,51,344,30,344,25,431,50"/>
 <area shape="poly" title=" " alt="" coords="431,84,348,109,347,104,426,85"/>
 <area shape="rect" href="group__print.html#ga5b8ad0c8c498e56c305ded9def43e224" title="Writes formatted output to a file descriptor." alt="" coords="119,79,191,104"/>
 <area shape="poly" title=" " alt="" coords="249,108,191,100,191,95,255,107"/>
 <area shape="rect" href="group__print.html#ga7fb2dc9bf6b126ef5060e1e729aa7ac4" title="Writes formatted output to stdout using va_list." alt="" coords="119,128,191,154"/>
-<area shape="poly" title=" " alt="" coords="249,126,192,138,191,133,255,125"/>
+<area shape="poly" title=" " alt="" coords="255,125,192,138,191,133,249,126"/>
 <area shape="rect" href="group__print.html#gae4d46392a495b787c36ecf34e54f7077" title="Writes formatted output to stdout." alt="" coords="5,128,71,154"/>
-<area shape="poly" title=" " alt="" coords="100,142,72,143,71,138,105,140"/>
+<area shape="poly" title=" " alt="" coords="100,141,71,143,71,138,105,140"/>
 </map>
 </div>
 

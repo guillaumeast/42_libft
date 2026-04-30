@@ -26,7 +26,7 @@
 <area shape="poly" id="edge21_Node000002_Node000016" title=" " alt="" coords="1052,242,1040,202,1021,149,994,95,959,45,946,34,946,29,963,42,999,92,1026,147,1045,200,1057,244"/>
 <area shape="rect" id="Node000017" href="$rules__apply_8c.html#a361fecaf428a0a90383c1a17ad715c98" title="Applies width padding to the buffer." alt="" coords="870,56,960,82"/>
 <area shape="poly" id="edge23_Node000002_Node000017" title=" " alt="" coords="1046,244,1012,177,987,139,959,103,938,85,939,80,963,99,991,135,1016,175,1052,245"/>
-<area shape="rect" id="Node000019" href="$group__buff.html#ga5e0fb3fb44e91fcd81504e202aab78f5" title="Duplicates up to n bytes of a buffer into a new buffer." alt="" coords="872,512,958,538"/>
+<area shape="rect" id="Node000019" href="$group__buff.html#gaae33420c26da67d236134561478eb86d" title="Copies up to n bytes from a source buffer into an existing buffer." alt="" coords="872,512,958,538"/>
 <area shape="poly" id="edge27_Node000002_Node000019" title=" " alt="" coords="1012,293,1011,297,995,322,987,346,985,392,984,441,977,467,963,494,942,514,940,509,959,491,972,465,979,440,979,392,981,345,990,320,1007,294,1007,296"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="629,245,508,412,504,408,624,247"/>
 <area shape="rect" id="Node000005" href="$group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff" title="Appends formatted string to buffer using variadic arguments." alt="" coords="239,412,375,438"/>

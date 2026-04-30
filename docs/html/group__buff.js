@@ -4,7 +4,7 @@ var group__buff =
     [ "buff_append", "group__buff.html#ga479d86ec7b4c43589bc6e03c96438a29", null ],
     [ "buff_append_format", "group__buff.html#ga75ff0446dc6dde1e38c64e697573ecff", null ],
     [ "buff_append_vformat", "group__buff.html#ga7ea043ad349cce71b040e8b48b4ddfd7", null ],
-    [ "buff_dup_n", "group__buff.html#ga5e0fb3fb44e91fcd81504e202aab78f5", null ],
+    [ "buff_dup_n", "group__buff.html#gaae33420c26da67d236134561478eb86d", null ],
     [ "buff_free", "group__buff.html#ga3825f38fa07df6f1a17b060955d84f04", null ],
     [ "buff_get_index", "group__buff.html#gad3d0b787a96019e20333b55b49c0da9f", null ],
     [ "buff_get_string", "group__buff.html#gab7e965104829182fb2adcbb9379ab00c", null ],

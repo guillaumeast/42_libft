@@ -1,0 +1,10 @@
+<map id="vector_remove" name="vector_remove">
+<area shape="rect" id="Node000001" title="Removes one item at a specific index." alt="" coords="5,22,113,48"/>
+<area shape="rect" id="Node000002" href="$group__mem.html#ga5f5c5d19b1f0355d9768c75d30ed5559" title="Copies n bytes from src to dst." alt="" coords="306,22,392,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,19,160,7,209,3,258,7,297,17,292,18,258,12,209,8,161,12,105,24"/>
+<area shape="rect" id="Node000003" href="$group__mem.html#gacdc865fa140c03c01a39d74b1f5c2416" title="Copies n bytes from src to dst, handling overlapping memory." alt="" coords="161,22,258,48"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="113,32,148,34,143,36,114,38"/>
+<area shape="rect" id="Node000004" href="$group__vector.html#ga2c94cbd628adb6a9c2410f249b09ee95" title="Removes the last item from the vector." alt="" coords="167,71,252,97"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="101,46,156,65,151,67,100,51"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="247,68,294,54,299,53,249,73"/>
+</map>
