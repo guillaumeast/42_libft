@@ -5,7 +5,6 @@
 static bool	grow_and_merge(t_vector *dst, t_vector *src, size_t index);
 static bool	compute_new_cap(size_t dst_len, size_t src_len, size_t *new_cap);
 
-// warning: dst and src MUST be different (use vector_dup() if needed)
 bool	vector_merge(t_vector *dst, t_vector *src, size_t index)
 {
 	size_t	target_len;

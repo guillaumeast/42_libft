@@ -4,7 +4,6 @@
 
 static bool	grow_and_insert(t_vector *vector, size_t index, const void *item);
 
-// Warning: item must NOT be pointing inside vector->data
 bool	vector_push(t_vector *vector, const void *item)
 {
 	void	*dst;
@@ -18,7 +17,6 @@ bool	vector_push(t_vector *vector, const void *item)
 	return (true);
 }
 
-// Note: dst can be NULL
 bool	vector_pop(t_vector *vector, void *dst)
 {
 	if (vector->len == 0)
@@ -32,7 +30,6 @@ bool	vector_pop(t_vector *vector, void *dst)
 	return (true);
 }
 
-// Warning: item must NOT be pointing inside vector->data
 bool	vector_insert(t_vector *vector, size_t index, const void *item)
 {
 	if (index == vector->len)
@@ -81,7 +78,6 @@ static bool	grow_and_insert(t_vector *vector, size_t index, const void *item)
 	return (true);
 }
 
-// Note: dst can be NULL
 bool	vector_remove(t_vector *vector, size_t index, void *dst)
 {
 	if (index >= vector->len)

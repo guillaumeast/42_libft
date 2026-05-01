@@ -64,7 +64,6 @@ bool	vector_adjust(t_vector *vector)
 	return (true);
 }
 
-// warning: dst must NOT be initialized (or must be freed) before calling this function
 bool	vector_dup(t_vector *dst, t_vector *src)
 {
 	if (dst == src)
