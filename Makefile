@@ -8,15 +8,15 @@ SRCS		:= \
 	$(wildcard src/chr/*.c) \
 	$(wildcard src/conv/*.c) \
 	$(wildcard src/error/*.c) \
-	$(wildcard src/gnc/*.c) \
 	$(wildcard src/list/*.c) \
 	$(wildcard src/malloc/*.c) \
 	$(wildcard src/math/*.c) \
 	$(wildcard src/mem/*.c) \
 	$(wildcard src/print/*.c) \
 	$(wildcard src/put/*.c) \
-	$(wildcard src/str/*.c)
-INCLUDES	:= -I. -I./src/buff/format -I./src/gnc
+	$(wildcard src/str/*.c) \
+	$(wildcard src/vector/*.c)
+INCLUDES	:= -I. -I./src/buff/format
 
 OBJ_DIR		:= obj
 OBJ			:= $(SRCS:%.c=$(OBJ_DIR)/%.o)
