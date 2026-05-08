@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/05/07 00:11:42 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/05/08 18:53:30 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -595,14 +595,14 @@ long	ft_atol(const char *str);
 
 /**
  * @ingroup conv
- * @brief Converts a long integer to a string.
+ * @brief Converts an integer to a string.
  *
  * @note Caller owns the returned string and must free it.
  *
- * @param n Long integer to convert.
+ * @param n Integer to convert.
  * @return Newly allocated string (owned), or NULL on failure.
  */
-char	*ft_ltoa(long n);
+char	*ft_itoa(int n);
 
 /**
  * @ingroup conv
