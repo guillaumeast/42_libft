@@ -1,6 +1,6 @@
 #include "libft.h"
 #include <stdlib.h>
-#include <limits.h>
+#include <stdint.h>
 
 static bool	grow_and_merge(t_vector *dst, t_vector *src, size_t index);
 static bool	compute_new_cap(size_t dst_len, size_t src_len, size_t *new_cap);
@@ -15,7 +15,7 @@ bool	vector_merge(t_vector *dst, t_vector *src, size_t index)
 		return (false);
 	if (dst->item_size != src->item_size)
 		return (false);
-	if (dst->len > SIZE_T_MAX - src->len)
+	if (dst->len > SIZE_MAX - src->len)
 		return (false);
 	target_len = dst->len + src->len;
 	if (dst->cap < target_len)
@@ -41,7 +41,7 @@ static bool	grow_and_merge(t_vector *dst, t_vector *src, size_t index)
 	if (new_cap == 0)
 		new_cap = VECTOR_INIT_CAP;
 	if (!compute_new_cap(dst->len, src->len, &new_cap)
-		|| new_cap > SIZE_T_MAX / dst->item_size)
+		|| new_cap > SIZE_MAX / dst->item_size)
 		return (false);
 	new_data = malloc(new_cap * dst->item_size);
 	if (!new_data)
@@ -66,15 +66,15 @@ static bool	compute_new_cap(size_t dst_len, size_t src_len, size_t *new_cap)
 	size_t	target_len;
 	size_t	tmp_new_cap;
 
-	if (dst_len > SIZE_T_MAX - src_len)
+	if (dst_len > SIZE_MAX - src_len)
 		return (false);
 	target_len = dst_len + src_len;
-	if (!new_cap || *new_cap > SIZE_T_MAX / 2)
+	if (!new_cap || *new_cap > SIZE_MAX / 2)
 		return (false);
 	tmp_new_cap = *new_cap;
 	while (tmp_new_cap < target_len)
 	{
-		if (tmp_new_cap > SIZE_T_MAX / 2)
+		if (tmp_new_cap > SIZE_MAX / 2)
 			return (false);
 		tmp_new_cap *= 2;
 	}

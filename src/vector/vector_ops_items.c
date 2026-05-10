@@ -1,6 +1,6 @@
 #include "libft.h"
 #include <stdlib.h>
-#include <limits.h>
+#include <stdint.h>
 
 static bool	grow_and_insert(t_vector *vector, size_t index, const void *item);
 
@@ -55,12 +55,12 @@ static bool	grow_and_insert(t_vector *vector, size_t index, const void *item)
 	size_t	new_cap;
 	void	*new_data;
 
-	if (vector->cap > SIZE_T_MAX / 2)
+	if (vector->cap > SIZE_MAX / 2)
 		return (false);
 	new_cap = vector->cap * 2;
 	if (new_cap == 0)
 		new_cap = VECTOR_INIT_CAP;
-	if (new_cap > SIZE_T_MAX / vector->item_size)
+	if (new_cap > SIZE_MAX / vector->item_size)
 		return (false);
 	new_data = malloc(new_cap * vector->item_size);
 	if (!new_data)
