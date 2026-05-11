@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:37 by gastesan          #+#    #+#             */
-/*   Updated: 2026/04/28 14:18:31 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/05/11 16:23:38 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,20 @@
 #define DEFAULT_BUFF_CAP 128
 #define BUFF_GROWTH 2
 
-bool	buff_init(t_buff *b, size_t initial_cap)
+bool	buff_init(t_buff *b, size_t initial_cap, const char *str, long n)
 {
 	b->data = NULL;
 	b->cap = 0;
 	b->len = 0;
-	if (initial_cap == 0)
-		return (true);
-	b->data = malloc(initial_cap);
-	if (!b->data)
-		return (false);
-	b->cap = initial_cap;
+	if (initial_cap > 0)
+	{
+		b->data = malloc(initial_cap);
+		if (!b->data)
+			return (false);
+		b->cap = initial_cap;
+	}
+	if (str)
+		return (buff_append(b, str, n));
 	return (true);
 }
 

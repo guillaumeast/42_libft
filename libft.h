@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/05/08 18:53:30 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/05/11 16:27:52 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -286,13 +286,18 @@ void			btree_free(t_btree_node **node, void (*data_free)(void *data));
  * @ingroup buff
  * @brief Initializes a buffer with the specified initial capacity.
  *
- * @note Cannot fail when initial_cap == 0.
+ * If str is not NULL, it is appended after initialization.
+ * If str is NULL, n is ignored.
+ *
+ * @note Cannot fail only when initial_cap == 0 and str == NULL.
  *
  * @param b Pointer to the buffer structure to initialize (uninitialized).
  * @param initial_cap Initial capacity of the buffer.
+ * @param str Optional string to append after initialization (borrowed).
+ * @param n Number of bytes to append, or -1 to use str_len(str).
  * @return true on success, false on memory allocation failure.
  */
-bool	buff_init(t_buff *b, size_t initial_cap);
+bool	buff_init(t_buff *b, size_t initial_cap, const char *str, long n);
 
 /**
  * @ingroup buff
