@@ -1,6 +1,6 @@
 NAME		= libft.a
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g3
+CFLAGS		= -Wall -Wextra -Werror -g3 # -O2 -DNDEBUG # -fsanitize=address,undefined # -fsanitize=leak # -fsanitize=memory
 
 SRCS		:= \
 	$(wildcard src/buff/*.c) \
