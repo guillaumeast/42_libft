@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/05/14 16:02:15 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/05/14 21:21:14 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -600,6 +600,18 @@ long	ft_atol(const char *str);
 
 /**
  * @ingroup conv
+ * @brief Converts a string to a size_t.
+ *
+ * @note Skips leading whitespace and accepts an optional leading '+'.
+ * @warning Returns SIZE_MAX on overflow.
+ *
+ * @param str String to convert.
+ * @return The converted size_t value.
+ */
+size_t	ft_atozu(const char *str);
+
+/**
+ * @ingroup conv
  * @brief Converts an integer to a string.
  *
  * @note Caller owns the returned string and must free it.
@@ -619,6 +631,17 @@ char	*ft_itoa(int n);
  * @return Newly allocated string (owned), or NULL on failure.
  */
 char	*ft_utoa(unsigned int n);
+
+/**
+ * @ingroup conv
+ * @brief Converts a size_t to a string.
+ *
+ * @note Caller owns the returned string and must free it.
+ *
+ * @param n Value to convert.
+ * @return Newly allocated string (owned), or NULL on failure.
+ */
+char	*ft_zutoa(size_t n);
 
 /**
  * @ingroup conv
