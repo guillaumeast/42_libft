@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/05/11 16:27:52 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/05/14 16:02:15 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1396,8 +1396,9 @@ bool	vector_dup(t_vector *dst, t_vector *src);
  * @warning Does not free the t_vector struct itself, only its internal data.
  *
  * @param vector Pointer to the vector (borrowed).
+ * @param item_free Optional callback to free each item (can be NULL).
  */
-void	vector_free(t_vector *vector);
+void	vector_free(t_vector *vector, void (*item_free)(void *item));
 
 /**
  * @ingroup vector

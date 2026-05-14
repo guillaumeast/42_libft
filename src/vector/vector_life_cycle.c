@@ -49,7 +49,7 @@ bool	vector_adjust(t_vector *vector)
 
 	if (vector->len == 0)
 	{
-		vector_free(vector);
+		vector_free(vector, NULL);
 		return (true);
 	}
 	if (vector->cap == vector->len)
@@ -72,14 +72,27 @@ bool	vector_dup(t_vector *dst, t_vector *src)
 		return (false);
 	if (!vector_merge(dst, src, 0))
 	{
-		vector_free(dst);
+		vector_free(dst, NULL);
 		return (false);
 	}
 	return (true);
 }
 
-void	vector_free(t_vector *vector)
+void	vector_free(t_vector *vector, void (*item_free)(void *item))
 {
+	size_t	i;
+	char	*data;
+
+	if (item_free)
+	{
+		data = (char *)vector->data;
+		i = 0;
+		while (i < vector->len)
+		{
+			item_free(data + (i * vector->item_size));
+			i++;
+		}
+	}
 	free(vector->data);
 	vector->data = NULL;
 	vector->len = 0;
