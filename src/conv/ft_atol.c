@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:19:05 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 01:25:12 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/05/14 20:53:13 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long	ft_atol(const char *str)
 {
-	unsigned int	i;
-	int				sign;
-	long			result;
+	size_t	i;
+	int		sign;
+	long	result;
 
 	i = 0;
 	while (ft_isspace(str[i]))

@@ -15,7 +15,7 @@ Test(test_buff_init, 1)
 
 	for (size_t i = 0; i < sizeof tested_cap / sizeof *tested_cap; i++)
 	{
-		buff_init(&buff, tested_cap[i]);
+		buff_init(&buff, tested_cap[i], NULL, -1);
 		assert(0, buff.cap == tested_cap[i]);
 		assert_eq(RET, 0, buff.len, 0);
 		if (tested_cap[i] == 0)
@@ -37,7 +37,7 @@ Test(test_buff_get_required_cap, 1)
 	{
 		for (size_t j = 0; j < sizeof tested_len / sizeof *tested_len; j++)
 		{
-			buff_init(&buff, tested_cap[i]);
+			buff_init(&buff, tested_cap[i], NULL, -1);
 			result = buff_get_required_cap(buff.cap, tested_len[j]);
 			if (buff.cap > tested_len[j] || tested_len[j] == 0)
 				assert(0, result == buff.cap);
@@ -60,7 +60,7 @@ static void	test_prepend_n(const char *s1, const char *s2, size_t cap, size_t le
 	memcpy(expected, s2, len);
 	memcpy(expected + len, s1, len);
 
-	buff_init(&buff, cap);
+	buff_init(&buff, cap, NULL, -1);
 	buff_append(&buff, s1, (long)len);
 	buff_prepend(&buff, s2, (long)len);
 
@@ -88,7 +88,7 @@ static void	test_prepend_auto(const char *s1, char *s2, size_t cap, size_t len)
 	memcpy(expected, s2, len);
 	memcpy(expected + len, s1, len);
 
-	buff_init(&buff, cap);
+	buff_init(&buff, cap, NULL, -1);
 	buff_append(&buff, s1, (long)len);
 	buff_prepend(&buff, s2, -1);
 
@@ -111,7 +111,7 @@ static void	test_prepend_mem(const char *s1, const char *s2, size_t cap, size_t 
 	memcpy(expected, s2, len);
 	memcpy(expected + len, s1, len);
 
-	buff_init(&buff, cap);
+	buff_init(&buff, cap, NULL, -1);
 	buff_append(&buff, s1, (long)len);
 	buff_prepend(&buff, s2, (long)len);
 	buff_free(&buff);
@@ -150,7 +150,7 @@ static void	test_insert_n(const char *s1, const char *s2, size_t cap, size_t len
 	memcpy(expected + i, s2, len);
 	memcpy(expected + i + len, s1, len - i);
 
-	buff_init(&buff, cap);
+	buff_init(&buff, cap, NULL, -1);
 	buff_append(&buff, s1, (long)len);
 	buff_insert(&buff, i, s2, (long)len);
 
@@ -179,7 +179,7 @@ static void	test_insert_auto(const char *s1, char *s2, size_t cap, size_t len, s
 	memcpy(expected + i, s2, len);
 	memcpy(expected + i + len, s1, len - i);
 
-	buff_init(&buff, cap);
+	buff_init(&buff, cap, NULL, -1);
 	buff_append(&buff, s1, (long)len);
 	buff_insert(&buff, i, s2, -1);
 
@@ -202,7 +202,7 @@ static void	test_insert_mem(const char *s1, const char *s2, size_t cap, size_t l
 	memcpy(expected + i, s2, len);
 	memcpy(expected + i + len, s1, len - i);
 
-	buff_init(&buff, cap);
+	buff_init(&buff, cap, NULL, -1);
 	buff_append(&buff, s1, (long)len);
 	buff_insert(&buff, i, s2, (long)len);
 	buff_free(&buff);
@@ -249,7 +249,7 @@ static void test_append_n(const char *s1, char *s2, size_t cap, size_t len)
 	memcpy(expected, s1, len);
 	memcpy(expected + len, s2, len);
 
-	buff_init(&buff, cap);
+	buff_init(&buff, cap, NULL, -1);
 	buff_append(&buff, s1, (long)len);
 	buff_append(&buff, s2, (long)len);
 
@@ -277,7 +277,7 @@ static void test_append_auto(const char *s1, char *s2, size_t cap, size_t len)
 	memcpy(expected, s1, len);
 	memcpy(expected + len, s2, len);
 
-	buff_init(&buff, cap);
+	buff_init(&buff, cap, NULL, -1);
 	buff_append(&buff, s1, (long)len);
 	buff_append(&buff, s2, (long)-1);
 
@@ -300,7 +300,7 @@ static void test_append_mem(const char *s1, char *s2, size_t cap, size_t len)
 	memcpy(expected, s1, len);
 	memcpy(expected + len, s2, len);
 
-	buff_init(&buff, cap);
+	buff_init(&buff, cap, NULL, -1);
 	buff_append(&buff, s1, (long)len);
 	buff_append(&buff, s2, (long)len);
 	buff_free(&buff);

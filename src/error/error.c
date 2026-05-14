@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 23:30:33 by gastesan          #+#    #+#             */
-/*   Updated: 2026/05/10 22:40:03 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/05/14 20:48:47 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	fprint_err(bool print_errno, const char *safe, const char *fmt, ...)
 
 	errno_backup = errno;
 	va_start(ap, fmt);
-	buff_init(&buff, 0);
+	buff_init(&buff, 0, NULL, -1);
 	if (buff_append(&buff, safe, -1) && buff_append_vformat(&buff, fmt, ap))
 		_print(print_errno, errno_backup, buff.data, buff.len);
 	else

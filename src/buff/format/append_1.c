@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:37 by gastesan          #+#    #+#             */
-/*   Updated: 2026/02/05 18:26:18 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/05/14 20:49:09 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	append(t_buff *buff, t_rules *rules, va_list *args)
 	t_buff	tmp_buff;
 	bool	success;
 
-	buff_init(&tmp_buff, 0);
+	buff_init(&tmp_buff, 0, NULL, -1);
 	success = false;
 	if (rules->conversion == 'c')
 		success = append_char(&tmp_buff, va_arg(*args, int));
