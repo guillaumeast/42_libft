@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_atopid.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 19:19:05 by gastesan          #+#    #+#             */
-/*   Updated: 2026/05/19 15:34:21 by gastesan         ###   ########.fr       */
+/*   Created: 2026/05/19 15:40:21 by gastesan          #+#    #+#             */
+/*   Updated: 2026/05/19 15:40:25 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <sys/types.h>
 
-long	ft_atol(const char *str)
+pid_t	ft_atopid(const char *str)
 {
 	size_t	i;
 	int		sign;
-	long	result;
+	pid_t	result;
 
 	i = 0;
 	while (ft_isspace(str[i]))
@@ -34,5 +35,5 @@ long	ft_atol(const char *str)
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	return (result * sign);
+	return ((pid_t)(result * sign));
 }

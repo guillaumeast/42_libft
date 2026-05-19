@@ -600,6 +600,15 @@ long	ft_atol(const char *str);
 
 /**
  * @ingroup conv
+ * @brief Converts a string to a pid_t.
+ *
+ * @param str String to convert.
+ * @return The converted pid_t value.
+ */
+pid_t	ft_atopid(const char *str);
+
+/**
+ * @ingroup conv
  * @brief Converts a string to a size_t.
  *
  * @note Skips leading whitespace and accepts an optional leading '+'.
@@ -653,6 +662,17 @@ char	*ft_zutoa(size_t n);
  * @return Newly allocated string (owned), or NULL on failure.
  */
 char	*ft_ltoa(long n);
+
+/**
+ * @ingroup conv
+ * @brief Converts a pid_t to a string.
+ *
+ * @note Caller owns the returned string and must free it.
+ *
+ * @param n pid_t value to convert.
+ * @return Newly allocated string (owned), or NULL on failure.
+ */
+char	*ft_pidtoa(pid_t n);
 
 /**
  * @ingroup conv
