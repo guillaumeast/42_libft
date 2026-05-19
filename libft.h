@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/05/14 21:21:14 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/05/19 23:52:16 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1200,6 +1200,16 @@ void	str_array_free(char ***tab_ptr);
  * @return Pointer to the character (borrowed), or NULL if not found.
  */
 char	*str_chr(const char *s, int c);
+
+/**
+ * @ingroup str
+ * @brief Compares two strings.
+ *
+ * @param s1 First string.
+ * @param s2 Second string.
+ * @return Difference of first differing characters, or 0 if equal.
+ */
+int		str_cmp(const char *s1, const char *s2);
 
 /**
  * @brief Counts words in a string separated by a delimiter.
