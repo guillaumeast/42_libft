@@ -1,46 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buff_utils.c                                       :+:      :+:    :+:   */
+/*   buff_cmp.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/10 19:29:25 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/08 16:21:29 by adouieb          ###   ########.fr       */
+/*   Created: 2026/05/28 18:27:52 by adouieb           #+#    #+#             */
+/*   Updated: 2026/05/28 18:29:55 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-int	buff_get_index(t_buff *buff, char c)
+bool	buff_cmp(const t_buff *a, const t_buff *b)
 {
 	size_t	i;
 
+	if (a->len != b->len)
+		return (false);
 	i = 0;
-	while (i < buff->len)
+	while (i < a->len)
 	{
-		if (buff->data[i] == c)
-			return ((int)i);
-		i++;
+		if (a->data[i] != b->data[i])
+			return (false);
+		++i;
 	}
-	return (-1);
-}
-
-char	*buff_get_string(t_buff *buff)
-{
-	char	*res;
-	size_t	len;
-
-	if (buff == NULL)
-		return (NULL);
-	len = buff->len;
-	if (buff->data[buff->len - 1] == '\0')
-		len--;
-	res = malloc(len + 1);
-	if (!res)
-		return (NULL);
-	res = ft_memcpy(res, buff->data, len);
-	res[len] = '\0';
-	return (res);
+	return (true);
 }

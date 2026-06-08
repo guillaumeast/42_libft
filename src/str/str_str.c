@@ -1,46 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buff_utils.c                                       :+:      :+:    :+:   */
+/*   str_str.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/10 19:29:25 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/08 16:21:29 by adouieb          ###   ########.fr       */
+/*   Created: 2026/06/01 18:56:08 by adouieb           #+#    #+#             */
+/*   Updated: 2026/06/01 19:01:04 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-int	buff_get_index(t_buff *buff, char c)
+char	*str_str(const char *haystack, const char *needle)
 {
 	size_t	i;
-
-	i = 0;
-	while (i < buff->len)
+	size_t	j;
+	union u_const_cast
 	{
-		if (buff->data[i] == c)
-			return ((int)i);
+		const char	*str;
+		char		*res;
+	}	cast;
+
+	cast.str = haystack;
+	if (needle == NULL || haystack == NULL)
+		return (NULL);
+	else if (needle[0] == '\0')
+		return (cast.res);
+	i = 0;
+	while (cast.str[i] != '\0')
+	{
+		j = 0;
+		while (cast.str[i + j] && needle[j] && cast.str[i + j] == needle[j])
+			j++;
+		if (needle[j] == '\0')
+			return (cast.res + i);
 		i++;
 	}
-	return (-1);
-}
-
-char	*buff_get_string(t_buff *buff)
-{
-	char	*res;
-	size_t	len;
-
-	if (buff == NULL)
-		return (NULL);
-	len = buff->len;
-	if (buff->data[buff->len - 1] == '\0')
-		len--;
-	res = malloc(len + 1);
-	if (!res)
-		return (NULL);
-	res = ft_memcpy(res, buff->data, len);
-	res[len] = '\0';
-	return (res);
+	return (NULL);
 }

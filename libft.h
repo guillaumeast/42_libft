@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/05/11 16:27:52 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/05 13:02:55 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1316,6 +1316,8 @@ char	*str_sub(char const *s, unsigned int start, size_t len);
  * @return Newly allocated trimmed string (owned), or NULL on failure.
  */
 char	*str_trim(char const *s1, char const *set);
+
+char	*str_trim_leading(char const *s1, char const *set);
 
 /* ************************************************************************* */
 /*                                  VECTOR                                   */
