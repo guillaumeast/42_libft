@@ -6,7 +6,7 @@
 /*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/05 13:02:55 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/09 13:54:02 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -600,6 +600,27 @@ long	ft_atol(const char *str);
 
 /**
  * @ingroup conv
+ * @brief Converts a string to a pid_t.
+ *
+ * @param str String to convert.
+ * @return The converted pid_t value.
+ */
+pid_t	ft_atopid(const char *str);
+
+/**
+ * @ingroup conv
+ * @brief Converts a string to a size_t.
+ *
+ * @note Skips leading whitespace and accepts an optional leading '+'.
+ * @warning Returns SIZE_MAX on overflow.
+ *
+ * @param str String to convert.
+ * @return The converted size_t value.
+ */
+size_t	ft_atozu(const char *str);
+
+/**
+ * @ingroup conv
  * @brief Converts an integer to a string.
  *
  * @note Caller owns the returned string and must free it.
@@ -622,6 +643,17 @@ char	*ft_utoa(unsigned int n);
 
 /**
  * @ingroup conv
+ * @brief Converts a size_t to a string.
+ *
+ * @note Caller owns the returned string and must free it.
+ *
+ * @param n Value to convert.
+ * @return Newly allocated string (owned), or NULL on failure.
+ */
+char	*ft_zutoa(size_t n);
+
+/**
+ * @ingroup conv
  * @brief Converts a long integer to a string.
  *
  * @note Caller owns the returned string and must free it.
@@ -630,6 +662,17 @@ char	*ft_utoa(unsigned int n);
  * @return Newly allocated string (owned), or NULL on failure.
  */
 char	*ft_ltoa(long n);
+
+/**
+ * @ingroup conv
+ * @brief Converts a pid_t to a string.
+ *
+ * @note Caller owns the returned string and must free it.
+ *
+ * @param n pid_t value to convert.
+ * @return Newly allocated string (owned), or NULL on failure.
+ */
+char	*ft_pidtoa(pid_t n);
 
 /**
  * @ingroup conv
@@ -1159,6 +1202,16 @@ void	str_array_free(char ***tab_ptr);
 char	*str_chr(const char *s, int c);
 
 /**
+ * @ingroup str
+ * @brief Compares two strings.
+ *
+ * @param s1 First string.
+ * @param s2 Second string.
+ * @return Difference of first differing characters, or 0 if equal.
+ */
+int		str_cmp(const char *s1, const char *s2);
+
+/**
  * @brief Counts words in a string separated by a delimiter.
  *
  * @param s String to analyze.
@@ -1398,8 +1451,9 @@ bool	vector_dup(t_vector *dst, t_vector *src);
  * @warning Does not free the t_vector struct itself, only its internal data.
  *
  * @param vector Pointer to the vector (borrowed).
+ * @param item_free Optional callback to free each item (can be NULL).
  */
-void	vector_free(t_vector *vector);
+void	vector_free(t_vector *vector, void (*item_free)(void *item));
 
 /**
  * @ingroup vector

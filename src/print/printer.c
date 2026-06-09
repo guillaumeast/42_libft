@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:22 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 01:27:44 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/05/14 20:50:05 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int	ft_vdprintf(int fd, const char *fstring, va_list args)
 
 	if (fd == -1)
 		return (-1);
-	if (!buff_init(&buff, 0))
-		return (-1);
+	buff_init(&buff, 0, NULL, -1);
 	success = buff_append_vformat(&buff, fstring, args);
 	written = (int)write(fd, buff.data, buff.len);
 	buff_free(&buff);

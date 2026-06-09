@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ltoa.c                                          :+:      :+:    :+:   */
+/*   ft_pidtoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 19:19:29 by gastesan          #+#    #+#             */
-/*   Updated: 2026/05/14 21:18:31 by gastesan         ###   ########.fr       */
+/*   Created: 2026/05/19 15:40:17 by gastesan          #+#    #+#             */
+/*   Updated: 2026/05/19 15:40:33 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <sys/types.h>
 
-static size_t	get_len(long n);
-static void		populate(long n, char *str, size_t i);
+static size_t	get_len(pid_t n);
+static void		populate(pid_t n, char *str, size_t i);
 
-char	*ft_ltoa(long n)
+char	*ft_pidtoa(pid_t n)
 {
 	size_t	len;
 	char	*res;
@@ -31,13 +32,7 @@ char	*ft_ltoa(long n)
 	return (res);
 }
 
-/**
- * @brief Calculates the string length needed for a long number.
- *
- * @param n Long number.
- * @return Length including sign if negative.
- */
-static size_t	get_len(long n)
+static size_t	get_len(pid_t n)
 {
 	size_t	len;
 
@@ -52,14 +47,7 @@ static size_t	get_len(long n)
 	return (len);
 }
 
-/**
- * @brief Recursively populates a string with digits from a long.
- *
- * @param n Long number to convert.
- * @param str Destination string.
- * @param i Current index to write to.
- */
-static void	populate(long n, char *str, size_t i)
+static void	populate(pid_t n, char *str, size_t i)
 {
 	int	mod;
 

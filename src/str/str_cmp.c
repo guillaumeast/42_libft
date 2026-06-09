@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   str_cmp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 19:19:05 by gastesan          #+#    #+#             */
-/*   Updated: 2026/05/19 15:34:21 by gastesan         ###   ########.fr       */
+/*   Created: 2025/12/01 19:20:44 by gastesan          #+#    #+#             */
+/*   Updated: 2026/05/19 23:50:20 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
-long	ft_atol(const char *str)
+int	str_cmp(const char *s1, const char *s2)
 {
 	size_t	i;
-	int		sign;
-	long	result;
 
 	i = 0;
-	while (ft_isspace(str[i]))
+	while (s1[i] && s1[i] == s2[i])
 		i++;
-	sign = 1;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
-	result = 0;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	return (result * sign);
+	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }
