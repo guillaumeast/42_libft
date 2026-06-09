@@ -6,7 +6,7 @@
 /*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 16:52:01 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/09 13:49:55 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/09 13:56:34 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	buckets_clean(t_buckets *buckets, void (*del_value)(void *))
 void	buckets_free(t_buckets *buckets, void (*del_value)(void *))
 {
 	buckets_clean(buckets, del_value);
-	vector_free(buckets);
+	vector_free(buckets, NULL);
 }
 
 // ---------- hashmap ----------
