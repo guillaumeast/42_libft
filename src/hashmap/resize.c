@@ -6,7 +6,7 @@
 /*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:53:40 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/11 16:28:35 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/11 18:59:27 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,16 @@ static bool	hashmap_redistribution(t_hashmap *map, t_vector *prev_buckets)
 
 bool	hashmap_resize(t_hashmap *map)
 {
+	size_t		new_cap;
 	size_t		prev_size;
 	t_vector 	prev_buckets;
 	
 	prev_size = map->size;
-	if (!buckets_init(&prev_buckets, map->buckets.cap * 2))
+	if (map->buckets.cap == 0)
+		new_cap = HASHMAP_INIT_CAP;
+	else
+		new_cap = map->buckets.cap * 2;
+	if (!buckets_init(&prev_buckets, new_cap))
 		return (false);
 	map->size = 0;
 	buckets_swap(&map->buckets, &prev_buckets);

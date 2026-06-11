@@ -6,7 +6,7 @@
 /*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:24:06 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/11 16:24:51 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/11 18:43:43 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
  * @return Pointer to the new pair (owned by caller), or NULL on allocation
  *         failure.
  */
-t_key_value	*key_value_new(char *key, void *value);
+t_key_value	*key_value_new(const char *key, void *value);
 
 /**
  * @brief Frees a key/value pair and its contents.
@@ -53,6 +53,6 @@ void		key_value_free(t_key_value **pair, void (*del)(void *));
  * @param key NUL-terminated key to compare against (borrowed).
  * @return true if the keys are equal, false otherwise.
  */
-bool		is_matching_key(t_key_value *pair, char *key);
+bool		is_matching_key(t_key_value *pair, const char *key);
 
 #endif

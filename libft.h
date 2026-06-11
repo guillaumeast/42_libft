@@ -6,7 +6,7 @@
 /*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/11 16:28:47 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/11 18:45:26 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,7 @@ typedef struct s_hashmap
 	/** @brief Vector of t_list buckets (owned by the map). */
 	t_vector	buckets;
 	/** @brief Hash function applied to keys (defaults to hash_string). */
-	size_t		(*hash)(char *key);
+	size_t		(*hash)(const char *key);
 	/** @brief Optional destructor for stored values (may be NULL). */
 	void		(*del_value)(void *);
 }	t_hashmap;
@@ -565,11 +565,12 @@ bool	buff_read_all(t_buff *buff, int fd);
  * @note On failure the map is left in a zeroed state and must not be used.
  *
  * @param map Pointer to the map structure to initialize (uninitialized).
+ * @param initial_cap Initial capacity of the bucket array.
  * @param del Optional destructor applied to each value on removal/free.
  *            Pass NULL to never free stored values.
  * @return true on success, false on memory allocation failure.
  */
-bool	hashmap_init(t_hashmap *map, void (*del)(void *));
+bool	hashmap_init(t_hashmap *map, size_t initial_cap, void (*del)(void *));
 
 /**
  * @ingroup hashmap
@@ -605,7 +606,7 @@ void	hashmap_free(t_hashmap *map);
  * @param value Value to associate with key (ownership transferred on success).
  * @return true on success, false on memory allocation failure.
  */
-bool	hashmap_put(t_hashmap *map, char *key, void *value);
+bool	hashmap_put(t_hashmap *map, const char *key, void *value);
 
 /**
  * @ingroup hashmap
@@ -613,10 +614,29 @@ bool	hashmap_put(t_hashmap *map, char *key, void *value);
  *
  * @param map Pointer to an initialized map (borrowed).
  * @param key NUL-terminated key to look up (borrowed).
- * @return The associated value (borrowed, still owned by the map), or NULL if
- *         the key is not present.
+ * @return The associated key/value pair (borrowed, still owned by the map),
+ *         or NULL if the key is not present.
  */
-void	*hashmap_get(t_hashmap *map, char *key);
+t_key_value	*hashmap_get(t_hashmap *map, const char *key);
+
+/**
+ * @ingroup hashmap
+ * @brief Collects every key/value pair stored in the map.
+ *
+ * Builds a freshly allocated, NULL-terminated array holding a pointer to each
+ * of the map's size pairs, in unspecified (bucket) order.
+ *
+ * @note The returned array is owned by the caller and must be freed with a
+ *       single free(). The pairs it points to are borrowed and remain owned by
+ *       the map; do not free them and do not use the array after the map (or
+ *       any referenced pair) has been modified or freed.
+ *
+ * @param map Pointer to an initialized map (borrowed).
+ * @return A NULL-terminated array of pair pointers (owned by caller), or NULL
+ *         on memory allocation failure. The array is empty (only the NULL
+ *         terminator) when the map holds no pairs.
+ */
+t_key_value	**hashmap_get_all(t_hashmap *map);
 
 /**
  * @ingroup hashmap
@@ -629,7 +649,7 @@ void	*hashmap_get(t_hashmap *map, char *key);
  * @param key NUL-terminated key to remove (borrowed).
  * @return true if a pair was removed, false if the key was not found.
  */
-bool	hashmap_remove(t_hashmap *map, char *key);
+bool	hashmap_remove(t_hashmap *map, const char *key);
 
 /**
  * @ingroup hashmap
@@ -639,7 +659,7 @@ bool	hashmap_remove(t_hashmap *map, char *key);
  * @param key NUL-terminated key to look for (borrowed).
  * @return true if the key is present, false otherwise.
  */
-bool	hashmap_contains(t_hashmap *map, char *key);
+bool	hashmap_contains(t_hashmap *map, const char *key);
 
 
 /* ************************************************************************* */

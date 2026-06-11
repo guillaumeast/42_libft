@@ -6,14 +6,14 @@
 /*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:34:48 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/11 15:37:10 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/11 18:43:53 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-t_key_value	*key_value_new(char *key, void *value)
+t_key_value	*key_value_new(const char *key, void *value)
 {
 	t_key_value	*pair;
 

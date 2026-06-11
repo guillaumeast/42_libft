@@ -6,13 +6,13 @@
 /*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:52:29 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/11 15:52:51 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/11 18:44:23 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	hash_string(char *key)
+size_t	hash_string(const char *key)
 {
 	size_t	i;
 	size_t	hash;
