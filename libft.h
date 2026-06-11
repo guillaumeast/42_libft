@@ -6,7 +6,7 @@
 /*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/09 13:54:02 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/11 16:28:47 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,58 @@ typedef struct s_vector
 	size_t	item_size;
 }	t_vector;
 
+/** @brief Default number of buckets allocated by hashmap_init(). */
+#define HASHMAP_INIT_CAP	50
+
+/**
+ * @struct s_key_value
+ * @brief Key/value pair stored inside a hashmap bucket.
+ *
+ * A pair owns a private copy of its key (duplicated on creation) and takes
+ * ownership of the value pointer it is given. Both are released when the pair
+ * is destroyed (the value through the map's del callback).
+ *
+ * @var s_key_value::key Heap-allocated copy of the key string (owned by the
+ *                       pair).
+ * @var s_key_value::value Pointer to the stored value (owned by the pair,
+ *                         released through the map's del callback).
+ */
+typedef struct s_key_value
+{
+	/** @brief Heap-allocated copy of the key string (owned by the pair). */
+	char	*key;
+	/** @brief Pointer to the stored value (owned by the pair). */
+	void	*value;
+}	t_key_value;
+
+/**
+ * @struct s_hashmap
+ * @brief Separate-chaining hash map keyed by NUL-terminated strings.
+ *
+ * Collisions are resolved by chaining key/value pairs into doubly linked lists
+ * (one list per bucket). The bucket array is stored in a t_vector and grows
+ * automatically when the number of stored pairs would exceed its capacity.
+ *
+ * @var s_hashmap::size Current number of stored key/value pairs.
+ * @var s_hashmap::buckets Vector of t_list buckets, each a chain of
+ *                         t_key_value pairs (owned by the map).
+ * @var s_hashmap::hash Hash function applied to keys (defaults to
+ *                      hash_string).
+ * @var s_hashmap::del_value Optional destructor for stored values (may be
+ *                           NULL, in which case values are never freed).
+ */
+typedef struct s_hashmap
+{
+	/** @brief Current number of stored key/value pairs. */
+	size_t		size;
+	/** @brief Vector of t_list buckets (owned by the map). */
+	t_vector	buckets;
+	/** @brief Hash function applied to keys (defaults to hash_string). */
+	size_t		(*hash)(char *key);
+	/** @brief Optional destructor for stored values (may be NULL). */
+	void		(*del_value)(void *);
+}	t_hashmap;
+
 /* ************************************************************************* */
 /*                                   GROUPS                                  */
 /* ************************************************************************* */
@@ -147,6 +199,13 @@ typedef struct s_vector
  *  @brief Error reporting utilities.
  *
  *  Functions to print formatted error messages to stderr.
+ */
+
+/** @defgroup hashmap Hashmap API
+ *  @brief String-keyed hash map with separate chaining.
+ *
+ *  Functions to create, populate, query and destroy a hash map that maps
+ *  NUL-terminated string keys to arbitrary value pointers.
  */
 
 /** @defgroup list Linked List API
@@ -489,6 +548,99 @@ int		buff_read_until(t_buff *buff, int fd, char c);
  * @return true on success, false if read failed.
  */
 bool	buff_read_all(t_buff *buff, int fd);
+
+
+/* ************************************************************************* */
+/*                                 HASHMAP                                   */
+/* ************************************************************************* */
+
+/**
+ * @ingroup hashmap
+ * @brief Initializes an empty hash map.
+ *
+ * Allocates the initial bucket array (HASHMAP_INIT_CAP buckets) and installs
+ * the default string hash function. The del callback is stored as-is and used
+ * to release stored values; the map does not own del itself.
+ *
+ * @note On failure the map is left in a zeroed state and must not be used.
+ *
+ * @param map Pointer to the map structure to initialize (uninitialized).
+ * @param del Optional destructor applied to each value on removal/free.
+ *            Pass NULL to never free stored values.
+ * @return true on success, false on memory allocation failure.
+ */
+bool	hashmap_init(t_hashmap *map, void (*del)(void *));
+
+/**
+ * @ingroup hashmap
+ * @brief Frees a hash map and all of its contents.
+ *
+ * Releases every stored pair: each key copy is freed, each value is passed to
+ * the map's del callback (if any), and the bucket array is freed. The map is
+ * reset to a zeroed state afterwards.
+ *
+ * @param map Pointer to the map to free (borrowed; reset to zero on return).
+ */
+void	hashmap_free(t_hashmap *map);
+
+/**
+ * @ingroup hashmap
+ * @brief Inserts a key/value pair, replacing any existing value for the key.
+ *
+ * The key is duplicated internally, so the caller keeps ownership of the key
+ * buffer. If the key already exists, its previous value is released through
+ * the map's del callback before the new value takes its place. The bucket
+ * array grows automatically when needed.
+ *
+ * @note On success, ownership of value is transferred to the map and is
+ *       released through the del callback on removal or on hashmap_free().
+ *
+ * @warning On failure the value's ownership is left in an inconsistent state:
+ *          an allocation failure before insertion leaves value with the
+ *          caller, whereas a failure during insertion releases it through del.
+ *          Treat a failed put as fatal and do not reuse value afterwards.
+ *
+ * @param map Pointer to an initialized map (borrowed).
+ * @param key NUL-terminated key (borrowed; duplicated internally).
+ * @param value Value to associate with key (ownership transferred on success).
+ * @return true on success, false on memory allocation failure.
+ */
+bool	hashmap_put(t_hashmap *map, char *key, void *value);
+
+/**
+ * @ingroup hashmap
+ * @brief Retrieves the value associated with a key.
+ *
+ * @param map Pointer to an initialized map (borrowed).
+ * @param key NUL-terminated key to look up (borrowed).
+ * @return The associated value (borrowed, still owned by the map), or NULL if
+ *         the key is not present.
+ */
+void	*hashmap_get(t_hashmap *map, char *key);
+
+/**
+ * @ingroup hashmap
+ * @brief Removes the pair associated with a key.
+ *
+ * The matching pair is unlinked and freed: its key copy is freed and its value
+ * is passed to the map's del callback (if any).
+ *
+ * @param map Pointer to an initialized map (borrowed).
+ * @param key NUL-terminated key to remove (borrowed).
+ * @return true if a pair was removed, false if the key was not found.
+ */
+bool	hashmap_remove(t_hashmap *map, char *key);
+
+/**
+ * @ingroup hashmap
+ * @brief Tests whether a key is present in the map.
+ *
+ * @param map Pointer to an initialized map (borrowed).
+ * @param key NUL-terminated key to look for (borrowed).
+ * @return true if the key is present, false otherwise.
+ */
+bool	hashmap_contains(t_hashmap *map, char *key);
+
 
 /* ************************************************************************* */
 /*                                   CHR                                     */
