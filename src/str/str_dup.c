@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_dup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:20:26 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/31 14:21:12 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/12 10:46:48 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*str_dup(const char *s1)
 	char			*res;
 	unsigned int	i;
 
+	if (s1 == NULL)
+		return (NULL);
 	res = malloc(str_len(s1) + 1);
 	if (!res)
 		return (NULL);
