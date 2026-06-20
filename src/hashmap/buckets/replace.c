@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   replace.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:43:08 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/11 16:27:02 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/20 15:15:34 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	bucket_replace(t_list bucket, t_key_value *new, void (*del)(void *))
 		{
 			key_value_free(&pair, del);
 			entry->content = new;
+			return;
 		}
 		entry = entry->next;
 	}

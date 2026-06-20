@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:39:13 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/11 15:39:36 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/20 15:21:49 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	buckets_foreach(
 	size_t	i;
 
 	i = 0;
-	while (i < vector->len)
+	while (i < vector->cap)
 		f((char *)vector->data + (vector->item_size * i++), del);
 }

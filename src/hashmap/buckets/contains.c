@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   contains.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:44:48 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/11 16:26:20 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/20 13:50:41 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "key_value.h"
 
-bool	bucket_contains(t_list bucket, char *key)
+bool	bucket_contains(t_list bucket, const char *key)
 {
 	t_key_value	*pair;
 	t_node		*entry;

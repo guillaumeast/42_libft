@@ -3,16 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   resize.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:53:40 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/11 18:59:27 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/20 15:20:58 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "buckets.h"
 #include "priv_hashmap.h"
+
+bool	hashmap_need_resize(t_hashmap *map, const char *key)
+{
+	if (map->buckets.cap == 0)
+		return (true);
+	if (hashmap_contains(map, key))
+		return (false);
+	return (map->size + 1 > map->buckets.cap);
+}
 
 static void	hashmap_restore(t_hashmap *map, size_t prev_size, t_vector *backup)
 {

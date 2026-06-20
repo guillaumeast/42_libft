@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   buckets.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:22:55 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/11 16:23:53 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/20 13:50:37 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	bucket_free(void *bucket_ptr, void (*del)(void *));
  * @param key NUL-terminated key to look for (borrowed).
  * @return true if a matching pair is found, false otherwise.
  */
-bool	bucket_contains(t_list bucket, char *key);
+bool	bucket_contains(t_list bucket, const char *key);
 
 /**
  * @brief Detaches every pair from a single bucket chain without freeing them.

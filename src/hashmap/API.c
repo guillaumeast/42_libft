@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   API.c                                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/11 15:56:39 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/11 18:45:37 by adouieb          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <stdlib.h>
 #include "libft.h"
 #include "key_value.h"
@@ -17,15 +5,19 @@
 
 bool	hashmap_put(t_hashmap *map, const char *key, void *value)
 {
+	t_key_value *existing;
 	t_key_value	*pair;
 
-	if (map->size + 1 > map->buckets.cap && !hashmap_resize(map))
+	existing = hashmap_get(map, key);
+	if (existing && existing->value == value)
+		return (true);
+	if (hashmap_need_resize(map, key) && !hashmap_resize(map))
 		return (false);
 	pair = key_value_new(key, value);
 	if (pair == NULL)
 		return (false);
 	if (!hashmap_insert(map, pair))
-		return (key_value_free(&pair, map->del_value), false);
+		return (key_value_free(&pair, NULL), false);
 	return (true);
 }
 
@@ -33,6 +25,8 @@ t_key_value	*hashmap_get(t_hashmap *map, const char *key)
 {
 	t_node	*entry;
 
+	if (map->buckets.cap == 0)
+		return (NULL);
 	entry = ((t_list*)map->buckets.data)[map->hash(key) % map->buckets.cap];
 	while (entry != NULL)
 	{
@@ -76,6 +70,8 @@ bool	hashmap_remove(t_hashmap *map, const char *key)
 	t_list		bucket;
 	size_t		bucket_i;
 
+	if (map->buckets.cap == 0)
+		return (false);
 	bucket_i = map->hash(key) % map->buckets.cap;
 	bucket = ((t_list*)map->buckets.data)[bucket_i];
 	entry = bucket;
@@ -84,10 +80,12 @@ bool	hashmap_remove(t_hashmap *map, const char *key)
 		if (is_matching_key(entry->content, key))
 		{
 			pair = entry->content;
-			key_value_free(&pair, map->del_value);
+			entry->content = NULL;
 			list_rm(&bucket, entry, NULL);
+			key_value_free(&pair, map->del_value);
 			((t_list*)map->buckets.data)[bucket_i] = bucket;
-			return (map->size--, true);
+			map->size--;
+			return (true);
 		}
 		entry = entry->next;
 	}
@@ -98,6 +96,8 @@ bool	hashmap_contains(t_hashmap *map, const char *key)
 {
 	t_node	*entry;
 
+	if (map->buckets.cap == 0)
+		return (NULL);
 	entry = ((t_list*)map->buckets.data)[map->hash(key) % map->buckets.cap];
 	while (entry != NULL)
 	{

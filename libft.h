@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/11 18:45:26 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/20 14:50:58 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -596,10 +596,14 @@ void	hashmap_free(t_hashmap *map);
  * @note On success, ownership of value is transferred to the map and is
  *       released through the del callback on removal or on hashmap_free().
  *
- * @warning On failure the value's ownership is left in an inconsistent state:
- *          an allocation failure before insertion leaves value with the
- *          caller, whereas a failure during insertion releases it through del.
- *          Treat a failed put as fatal and do not reuse value afterwards.
+ * @note On failure, ownership of value remains with the caller.
+ *
+ * @note If key already exists and value is the same pointer as the currently
+ *       stored value, hashmap_put() is a no-op and returns true.
+ *
+ * @warning When del is not NULL, each stored value pointer must have unique
+ *          ownership. Storing the same owned pointer under several different
+ *          keys can cause a double free on removal or hashmap_free().
  *
  * @param map Pointer to an initialized map (borrowed).
  * @param key NUL-terminated key (borrowed; duplicated internally).

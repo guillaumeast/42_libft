@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   buff_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:29:25 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/08 16:21:29 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/20 16:52:49 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ int	buff_get_index(t_buff *buff, char c)
 
 char	*buff_get_string(t_buff *buff)
 {
-	char	*res;
-	size_t	len;
+	char		*res;
+	size_t		len;
 
-	if (buff == NULL)
-		return (NULL);
+	if (buff->len == 0)
+		return (str_dup(""));
 	len = buff->len;
 	if (buff->data[buff->len - 1] == '\0')
 		len--;
