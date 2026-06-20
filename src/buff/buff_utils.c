@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:29:25 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/20 16:52:49 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/21 00:52:40 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ char	*buff_get_string(t_buff *buff)
 	char		*res;
 	size_t		len;
 
-	if (buff->len == 0)
-		return (str_dup(""));
 	len = buff->len;
-	if (buff->data[buff->len - 1] == '\0')
+	while (len > 0 && buff->data[len - 1] == '\0')
 		len--;
+	if (len == 0)
+		return (str_dup(""));
 	res = malloc(len + 1);
 	if (!res)
 		return (NULL);
