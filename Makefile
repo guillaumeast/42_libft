@@ -8,6 +8,8 @@ SRCS		:= \
 	$(wildcard src/chr/*.c) \
 	$(wildcard src/conv/*.c) \
 	$(wildcard src/error/*.c) \
+	$(wildcard src/hashmap/*.c) \
+	$(wildcard src/hashmap/*/*.c) \
 	$(wildcard src/list/*.c) \
 	$(wildcard src/malloc/*.c) \
 	$(wildcard src/math/*.c) \
@@ -16,7 +18,13 @@ SRCS		:= \
 	$(wildcard src/put/*.c) \
 	$(wildcard src/str/*.c) \
 	$(wildcard src/vector/*.c)
-INCLUDES	:= -I. -I./src/buff/format
+
+INCLUDES	:= \
+	-I. \
+	-Isrc/buff/format \
+	-Isrc/hashmap \
+	-Isrc/hashmap/buckets \
+	-Isrc/hashmap/key_value
 
 OBJ_DIR		:= obj
 OBJ			:= $(SRCS:%.c=$(OBJ_DIR)/%.o)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   priv_hashmap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:36:16 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/11 16:24:59 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/20 10:57:30 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
  * @param key NUL-terminated key to hash (borrowed).
  * @return The computed hash value.
  */
-size_t		hash_string(char *key);
+size_t		hash_string(const char *key);
 
 /**
  * @brief Doubles the bucket capacity and rehashes every stored pair.
