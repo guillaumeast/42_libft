@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/20 14:50:58 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/22 19:28:12 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1481,6 +1481,18 @@ char	*str_mapi(char const *s, char (*f)(unsigned int, char));
  * @return Difference of first differing characters, or 0 if equal.
  */
 int		str_ncmp(const char *s1, const char *s2, size_t n);
+
+/**
+ * @ingroup str
+ * @brief Duplicates the first len bytes of a string.
+ *
+ * @note Caller owns the returned string and must free it.
+ *
+ * @param src String to duplicate (borrowed).
+ * @param len Maximum number of bytes to copy.
+ * @return Newly allocated copy (owned), or NULL on failure.
+ */
+char	*str_ndup(const char *src, size_t len);
 
 /**
  * @ingroup str
