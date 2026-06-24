@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/22 19:28:12 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/24 05:39:28 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -381,6 +381,20 @@ bool	buff_adjust(t_buff *buff);
  * @param b Pointer to the buffer (borrowed).
  */
 void	buff_free(t_buff *b);
+
+/**
+ * @ingroup buff
+ * @brief Frees a t_buff item through a generic void* callback signature.
+ *
+ * Wrapper around buff_free() intended for APIs that expect
+ * `void (*)(void *)`, such as vector_free().
+ *
+ * @warning buff must point to an initialized t_buff.
+ * @warning Does not free the t_buff struct itself, only its internal data.
+ *
+ * @param buff Pointer to a t_buff item passed as void* (borrowed).
+ */
+void	buff_free_void(void *buff);
 
 /**
  * @ingroup buff

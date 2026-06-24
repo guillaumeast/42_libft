@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:29:25 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/21 00:52:40 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/24 05:38:37 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,12 @@ char	*buff_get_string(t_buff *buff)
 	res = ft_memcpy(res, buff->data, len);
 	res[len] = '\0';
 	return (res);
+}
+
+void	buff_free_void(void *buff)
+{
+	t_buff	*buff_ptr;
+
+	buff_ptr = (t_buff *)buff;
+	buff_free(buff_ptr);
 }
