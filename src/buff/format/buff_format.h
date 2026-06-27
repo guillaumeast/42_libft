@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:44 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 17:12:37 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/27 19:15:21 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ bool	rules_apply(t_buff *const buff, t_rules *const rules);
  * @return true on success, false on failure.
  */
 bool	append(
-	t_buff *const buff,
-	t_rules *const rules,
-	va_list *const args);
+			t_buff *const buff,
+			t_rules *const rules,
+			va_list *const args);
 
 /**
  * @brief Appends a character to the buffer.

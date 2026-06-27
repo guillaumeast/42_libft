@@ -6,16 +6,16 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:37 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 17:12:29 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/27 19:14:40 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "buff_format.h"
 
 static bool	append_str(
-	t_buff *const buff,
-	const t_rules *const rules,
-	const char *const str);
+				t_buff *const buff,
+				const t_rules *const rules,
+				const char *const str);
 
 bool	append(
 	t_buff *const buff,
@@ -44,7 +44,7 @@ bool	append(
 	if (success)
 		success = rules_apply(&tmp_buff, rules);
 	if (success)
-		success = buff_append(buff, tmp_buff.data, (long)tmp_buff.len);
+		success = buff_append_n(buff, tmp_buff.data, (long)tmp_buff.len);
 	buff_free(&tmp_buff);
 	return (success);
 }
@@ -67,8 +67,8 @@ static bool	append_str(
 		if (rules->precision != -1 && rules->precision < 6)
 			return (true);
 		else
-			return (buff_append(buff, "(null)", 6));
+			return (buff_append_n(buff, "(null)", 6));
 	}
 	else
-		return (buff_append(buff, str, -1));
+		return (buff_append_n(buff, str, -1));
 }

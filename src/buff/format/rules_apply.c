@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:47 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 17:50:51 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/27 18:48:56 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static bool	apply_precision(t_buff *const buff, const t_rules *const rules)
 		if (!zeros)
 			return (false);
 		ft_memset(zeros, '0', (size_t)zeros_len);
-		success = buff_insert(buff, (buff->data[0] == '-'), zeros, zeros_len);
+		success = buff_insert_n(buff, (buff->data[0] == '-'), zeros, zeros_len);
 		return (free(zeros), success);
 	}
 	return (true);
@@ -86,12 +86,12 @@ static bool	apply_plus_space(t_buff *const buff, const t_rules *const r)
 	if (r->plus)
 	{
 		sign = '+';
-		return (buff_prepend(buff, &sign, 1));
+		return (buff_prepend_n(buff, &sign, 1));
 	}
 	else if (r->space)
 	{
 		sign = ' ';
-		return (buff_prepend(buff, &sign, 1));
+		return (buff_prepend_n(buff, &sign, 1));
 	}
 	return (true);
 }
@@ -116,7 +116,7 @@ static bool	apply_hex_prefix(t_buff *const buff, const t_rules *const rules)
 		prefix[1] = 'X';
 	else
 		prefix[1] = 'x';
-	return (buff_prepend(buff, prefix, 2));
+	return (buff_prepend_n(buff, prefix, 2));
 }
 
 /**
@@ -143,14 +143,14 @@ static bool	apply_width(t_buff *const b, const t_rules *const r)
 	else
 		ft_memset(padding, ' ', padding_len);
 	if (r->right_padding)
-		success = buff_append(b, padding, (long)padding_len);
+		success = buff_append_n(b, padding, (long)padding_len);
 	else if (r->zero_padding && b->len > 0
 		&& (b->data[0] == '-' || r->plus || r->space))
-		success = buff_insert(b, 1, padding, (long)padding_len);
+		success = buff_insert_n(b, 1, padding, (long)padding_len);
 	else if (r->zero_padding && b->len >= 2 && b->data[0] == '0'
 		&& (b->data[1] == 'x' || b->data[1] == 'X'))
-		success = buff_insert(b, 2, padding, (long)padding_len);
+		success = buff_insert_n(b, 2, padding, (long)padding_len);
 	else
-		success = buff_prepend(b, padding, (long)padding_len);
+		success = buff_prepend_n(b, padding, (long)padding_len);
 	return (free(padding), success);
 }

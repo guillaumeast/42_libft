@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:41 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 17:08:34 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/27 18:48:28 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 bool	append_char(t_buff *const buff, char c)
 {
-	return (buff_append(buff, &c, 1));
+	return (buff_append_n(buff, &c, 1));
 }
 
 bool	append_int(t_buff *const buff, int nb)
@@ -26,7 +26,7 @@ bool	append_int(t_buff *const buff, int nb)
 	tmp = ft_itoa(nb);
 	if (!tmp)
 		return (false);
-	success = buff_append(buff, tmp, -1);
+	success = buff_append_n(buff, tmp, -1);
 	free(tmp);
 	return (success);
 }
@@ -39,7 +39,7 @@ bool	append_uint(t_buff *const buff, unsigned int nb)
 	tmp = ft_utoa(nb);
 	if (!tmp)
 		return (false);
-	success = buff_append(buff, tmp, -1);
+	success = buff_append_n(buff, tmp, -1);
 	free(tmp);
 	return (success);
 }
@@ -57,7 +57,7 @@ bool	append_hex(t_buff *const buff, unsigned long nb, bool uppercase)
 		tmp = ft_ultoa_base(nb, lowerbase);
 	if (!tmp)
 		return (false);
-	success = buff_append(buff, tmp, -1);
+	success = buff_append_n(buff, tmp, -1);
 	free(tmp);
 	return (success);
 }
@@ -72,6 +72,6 @@ bool	append_hex(t_buff *const buff, unsigned long nb, bool uppercase)
 bool	append_ptr(t_buff *const buff, unsigned long nb)
 {
 	if (nb == 0)
-		return (buff_append(buff, "(nil)", 5));
+		return (buff_append_n(buff, "(nil)", 5));
 	return (append_hex(buff, nb, false));
 }

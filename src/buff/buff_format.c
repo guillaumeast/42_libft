@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:33 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 17:31:31 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/27 18:47:50 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,18 @@ bool	buff_append_vformat(
 	next_conversion = str_chr(fstring, '%');
 	while (next_conversion)
 	{
-		if (!buff_append(buff, fstring_p, next_conversion - fstring_p))
+		if (!buff_append_n(buff, fstring_p, next_conversion - fstring_p))
 			return (va_end(args_copy), false);
 		fstring_p = next_conversion + 1;
 		rules_parse(&rules, &fstring_p);
 		if (rules.conversion == '%')
 		{
-			if (!buff_append(buff, "%", 1))
+			if (!buff_append_n(buff, "%", 1))
 				return (va_end(args_copy), false);
 		}
 		else if (!append(buff, &rules, &args_copy))
 			return (va_end(args_copy), false);
 		next_conversion = str_chr(fstring_p, '%');
 	}
-	return (va_end(args_copy), buff_append(buff, fstring_p, -1));
+	return (va_end(args_copy), buff_append_n(buff, fstring_p, -1));
 }

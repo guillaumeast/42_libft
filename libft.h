@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 18:37:20 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/27 19:23:22 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ typedef struct s_vector
 /* ------------------------------- T_HASHMAP ------------------------------- */
 
 /** @brief Default number of buckets allocated by hashmap_init(). */
-#define HASHMAP_INIT_CAP	50
+# define HASHMAP_INIT_CAP	50
 
 /**
  * @struct s_key_value
@@ -376,23 +376,21 @@ void			btree_free(t_btree_node **node, void (*data_free)(void *data));
  * @param buff Pointer to an initialized buffer (borrowed).
  * @return true on success, false on memory allocation failure.
  */
-bool	buff_adjust(t_buff *const buff);
+bool			buff_adjust(t_buff *const buff);
 
 /**
  * @ingroup buff
- * @brief Appends a string to the end of the buffer.
+ * @brief Appends the content of a source buffer to the end of a buffer.
  *
  * Buffer is automatically grown if necessary.
  *
- * @warning b must be initialized before calling this function.
- * @warning UB if n > 0 and str is shorter than n bytes.
+ * @warning dst and src must be initialized before calling this function.
  *
- * @param b Pointer to an initialized buffer (borrowed).
- * @param str String to append (borrowed, read-only).
- * @param n Number of bytes to append, or -1 to use str_len(str).
+ * @param dst Destination buffer to append to (borrowed).
+ * @param src Source buffer to append (borrowed, read-only).
  * @return true on success, false on memory allocation failure.
  */
-bool	buff_append(t_buff *const b, const char *const str, long n);
+bool			buff_append(t_buff *const dst, const t_buff *const src);
 
 /**
  * @ingroup buff
@@ -409,8 +407,27 @@ bool	buff_append(t_buff *const b, const char *const str, long n);
  * @param ... Variadic arguments for format specifiers.
  * @return true on success, false on failure.
  */
-bool	buff_append_format(t_buff *const buff, const char *const fstring, ...)
-		__attribute__((format(printf, 2, 3)));
+bool			buff_append_format(
+						t_buff *const buff,
+						const char *const fstring,
+						...)
+					__attribute__((format(printf, 2, 3)));
+
+/**
+ * @ingroup buff
+ * @brief Appends n first bytes of a string to the end of the buffer.
+ *
+ * Buffer is automatically grown if necessary.
+ *
+ * @warning b must be initialized before calling this function.
+ * @warning UB if n > 0 and str is shorter than n bytes.
+ *
+ * @param b Pointer to an initialized buffer (borrowed).
+ * @param str String to append (borrowed, read-only).
+ * @param n Number of bytes to append, or -1 to use str_len(str).
+ * @return true on success, false on memory allocation failure.
+ */
+bool			buff_append_n(t_buff *const b, const char *const str, long n);
 
 /**
  * @ingroup buff
@@ -423,10 +440,10 @@ bool	buff_append_format(t_buff *const buff, const char *const fstring, ...)
  * @param args Variable argument list.
  * @return true on success, false on failure.
  */
-bool	buff_append_vformat(
-			t_buff *const buff,
-			const char *const fstring,
-			va_list args);
+bool			buff_append_vformat(
+						t_buff *const buff,
+						const char *const fstring,
+						va_list args);
 
 /**
  * @ingroup buff
@@ -439,7 +456,21 @@ bool	buff_append_vformat(
  * @return true if the buffers have the same length and content, false
  *         otherwise.
  */
-bool	buff_cmp(const t_buff *const a, const t_buff *const b);
+bool			buff_cmp(const t_buff *const a, const t_buff *const b);
+
+/**
+ * @ingroup buff
+ * @brief Copies the content of a source buffer into an existing buffer.
+ *
+ * @warning dst and src must be initialized before calling this function.
+ * @warning The previous logical content of dst is replaced, whether the
+ *          function succeeds or fails.
+ *
+ * @param dst Destination buffer to overwrite (borrowed, initialized).
+ * @param src Source buffer to duplicate (borrowed, initialized).
+ * @return true on success, false on memory allocation failure.
+ */
+bool			buff_dup(t_buff *const dst, const t_buff *const src);
 
 /**
  * @ingroup buff
@@ -454,7 +485,10 @@ bool	buff_cmp(const t_buff *const a, const t_buff *const b);
  * @param n Maximum number of bytes to copy.
  * @return true on success, false on memory allocation failure.
  */
-bool	buff_dup_n(t_buff *const dst, const t_buff *const src, size_t n);
+bool			buff_dup_n(
+					t_buff *const dst,
+					const t_buff *const src,
+					size_t n);
 
 /**
  * @ingroup buff
@@ -465,9 +499,9 @@ bool	buff_dup_n(t_buff *const dst, const t_buff *const src, size_t n);
  *
  * @warning Does not free the t_buff struct itself, only its internal data.
  *
- * @param b Pointer to the buffer (borrowed).
+ * @param buff Pointer to the buffer (borrowed).
  */
-void	buff_free(t_buff *const b);
+void			buff_free(t_buff *const buff);
 
 /**
  * @ingroup buff
@@ -481,7 +515,7 @@ void	buff_free(t_buff *const b);
  *
  * @param buff Pointer to a t_buff item passed as void* (borrowed).
  */
-void	buff_free_void(void *const buff);
+void			buff_free_void(void *const buff);
 
 /**
  * @ingroup buff
@@ -493,7 +527,7 @@ void	buff_free_void(void *const buff);
  * @param c Character to find.
  * @return Index of the character, or -1 if not found.
  */
-ssize_t	buff_get_index_c(const t_buff *const buff, char c);
+ssize_t			buff_get_index_c(const t_buff *const buff, char c);
 
 /**
  * @ingroup buff
@@ -506,10 +540,10 @@ ssize_t	buff_get_index_c(const t_buff *const buff, char c);
  * @param slen Number of bytes in s, or -1 to use str_len(s).
  * @return Index of the substring, or -1 if not found.
  */
-ssize_t	buff_get_index_s(
-			const t_buff *const buff,
-			const char *const s,
-			ssize_t slen);
+ssize_t			buff_get_index_s(
+					const t_buff *const buff,
+					const char *const s,
+					ssize_t slen);
 
 /**
  * @ingroup buff
@@ -527,7 +561,7 @@ ssize_t	buff_get_index_s(
  * @param buff Pointer to an initialized buffer (borrowed, read-only).
  * @return Newly allocated string (owned by caller), or NULL on failure.
  */
-char	*buff_get_string(const t_buff *const buff);
+char			*buff_get_string(const t_buff *const buff);
 
 /**
  * @ingroup buff
@@ -546,15 +580,34 @@ char	*buff_get_string(const t_buff *const buff);
  * @param n Number of bytes to append, or -1 to use str_len(str).
  * @return true on success, false on memory allocation failure.
  */
-bool	buff_init(
-			t_buff *const buff,
-			size_t initial_cap,
-			const char *const str,
-			long n);
+bool			buff_init(
+					t_buff *const buff,
+					size_t initial_cap,
+					const char *const str,
+					long n);
 
 /**
  * @ingroup buff
- * @brief Inserts a string in the buffer at the specified index.
+ * @brief Inserts a source buffer in a buffer at the specified index.
+ *
+ * Buffer is automatically grown if necessary.
+ *
+ * @warning dst and src must be initialized before calling this function.
+ * @warning index must be in range [0, dst->len].
+ *
+ * @param dst Destination buffer to insert into (borrowed).
+ * @param index Insertion index.
+ * @param src Source buffer to insert (borrowed, read-only).
+ * @return true on success, false on memory allocation failure.
+ */
+bool			buff_insert(
+					t_buff *const dst,
+					size_t index,
+					const t_buff *const src);
+
+/**
+ * @ingroup buff
+ * @brief Inserts n first bytes of a string in the buffer at specified index.
  *
  * Buffer is automatically grown if necessary.
  *
@@ -568,15 +621,29 @@ bool	buff_init(
  * @param n Number of bytes to insert, or -1 to use str_len(str).
  * @return true on success, false on memory allocation failure.
  */
-bool	buff_insert(
-			t_buff *const b,
-			size_t index,
-			const char *const str,
-			long n);
+bool			buff_insert_n(
+						t_buff *const b,
+						size_t index,
+						const char *const str,
+						long n);
 
 /**
  * @ingroup buff
- * @brief Prepends a string to the beginning of the buffer.
+ * @brief Prepends a source buffer to the beginning of a buffer.
+ *
+ * Buffer is automatically grown if necessary.
+ *
+ * @warning dst and src must be initialized before calling this function.
+ *
+ * @param dst Destination buffer to prepend to (borrowed).
+ * @param src Source buffer to prepend (borrowed, read-only).
+ * @return true on success, false on memory allocation failure.
+ */
+bool			buff_prepend(t_buff *const dst, const t_buff *const src);
+
+/**
+ * @ingroup buff
+ * @brief Prepends n first bytes of a string to the beginning of the buffer.
  *
  * Buffer is automatically grown if necessary.
  *
@@ -588,7 +655,7 @@ bool	buff_insert(
  * @param n Number of bytes to prepend, or -1 to use str_len(str).
  * @return true on success, false on memory allocation failure.
  */
-bool	buff_prepend(t_buff *const b, const char *const str, long n);
+bool			buff_prepend_n(t_buff *const b, const char *const str, long n);
 
 /**
  * @ingroup buff
@@ -603,7 +670,7 @@ bool	buff_prepend(t_buff *const b, const char *const str, long n);
  * @param fd File descriptor to read from.
  * @return true on success, false if read failed (totally or partially).
  */
-bool	buff_read_all(t_buff *const buff, int fd);
+bool			buff_read_all(t_buff *const buff, int fd);
 
 /**
  * @ingroup buff
@@ -619,7 +686,7 @@ bool	buff_read_all(t_buff *const buff, int fd);
  * @param c Character to search for.
  * @return true if c or EOF was encountered, false on memory or read error.
  */
-bool	buff_read_until_c(t_buff *const buff, int fd, char c);
+bool			buff_read_until_c(t_buff *const buff, int fd, char c);
 
 /**
  * @ingroup buff
@@ -635,7 +702,7 @@ bool	buff_read_until_c(t_buff *const buff, int fd, char c);
  * @param n Number of bytes to read.
  * @return true on success or EOF, false on memory or read error.
  */
-bool	buff_read_until_n(t_buff *const buff, int fd, size_t n);
+bool			buff_read_until_n(t_buff *const buff, int fd, size_t n);
 
 /**
  * @ingroup buff
@@ -650,11 +717,11 @@ bool	buff_read_until_n(t_buff *const buff, int fd, size_t n);
  * @param slen Length of s, or -1 to use str_len(s).
  * @return true if s or EOF was encountered, false on memory or read error.
  */
-bool	buff_read_until_s(
-			t_buff *const buff,
-			int fd,
-			const char *const s,
-			ssize_t slen);
+bool			buff_read_until_s(
+					t_buff *const buff,
+					int fd,
+					const char *const s,
+					ssize_t slen);
 
 /**
  * @ingroup buff
@@ -668,7 +735,7 @@ bool	buff_read_until_s(
  * @param i_start Starting index for removal.
  * @param len Number of bytes to remove, or negative to remove until end.
  */
-void	buff_rm_part(t_buff *const buff, size_t i_start, ssize_t len);
+void			buff_rm_part(t_buff *const buff, size_t i_start, ssize_t len);
 
 /* ************************************************************************* */
 /*                                   CHR                                     */
@@ -681,7 +748,7 @@ void	buff_rm_part(t_buff *const buff, size_t i_start, ssize_t len);
  * @param c Character to check.
  * @return Non-zero if alphanumeric, 0 otherwise.
  */
-int		ft_isalnum(int c);
+int				ft_isalnum(int c);
 
 /**
  * @ingroup chr
@@ -690,7 +757,7 @@ int		ft_isalnum(int c);
  * @param c Character to check.
  * @return Non-zero if alphabetic, 0 otherwise.
  */
-int		ft_isalpha(int c);
+int				ft_isalpha(int c);
 
 /**
  * @ingroup chr
@@ -699,7 +766,7 @@ int		ft_isalpha(int c);
  * @param c Character to check.
  * @return Non-zero if ASCII, 0 otherwise.
  */
-int		ft_isascii(int c);
+int				ft_isascii(int c);
 
 /**
  * @ingroup chr
@@ -708,7 +775,7 @@ int		ft_isascii(int c);
  * @param c Character to check.
  * @return Non-zero if digit, 0 otherwise.
  */
-int		ft_isdigit(int c);
+int				ft_isdigit(int c);
 
 /**
  * @ingroup chr
@@ -718,7 +785,7 @@ int		ft_isdigit(int c);
  * @param charset Null-terminated string of characters to match against.
  * @return true if found in charset, false otherwise.
  */
-bool	ft_isincharset(char c, const char *charset);
+bool			ft_isincharset(char c, const char *charset);
 
 /**
  * @ingroup chr
@@ -727,7 +794,7 @@ bool	ft_isincharset(char c, const char *charset);
  * @param c Character to check.
  * @return Non-zero if printable, 0 otherwise.
  */
-int		ft_isprint(int c);
+int				ft_isprint(int c);
 
 /**
  * @ingroup chr
@@ -736,7 +803,7 @@ int		ft_isprint(int c);
  * @param c Character to check.
  * @return Non-zero if whitespace, 0 otherwise.
  */
-int		ft_isspace(char c);
+int				ft_isspace(char c);
 
 /**
  * @ingroup chr
@@ -745,7 +812,7 @@ int		ft_isspace(char c);
  * @param c Character to convert.
  * @return Lowercase equivalent if uppercase, otherwise unchanged.
  */
-int		ft_tolower(int c);
+int				ft_tolower(int c);
 
 /**
  * @ingroup chr
@@ -754,7 +821,7 @@ int		ft_tolower(int c);
  * @param c Character to convert.
  * @return Uppercase equivalent if lowercase, otherwise unchanged.
  */
-int		ft_toupper(int c);
+int				ft_toupper(int c);
 
 /* ************************************************************************* */
 /*                                   CONV                                    */
@@ -767,7 +834,7 @@ int		ft_toupper(int c);
  * @param str String to convert.
  * @return The converted integer value.
  */
-int		ft_atoi(const char *str);
+int				ft_atoi(const char *str);
 
 /**
  * @ingroup conv
@@ -776,7 +843,7 @@ int		ft_atoi(const char *str);
  * @param str String to convert.
  * @return The converted long value.
  */
-long	ft_atol(const char *str);
+long			ft_atol(const char *str);
 
 /**
  * @ingroup conv
@@ -785,7 +852,7 @@ long	ft_atol(const char *str);
  * @param str String to convert.
  * @return The converted pid_t value.
  */
-pid_t	ft_atopid(const char *str);
+pid_t			ft_atopid(const char *str);
 
 /**
  * @ingroup conv
@@ -797,7 +864,7 @@ pid_t	ft_atopid(const char *str);
  * @param str String to convert.
  * @return The converted size_t value.
  */
-size_t	ft_atozu(const char *str);
+size_t			ft_atozu(const char *str);
 
 /**
  * @ingroup conv
@@ -808,7 +875,7 @@ size_t	ft_atozu(const char *str);
  * @param n Integer to convert.
  * @return Newly allocated string (owned), or NULL on failure.
  */
-char	*ft_itoa(int n);
+char			*ft_itoa(int n);
 
 /**
  * @ingroup conv
@@ -819,7 +886,7 @@ char	*ft_itoa(int n);
  * @param n Unsigned integer to convert.
  * @return Newly allocated string (owned), or NULL on failure.
  */
-char	*ft_utoa(unsigned int n);
+char			*ft_utoa(unsigned int n);
 
 /**
  * @ingroup conv
@@ -830,7 +897,7 @@ char	*ft_utoa(unsigned int n);
  * @param n Value to convert.
  * @return Newly allocated string (owned), or NULL on failure.
  */
-char	*ft_zutoa(size_t n);
+char			*ft_zutoa(size_t n);
 
 /**
  * @ingroup conv
@@ -841,7 +908,7 @@ char	*ft_zutoa(size_t n);
  * @param n Long integer to convert.
  * @return Newly allocated string (owned), or NULL on failure.
  */
-char	*ft_ltoa(long n);
+char			*ft_ltoa(long n);
 
 /**
  * @ingroup conv
@@ -852,7 +919,7 @@ char	*ft_ltoa(long n);
  * @param n pid_t value to convert.
  * @return Newly allocated string (owned), or NULL on failure.
  */
-char	*ft_pidtoa(pid_t n);
+char			*ft_pidtoa(pid_t n);
 
 /**
  * @ingroup conv
@@ -864,7 +931,7 @@ char	*ft_pidtoa(pid_t n);
  * @param base String representing the base characters (borrowed, >= 2 chars).
  * @return Newly allocated string (owned), or NULL on failure.
  */
-char	*ft_ultoa_base(unsigned long n, const char *base);
+char			*ft_ultoa_base(unsigned long n, const char *base);
 
 /**
  * @ingroup conv
@@ -878,7 +945,7 @@ char	*ft_ultoa_base(unsigned long n, const char *base);
  * @param out Pointer to store the parsed integer (modified on success).
  * @return true on success, false if parsing failed or value out of range.
  */
-bool	parse_int(char *s, int *out);
+bool			parse_int(char *s, int *out);
 
 /* ************************************************************************* */
 /*                                  ERROR                                    */
@@ -896,7 +963,7 @@ bool	parse_int(char *s, int *out);
  * @param print_errno If true, prints errno description using strerror().
  * @param message Optional message to print (borrowed, can be NULL).
  */
-void	print_err(bool print_errno, const char *message);
+void			print_err(bool print_errno, const char *message);
 
 /**
  * @ingroup error
@@ -913,8 +980,12 @@ void	print_err(bool print_errno, const char *message);
  * @param fmt Format string for suffix (borrowed).
  * @param ... Variadic arguments for format specifiers.
  */
-void	fprint_err(bool print_errno, const char *safe, const char *fmt, ...)
-		__attribute__((format(printf, 3, 4)));
+void			fprint_err(
+					bool print_errno,
+					const char *safe,
+					const char *fmt,
+					...)
+				__attribute__((format(printf, 3, 4)));
 
 /* ************************************************************************* */
 /*                                 HASHMAP                                   */
@@ -936,7 +1007,10 @@ void	fprint_err(bool print_errno, const char *safe, const char *fmt, ...)
  *            Pass NULL to never free stored values.
  * @return true on success, false on memory allocation failure.
  */
-bool	hashmap_init(t_hashmap *map, size_t initial_cap, void (*del)(void *));
+bool			hashmap_init(
+					t_hashmap *map,
+					size_t initial_cap,
+					void (*del)(void *));
 
 /**
  * @ingroup hashmap
@@ -948,7 +1022,7 @@ bool	hashmap_init(t_hashmap *map, size_t initial_cap, void (*del)(void *));
  *
  * @param map Pointer to the map to free (borrowed; reset to zero on return).
  */
-void	hashmap_free(t_hashmap *map);
+void			hashmap_free(t_hashmap *map);
 
 /**
  * @ingroup hashmap
@@ -976,7 +1050,7 @@ void	hashmap_free(t_hashmap *map);
  * @param value Value to associate with key (ownership transferred on success).
  * @return true on success, false on memory allocation failure.
  */
-bool	hashmap_put(t_hashmap *map, const char *key, void *value);
+bool			hashmap_put(t_hashmap *map, const char *key, void *value);
 
 /**
  * @ingroup hashmap
@@ -987,7 +1061,7 @@ bool	hashmap_put(t_hashmap *map, const char *key, void *value);
  * @return The associated key/value pair (borrowed, still owned by the map),
  *         or NULL if the key is not present.
  */
-t_key_value	*hashmap_get(t_hashmap *map, const char *key);
+t_key_value		*hashmap_get(t_hashmap *map, const char *key);
 
 /**
  * @ingroup hashmap
@@ -1006,7 +1080,7 @@ t_key_value	*hashmap_get(t_hashmap *map, const char *key);
  *         on memory allocation failure. The array is empty (only the NULL
  *         terminator) when the map holds no pairs.
  */
-t_key_value	**hashmap_get_all(t_hashmap *map);
+t_key_value		**hashmap_get_all(t_hashmap *map);
 
 /**
  * @ingroup hashmap
@@ -1019,7 +1093,7 @@ t_key_value	**hashmap_get_all(t_hashmap *map);
  * @param key NUL-terminated key to remove (borrowed).
  * @return true if a pair was removed, false if the key was not found.
  */
-bool	hashmap_remove(t_hashmap *map, const char *key);
+bool			hashmap_remove(t_hashmap *map, const char *key);
 
 /**
  * @ingroup hashmap
@@ -1029,7 +1103,7 @@ bool	hashmap_remove(t_hashmap *map, const char *key);
  * @param key NUL-terminated key to look for (borrowed).
  * @return true if the key is present, false otherwise.
  */
-bool	hashmap_contains(t_hashmap *map, const char *key);
+bool			hashmap_contains(t_hashmap *map, const char *key);
 
 /* ************************************************************************* */
 /*                                   LIST                                    */
@@ -1046,7 +1120,7 @@ bool	hashmap_contains(t_hashmap *map, const char *key);
  * @param next Pointer to the next node (borrowed, can be NULL).
  * @return Pointer to the new node (owned), or NULL on allocation failure.
  */
-t_node	*node_new(void *content, t_node *prev, t_node *next);
+t_node			*node_new(void *content, t_node *prev, t_node *next);
 
 /**
  * @ingroup list
@@ -1055,7 +1129,7 @@ t_node	*node_new(void *content, t_node *prev, t_node *next);
  * @param node Pointer to the node pointer (set to NULL after freeing).
  * @param del_content Function to delete the content (can be NULL to skip).
  */
-void	node_free(t_node **node, void (*del_content)(void*));
+void			node_free(t_node **node, void (*del_content)(void*));
 
 /**
  * @ingroup list
@@ -1068,7 +1142,7 @@ void	node_free(t_node **node, void (*del_content)(void*));
  * @param new_content Content for the new node (ownership transferred).
  * @return true on success, false on allocation failure.
  */
-bool	list_add_end(t_list *list, void *new_content);
+bool			list_add_end(t_list *list, void *new_content);
 
 /**
  * @ingroup list
@@ -1081,7 +1155,7 @@ bool	list_add_end(t_list *list, void *new_content);
  * @param new_content Content for the new node (ownership transferred).
  * @return true on success, false on allocation failure.
  */
-bool	list_add_start(t_list *list, void *new_content);
+bool			list_add_start(t_list *list, void *new_content);
 
 /**
  * @ingroup list
@@ -1090,7 +1164,7 @@ bool	list_add_start(t_list *list, void *new_content);
  * @param list List to count.
  * @return Number of nodes in the list.
  */
-size_t	list_get_size(t_list list);
+size_t			list_get_size(t_list list);
 
 /**
  * @ingroup list
@@ -1103,7 +1177,7 @@ size_t	list_get_size(t_list list);
  * @param select_function Function returning true for desired content.
  * @return Matching content (borrowed), or NULL if not found.
  */
-void	*list_get_content(t_list list, bool (*select_function)(void*));
+void			*list_get_content(t_list list, bool (*select_function)(void*));
 
 /**
  * @ingroup list
@@ -1116,7 +1190,7 @@ void	*list_get_content(t_list list, bool (*select_function)(void*));
  * @param index Zero-based index.
  * @return Content at index (borrowed), or NULL if index out of bounds.
  */
-void	*list_get_content_n(t_list list, size_t index);
+void			*list_get_content_n(t_list list, size_t index);
 
 /**
  * @ingroup list
@@ -1128,7 +1202,7 @@ void	*list_get_content_n(t_list list, size_t index);
  * @param list List to search (borrowed).
  * @return Content of last node (borrowed), or NULL if list is empty.
  */
-void	*list_get_content_last(t_list list);
+void			*list_get_content_last(t_list list);
 
 /**
  * @ingroup list
@@ -1141,7 +1215,7 @@ void	*list_get_content_last(t_list list);
  * @param index Zero-based index.
  * @return Node at index (borrowed), or NULL if index out of bounds.
  */
-t_node	*list_get_node_n(t_list list, size_t index);
+t_node			*list_get_node_n(t_list list, size_t index);
 
 /**
  * @ingroup list
@@ -1153,7 +1227,7 @@ t_node	*list_get_node_n(t_list list, size_t index);
  * @param list List to search (borrowed).
  * @return Last node (borrowed), or NULL if list is empty.
  */
-t_node	*list_get_node_last(t_list list);
+t_node			*list_get_node_last(t_list list);
 
 /**
  * @ingroup list
@@ -1162,7 +1236,7 @@ t_node	*list_get_node_last(t_list list);
  * @param lst List to iterate over (borrowed).
  * @param f Function to apply to each element's content.
  */
-void	list_iter(t_list lst, void (*f)(void *));
+void			list_iter(t_list lst, void (*f)(void *));
 
 /**
  * @ingroup list
@@ -1175,7 +1249,7 @@ void	list_iter(t_list lst, void (*f)(void *));
  * @param del Function to delete content on failure.
  * @return New list (owned), or NULL on failure.
  */
-t_list	list_map(t_list list, void *(*f)(void *), void (*del)(void *));
+t_list			list_map(t_list list, void *(*f)(void *), void (*del)(void *));
 
 /**
  * @ingroup list
@@ -1185,7 +1259,7 @@ t_list	list_map(t_list list, void *(*f)(void *), void (*del)(void *));
  * @param node Node to remove (ownership taken, will be freed).
  * @param del_content Function to delete the node's content (can be NULL).
  */
-void	list_rm(t_list *list, t_node *node, void (*del_content)(void*));
+void			list_rm(t_list *list, t_node *node, void (*del_content)(void*));
 
 /**
  * @ingroup list
@@ -1194,7 +1268,7 @@ void	list_rm(t_list *list, t_node *node, void (*del_content)(void*));
  * @param list Pointer to the list pointer (set to NULL after).
  * @param del_content Function to delete each node's content (can be NULL).
  */
-void	list_rm_all(t_list *list, void (*del_content)(void*));
+void			list_rm_all(t_list *list, void (*del_content)(void*));
 
 /* ************************************************************************* */
 /*                                  MALLOC                                   */
@@ -1210,7 +1284,7 @@ void	list_rm_all(t_list *list, void (*del_content)(void*));
  * @param size Size of each element.
  * @return Pointer to allocated zeroed memory (owned), or NULL on failure.
  */
-void	*ft_calloc(size_t count, size_t size);
+void			*ft_calloc(size_t count, size_t size);
 
 /**
  * @ingroup malloc
@@ -1223,7 +1297,7 @@ void	*ft_calloc(size_t count, size_t size);
  * @param newcap New capacity (0 to free the buffer).
  * @return true on success, false on failure (original buffer unchanged).
  */
-bool	ft_realloc(char **buff, size_t cap, size_t newcap);
+bool			ft_realloc(char **buff, size_t cap, size_t newcap);
 
 /* ************************************************************************* */
 /*                                   MATH                                    */
@@ -1237,7 +1311,7 @@ bool	ft_realloc(char **buff, size_t cap, size_t newcap);
  * @param b Second long integer.
  * @return The smaller value.
  */
-long	min(long a, long b);
+long			min(long a, long b);
 
 /**
  * @ingroup math
@@ -1247,7 +1321,7 @@ long	min(long a, long b);
  * @param b Second long integer.
  * @return The larger value.
  */
-long	max(long a, long b);
+long			max(long a, long b);
 
 /**
  * @ingroup math
@@ -1256,7 +1330,7 @@ long	max(long a, long b);
  * @param nbr Number to get absolute value of.
  * @return Absolute value as size_t (always positive).
  */
-size_t	absolute(long nbr);
+size_t			absolute(long nbr);
 
 /**
  * @ingroup math
@@ -1271,7 +1345,7 @@ size_t	absolute(long nbr);
  * @param b Exponent (must be >= 0 for meaningful result).
  * @return a^b, or 0 if b < 0.
  */
-long	power(int a, int b);
+long			power(int a, int b);
 
 /**
  * @ingroup math
@@ -1283,7 +1357,7 @@ long	power(int a, int b);
  * @param b Divisor (must be > 0).
  * @return Remainder in range [0, b-1].
  */
-size_t	modulo(long a, size_t b);
+size_t			modulo(long a, size_t b);
 
 /**
  * @ingroup math
@@ -1292,7 +1366,7 @@ size_t	modulo(long a, size_t b);
  * @param nb Number to find square root of.
  * @return Exact square root if nb is a perfect square, -1 otherwise.
  */
-int		square_root_exact(int nb);
+int				square_root_exact(int nb);
 
 /**
  * @ingroup math
@@ -1301,7 +1375,7 @@ int		square_root_exact(int nb);
  * @param nb Number to find square root of.
  * @return Nearest integer square root, -1 if nb <= 0.
  */
-int		square_root_rounded(int nb);
+int				square_root_rounded(int nb);
 
 /* ************************************************************************* */
 /*                                   MEM                                     */
@@ -1314,7 +1388,7 @@ int		square_root_rounded(int nb);
  * @param s Pointer to memory area.
  * @param n Number of bytes to set.
  */
-void	ft_bzero(void *s, size_t n);
+void			ft_bzero(void *s, size_t n);
 
 /**
  * @ingroup mem
@@ -1327,7 +1401,7 @@ void	ft_bzero(void *s, size_t n);
  * @param n Number of bytes to search.
  * @return Pointer to the byte (borrowed), or NULL if not found.
  */
-void	*ft_memchr(const void *s, int c, size_t n);
+void			*ft_memchr(const void *s, int c, size_t n);
 
 /**
  * @ingroup mem
@@ -1338,7 +1412,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
  * @param n Number of bytes to compare.
  * @return Difference of first differing bytes, or 0 if equal.
  */
-int		ft_memcmp(const void *s1, const void *s2, size_t n);
+int				ft_memcmp(const void *s1, const void *s2, size_t n);
 
 /**
  * @ingroup mem
@@ -1351,7 +1425,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
  * @param n Number of bytes to copy.
  * @return Pointer to dst.
  */
-void	*ft_memcpy(void *dst, const void *src, size_t n);
+void			*ft_memcpy(void *dst, const void *src, size_t n);
 
 /**
  * @ingroup mem
@@ -1362,7 +1436,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
  * @param len Number of bytes to copy.
  * @return Pointer to dst.
  */
-void	*ft_memmove(void *dst, const void *src, size_t len);
+void			*ft_memmove(void *dst, const void *src, size_t len);
 
 /**
  * @ingroup mem
@@ -1373,7 +1447,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
  * @param len Number of bytes to set.
  * @return Pointer to b.
  */
-void	*ft_memset(void *b, int c, size_t len);
+void			*ft_memset(void *b, int c, size_t len);
 
 /* ************************************************************************* */
 /*                                  PRINT                                    */
@@ -1388,7 +1462,7 @@ void	*ft_memset(void *b, int c, size_t len);
  * @param args Variable argument list.
  * @return Number of bytes written, or -1 on error.
  */
-int		ft_vdprintf(int fd, const char *fstring, va_list args);
+int				ft_vdprintf(int fd, const char *fstring, va_list args);
 
 /**
  * @ingroup print
@@ -1403,8 +1477,8 @@ int		ft_vdprintf(int fd, const char *fstring, va_list args);
  * @param ... Variadic arguments for format specifiers.
  * @return Number of bytes written, or -1 on error.
  */
-int		ft_dprintf(int fd, const char *fstring, ...)
-		__attribute__((format(printf, 2, 3)));
+int				ft_dprintf(int fd, const char *fstring, ...)
+				__attribute__((format(printf, 2, 3)));
 
 /**
  * @ingroup print
@@ -1414,7 +1488,7 @@ int		ft_dprintf(int fd, const char *fstring, ...)
  * @param args Variable argument list.
  * @return Number of bytes written, or -1 on error.
  */
-int		ft_vprintf(const char *fstring, va_list args);
+int				ft_vprintf(const char *fstring, va_list args);
 
 /**
  * @ingroup print
@@ -1428,8 +1502,8 @@ int		ft_vprintf(const char *fstring, va_list args);
  * @param ... Variadic arguments for format specifiers.
  * @return Number of bytes written, or -1 on error.
  */
-int		ft_printf(const char *fstring, ...)
-		__attribute__((format(printf, 1, 2)));
+int				ft_printf(const char *fstring, ...)
+				__attribute__((format(printf, 1, 2)));
 
 /* ************************************************************************* */
 /*                                   PUT                                     */
@@ -1441,7 +1515,7 @@ int		ft_printf(const char *fstring, ...)
  * @param c Character to write.
  * @param fd File descriptor to write to.
  */
-void	ft_putchar_fd(char c, int fd);
+void			ft_putchar_fd(char c, int fd);
 
 /**
  * @ingroup put
@@ -1450,7 +1524,7 @@ void	ft_putchar_fd(char c, int fd);
  * @param s String to write (NULL prints "(null)").
  * @param fd File descriptor to write to.
  */
-void	ft_putendl_fd(char *s, int fd);
+void			ft_putendl_fd(char *s, int fd);
 
 /**
  * @ingroup put
@@ -1459,7 +1533,7 @@ void	ft_putendl_fd(char *s, int fd);
  * @param n Integer to write.
  * @param fd File descriptor to write to.
  */
-void	ft_putnbr_fd(int n, int fd);
+void			ft_putnbr_fd(int n, int fd);
 
 /**
  * @ingroup put
@@ -1468,7 +1542,7 @@ void	ft_putnbr_fd(int n, int fd);
  * @param s String to write (NULL prints "(null)").
  * @param fd File descriptor to write to.
  */
-void	ft_putstr_fd(char *s, int fd);
+void			ft_putstr_fd(char *s, int fd);
 
 /* ************************************************************************* */
 /*                                   STR                                     */
@@ -1481,7 +1555,7 @@ void	ft_putstr_fd(char *s, int fd);
  *
  * @param tab Array of strings to free.
  */
-void	str_array_free(char ***tab_ptr);
+void			str_array_free(char ***tab_ptr);
 
 /**
  * @ingroup str
@@ -1494,7 +1568,7 @@ void	str_array_free(char ***tab_ptr);
  * @param c Character to find.
  * @return Pointer to the character (borrowed), or NULL if not found.
  */
-char	*str_chr(const char *s, int c);
+char			*str_chr(const char *s, int c);
 
 /**
  * @ingroup str
@@ -1504,7 +1578,7 @@ char	*str_chr(const char *s, int c);
  * @param s2 Second string.
  * @return Difference of first differing characters, or 0 if equal.
  */
-int		str_cmp(const char *s1, const char *s2);
+int				str_cmp(const char *s1, const char *s2);
 
 /**
  * @brief Counts words in a string separated by a delimiter.
@@ -1513,7 +1587,7 @@ int		str_cmp(const char *s1, const char *s2);
  * @param sep Delimiter character.
  * @return Number of words.
  */
-size_t	str_count_words(char const *s, char sep);
+size_t			str_count_words(char const *s, char sep);
 
 /**
  * @ingroup str
@@ -1524,7 +1598,7 @@ size_t	str_count_words(char const *s, char sep);
  * @param s1 String to duplicate (borrowed).
  * @return Newly allocated copy (owned), or NULL on failure.
  */
-char	*str_dup(const char *s1);
+char			*str_dup(const char *s1);
 
 /**
  * @ingroup str
@@ -1533,7 +1607,7 @@ char	*str_dup(const char *s1);
  * @param s String to iterate (modified in place).
  * @param f Function taking index and character pointer.
  */
-void	str_iteri(char *s, void (*f)(unsigned int, char*));
+void			str_iteri(char *s, void (*f)(unsigned int, char*));
 
 /**
  * @ingroup str
@@ -1545,7 +1619,7 @@ void	str_iteri(char *s, void (*f)(unsigned int, char*));
  * @param s2 Second string (borrowed).
  * @return Newly allocated concatenated string (owned), or NULL on failure.
  */
-char	*str_join(char const *s1, char const *s2);
+char			*str_join(char const *s1, char const *s2);
 
 /**
  * @ingroup str
@@ -1556,7 +1630,7 @@ char	*str_join(char const *s1, char const *s2);
  * @param dstsize Total size of destination buffer.
  * @return Total length of string it tried to create.
  */
-size_t	str_lcat(char *dst, const char *src, size_t dstsize);
+size_t			str_lcat(char *dst, const char *src, size_t dstsize);
 
 /**
  * @ingroup str
@@ -1567,7 +1641,7 @@ size_t	str_lcat(char *dst, const char *src, size_t dstsize);
  * @param dstsize Size of destination buffer.
  * @return Length of src.
  */
-size_t	str_lcpy(char *dst, const char *src, size_t dstsize);
+size_t			str_lcpy(char *dst, const char *src, size_t dstsize);
 
 /**
  * @ingroup str
@@ -1576,7 +1650,7 @@ size_t	str_lcpy(char *dst, const char *src, size_t dstsize);
  * @param s String to measure.
  * @return Length of the string (not including null terminator).
  */
-size_t	str_len(const char *s);
+size_t			str_len(const char *s);
 
 /**
  * @ingroup str
@@ -1588,7 +1662,7 @@ size_t	str_len(const char *s);
  * @param f Function taking index and character, returning new character.
  * @return Newly allocated transformed string (owned), or NULL on failure.
  */
-char	*str_mapi(char const *s, char (*f)(unsigned int, char));
+char			*str_mapi(char const *s, char (*f)(unsigned int, char));
 
 /**
  * @ingroup str
@@ -1599,7 +1673,7 @@ char	*str_mapi(char const *s, char (*f)(unsigned int, char));
  * @param n Maximum number of characters to compare.
  * @return Difference of first differing characters, or 0 if equal.
  */
-int		str_ncmp(const char *s1, const char *s2, size_t n);
+int				str_ncmp(const char *s1, const char *s2, size_t n);
 
 /**
  * @ingroup str
@@ -1611,7 +1685,7 @@ int		str_ncmp(const char *s1, const char *s2, size_t n);
  * @param len Maximum number of bytes to copy.
  * @return Newly allocated copy (owned), or NULL on failure.
  */
-char	*str_ndup(const char *src, size_t len);
+char			*str_ndup(const char *src, size_t len);
 
 /**
  * @ingroup str
@@ -1624,7 +1698,7 @@ char	*str_ndup(const char *src, size_t len);
  * @param len Maximum characters to search.
  * @return Pointer to start of substring (borrowed), or NULL if not found.
  */
-char	*str_nstr(const char *haystack, const char *needle, size_t len);
+char			*str_nstr(const char *haystack, const char *needle, size_t len);
 
 /**
  * @ingroup str
@@ -1637,7 +1711,7 @@ char	*str_nstr(const char *haystack, const char *needle, size_t len);
  * @param c Character to find.
  * @return Pointer to the character (borrowed), or NULL if not found.
  */
-char	*str_rchr(const char *s, int c);
+char			*str_rchr(const char *s, int c);
 
 /**
  * @ingroup str
@@ -1650,7 +1724,7 @@ char	*str_rchr(const char *s, int c);
  * @param c Delimiter character.
  * @return NULL-terminated array of strings (owned), or NULL on failure.
  */
-char	**str_split(char const *s, char c);
+char			**str_split(char const *s, char c);
 
 /**
  * @ingroup str
@@ -1663,7 +1737,7 @@ char	**str_split(char const *s, char c);
  * @param len Maximum length of substring.
  * @return Newly allocated substring (owned), or NULL on failure.
  */
-char	*str_sub(char const *s, unsigned int start, size_t len);
+char			*str_sub(char const *s, unsigned int start, size_t len);
 
 /**
  * @ingroup str
@@ -1675,67 +1749,15 @@ char	*str_sub(char const *s, unsigned int start, size_t len);
  * @param set Characters to trim (borrowed).
  * @return Newly allocated trimmed string (owned), or NULL on failure.
  */
-char	*str_trim(char const *s1, char const *set);
+char			*str_trim(char const *s1, char const *set);
 
-char	*str_trim_leading(char const *s1, char const *set);
+char			*str_trim_leading(char const *s1, char const *set);
 
 /* ************************************************************************* */
 /*                                  STRING                                   */
 /* ************************************************************************* */
 
 // TODO: doc
-bool	string_adjust(t_string *string);
-
-// TODO: doc
-bool	string_append(t_string *dst, t_string *src);
-
-// TODO: doc
-bool	string_append_n(t_string *s, const char *str, long n);
-
-// TODO: doc
-bool	string_cmp(const t_string *a, const t_string *b);
-
-// TODO: doc
-bool	string_dup(t_string *dst, const t_string *src);
-
-// TODO: doc
-bool	string_dup_n(t_string *dst, const t_string *src, size_t n);
-
-// TODO: doc
-void	string_free(t_string *s);
-
-// TODO: doc
-void	string_free_void(void *string);
-
-// TODO: doc
-ssize_t	string_get_index_c(t_string *string, char c);
-
-// TODO: doc
-ssize_t	string_get_index_s(t_string *string, const char *s, ssize_t slen);
-
-// TODO: doc
-size_t	string_get_required_cap(size_t current_cap, size_t target_cap);
-
-// TODO: doc
-bool	string_grow(t_string *string, size_t target_cap);
-
-// TODO: doc
-bool	string_init(t_string *s, size_t initial_cap, const char *str, long n);
-
-// TODO: doc
-bool	string_insert(t_string *dst, size_t index, t_string *src);
-
-// TODO: doc
-bool	string_insert_n(t_string *s, size_t index, const char *str, long n);
-
-// TODO: doc
-bool	string_prepend(t_string *dst, t_string *src);
-
-// TODO: doc
-bool	string_prepend_n(t_string *s, const char *str, long n);
-
-// TODO: doc
-void	string_rm_part(t_string *string, size_t i_start, ssize_t len);
 
 /* ************************************************************************* */
 /*                                  VECTOR                                   */
@@ -1756,7 +1778,7 @@ void	string_rm_part(t_string *string, size_t i_start, ssize_t len);
  * @return true on success, false on invalid item_size, overflow, or allocation
  *         failure.
  */
-bool	vector_init(t_vector *vector, size_t item_size, size_t cap);
+bool			vector_init(t_vector *vector, size_t item_size, size_t cap);
 
 /**
  * @ingroup vector
@@ -1770,7 +1792,7 @@ bool	vector_init(t_vector *vector, size_t item_size, size_t cap);
  * @param vector Pointer to an initialized vector (borrowed).
  * @return true on success, false on overflow or allocation failure.
  */
-bool	vector_grow(t_vector *vector);
+bool			vector_grow(t_vector *vector);
 
 /**
  * @ingroup vector
@@ -1784,7 +1806,7 @@ bool	vector_grow(t_vector *vector);
  * @param vector Pointer to an initialized vector (borrowed).
  * @return true on success, false on allocation failure.
  */
-bool	vector_adjust(t_vector *vector);
+bool			vector_adjust(t_vector *vector);
 
 /**
  * @ingroup vector
@@ -1804,7 +1826,7 @@ bool	vector_adjust(t_vector *vector);
  * @param src Source vector to duplicate (borrowed).
  * @return true on success, false on failure.
  */
-bool	vector_dup(t_vector *dst, t_vector *src);
+bool			vector_dup(t_vector *dst, t_vector *src);
 
 /**
  * @ingroup vector
@@ -1818,7 +1840,7 @@ bool	vector_dup(t_vector *dst, t_vector *src);
  * @param vector Pointer to the vector (borrowed).
  * @param item_free Optional callback to free each item (can be NULL).
  */
-void	vector_free(t_vector *vector, void (*item_free)(void *item));
+void			vector_free(t_vector *vector, void (*item_free)(void *item));
 
 /**
  * @ingroup vector
@@ -1833,7 +1855,7 @@ void	vector_free(t_vector *vector, void (*item_free)(void *item));
  * @param item Item to append (borrowed, not modified).
  * @return true on success, false on allocation failure.
  */
-bool	vector_push(t_vector *vector, const void *item);
+bool			vector_push(t_vector *vector, const void *item);
 
 /**
  * @ingroup vector
@@ -1848,7 +1870,7 @@ bool	vector_push(t_vector *vector, const void *item);
  *            can be NULL).
  * @return true on success, false if the vector is empty.
  */
-bool	vector_pop(t_vector *vector, void *dst);
+bool			vector_pop(t_vector *vector, void *dst);
 
 /**
  * @ingroup vector
@@ -1865,7 +1887,7 @@ bool	vector_pop(t_vector *vector, void *dst);
  * @param item Item to insert (borrowed, not modified).
  * @return true on success, false on invalid index or allocation failure.
  */
-bool	vector_insert(t_vector *vector, size_t index, const void *item);
+bool			vector_insert(t_vector *vector, size_t index, const void *item);
 
 /**
  * @ingroup vector
@@ -1882,7 +1904,7 @@ bool	vector_insert(t_vector *vector, size_t index, const void *item);
  *            can be NULL).
  * @return true on success, false if index is out of bounds.
  */
-bool	vector_remove(t_vector *vector, size_t index, void *dst);
+bool			vector_remove(t_vector *vector, size_t index, void *dst);
 
 /**
  * @ingroup vector
@@ -1901,6 +1923,6 @@ bool	vector_remove(t_vector *vector, size_t index, void *dst);
  * @return true on success, false on invalid input, overflow, or allocation
  *         failure.
  */
-bool	vector_merge(t_vector *dst, t_vector *src, size_t index);
+bool			vector_merge(t_vector *dst, t_vector *src, size_t index);
 
 #endif

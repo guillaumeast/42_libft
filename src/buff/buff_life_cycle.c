@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:37 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 17:02:49 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/27 18:47:33 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ bool	buff_init(
 		buff->cap = initial_cap;
 	}
 	if (str)
-		return (buff_append(buff, str, n));
+		return (buff_append_n(buff, str, n));
 	return (true);
 }
 
-void	buff_free(t_buff *const b)
+void	buff_free(t_buff *const buff)
 {
-	if (b->data)
-		free(b->data);
-	b->len = 0;
-	b->cap = 0;
-	b->data = NULL;
+	if (buff->data)
+		free(buff->data);
+	buff->len = 0;
+	buff->cap = 0;
+	buff->data = NULL;
 }
 
 void	buff_free_void(void *const buff)
