@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:29:29 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 01:24:30 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/27 17:42:16 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,45 +16,51 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int	buff_read_until(t_buff *buff, int fd, char c)
+bool	buff_read_until_c(t_buff *const buff, int fd, char c)
 {
 	ssize_t	read_len;
-	int		index;
 
-	index = -1;
-	while (index == -1)
+	read_len = 1;
+	while (read_len > 0)
 	{
-		if (buff->cap - buff->len == 0 && !buff_grow(buff, buff->len + 1))
-			return (-2);
-		read_len = read(fd, buff->data + buff->len, buff->cap - buff->len);
-		if (read_len == -1 && errno == EINTR)
-			continue ;
-		else if (read_len == -1)
-			return (-2);
-		else if (read_len == 0)
+		if (!buff_grow(buff, buff->len + 1))
+		{
+			read_len = -1;
 			break ;
-		buff->len += (size_t)read_len;
-		index = buff_get_index(buff, c);
+		}
+		read_len = buff_read_n_bytes(buff, fd, 1);
+		if (read_len > 0 && buff->len > 0 && buff->data[buff->len - 1] == c)
+			break ;
 	}
-	buff_adjust(buff);
-	return (index);
+	(void)buff_adjust(buff);
+	return (read_len >= 0);
 }
 
-bool	buff_read_all(t_buff *buff, int fd)
+bool	buff_read_until_n(t_buff *const buff, int fd, size_t n)
 {
 	ssize_t	read_len;
 
-	while (true)
+	if (!buff_grow(buff, buff->len + n))
+		return (false);
+	read_len = buff_read_n_bytes(buff, fd, n);
+	(void)buff_adjust(buff);
+	return (read_len >= 0);
+}
+
+bool	buff_read_all(t_buff *const buff, int fd)
+{
+	ssize_t	read_len;
+
+	read_len = 1;
+	while (read_len > 0)
 	{
-		if (buff->cap - buff->len == 0 && !buff_grow(buff, buff->len + 1))
-			return (false);
-		read_len = read(fd, buff->data + buff->len, buff->cap - buff->len);
-		if (read_len == -1 && errno == EINTR)
-			continue ;
-		else if (read_len <= 0)
+		if (!buff_grow(buff, buff->len + 1))
+		{
+			read_len = -1;
 			break ;
-		buff->len += (size_t)read_len;
+		}
+		read_len = buff_read_n_bytes(buff, fd, buff->cap - buff->len);
 	}
-	buff_adjust(buff);
-	return (read_len != -1);
+	(void)buff_adjust(buff);
+	return (read_len >= 0);
 }

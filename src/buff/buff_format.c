@@ -6,14 +6,14 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:33 by gastesan          #+#    #+#             */
-/*   Updated: 2026/02/05 18:32:42 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/27 17:31:31 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "buff_format.h"
 #include <stdlib.h>
 
-bool	buff_append_format(t_buff *buff, const char *fstring, ...)
+bool	buff_append_format(t_buff *const buff, const char *const fstring, ...)
 {
 	va_list	args;
 	bool	success;
@@ -24,29 +24,33 @@ bool	buff_append_format(t_buff *buff, const char *fstring, ...)
 	return (success);
 }
 
-bool	buff_append_vformat(t_buff *buff, const char *fstring, va_list args)
+bool	buff_append_vformat(
+	t_buff *const buff,
+	const char *const fstring,
+	va_list args)
 {
 	const char	*next_conversion;
 	t_rules		rules;
 	va_list		args_copy;
+	const char	*fstring_p;
 
 	va_copy(args_copy, args);
+	fstring_p = fstring;
 	next_conversion = str_chr(fstring, '%');
 	while (next_conversion)
 	{
-		if (!buff_append(buff, fstring, next_conversion - fstring))
-			return (false);
-		fstring = next_conversion + 1;
-		rules_parse(&rules, &fstring);
+		if (!buff_append(buff, fstring_p, next_conversion - fstring_p))
+			return (va_end(args_copy), false);
+		fstring_p = next_conversion + 1;
+		rules_parse(&rules, &fstring_p);
 		if (rules.conversion == '%')
 		{
 			if (!buff_append(buff, "%", 1))
-				return (false);
+				return (va_end(args_copy), false);
 		}
 		else if (!append(buff, &rules, &args_copy))
-			return (false);
-		next_conversion = str_chr(fstring, '%');
+			return (va_end(args_copy), false);
+		next_conversion = str_chr(fstring_p, '%');
 	}
-	va_end(args_copy);
-	return (buff_append(buff, fstring, -1));
+	return (va_end(args_copy), buff_append(buff, fstring_p, -1));
 }

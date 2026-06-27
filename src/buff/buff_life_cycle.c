@@ -6,93 +6,44 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:37 by gastesan          #+#    #+#             */
-/*   Updated: 2026/05/11 16:23:38 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/27 17:02:49 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-#define DEFAULT_BUFF_CAP 128
-#define BUFF_GROWTH 2
-
-bool	buff_init(t_buff *b, size_t initial_cap, const char *str, long n)
+bool	buff_init(
+	t_buff *const buff,
+	size_t initial_cap,
+	const char *const str,
+	long n)
 {
-	b->data = NULL;
-	b->cap = 0;
-	b->len = 0;
+	buff->data = NULL;
+	buff->cap = 0;
+	buff->len = 0;
 	if (initial_cap > 0)
 	{
-		b->data = malloc(initial_cap);
-		if (!b->data)
+		buff->data = malloc(initial_cap);
+		if (!buff->data)
 			return (false);
-		b->cap = initial_cap;
+		buff->cap = initial_cap;
 	}
 	if (str)
-		return (buff_append(b, str, n));
+		return (buff_append(buff, str, n));
 	return (true);
 }
 
-size_t	buff_get_required_cap(size_t current_cap, size_t target_len)
-{
-	size_t	new_cap;
-
-	if (target_len == 0)
-		return (current_cap);
-	if (current_cap == 0)
-		new_cap = DEFAULT_BUFF_CAP;
-	else
-		new_cap = current_cap;
-	while (new_cap <= target_len)
-		new_cap *= BUFF_GROWTH;
-	return (new_cap);
-}
-
-bool	buff_grow(t_buff *buff, size_t target_len)
-{
-	size_t	new_cap;
-	char	*new_data;
-
-	new_cap = buff_get_required_cap(buff->cap, target_len);
-	if (new_cap == buff->cap)
-		return (true);
-	new_data = malloc(new_cap);
-	if (!new_data)
-		return (false);
-	ft_memcpy(new_data, buff->data, buff->len);
-	free(buff->data);
-	buff->data = new_data;
-	buff->cap = new_cap;
-	return (true);
-}
-
-bool	buff_adjust(t_buff *buff)
-{
-	char	*new_data;
-
-	if (buff->len == 0)
-	{
-		if (buff->data)
-			free(buff->data);
-		buff->data = NULL;
-		buff->cap = 0;
-		return (true);
-	}
-	new_data = malloc(buff->len);
-	if (!new_data)
-		return (false);
-	ft_memcpy(new_data, buff->data, buff->len);
-	free(buff->data);
-	buff->data = new_data;
-	buff->cap = buff->len;
-	return (true);
-}
-
-void	buff_free(t_buff *b)
+void	buff_free(t_buff *const b)
 {
 	if (b->data)
 		free(b->data);
 	b->len = 0;
 	b->cap = 0;
 	b->data = NULL;
+}
+
+void	buff_free_void(void *const buff)
+{
+	buff_free(buff);
 }

@@ -6,18 +6,18 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:50 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 01:29:45 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/27 17:11:44 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "buff_format.h"
 
-static void	parse_flags(t_rules *rules, const char **fstring);
-static void	parse_width(t_rules *rules, const char **fstring);
-static void	parse_precision(t_rules *rules, const char **fstring);
-static void	normalize(t_rules *rules);
+static void	parse_flags(t_rules *const rules, const char **const fstring);
+static void	parse_width(t_rules *const rules, const char **const fstring);
+static void	parse_precision(t_rules *const rules, const char **const fstring);
+static void	normalize(t_rules *const rules);
 
-void	rules_parse(t_rules *rules, const char **fstring)
+void	rules_parse(t_rules *const rules, const char **const fstring)
 {
 	const char	conversion_set[] = "csdiuxXp";
 
@@ -50,7 +50,7 @@ void	rules_parse(t_rules *rules, const char **fstring)
  * @param rules Pointer to the rules structure.
  * @param fstring Pointer to format string pointer.
  */
-static void	parse_flags(t_rules *rules, const char **fstring)
+static void	parse_flags(t_rules *const rules, const char **const fstring)
 {
 	const char	flag_set[] = "-0# +";
 	char		c;
@@ -78,7 +78,7 @@ static void	parse_flags(t_rules *rules, const char **fstring)
  * @param rules Pointer to the rules structure.
  * @param fstring Pointer to format string pointer.
  */
-static void	parse_width(t_rules *rules, const char **fstring)
+static void	parse_width(t_rules *const rules, const char **const fstring)
 {
 	rules->width_enabled = true;
 	rules->width = ft_atoi(*fstring);
@@ -92,7 +92,7 @@ static void	parse_width(t_rules *rules, const char **fstring)
  * @param rules Pointer to the rules structure.
  * @param fstring Pointer to format string pointer.
  */
-static void	parse_precision(t_rules *rules, const char **fstring)
+static void	parse_precision(t_rules *const rules, const char **const fstring)
 {
 	(*fstring)++;
 	rules->precision = ft_atoi(*fstring);
@@ -105,7 +105,7 @@ static void	parse_precision(t_rules *rules, const char **fstring)
  *
  * @param rules Pointer to the rules structure.
  */
-static void	normalize(t_rules *rules)
+static void	normalize(t_rules *const rules)
 {
 	char	conv;
 
@@ -119,6 +119,8 @@ static void	normalize(t_rules *rules)
 	}
 	if (conv == 'c')
 		rules->precision = -1;
+	if (conv == 'c' || conv == 's')
+		rules->zero_padding = false;
 	if (conv != 'd' && conv != 'i')
 		rules->plus = false;
 	if ((conv != 'd' && conv != 'i') || rules->plus)

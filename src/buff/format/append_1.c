@@ -6,15 +6,21 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:37 by gastesan          #+#    #+#             */
-/*   Updated: 2026/05/14 20:49:09 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/27 17:12:29 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "buff_format.h"
 
-static bool	append_str(t_buff *buff, t_rules *rules, const char *str);
+static bool	append_str(
+	t_buff *const buff,
+	const t_rules *const rules,
+	const char *const str);
 
-bool	append(t_buff *buff, t_rules *rules, va_list *args)
+bool	append(
+	t_buff *const buff,
+	t_rules *const rules,
+	va_list *const args)
 {
 	t_buff	tmp_buff;
 	bool	success;
@@ -51,7 +57,10 @@ bool	append(t_buff *buff, t_rules *rules, va_list *args)
  * @param str String to append (can be NULL).
  * @return true on success, false on failure.
  */
-static bool	append_str(t_buff *buff, t_rules *rules, const char *str)
+static bool	append_str(
+	t_buff *const buff,
+	const t_rules *const rules,
+	const char *const str)
 {
 	if (!str)
 	{

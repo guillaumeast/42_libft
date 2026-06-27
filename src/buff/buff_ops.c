@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/04/28 14:02:37 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/27 17:05:05 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "buff_internal.h"
 #include <stdlib.h>
 
-bool	buff_prepend(t_buff *b, const char *str, long n)
+bool	buff_prepend(t_buff *const b, const char *const str, long n)
 {
 	size_t	strlen;
 	char	*new_data;
@@ -24,6 +24,8 @@ bool	buff_prepend(t_buff *b, const char *str, long n)
 		strlen = str_len(str);
 	else
 		strlen = (size_t)n;
+	if (strlen == 0)
+		return (true);
 	new_cap = buff_get_required_cap(b->cap, b->len + strlen);
 	if (new_cap > b->cap)
 	{
@@ -42,7 +44,11 @@ bool	buff_prepend(t_buff *b, const char *str, long n)
 	return (true);
 }
 
-bool	buff_insert(t_buff *b, size_t index, const char *str, long n)
+bool	buff_insert(
+	t_buff *const b,
+	size_t index,
+	const char *const str,
+	long n)
 {
 	size_t	strlen;
 	char	*new_data;
@@ -52,6 +58,8 @@ bool	buff_insert(t_buff *b, size_t index, const char *str, long n)
 		strlen = str_len(str);
 	else
 		strlen = (size_t)n;
+	if (strlen == 0)
+		return (true);
 	new_cap = buff_get_required_cap(b->cap, b->len + strlen);
 	if (new_cap > b->cap)
 	{
@@ -71,7 +79,7 @@ bool	buff_insert(t_buff *b, size_t index, const char *str, long n)
 	return (true);
 }
 
-bool	buff_append(t_buff *b, const char *str, long n)
+bool	buff_append(t_buff *const b, const char *const str, long n)
 {
 	size_t	strlen;
 
@@ -79,6 +87,8 @@ bool	buff_append(t_buff *b, const char *str, long n)
 		strlen = str_len(str);
 	else
 		strlen = (size_t)n;
+	if (strlen == 0)
+		return (true);
 	if (!buff_grow(b, b->len + strlen))
 		return (false);
 	ft_memcpy(b->data + b->len, str, strlen);
@@ -86,7 +96,7 @@ bool	buff_append(t_buff *b, const char *str, long n)
 	return (true);
 }
 
-bool	buff_dup_n(t_buff *dst, const t_buff *src, size_t n)
+bool	buff_dup_n(t_buff *const dst, const t_buff *const src, size_t n)
 {
 	if (n > src->len)
 		n = src->len;
@@ -99,7 +109,7 @@ bool	buff_dup_n(t_buff *dst, const t_buff *src, size_t n)
 	return (true);
 }
 
-void	buff_rm_part(t_buff *buff, size_t i_start, ssize_t len)
+void	buff_rm_part(t_buff *const buff, size_t i_start, ssize_t len)
 {
 	char	*dst;
 	char	*src;

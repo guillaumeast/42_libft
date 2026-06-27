@@ -6,19 +6,19 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:41 by gastesan          #+#    #+#             */
-/*   Updated: 2026/01/11 01:29:44 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/27 17:08:34 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-bool	append_char(t_buff *buff, char c)
+bool	append_char(t_buff *const buff, char c)
 {
 	return (buff_append(buff, &c, 1));
 }
 
-bool	append_int(t_buff *buff, int nb)
+bool	append_int(t_buff *const buff, int nb)
 {
 	char	*tmp;
 	bool	success;
@@ -31,7 +31,7 @@ bool	append_int(t_buff *buff, int nb)
 	return (success);
 }
 
-bool	append_uint(t_buff *buff, unsigned int nb)
+bool	append_uint(t_buff *const buff, unsigned int nb)
 {
 	char	*tmp;
 	bool	success;
@@ -44,7 +44,7 @@ bool	append_uint(t_buff *buff, unsigned int nb)
 	return (success);
 }
 
-bool	append_hex(t_buff *buff, unsigned long nb, bool uppercase)
+bool	append_hex(t_buff *const buff, unsigned long nb, bool uppercase)
 {
 	char				*tmp;
 	bool				success;
@@ -69,7 +69,7 @@ bool	append_hex(t_buff *buff, unsigned long nb, bool uppercase)
  * @param nb Pointer value as unsigned long.
  * @return true on success, false on failure.
  */
-bool	append_ptr(t_buff *buff, unsigned long nb)
+bool	append_ptr(t_buff *const buff, unsigned long nb)
 {
 	if (nb == 0)
 		return (buff_append(buff, "(nil)", 5));

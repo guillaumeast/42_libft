@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/24 05:39:28 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/27 18:37:20 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 /*                                   TYPES                                   */
 /* ************************************************************************* */
 
+/* --------------------------------- T_BUFF -------------------------------- */
+
 /**
  * @struct s_buff
  * @brief Dynamic buffer structure for efficient string/data manipulation.
@@ -35,13 +37,30 @@
  */
 typedef struct s_buff
 {
-	/** @brief Pointer to the allocated data (owned by the buffer). */
+	/** @brief Pointer to the allocated data (owned). */
 	char	*data;
 	/** @brief Current allocated capacity (in bytes). */
 	size_t	cap;
 	/** @brief Current length of data in the buffer (in bytes). */
 	size_t	len;
 }	t_buff;
+
+/* --------------------------------- T_STR --------------------------------- */
+
+// TODO: doc: t_buff variant which .data is always NULL terminated
+// @warning string.data is NOT null-terminated while string.cap == 0
+typedef struct s_string
+{
+	/** @brief Pointer to the allocated data (owned, null terminated). */
+	char	*data;
+	/** @brief Current allocated capacity (in bytes). */
+	size_t	cap;
+	/** @brief Current length of data in the buffer
+			   (in bytes, doesn't include de null terminator). */
+	size_t	len;
+}	t_string;
+
+/* --------------------------------- T_LIST -------------------------------- */
 
 /**
  * @struct s_node
@@ -67,6 +86,8 @@ typedef struct s_node
  */
 typedef t_node	*t_list;
 
+/* -------------------------------- T_BTREE -------------------------------- */
+
 /**
  * @struct s_btree_node
  * @brief Binary tree node structure.
@@ -74,7 +95,8 @@ typedef t_node	*t_list;
  * @var s_btree_node::parent Pointer to the parent node (borrowed, may be NULL).
  * @var s_btree_node::left Pointer to the left child (borrowed, may be NULL).
  * @var s_btree_node::right Pointer to the right child (borrowed, may be NULL).
- * @var s_btree_node::data Pointer to node payload (owned by the node, may be NULL).
+ * @var s_btree_node::data Pointer to node payload
+ 						   (owned by the node, may be NULL).
  */
 typedef struct s_btree_node
 {
@@ -87,6 +109,8 @@ typedef struct s_btree_node
 	/** @brief Pointer to node payload (owned by the node, may be NULL). */
 	void				*data;
 }	t_btree_node;
+
+/* -------------------------------- T_VECTOR ------------------------------- */
 
 /**
  * @struct s_vector
@@ -114,6 +138,8 @@ typedef struct s_vector
 	/** @brief Size of each item, expressed in bytes. */
 	size_t	item_size;
 }	t_vector;
+
+/* ------------------------------- T_HASHMAP ------------------------------- */
 
 /** @brief Default number of buckets allocated by hashmap_init(). */
 #define HASHMAP_INIT_CAP	50
@@ -343,23 +369,6 @@ void			btree_free(t_btree_node **node, void (*data_free)(void *data));
 
 /**
  * @ingroup buff
- * @brief Initializes a buffer with the specified initial capacity.
- *
- * If str is not NULL, it is appended after initialization.
- * If str is NULL, n is ignored.
- *
- * @note Cannot fail only when initial_cap == 0 and str == NULL.
- *
- * @param b Pointer to the buffer structure to initialize (uninitialized).
- * @param initial_cap Initial capacity of the buffer.
- * @param str Optional string to append after initialization (borrowed).
- * @param n Number of bytes to append, or -1 to use str_len(str).
- * @return true on success, false on memory allocation failure.
- */
-bool	buff_init(t_buff *b, size_t initial_cap, const char *str, long n);
-
-/**
- * @ingroup buff
  * @brief Shrinks buffer capacity to match its current length.
  *
  * @warning buff must be initialized before calling this function.
@@ -367,98 +376,7 @@ bool	buff_init(t_buff *b, size_t initial_cap, const char *str, long n);
  * @param buff Pointer to an initialized buffer (borrowed).
  * @return true on success, false on memory allocation failure.
  */
-bool	buff_adjust(t_buff *buff);
-
-/**
- * @ingroup buff
- * @brief Frees the buffer's internal data.
- *
- * Sets buff->data to NULL after freeing.
- * Sets buff->len and buff->cap to 0 after freeing.
- *
- * @warning Does not free the t_buff struct itself, only its internal data.
- *
- * @param b Pointer to the buffer (borrowed).
- */
-void	buff_free(t_buff *b);
-
-/**
- * @ingroup buff
- * @brief Frees a t_buff item through a generic void* callback signature.
- *
- * Wrapper around buff_free() intended for APIs that expect
- * `void (*)(void *)`, such as vector_free().
- *
- * @warning buff must point to an initialized t_buff.
- * @warning Does not free the t_buff struct itself, only its internal data.
- *
- * @param buff Pointer to a t_buff item passed as void* (borrowed).
- */
-void	buff_free_void(void *buff);
-
-/**
- * @ingroup buff
- * @brief Finds the index of a character in the buffer.
- *
- * @warning buff must be initialized before calling this function.
- *
- * @param buff Pointer to an initialized buffer (borrowed).
- * @param c Character to find.
- * @return Index of the character, or -1 if not found.
- */
-int		buff_get_index(t_buff *buff, char c);
-
-/**
- * @ingroup buff
- * @brief Returns a newly allocated copy of the buffer content.
- *
- * If the buffer data is not null-terminated, a trailing '\0' is added in the
- * returned string.
- *
- * @warning buff must be initialized before calling this function.
- *
- * @note Caller owns the returned string and must free it.
- * @note The caller remains owner of the t_buff.
- * @note The t_buff remains owner of the buff->data.
- *
- * @param buff Pointer to an initialized buffer (borrowed).
- * @return Newly allocated string (owned by caller), or NULL on failure.
- */
-char	*buff_get_string(t_buff *buff);
-
-/**
- * @ingroup buff
- * @brief Prepends a string to the beginning of the buffer.
- *
- * Buffer is automatically grown if necessary.
- *
- * @warning b must be initialized before calling this function.
- * @warning UB if n > 0 and str is shorter than n bytes.
- *
- * @param b Pointer to an initialized buffer (borrowed).
- * @param str String to prepend (borrowed, not modified).
- * @param n Number of bytes to prepend, or -1 to use strlen(str).
- * @return true on success, false on memory allocation failure.
- */
-bool	buff_prepend(t_buff *b, const char *str, long n);
-
-/**
- * @ingroup buff
- * @brief Inserts a string at a specific index in the buffer.
- *
- * Buffer is automatically grown if necessary.
- *
- * @warning b must be initialized before calling this function.
- * @warning UB if index > b->len.
- * @warning UB if n > 0 and str is shorter than n bytes.
- *
- * @param b Pointer to an initialized buffer (borrowed).
- * @param index Position at which to insert the string.
- * @param str String to insert (borrowed, not modified).
- * @param n Number of bytes to insert, or -1 to use strlen(str).
- * @return true on success, false on memory allocation failure.
- */
-bool	buff_insert(t_buff *b, size_t index, const char *str, long n);
+bool	buff_adjust(t_buff *const buff);
 
 /**
  * @ingroup buff
@@ -470,11 +388,58 @@ bool	buff_insert(t_buff *b, size_t index, const char *str, long n);
  * @warning UB if n > 0 and str is shorter than n bytes.
  *
  * @param b Pointer to an initialized buffer (borrowed).
- * @param str String to append (borrowed, not modified).
- * @param n Number of bytes to append, or -1 to use strlen(str).
+ * @param str String to append (borrowed, read-only).
+ * @param n Number of bytes to append, or -1 to use str_len(str).
  * @return true on success, false on memory allocation failure.
  */
-bool	buff_append(t_buff *b, const char *str, long n);
+bool	buff_append(t_buff *const b, const char *const str, long n);
+
+/**
+ * @ingroup buff
+ * @brief Appends formatted string to buffer using variadic arguments.
+ *
+ * > Supports printf formats:
+ * `%%c` `%%s` `%%d` `%%i` `%%u` `%%x` `%%X` `%%p` `%%`.
+ * > Supports printf-like flags: `-` `0` `.` ` ` `#` `+` and width.
+ *
+ * @warning buff must be initialized before calling this function.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed).
+ * @param fstring Format string (borrowed, read-only).
+ * @param ... Variadic arguments for format specifiers.
+ * @return true on success, false on failure.
+ */
+bool	buff_append_format(t_buff *const buff, const char *const fstring, ...)
+		__attribute__((format(printf, 2, 3)));
+
+/**
+ * @ingroup buff
+ * @brief Appends formatted string to buffer using va_list.
+ *
+ * @warning buff must be initialized before calling this function.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed).
+ * @param fstring Format string (borrowed, read-only).
+ * @param args Variable argument list.
+ * @return true on success, false on failure.
+ */
+bool	buff_append_vformat(
+			t_buff *const buff,
+			const char *const fstring,
+			va_list args);
+
+/**
+ * @ingroup buff
+ * @brief Compares two buffers data byte by byte.
+ *
+ * @warning a and b must be initialized before calling this function.
+ *
+ * @param a First buffer to compare (borrowed, read-only).
+ * @param b Second buffer to compare (borrowed, read-only).
+ * @return true if the buffers have the same length and content, false
+ *         otherwise.
+ */
+bool	buff_cmp(const t_buff *const a, const t_buff *const b);
 
 /**
  * @ingroup buff
@@ -489,7 +454,207 @@ bool	buff_append(t_buff *b, const char *str, long n);
  * @param n Maximum number of bytes to copy.
  * @return true on success, false on memory allocation failure.
  */
-bool	buff_dup_n(t_buff *dst, const t_buff *src, size_t n);
+bool	buff_dup_n(t_buff *const dst, const t_buff *const src, size_t n);
+
+/**
+ * @ingroup buff
+ * @brief Frees the buffer's internal data.
+ *
+ * Sets buff->data to NULL after freeing.
+ * Sets buff->len and buff->cap to 0 after freeing.
+ *
+ * @warning Does not free the t_buff struct itself, only its internal data.
+ *
+ * @param b Pointer to the buffer (borrowed).
+ */
+void	buff_free(t_buff *const b);
+
+/**
+ * @ingroup buff
+ * @brief Frees a t_buff item through a generic void* callback signature.
+ *
+ * Wrapper around buff_free() intended for APIs that expect
+ * `void (*)(void *)`, such as vector_free().
+ *
+ * @warning buff must point to an initialized t_buff.
+ * @warning Does not free the t_buff struct itself, only its internal data.
+ *
+ * @param buff Pointer to a t_buff item passed as void* (borrowed).
+ */
+void	buff_free_void(void *const buff);
+
+/**
+ * @ingroup buff
+ * @brief Finds the index of the first occurrence of a character in the buffer.
+ *
+ * @warning buff must be initialized before calling this function.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed, read-only).
+ * @param c Character to find.
+ * @return Index of the character, or -1 if not found.
+ */
+ssize_t	buff_get_index_c(const t_buff *const buff, char c);
+
+/**
+ * @ingroup buff
+ * @brief Finds the first occurrence of a substring in the buffer.
+ *
+ * @warning buff must be initialized before calling this function.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed, read-only).
+ * @param s Substring to find (borrowed, read-only).
+ * @param slen Number of bytes in s, or -1 to use str_len(s).
+ * @return Index of the substring, or -1 if not found.
+ */
+ssize_t	buff_get_index_s(
+			const t_buff *const buff,
+			const char *const s,
+			ssize_t slen);
+
+/**
+ * @ingroup buff
+ * @brief Returns a newly allocated copy of the buffer content.
+ *
+ * If the buffer data is not null-terminated, a trailing '\0' is added in the
+ * returned string.
+ *
+ * @warning buff must be initialized before calling this function.
+ *
+ * @note Caller owns the returned string and must free it.
+ * @note The caller remains owner of the t_buff.
+ * @note The t_buff remains owner of the buff->data.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed, read-only).
+ * @return Newly allocated string (owned by caller), or NULL on failure.
+ */
+char	*buff_get_string(const t_buff *const buff);
+
+/**
+ * @ingroup buff
+ * @brief Initializes a buffer with the specified initial capacity.
+ *
+ * If str is not NULL, it is appended after initialization.
+ * If str is NULL, n is ignored.
+ *
+ * @note Cannot fail only when initial_cap == 0 and str == NULL.
+ *
+ * @param buff Pointer to the buffer structure to initialize
+ *			   (borrowed, uninitialized).
+ * @param initial_cap Initial capacity of the buffer.
+ * @param str Optional string to append after initialization
+ 			  (borrowed, read-only).
+ * @param n Number of bytes to append, or -1 to use str_len(str).
+ * @return true on success, false on memory allocation failure.
+ */
+bool	buff_init(
+			t_buff *const buff,
+			size_t initial_cap,
+			const char *const str,
+			long n);
+
+/**
+ * @ingroup buff
+ * @brief Inserts a string in the buffer at the specified index.
+ *
+ * Buffer is automatically grown if necessary.
+ *
+ * @warning b must be initialized before calling this function.
+ * @warning index must be in range [0, b->len].
+ * @warning UB if n > 0 and str is shorter than n bytes.
+ *
+ * @param b Pointer to an initialized buffer (borrowed).
+ * @param index Insertion index.
+ * @param str String to insert (borrowed, read-only).
+ * @param n Number of bytes to insert, or -1 to use str_len(str).
+ * @return true on success, false on memory allocation failure.
+ */
+bool	buff_insert(
+			t_buff *const b,
+			size_t index,
+			const char *const str,
+			long n);
+
+/**
+ * @ingroup buff
+ * @brief Prepends a string to the beginning of the buffer.
+ *
+ * Buffer is automatically grown if necessary.
+ *
+ * @warning b must be initialized before calling this function.
+ * @warning UB if n > 0 and str is shorter than n bytes.
+ *
+ * @param b Pointer to an initialized buffer (borrowed).
+ * @param str String to prepend (borrowed, read-only).
+ * @param n Number of bytes to prepend, or -1 to use str_len(str).
+ * @return true on success, false on memory allocation failure.
+ */
+bool	buff_prepend(t_buff *const b, const char *const str, long n);
+
+/**
+ * @ingroup buff
+ * @brief Reads all available data from a file descriptor into buffer.
+ *
+ * @note Interrupted reads (EINTR) are retried.
+ * @note On failure, buff->data is NOT automatically freed.
+ *
+ * @warning buff must be initialized before calling this function.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed).
+ * @param fd File descriptor to read from.
+ * @return true on success, false if read failed (totally or partially).
+ */
+bool	buff_read_all(t_buff *const buff, int fd);
+
+/**
+ * @ingroup buff
+ * @brief Reads from a file descriptor until a specific character is found.
+ *
+ * @note Interrupted reads (EINTR) are retried.
+ * @note On failure, buff->data is NOT automatically freed.
+ *
+ * @warning buff must be initialized before calling this function.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed).
+ * @param fd File descriptor to read from.
+ * @param c Character to search for.
+ * @return true if c or EOF was encountered, false on memory or read error.
+ */
+bool	buff_read_until_c(t_buff *const buff, int fd, char c);
+
+/**
+ * @ingroup buff
+ * @brief Reads up to n bytes from a file descriptor into buffer.
+ *
+ * @note Interrupted reads (EINTR) are retried.
+ * @note On failure, buff->data is NOT automatically freed.
+ *
+ * @warning buff must be initialized before calling this function.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed).
+ * @param fd File descriptor to read from.
+ * @param n Number of bytes to read.
+ * @return true on success or EOF, false on memory or read error.
+ */
+bool	buff_read_until_n(t_buff *const buff, int fd, size_t n);
+
+/**
+ * @ingroup buff
+ * @brief Reads from a file descriptor until a specific substring is found.
+ *
+ * @note Interrupted reads (EINTR) are retried.
+ * @warning buff must be initialized before calling this function.
+ *
+ * @param buff Pointer to an initialized buffer (borrowed).
+ * @param fd File descriptor to read from.
+ * @param s Target substring to search for (borrowed, read-only).
+ * @param slen Length of s, or -1 to use str_len(s).
+ * @return true if s or EOF was encountered, false on memory or read error.
+ */
+bool	buff_read_until_s(
+			t_buff *const buff,
+			int fd,
+			const char *const s,
+			ssize_t slen);
 
 /**
  * @ingroup buff
@@ -503,182 +668,7 @@ bool	buff_dup_n(t_buff *dst, const t_buff *src, size_t n);
  * @param i_start Starting index for removal.
  * @param len Number of bytes to remove, or negative to remove until end.
  */
-void	buff_rm_part(t_buff *buff, size_t i_start, ssize_t len);
-
-/**
- * @ingroup buff
- * @brief Appends formatted string to buffer using variadic arguments.
- *
- * > Supports printf formats: 
- * `%%c` `%%s` `%%d` `%%i` `%%u` `%%x` `%%X` `%%p` `%%`.  
- * > Supports printf-like flags: `-` `0` `.` ` ` `#` `+` and width.
- *
- * @warning buff must be initialized before calling this function.
- *
- * @param buff Pointer to an initialized buffer (borrowed).
- * @param fstring Format string (borrowed).
- * @param ... Variadic arguments for format specifiers.
- * @return true on success, false on failure.
- */
-bool	buff_append_format(t_buff *buff, const char *fstring, ...)
-		__attribute__((format(printf, 2, 3)));
-
-/**
- * @ingroup buff
- * @brief Appends formatted string to buffer using va_list.
- *
- * @warning buff must be initialized before calling this function.
- *
- * @param buff Pointer to an initialized buffer (borrowed).
- * @param fstring Format string (borrowed).
- * @param args Variable argument list.
- * @return true on success, false on failure.
- */
-bool	buff_append_vformat(t_buff *buff, const char *fstring, va_list args);
-
-/**
- * @ingroup buff
- * @brief Reads from a file descriptor until a specific character is found.
- *
- * @warning buff must be initialized before calling this function.
- *
- * @param buff Pointer to an initialized buffer (borrowed).
- * @param fd File descriptor to read from.
- * @param c Character to search for.
- * @return Index of c (>= 0), -1 if EOF reached before c, -2 on error.
- */
-int		buff_read_until(t_buff *buff, int fd, char c);
-
-/**
- * @ingroup buff
- * @brief Reads all available data from a file descriptor into buffer.
- *
- * @note On failure, buff->data is NOT automatically freed.
- *
- * @warning buff must be initialized before calling this function.
- *
- * @param buff Pointer to an initialized buffer (borrowed).
- * @param fd File descriptor to read from.
- * @return true on success, false if read failed.
- */
-bool	buff_read_all(t_buff *buff, int fd);
-
-
-/* ************************************************************************* */
-/*                                 HASHMAP                                   */
-/* ************************************************************************* */
-
-/**
- * @ingroup hashmap
- * @brief Initializes an empty hash map.
- *
- * Allocates the initial bucket array (HASHMAP_INIT_CAP buckets) and installs
- * the default string hash function. The del callback is stored as-is and used
- * to release stored values; the map does not own del itself.
- *
- * @note On failure the map is left in a zeroed state and must not be used.
- *
- * @param map Pointer to the map structure to initialize (uninitialized).
- * @param initial_cap Initial capacity of the bucket array.
- * @param del Optional destructor applied to each value on removal/free.
- *            Pass NULL to never free stored values.
- * @return true on success, false on memory allocation failure.
- */
-bool	hashmap_init(t_hashmap *map, size_t initial_cap, void (*del)(void *));
-
-/**
- * @ingroup hashmap
- * @brief Frees a hash map and all of its contents.
- *
- * Releases every stored pair: each key copy is freed, each value is passed to
- * the map's del callback (if any), and the bucket array is freed. The map is
- * reset to a zeroed state afterwards.
- *
- * @param map Pointer to the map to free (borrowed; reset to zero on return).
- */
-void	hashmap_free(t_hashmap *map);
-
-/**
- * @ingroup hashmap
- * @brief Inserts a key/value pair, replacing any existing value for the key.
- *
- * The key is duplicated internally, so the caller keeps ownership of the key
- * buffer. If the key already exists, its previous value is released through
- * the map's del callback before the new value takes its place. The bucket
- * array grows automatically when needed.
- *
- * @note On success, ownership of value is transferred to the map and is
- *       released through the del callback on removal or on hashmap_free().
- *
- * @note On failure, ownership of value remains with the caller.
- *
- * @note If key already exists and value is the same pointer as the currently
- *       stored value, hashmap_put() is a no-op and returns true.
- *
- * @warning When del is not NULL, each stored value pointer must have unique
- *          ownership. Storing the same owned pointer under several different
- *          keys can cause a double free on removal or hashmap_free().
- *
- * @param map Pointer to an initialized map (borrowed).
- * @param key NUL-terminated key (borrowed; duplicated internally).
- * @param value Value to associate with key (ownership transferred on success).
- * @return true on success, false on memory allocation failure.
- */
-bool	hashmap_put(t_hashmap *map, const char *key, void *value);
-
-/**
- * @ingroup hashmap
- * @brief Retrieves the value associated with a key.
- *
- * @param map Pointer to an initialized map (borrowed).
- * @param key NUL-terminated key to look up (borrowed).
- * @return The associated key/value pair (borrowed, still owned by the map),
- *         or NULL if the key is not present.
- */
-t_key_value	*hashmap_get(t_hashmap *map, const char *key);
-
-/**
- * @ingroup hashmap
- * @brief Collects every key/value pair stored in the map.
- *
- * Builds a freshly allocated, NULL-terminated array holding a pointer to each
- * of the map's size pairs, in unspecified (bucket) order.
- *
- * @note The returned array is owned by the caller and must be freed with a
- *       single free(). The pairs it points to are borrowed and remain owned by
- *       the map; do not free them and do not use the array after the map (or
- *       any referenced pair) has been modified or freed.
- *
- * @param map Pointer to an initialized map (borrowed).
- * @return A NULL-terminated array of pair pointers (owned by caller), or NULL
- *         on memory allocation failure. The array is empty (only the NULL
- *         terminator) when the map holds no pairs.
- */
-t_key_value	**hashmap_get_all(t_hashmap *map);
-
-/**
- * @ingroup hashmap
- * @brief Removes the pair associated with a key.
- *
- * The matching pair is unlinked and freed: its key copy is freed and its value
- * is passed to the map's del callback (if any).
- *
- * @param map Pointer to an initialized map (borrowed).
- * @param key NUL-terminated key to remove (borrowed).
- * @return true if a pair was removed, false if the key was not found.
- */
-bool	hashmap_remove(t_hashmap *map, const char *key);
-
-/**
- * @ingroup hashmap
- * @brief Tests whether a key is present in the map.
- *
- * @param map Pointer to an initialized map (borrowed).
- * @param key NUL-terminated key to look for (borrowed).
- * @return true if the key is present, false otherwise.
- */
-bool	hashmap_contains(t_hashmap *map, const char *key);
-
+void	buff_rm_part(t_buff *const buff, size_t i_start, ssize_t len);
 
 /* ************************************************************************* */
 /*                                   CHR                                     */
@@ -925,6 +915,121 @@ void	print_err(bool print_errno, const char *message);
  */
 void	fprint_err(bool print_errno, const char *safe, const char *fmt, ...)
 		__attribute__((format(printf, 3, 4)));
+
+/* ************************************************************************* */
+/*                                 HASHMAP                                   */
+/* ************************************************************************* */
+
+/**
+ * @ingroup hashmap
+ * @brief Initializes an empty hash map.
+ *
+ * Allocates the initial bucket array (HASHMAP_INIT_CAP buckets) and installs
+ * the default string hash function. The del callback is stored as-is and used
+ * to release stored values; the map does not own del itself.
+ *
+ * @note On failure the map is left in a zeroed state and must not be used.
+ *
+ * @param map Pointer to the map structure to initialize (uninitialized).
+ * @param initial_cap Initial capacity of the bucket array.
+ * @param del Optional destructor applied to each value on removal/free.
+ *            Pass NULL to never free stored values.
+ * @return true on success, false on memory allocation failure.
+ */
+bool	hashmap_init(t_hashmap *map, size_t initial_cap, void (*del)(void *));
+
+/**
+ * @ingroup hashmap
+ * @brief Frees a hash map and all of its contents.
+ *
+ * Releases every stored pair: each key copy is freed, each value is passed to
+ * the map's del callback (if any), and the bucket array is freed. The map is
+ * reset to a zeroed state afterwards.
+ *
+ * @param map Pointer to the map to free (borrowed; reset to zero on return).
+ */
+void	hashmap_free(t_hashmap *map);
+
+/**
+ * @ingroup hashmap
+ * @brief Inserts a key/value pair, replacing any existing value for the key.
+ *
+ * The key is duplicated internally, so the caller keeps ownership of the key
+ * buffer. If the key already exists, its previous value is released through
+ * the map's del callback before the new value takes its place. The bucket
+ * array grows automatically when needed.
+ *
+ * @note On success, ownership of value is transferred to the map and is
+ *       released through the del callback on removal or on hashmap_free().
+ *
+ * @note On failure, ownership of value remains with the caller.
+ *
+ * @note If key already exists and value is the same pointer as the currently
+ *       stored value, hashmap_put() is a no-op and returns true.
+ *
+ * @warning When del is not NULL, each stored value pointer must have unique
+ *          ownership. Storing the same owned pointer under several different
+ *          keys can cause a double free on removal or hashmap_free().
+ *
+ * @param map Pointer to an initialized map (borrowed).
+ * @param key NUL-terminated key (borrowed; duplicated internally).
+ * @param value Value to associate with key (ownership transferred on success).
+ * @return true on success, false on memory allocation failure.
+ */
+bool	hashmap_put(t_hashmap *map, const char *key, void *value);
+
+/**
+ * @ingroup hashmap
+ * @brief Retrieves the value associated with a key.
+ *
+ * @param map Pointer to an initialized map (borrowed).
+ * @param key NUL-terminated key to look up (borrowed).
+ * @return The associated key/value pair (borrowed, still owned by the map),
+ *         or NULL if the key is not present.
+ */
+t_key_value	*hashmap_get(t_hashmap *map, const char *key);
+
+/**
+ * @ingroup hashmap
+ * @brief Collects every key/value pair stored in the map.
+ *
+ * Builds a freshly allocated, NULL-terminated array holding a pointer to each
+ * of the map's size pairs, in unspecified (bucket) order.
+ *
+ * @note The returned array is owned by the caller and must be freed with a
+ *       single free(). The pairs it points to are borrowed and remain owned by
+ *       the map; do not free them and do not use the array after the map (or
+ *       any referenced pair) has been modified or freed.
+ *
+ * @param map Pointer to an initialized map (borrowed).
+ * @return A NULL-terminated array of pair pointers (owned by caller), or NULL
+ *         on memory allocation failure. The array is empty (only the NULL
+ *         terminator) when the map holds no pairs.
+ */
+t_key_value	**hashmap_get_all(t_hashmap *map);
+
+/**
+ * @ingroup hashmap
+ * @brief Removes the pair associated with a key.
+ *
+ * The matching pair is unlinked and freed: its key copy is freed and its value
+ * is passed to the map's del callback (if any).
+ *
+ * @param map Pointer to an initialized map (borrowed).
+ * @param key NUL-terminated key to remove (borrowed).
+ * @return true if a pair was removed, false if the key was not found.
+ */
+bool	hashmap_remove(t_hashmap *map, const char *key);
+
+/**
+ * @ingroup hashmap
+ * @brief Tests whether a key is present in the map.
+ *
+ * @param map Pointer to an initialized map (borrowed).
+ * @param key NUL-terminated key to look for (borrowed).
+ * @return true if the key is present, false otherwise.
+ */
+bool	hashmap_contains(t_hashmap *map, const char *key);
 
 /* ************************************************************************* */
 /*                                   LIST                                    */
@@ -1573,6 +1678,64 @@ char	*str_sub(char const *s, unsigned int start, size_t len);
 char	*str_trim(char const *s1, char const *set);
 
 char	*str_trim_leading(char const *s1, char const *set);
+
+/* ************************************************************************* */
+/*                                  STRING                                   */
+/* ************************************************************************* */
+
+// TODO: doc
+bool	string_adjust(t_string *string);
+
+// TODO: doc
+bool	string_append(t_string *dst, t_string *src);
+
+// TODO: doc
+bool	string_append_n(t_string *s, const char *str, long n);
+
+// TODO: doc
+bool	string_cmp(const t_string *a, const t_string *b);
+
+// TODO: doc
+bool	string_dup(t_string *dst, const t_string *src);
+
+// TODO: doc
+bool	string_dup_n(t_string *dst, const t_string *src, size_t n);
+
+// TODO: doc
+void	string_free(t_string *s);
+
+// TODO: doc
+void	string_free_void(void *string);
+
+// TODO: doc
+ssize_t	string_get_index_c(t_string *string, char c);
+
+// TODO: doc
+ssize_t	string_get_index_s(t_string *string, const char *s, ssize_t slen);
+
+// TODO: doc
+size_t	string_get_required_cap(size_t current_cap, size_t target_cap);
+
+// TODO: doc
+bool	string_grow(t_string *string, size_t target_cap);
+
+// TODO: doc
+bool	string_init(t_string *s, size_t initial_cap, const char *str, long n);
+
+// TODO: doc
+bool	string_insert(t_string *dst, size_t index, t_string *src);
+
+// TODO: doc
+bool	string_insert_n(t_string *s, size_t index, const char *str, long n);
+
+// TODO: doc
+bool	string_prepend(t_string *dst, t_string *src);
+
+// TODO: doc
+bool	string_prepend_n(t_string *s, const char *str, long n);
+
+// TODO: doc
+void	string_rm_part(t_string *string, size_t i_start, ssize_t len);
 
 /* ************************************************************************* */
 /*                                  VECTOR                                   */

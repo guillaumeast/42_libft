@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   buff_cmp.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 18:27:52 by adouieb           #+#    #+#             */
-/*   Updated: 2026/05/28 18:29:55 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/27 16:54:51 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-bool	buff_cmp(const t_buff *a, const t_buff *b)
+bool	buff_cmp(const t_buff *const a, const t_buff *const b)
 {
 	size_t	i;
 
