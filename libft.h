@@ -45,18 +45,29 @@ typedef struct s_buff
 	size_t	len;
 }	t_buff;
 
-/* --------------------------------- T_STR --------------------------------- */
+/* -------------------------------- T_STRING ------------------------------- */
 
-// TODO: doc: t_buff variant which .data is always NULL terminated
-// @warning string.data is NOT null-terminated while string.cap == 0
+/**
+ * @struct s_string
+ * @brief Dynamic string structure with NUL-terminated storage.
+ *
+ * @warning When cap == 0, data is NULL and must not be used as a C string.
+ *          Call a function that allocates storage before reading data.
+ *
+ * @var s_string::data Pointer to the allocated data (owned, NUL-terminated
+ *                     when cap > 0).
+ * @var s_string::cap Current allocated capacity (in bytes, including room for
+ *                    the trailing NUL).
+ * @var s_string::len Current string length (in bytes, excluding the trailing
+ *                    NUL).
+ */
 typedef struct s_string
 {
-	/** @brief Pointer to the allocated data (owned, null terminated). */
+	/** @brief Pointer to the allocated data (owned, NUL-terminated if cap > 0). */
 	char	*data;
 	/** @brief Current allocated capacity (in bytes). */
 	size_t	cap;
-	/** @brief Current length of data in the buffer
-			   (in bytes, doesn't include de null terminator). */
+	/** @brief Current length in bytes, excluding the trailing NUL. */
 	size_t	len;
 }	t_string;
 
@@ -274,6 +285,13 @@ typedef struct s_hashmap
  *  @brief String manipulation utilities.
  *
  *  Functions to search, copy, compare and transform strings.
+ */
+
+/** @defgroup string Dynamic String API
+ *  @brief NUL-terminated dynamic string utilities.
+ *
+ *  Functions to initialize, grow, shrink, read, format and manipulate
+ *  dynamic strings whose allocated data is kept NUL-terminated.
  */
 
 /** @defgroup vector Vector API
@@ -1757,7 +1775,370 @@ char			*str_trim_leading(char const *s1, char const *set);
 /*                                  STRING                                   */
 /* ************************************************************************* */
 
-// TODO: doc
+/**
+ * @ingroup string
+ * @brief Shrinks string capacity to match its current length plus NUL byte.
+ *
+ * @warning string must be initialized before calling this function.
+ *
+ * @param string Pointer to an initialized string (borrowed).
+ * @return true on success, false on memory allocation failure.
+ */
+bool			string_adjust(t_string *const string);
+
+/**
+ * @ingroup string
+ * @brief Appends the content of a source string to the end of a string.
+ *
+ * Destination storage is automatically grown if necessary.
+ *
+ * @warning dst and src must be initialized before calling this function.
+ *
+ * @param dst Destination string to append to (borrowed).
+ * @param src Source string to append (borrowed, read-only).
+ * @return true on success, false on memory allocation failure.
+ */
+bool			string_append(t_string *const dst, const t_string *const src);
+
+/**
+ * @ingroup string
+ * @brief Appends formatted text to string using variadic arguments.
+ *
+ * > Supports the same format subset as buff_append_format().
+ *
+ * @warning string must be initialized before calling this function.
+ *
+ * @param string Pointer to an initialized string (borrowed).
+ * @param fstring Format string (borrowed, read-only).
+ * @param ... Variadic arguments for format specifiers.
+ * @return true on success, false on failure.
+ */
+bool			string_append_format(
+					t_string *const string,
+					const char *const fstring,
+					...)
+				__attribute__((format(printf, 2, 3)));
+
+/**
+ * @ingroup string
+ * @brief Appends n first bytes of a string to the end of a dynamic string.
+ *
+ * Destination storage is automatically grown if necessary.
+ *
+ * @warning s must be initialized before calling this function.
+ * @warning UB if n > 0 and str is shorter than n bytes.
+ *
+ * @param s Destination string to append to (borrowed).
+ * @param str String to append (borrowed, read-only).
+ * @param n Number of bytes to append, or -1 to use str_len(str).
+ * @return true on success, false on memory allocation failure.
+ */
+bool			string_append_n(
+					t_string *const s,
+					const char *const str,
+					long n);
+
+/**
+ * @ingroup string
+ * @brief Appends formatted text to string using va_list.
+ *
+ * @warning string must be initialized before calling this function.
+ *
+ * @param string Pointer to an initialized string (borrowed).
+ * @param fstring Format string (borrowed, read-only).
+ * @param args Variable argument list.
+ * @return true on success, false on failure.
+ */
+bool			string_append_vformat(
+					t_string *const string,
+					const char *const fstring,
+					va_list args);
+
+/**
+ * @ingroup string
+ * @brief Compares two strings byte by byte.
+ *
+ * @warning a and b must be initialized before calling this function.
+ *
+ * @param a First string to compare (borrowed, read-only).
+ * @param b Second string to compare (borrowed, read-only).
+ * @return true if the strings have the same length and content, false
+ *         otherwise.
+ */
+bool			string_cmp(const t_string *const a, const t_string *const b);
+
+/**
+ * @ingroup string
+ * @brief Copies the content of a source string into an existing string.
+ *
+ * @warning dst and src must be initialized before calling this function.
+ * @warning The previous logical content of dst is replaced, whether the
+ *          function succeeds or fails.
+ *
+ * @param dst Destination string to overwrite (borrowed, initialized).
+ * @param src Source string to duplicate (borrowed, initialized).
+ * @return true on success, false on memory allocation failure.
+ */
+bool			string_dup(t_string *const dst, const t_string *const src);
+
+/**
+ * @ingroup string
+ * @brief Copies up to n bytes from a source string into an existing string.
+ *
+ * @warning dst and src must be initialized before calling this function.
+ * @warning The previous logical content of dst is replaced, whether the
+ *          function succeeds or fails.
+ *
+ * @param dst Destination string to overwrite (borrowed, initialized).
+ * @param src Source string to duplicate (borrowed, initialized).
+ * @param n Maximum number of bytes to copy.
+ * @return true on success, false on memory allocation failure.
+ */
+bool			string_dup_n(
+					t_string *const dst,
+					const t_string *const src,
+					size_t n);
+
+/**
+ * @ingroup string
+ * @brief Frees the string's internal data.
+ *
+ * Sets string->data to NULL after freeing.
+ * Sets string->len and string->cap to 0 after freeing.
+ *
+ * @warning Does not free the t_string struct itself, only its internal data.
+ *
+ * @param string Pointer to the string (borrowed).
+ */
+void			string_free(t_string *const string);
+
+/**
+ * @ingroup string
+ * @brief Frees a t_string item through a generic void* callback signature.
+ *
+ * Wrapper around string_free() intended for APIs that expect
+ * `void (*)(void *)`, such as vector_free().
+ *
+ * @warning string must point to an initialized t_string.
+ * @warning Does not free the t_string struct itself, only its internal data.
+ *
+ * @param string Pointer to a t_string item passed as void* (borrowed).
+ */
+void			string_free_void(void *string);
+
+/**
+ * @ingroup string
+ * @brief Finds the index of the first occurrence of a character in the string.
+ *
+ * @warning string must be initialized before calling this function.
+ *
+ * @param string Pointer to an initialized string (borrowed, read-only).
+ * @param c Character to find.
+ * @return Index of the character, or -1 if not found.
+ */
+ssize_t			string_get_index_c(const t_string *const string, char c);
+
+/**
+ * @ingroup string
+ * @brief Finds the first occurrence of a substring in the string.
+ *
+ * @warning string must be initialized before calling this function.
+ *
+ * @param string Pointer to an initialized string (borrowed, read-only).
+ * @param s Substring to find (borrowed, read-only).
+ * @param slen Number of bytes in s, or -1 to use str_len(s).
+ * @return Index of the substring, or -1 if not found.
+ */
+ssize_t			string_get_index_s(
+					const t_string *const string,
+					const char *const s,
+					ssize_t slen);
+
+/**
+ * @ingroup string
+ * @brief Initializes a string with the specified initial capacity.
+ *
+ * If str is not NULL, it is appended after initialization.
+ * If str is NULL, n is ignored.
+ *
+ * @note Cannot fail only when initial_cap == 0 and str == NULL.
+ *
+ * @warning When initial_cap == 0 and str == NULL, no allocation is performed:
+ *          data is NULL and cannot be used as a valid C string until a
+ *          function that allocates storage has been called.
+ *
+ * @param s Pointer to the string structure to initialize
+ *          (borrowed, uninitialized).
+ * @param initial_cap Initial capacity of the string.
+ * @param str Optional string to append after initialization
+ *            (borrowed, read-only).
+ * @param n Number of bytes to append, or -1 to use str_len(str).
+ * @return true on success, false on memory allocation failure.
+ */
+bool			string_init(
+					t_string *const s,
+					size_t initial_cap,
+					const char *const str,
+					long n);
+
+/**
+ * @ingroup string
+ * @brief Inserts a source string in a string at the specified index.
+ *
+ * Destination storage is automatically grown if necessary.
+ *
+ * @warning dst and src must be initialized before calling this function.
+ * @warning index must be in range [0, dst->len].
+ *
+ * @param dst Destination string to insert into (borrowed).
+ * @param index Insertion index.
+ * @param src Source string to insert (borrowed, read-only).
+ * @return true on success, false on memory allocation failure.
+ */
+bool			string_insert(
+					t_string *const dst,
+					size_t index,
+					const t_string *const src);
+
+/**
+ * @ingroup string
+ * @brief Inserts n first bytes of a string at the specified index.
+ *
+ * Destination storage is automatically grown if necessary.
+ *
+ * @warning s must be initialized before calling this function.
+ * @warning index must be in range [0, s->len].
+ * @warning UB if n > 0 and str is shorter than n bytes.
+ *
+ * @param s Destination string to insert into (borrowed).
+ * @param index Insertion index.
+ * @param str String to insert (borrowed, read-only).
+ * @param n Number of bytes to insert, or -1 to use str_len(str).
+ * @return true on success, false on memory allocation failure.
+ */
+bool			string_insert_n(
+					t_string *const s,
+					size_t index,
+					const char *const str,
+					long n);
+
+/**
+ * @ingroup string
+ * @brief Prepends a source string to the beginning of a string.
+ *
+ * Destination storage is automatically grown if necessary.
+ *
+ * @warning dst and src must be initialized before calling this function.
+ *
+ * @param dst Destination string to prepend to (borrowed).
+ * @param src Source string to prepend (borrowed, read-only).
+ * @return true on success, false on memory allocation failure.
+ */
+bool			string_prepend(t_string *const dst, const t_string *const src);
+
+/**
+ * @ingroup string
+ * @brief Prepends n first bytes of a string to the beginning of a string.
+ *
+ * Destination storage is automatically grown if necessary.
+ *
+ * @warning s must be initialized before calling this function.
+ * @warning UB if n > 0 and str is shorter than n bytes.
+ *
+ * @param s Destination string to prepend to (borrowed).
+ * @param str String to prepend (borrowed, read-only).
+ * @param n Number of bytes to prepend, or -1 to use str_len(str).
+ * @return true on success, false on memory allocation failure.
+ */
+bool			string_prepend_n(
+					t_string *const s,
+					const char *const str,
+					long n);
+
+/**
+ * @ingroup string
+ * @brief Reads all available data from a file descriptor into string.
+ *
+ * @note Interrupted reads (EINTR) are retried.
+ * @note On failure, string->data is NOT automatically freed.
+ *
+ * @warning string must be initialized before calling this function.
+ *
+ * @param string Pointer to an initialized string (borrowed).
+ * @param fd File descriptor to read from.
+ * @return true on success, false if read failed.
+ */
+bool			string_read_all(t_string *const string, int fd);
+
+/**
+ * @ingroup string
+ * @brief Reads from a file descriptor until a specific character is found.
+ *
+ * @note Interrupted reads (EINTR) are retried.
+ * @note On failure, string->data is NOT automatically freed.
+ *
+ * @warning string must be initialized before calling this function.
+ *
+ * @param string Pointer to an initialized string (borrowed).
+ * @param fd File descriptor to read from.
+ * @param c Character to search for.
+ * @return true if c or EOF was encountered, false on memory or read error.
+ */
+bool			string_read_until_c(t_string *const string, int fd, char c);
+
+/**
+ * @ingroup string
+ * @brief Reads up to n bytes from a file descriptor into string.
+ *
+ * @note Interrupted reads (EINTR) are retried.
+ * @note On failure, string->data is NOT automatically freed.
+ *
+ * @warning string must be initialized before calling this function.
+ *
+ * @param string Pointer to an initialized string (borrowed).
+ * @param fd File descriptor to read from.
+ * @param n Number of bytes to read.
+ * @return true on success or EOF, false on memory or read error.
+ */
+bool			string_read_until_n(t_string *const string, int fd, size_t n);
+
+/**
+ * @ingroup string
+ * @brief Reads from a file descriptor until a specific substring is found.
+ *
+ * @note Interrupted reads (EINTR) are retried.
+ * @note On failure, string->data is NOT automatically freed.
+ *
+ * @warning string must be initialized before calling this function.
+ *
+ * @param string Pointer to an initialized string (borrowed).
+ * @param fd File descriptor to read from.
+ * @param s Target substring to search for (borrowed, read-only).
+ * @param slen Length of s, or -1 to use str_len(s).
+ * @return true if s or EOF was encountered, false on memory or read error.
+ */
+bool			string_read_until_s(
+					t_string *const string,
+					int fd,
+					const char *const s,
+					ssize_t slen);
+
+/**
+ * @ingroup string
+ * @brief Removes a portion of the string starting at i_start.
+ *
+ * @note If len < 0, deletes all string content from i_start to end.
+ *
+ * @warning string must be initialized before calling this function.
+ *
+ * @param string Pointer to an initialized string (borrowed).
+ * @param i_start Starting index for removal.
+ * @param len Number of bytes to remove, or negative to remove until end.
+ */
+void			string_rm_part(
+					t_string *const string,
+					size_t i_start,
+					ssize_t len);
 
 /* ************************************************************************* */
 /*                                  VECTOR                                   */

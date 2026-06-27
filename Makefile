@@ -17,6 +17,7 @@ SRCS		:= \
 	$(wildcard src/print/*.c) \
 	$(wildcard src/put/*.c) \
 	$(wildcard src/str/*.c) \
+	$(wildcard src/string/*.c) \
 	$(wildcard src/vector/*.c)
 
 INCLUDES	:= \
