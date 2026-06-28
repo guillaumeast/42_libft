@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/27 16:55:42 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 17:41:28 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:22:04 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-static inline bool	buff_find_last_char_from(
-	char c,
-	const char *const s,
-	size_t *const i)
+static inline bool	buff_find_last_char_from(char c, const char *s, size_t *i)
 {
 	size_t	j;
 
@@ -37,9 +34,9 @@ static inline bool	buff_find_last_char_from(
 }
 
 static inline bool	buff_beginning_of_string_is_valid(
-	const t_buff *const buff,
-	const char *const s,
-	size_t i)
+						const t_buff *buff,
+						const char *s,
+						size_t i)
 {
 	size_t	j;
 
@@ -56,9 +53,9 @@ static inline bool	buff_beginning_of_string_is_valid(
 }
 
 static inline size_t	buff_get_size_to_read(
-	const t_buff *const buff,
-	const char *const target_string,
-	size_t slen)
+							const t_buff *buff,
+							const char *target_string,
+							size_t slen)
 {
 	size_t	i;
 	char	c;
@@ -76,11 +73,7 @@ static inline size_t	buff_get_size_to_read(
 	return (slen);
 }
 
-bool	buff_read_until_s(
-	t_buff *const buff,
-	int fd,
-	const char *const s,
-	ssize_t slen)
+bool	buff_read_until_s(t_buff *buff, int fd, const char *s, ssize_t slen)
 {
 	size_t	target_read_len;
 	ssize_t	read_len;

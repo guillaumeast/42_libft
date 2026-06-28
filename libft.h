@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 19:23:22 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:48:30 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,20 @@
 /* ************************************************************************* */
 /*                                   TYPES                                   */
 /* ************************************************************************* */
+
+/**
+ * @brief Temporary pointer view used to reinterpret the same address with or
+ *        without const qualification.
+ *
+ * This helper does not duplicate data; it only exposes the same pointer as
+ * either const char * or char * when a borrowed string address must be
+ * returned through a non-const API.
+ */
+typedef union u_const_cast
+{
+	const char	*str;
+	char		*res;
+}	t_const_cast;
 
 /* --------------------------------- T_BUFF -------------------------------- */
 
@@ -63,7 +77,8 @@ typedef struct s_buff
  */
 typedef struct s_string
 {
-	/** @brief Pointer to the allocated data (owned, NUL-terminated if cap > 0). */
+	/** @brief Pointer to the allocated data
+				(owned, NUL-terminated if cap > 0). */
 	char	*data;
 	/** @brief Current allocated capacity (in bytes). */
 	size_t	cap;
@@ -394,7 +409,7 @@ void			btree_free(t_btree_node **node, void (*data_free)(void *data));
  * @param buff Pointer to an initialized buffer (borrowed).
  * @return true on success, false on memory allocation failure.
  */
-bool			buff_adjust(t_buff *const buff);
+bool			buff_adjust(t_buff *buff);
 
 /**
  * @ingroup buff
@@ -408,7 +423,7 @@ bool			buff_adjust(t_buff *const buff);
  * @param src Source buffer to append (borrowed, read-only).
  * @return true on success, false on memory allocation failure.
  */
-bool			buff_append(t_buff *const dst, const t_buff *const src);
+bool			buff_append(t_buff *dst, const t_buff *src);
 
 /**
  * @ingroup buff
@@ -425,11 +440,8 @@ bool			buff_append(t_buff *const dst, const t_buff *const src);
  * @param ... Variadic arguments for format specifiers.
  * @return true on success, false on failure.
  */
-bool			buff_append_format(
-						t_buff *const buff,
-						const char *const fstring,
-						...)
-					__attribute__((format(printf, 2, 3)));
+bool			buff_append_format(t_buff *buff, const char *fstring, ...)
+				__attribute__((format(printf, 2, 3)));
 
 /**
  * @ingroup buff
@@ -445,7 +457,7 @@ bool			buff_append_format(
  * @param n Number of bytes to append, or -1 to use str_len(str).
  * @return true on success, false on memory allocation failure.
  */
-bool			buff_append_n(t_buff *const b, const char *const str, long n);
+bool			buff_append_n(t_buff *b, const char *str, long n);
 
 /**
  * @ingroup buff
@@ -459,9 +471,9 @@ bool			buff_append_n(t_buff *const b, const char *const str, long n);
  * @return true on success, false on failure.
  */
 bool			buff_append_vformat(
-						t_buff *const buff,
-						const char *const fstring,
-						va_list args);
+					t_buff *buff,
+					const char *fstring,
+					va_list args);
 
 /**
  * @ingroup buff
@@ -474,7 +486,7 @@ bool			buff_append_vformat(
  * @return true if the buffers have the same length and content, false
  *         otherwise.
  */
-bool			buff_cmp(const t_buff *const a, const t_buff *const b);
+bool			buff_cmp(const t_buff *a, const t_buff *b);
 
 /**
  * @ingroup buff
@@ -488,7 +500,7 @@ bool			buff_cmp(const t_buff *const a, const t_buff *const b);
  * @param src Source buffer to duplicate (borrowed, initialized).
  * @return true on success, false on memory allocation failure.
  */
-bool			buff_dup(t_buff *const dst, const t_buff *const src);
+bool			buff_dup(t_buff *dst, const t_buff *src);
 
 /**
  * @ingroup buff
@@ -503,10 +515,7 @@ bool			buff_dup(t_buff *const dst, const t_buff *const src);
  * @param n Maximum number of bytes to copy.
  * @return true on success, false on memory allocation failure.
  */
-bool			buff_dup_n(
-					t_buff *const dst,
-					const t_buff *const src,
-					size_t n);
+bool			buff_dup_n(t_buff *dst, const t_buff *src, size_t n);
 
 /**
  * @ingroup buff
@@ -519,7 +528,7 @@ bool			buff_dup_n(
  *
  * @param buff Pointer to the buffer (borrowed).
  */
-void			buff_free(t_buff *const buff);
+void			buff_free(t_buff *buff);
 
 /**
  * @ingroup buff
@@ -533,7 +542,7 @@ void			buff_free(t_buff *const buff);
  *
  * @param buff Pointer to a t_buff item passed as void* (borrowed).
  */
-void			buff_free_void(void *const buff);
+void			buff_free_void(void *buff);
 
 /**
  * @ingroup buff
@@ -545,7 +554,7 @@ void			buff_free_void(void *const buff);
  * @param c Character to find.
  * @return Index of the character, or -1 if not found.
  */
-ssize_t			buff_get_index_c(const t_buff *const buff, char c);
+ssize_t			buff_get_index_c(const t_buff *buff, char c);
 
 /**
  * @ingroup buff
@@ -559,8 +568,8 @@ ssize_t			buff_get_index_c(const t_buff *const buff, char c);
  * @return Index of the substring, or -1 if not found.
  */
 ssize_t			buff_get_index_s(
-					const t_buff *const buff,
-					const char *const s,
+					const t_buff *buff,
+					const char *s,
 					ssize_t slen);
 
 /**
@@ -579,7 +588,7 @@ ssize_t			buff_get_index_s(
  * @param buff Pointer to an initialized buffer (borrowed, read-only).
  * @return Newly allocated string (owned by caller), or NULL on failure.
  */
-char			*buff_get_string(const t_buff *const buff);
+char			*buff_get_string(const t_buff *buff);
 
 /**
  * @ingroup buff
@@ -599,9 +608,9 @@ char			*buff_get_string(const t_buff *const buff);
  * @return true on success, false on memory allocation failure.
  */
 bool			buff_init(
-					t_buff *const buff,
+					t_buff *buff,
 					size_t initial_cap,
-					const char *const str,
+					const char *str,
 					long n);
 
 /**
@@ -618,10 +627,7 @@ bool			buff_init(
  * @param src Source buffer to insert (borrowed, read-only).
  * @return true on success, false on memory allocation failure.
  */
-bool			buff_insert(
-					t_buff *const dst,
-					size_t index,
-					const t_buff *const src);
+bool			buff_insert(t_buff *dst, size_t index, const t_buff *src);
 
 /**
  * @ingroup buff
@@ -639,11 +645,7 @@ bool			buff_insert(
  * @param n Number of bytes to insert, or -1 to use str_len(str).
  * @return true on success, false on memory allocation failure.
  */
-bool			buff_insert_n(
-						t_buff *const b,
-						size_t index,
-						const char *const str,
-						long n);
+bool			buff_insert_n(t_buff *b, size_t index, const char *str, long n);
 
 /**
  * @ingroup buff
@@ -657,7 +659,7 @@ bool			buff_insert_n(
  * @param src Source buffer to prepend (borrowed, read-only).
  * @return true on success, false on memory allocation failure.
  */
-bool			buff_prepend(t_buff *const dst, const t_buff *const src);
+bool			buff_prepend(t_buff *dst, const t_buff *src);
 
 /**
  * @ingroup buff
@@ -673,7 +675,7 @@ bool			buff_prepend(t_buff *const dst, const t_buff *const src);
  * @param n Number of bytes to prepend, or -1 to use str_len(str).
  * @return true on success, false on memory allocation failure.
  */
-bool			buff_prepend_n(t_buff *const b, const char *const str, long n);
+bool			buff_prepend_n(t_buff *b, const char *str, long n);
 
 /**
  * @ingroup buff
@@ -688,7 +690,7 @@ bool			buff_prepend_n(t_buff *const b, const char *const str, long n);
  * @param fd File descriptor to read from.
  * @return true on success, false if read failed (totally or partially).
  */
-bool			buff_read_all(t_buff *const buff, int fd);
+bool			buff_read_all(t_buff *buff, int fd);
 
 /**
  * @ingroup buff
@@ -704,7 +706,7 @@ bool			buff_read_all(t_buff *const buff, int fd);
  * @param c Character to search for.
  * @return true if c or EOF was encountered, false on memory or read error.
  */
-bool			buff_read_until_c(t_buff *const buff, int fd, char c);
+bool			buff_read_until_c(t_buff *buff, int fd, char c);
 
 /**
  * @ingroup buff
@@ -720,7 +722,7 @@ bool			buff_read_until_c(t_buff *const buff, int fd, char c);
  * @param n Number of bytes to read.
  * @return true on success or EOF, false on memory or read error.
  */
-bool			buff_read_until_n(t_buff *const buff, int fd, size_t n);
+bool			buff_read_until_n(t_buff *buff, int fd, size_t n);
 
 /**
  * @ingroup buff
@@ -736,9 +738,9 @@ bool			buff_read_until_n(t_buff *const buff, int fd, size_t n);
  * @return true if s or EOF was encountered, false on memory or read error.
  */
 bool			buff_read_until_s(
-					t_buff *const buff,
+					t_buff *buff,
 					int fd,
-					const char *const s,
+					const char *s,
 					ssize_t slen);
 
 /**
@@ -753,7 +755,7 @@ bool			buff_read_until_s(
  * @param i_start Starting index for removal.
  * @param len Number of bytes to remove, or negative to remove until end.
  */
-void			buff_rm_part(t_buff *const buff, size_t i_start, ssize_t len);
+void			buff_rm_part(t_buff *buff, size_t i_start, ssize_t len);
 
 /* ************************************************************************* */
 /*                                   CHR                                     */
@@ -1784,7 +1786,7 @@ char			*str_trim_leading(char const *s1, char const *set);
  * @param string Pointer to an initialized string (borrowed).
  * @return true on success, false on memory allocation failure.
  */
-bool			string_adjust(t_string *const string);
+bool			string_adjust(t_string *string);
 
 /**
  * @ingroup string
@@ -1798,7 +1800,7 @@ bool			string_adjust(t_string *const string);
  * @param src Source string to append (borrowed, read-only).
  * @return true on success, false on memory allocation failure.
  */
-bool			string_append(t_string *const dst, const t_string *const src);
+bool			string_append(t_string *dst, const t_string *src);
 
 /**
  * @ingroup string
@@ -1813,10 +1815,7 @@ bool			string_append(t_string *const dst, const t_string *const src);
  * @param ... Variadic arguments for format specifiers.
  * @return true on success, false on failure.
  */
-bool			string_append_format(
-					t_string *const string,
-					const char *const fstring,
-					...)
+bool			string_append_format(t_string *string, const char *fstring, ...)
 				__attribute__((format(printf, 2, 3)));
 
 /**
@@ -1833,10 +1832,7 @@ bool			string_append_format(
  * @param n Number of bytes to append, or -1 to use str_len(str).
  * @return true on success, false on memory allocation failure.
  */
-bool			string_append_n(
-					t_string *const s,
-					const char *const str,
-					long n);
+bool			string_append_n(t_string *s, const char *str, long n);
 
 /**
  * @ingroup string
@@ -1850,8 +1846,8 @@ bool			string_append_n(
  * @return true on success, false on failure.
  */
 bool			string_append_vformat(
-					t_string *const string,
-					const char *const fstring,
+					t_string *string,
+					const char *fstring,
 					va_list args);
 
 /**
@@ -1865,7 +1861,7 @@ bool			string_append_vformat(
  * @return true if the strings have the same length and content, false
  *         otherwise.
  */
-bool			string_cmp(const t_string *const a, const t_string *const b);
+bool			string_cmp(const t_string *a, const t_string *b);
 
 /**
  * @ingroup string
@@ -1879,7 +1875,7 @@ bool			string_cmp(const t_string *const a, const t_string *const b);
  * @param src Source string to duplicate (borrowed, initialized).
  * @return true on success, false on memory allocation failure.
  */
-bool			string_dup(t_string *const dst, const t_string *const src);
+bool			string_dup(t_string *dst, const t_string *src);
 
 /**
  * @ingroup string
@@ -1894,10 +1890,7 @@ bool			string_dup(t_string *const dst, const t_string *const src);
  * @param n Maximum number of bytes to copy.
  * @return true on success, false on memory allocation failure.
  */
-bool			string_dup_n(
-					t_string *const dst,
-					const t_string *const src,
-					size_t n);
+bool			string_dup_n(t_string *dst, const t_string *src, size_t n);
 
 /**
  * @ingroup string
@@ -1910,7 +1903,7 @@ bool			string_dup_n(
  *
  * @param string Pointer to the string (borrowed).
  */
-void			string_free(t_string *const string);
+void			string_free(t_string *string);
 
 /**
  * @ingroup string
@@ -1936,7 +1929,7 @@ void			string_free_void(void *string);
  * @param c Character to find.
  * @return Index of the character, or -1 if not found.
  */
-ssize_t			string_get_index_c(const t_string *const string, char c);
+ssize_t			string_get_index_c(const t_string *string, char c);
 
 /**
  * @ingroup string
@@ -1950,8 +1943,8 @@ ssize_t			string_get_index_c(const t_string *const string, char c);
  * @return Index of the substring, or -1 if not found.
  */
 ssize_t			string_get_index_s(
-					const t_string *const string,
-					const char *const s,
+					const t_string *string,
+					const char *s,
 					ssize_t slen);
 
 /**
@@ -1976,9 +1969,9 @@ ssize_t			string_get_index_s(
  * @return true on success, false on memory allocation failure.
  */
 bool			string_init(
-					t_string *const s,
+					t_string *s,
 					size_t initial_cap,
-					const char *const str,
+					const char *str,
 					long n);
 
 /**
@@ -1995,10 +1988,7 @@ bool			string_init(
  * @param src Source string to insert (borrowed, read-only).
  * @return true on success, false on memory allocation failure.
  */
-bool			string_insert(
-					t_string *const dst,
-					size_t index,
-					const t_string *const src);
+bool			string_insert(t_string *dst, size_t index, const t_string *src);
 
 /**
  * @ingroup string
@@ -2017,9 +2007,9 @@ bool			string_insert(
  * @return true on success, false on memory allocation failure.
  */
 bool			string_insert_n(
-					t_string *const s,
+					t_string *s,
 					size_t index,
-					const char *const str,
+					const char *str,
 					long n);
 
 /**
@@ -2034,7 +2024,7 @@ bool			string_insert_n(
  * @param src Source string to prepend (borrowed, read-only).
  * @return true on success, false on memory allocation failure.
  */
-bool			string_prepend(t_string *const dst, const t_string *const src);
+bool			string_prepend(t_string *dst, const t_string *src);
 
 /**
  * @ingroup string
@@ -2050,10 +2040,7 @@ bool			string_prepend(t_string *const dst, const t_string *const src);
  * @param n Number of bytes to prepend, or -1 to use str_len(str).
  * @return true on success, false on memory allocation failure.
  */
-bool			string_prepend_n(
-					t_string *const s,
-					const char *const str,
-					long n);
+bool			string_prepend_n(t_string *s, const char *str, long n);
 
 /**
  * @ingroup string
@@ -2068,7 +2055,7 @@ bool			string_prepend_n(
  * @param fd File descriptor to read from.
  * @return true on success, false if read failed.
  */
-bool			string_read_all(t_string *const string, int fd);
+bool			string_read_all(t_string *string, int fd);
 
 /**
  * @ingroup string
@@ -2084,7 +2071,7 @@ bool			string_read_all(t_string *const string, int fd);
  * @param c Character to search for.
  * @return true if c or EOF was encountered, false on memory or read error.
  */
-bool			string_read_until_c(t_string *const string, int fd, char c);
+bool			string_read_until_c(t_string *string, int fd, char c);
 
 /**
  * @ingroup string
@@ -2100,7 +2087,7 @@ bool			string_read_until_c(t_string *const string, int fd, char c);
  * @param n Number of bytes to read.
  * @return true on success or EOF, false on memory or read error.
  */
-bool			string_read_until_n(t_string *const string, int fd, size_t n);
+bool			string_read_until_n(t_string *string, int fd, size_t n);
 
 /**
  * @ingroup string
@@ -2118,9 +2105,9 @@ bool			string_read_until_n(t_string *const string, int fd, size_t n);
  * @return true if s or EOF was encountered, false on memory or read error.
  */
 bool			string_read_until_s(
-					t_string *const string,
+					t_string *string,
 					int fd,
-					const char *const s,
+					const char *s,
 					ssize_t slen);
 
 /**
@@ -2135,10 +2122,25 @@ bool			string_read_until_s(
  * @param i_start Starting index for removal.
  * @param len Number of bytes to remove, or negative to remove until end.
  */
-void			string_rm_part(
-					t_string *const string,
-					size_t i_start,
-					ssize_t len);
+void			string_rm_part(t_string *string, size_t i_start, ssize_t len);
+
+/**
+ * @ingroup string
+ * @brief Takes ownership of an existing buffer and installs it in a string.
+ *
+ * The buffer is not copied. The string structure is updated to reference the
+ * provided storage directly.
+ *
+ * @warning dst must point to an initialized t_string.
+ * @warning src becomes owned by dst on success and must not be freed by the
+ *          caller afterwards.
+ *
+ * @param dst Destination string to update (borrowed).
+ * @param src Buffer to take ownership of (ownership transferred).
+ * @param cap Capacity of src, in bytes.
+ * @param len Logical length of the string stored in src.
+ */
+void			string_take(t_string *dst, char *src, size_t cap, size_t len);
 
 /* ************************************************************************* */
 /*                                  VECTOR                                   */

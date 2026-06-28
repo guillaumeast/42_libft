@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:29:29 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 19:03:14 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:33:06 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-bool	string_read_until_c(t_string *const string, int fd, char c)
+bool	string_read_until_c(t_string *string, int fd, char c)
 {
 	ssize_t	read_len;
 
@@ -29,7 +29,9 @@ bool	string_read_until_c(t_string *const string, int fd, char c)
 			break ;
 		}
 		read_len = string_read_n_bytes(string, fd, 1);
-		if (read_len > 0 && string->len > 0 && string->data[string->len - 1] == c)
+		if (read_len > 0
+			&& string->len > 0
+			&& string->data[string->len - 1] == c)
 			break ;
 	}
 	string->data[string->len] = '\0';
@@ -37,7 +39,7 @@ bool	string_read_until_c(t_string *const string, int fd, char c)
 	return (read_len >= 0);
 }
 
-bool	string_read_until_n(t_string *const string, int fd, size_t n)
+bool	string_read_until_n(t_string *string, int fd, size_t n)
 {
 	ssize_t	read_len;
 
@@ -49,7 +51,7 @@ bool	string_read_until_n(t_string *const string, int fd, size_t n)
 	return (read_len >= 0);
 }
 
-bool	string_read_all(t_string *const string, int fd)
+bool	string_read_all(t_string *string, int fd)
 {
 	ssize_t	read_len;
 

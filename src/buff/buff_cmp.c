@@ -6,13 +6,13 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 18:27:52 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/27 16:54:51 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:19:12 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-bool	buff_cmp(const t_buff *const a, const t_buff *const b)
+bool	buff_cmp(const t_buff *a, const t_buff *b)
 {
 	size_t	i;
 

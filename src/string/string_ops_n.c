@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_ops.c                                         :+:      :+:    :+:   */
+/*   string_ops_n.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/04/28 14:02:37 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:32:34 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "string_internal.h"
 #include <stdlib.h>
 
-bool	string_prepend_n(t_string *const s, const char *const str, long n)
+bool	string_prepend_n(t_string *s, const char *str, long n)
 {
 	size_t	strlen;
 	char	*new_data;
@@ -43,11 +43,7 @@ bool	string_prepend_n(t_string *const s, const char *const str, long n)
 	return (true);
 }
 
-bool	string_insert_n(
-	t_string *const s,
-	size_t index,
-	const char *const str,
-	long n)
+bool	string_insert_n(t_string *s, size_t index, const char *str, long n)
 {
 	size_t	strlen;
 	char	*new_data;
@@ -73,11 +69,10 @@ bool	string_insert_n(
 		ft_memmove(s->data + index + strlen, s->data + index, s->len - index);
 	ft_memcpy(s->data + index, str, strlen);
 	s->len = s->len + strlen;
-	s->data[s->len] = '\0';
-	return (true);
+	return (s->data[s->len] = '\0', true);
 }
 
-bool	string_append_n(t_string *const s, const char *const str, long n)
+bool	string_append_n(t_string *s, const char *str, long n)
 {
 	size_t	strlen;
 
@@ -93,7 +88,7 @@ bool	string_append_n(t_string *const s, const char *const str, long n)
 	return (true);
 }
 
-bool	string_dup_n(t_string *const dst, const t_string *const src, size_t n)
+bool	string_dup_n(t_string *dst, const t_string *src, size_t n)
 {
 	if (n > src->len)
 		n = src->len;

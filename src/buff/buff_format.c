@@ -6,14 +6,14 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:33 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 18:47:50 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:19:31 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "buff_format.h"
 #include <stdlib.h>
 
-bool	buff_append_format(t_buff *const buff, const char *const fstring, ...)
+bool	buff_append_format(t_buff *buff, const char *fstring, ...)
 {
 	va_list	args;
 	bool	success;
@@ -24,10 +24,7 @@ bool	buff_append_format(t_buff *const buff, const char *const fstring, ...)
 	return (success);
 }
 
-bool	buff_append_vformat(
-	t_buff *const buff,
-	const char *const fstring,
-	va_list args)
+bool	buff_append_vformat(t_buff *buff, const char *fstring, va_list args)
 {
 	const char	*next_conversion;
 	t_rules		rules;

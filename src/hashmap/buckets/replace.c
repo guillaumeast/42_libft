@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:43:08 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/20 15:15:34 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:40:19 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	bucket_replace(t_list bucket, t_key_value *new, void (*del)(void *))
 {
 	t_key_value	*pair;
 	t_node		*entry;
-	
+
 	entry = bucket;
 	while (entry != NULL)
 	{
@@ -26,7 +26,7 @@ void	bucket_replace(t_list bucket, t_key_value *new, void (*del)(void *))
 		{
 			key_value_free(&pair, del);
 			entry->content = new;
-			return;
+			return ;
 		}
 		entry = entry->next;
 	}

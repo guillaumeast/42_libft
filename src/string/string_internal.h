@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 02:13:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 18:40:50 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:08:53 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ bool	string_grow(t_string *string, size_t target_cap);
  * @param n Maximum number of bytes to read.
  * @return Number of bytes read, or -1 on read error.
  */
-ssize_t	string_read_n_bytes(t_string *const string, int fd, size_t n);
+ssize_t	string_read_n_bytes(t_string *string, int fd, size_t n);
 
 #endif

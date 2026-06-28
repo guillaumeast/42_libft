@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:53:40 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/20 15:20:58 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:38:59 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static bool	hashmap_redistribution(t_hashmap *map, t_vector *prev_buckets)
 	bucket_i = 0;
 	while (bucket_i < prev_buckets->len)
 	{
-		entry = ((t_list*)prev_buckets->data)[bucket_i];
+		entry = ((t_list *)prev_buckets->data)[bucket_i];
 		while (entry != NULL)
 		{
 			pair = entry->content;
@@ -51,7 +51,7 @@ static bool	hashmap_redistribution(t_hashmap *map, t_vector *prev_buckets)
 			entry = entry->next;
 		}
 		bucket_i++;
-	}	
+	}
 	return (true);
 }
 
@@ -59,8 +59,8 @@ bool	hashmap_resize(t_hashmap *map)
 {
 	size_t		new_cap;
 	size_t		prev_size;
-	t_vector 	prev_buckets;
-	
+	t_vector	prev_buckets;
+
 	prev_size = map->size;
 	if (map->buckets.cap == 0)
 		new_cap = HASHMAP_INIT_CAP;

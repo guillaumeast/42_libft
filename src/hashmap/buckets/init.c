@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:33:17 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/20 15:23:21 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:39:54 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	bucket_free(void *bucket_ptr, void (*del)(void *))
 	}
 	list_rm_all((t_list *)bucket_ptr, NULL);
 }
+
 bool	buckets_init(t_vector *buckets, size_t init_cap)
 {
 	if (!vector_init(buckets, sizeof(t_list), init_cap))

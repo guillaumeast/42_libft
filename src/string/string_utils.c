@@ -6,14 +6,14 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:29:25 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 18:58:14 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:12:00 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-bool	string_adjust(t_string *const string)
+bool	string_adjust(t_string *string)
 {
 	char	*new_data;
 	size_t	new_cap;
@@ -34,7 +34,7 @@ bool	string_adjust(t_string *const string)
 	return (true);
 }
 
-ssize_t	string_get_index_c(const t_string *const string, char c)
+ssize_t	string_get_index_c(const t_string *string, char c)
 {
 	size_t	i;
 
@@ -48,10 +48,7 @@ ssize_t	string_get_index_c(const t_string *const string, char c)
 	return (-1);
 }
 
-ssize_t	string_get_index_s(
-	const t_string *const string,
-	const char *const s,
-	ssize_t slen)
+ssize_t	string_get_index_s(const t_string *string, const char *s, ssize_t slen)
 {
 	size_t	i;
 	size_t	j;

@@ -6,14 +6,14 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 16:22:55 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/20 13:50:37 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:40:02 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUCKETS_H
 # define BUCKETS_H
 
-#include "libft.h"
+# include "libft.h"
 
 /**
  * @brief Initializes the bucket array.

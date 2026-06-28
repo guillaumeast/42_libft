@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_read_until_s.c                                :+:      :+:    :+:   */
+/*   string_read_until_s.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/27 16:55:42 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 17:41:28 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:32:41 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-static inline bool	string_find_last_char_from(
-	char c,
-	const char *const s,
-	size_t *const i)
+static inline bool	string_find_last_char_from(char c, const char *s, size_t *i)
 {
 	size_t	j;
 
@@ -37,9 +34,9 @@ static inline bool	string_find_last_char_from(
 }
 
 static inline bool	string_beginning_of_string_is_valid(
-	const t_string *const string,
-	const char *const s,
-	size_t i)
+						const t_string *string,
+						const char *s,
+						size_t i)
 {
 	size_t	j;
 
@@ -56,9 +53,9 @@ static inline bool	string_beginning_of_string_is_valid(
 }
 
 static inline size_t	string_get_size_to_read(
-	const t_string *const string,
-	const char *const target_string,
-	size_t slen)
+							const t_string *string,
+							const char *target_string,
+							size_t slen)
 {
 	size_t	i;
 	char	c;
@@ -77,9 +74,9 @@ static inline size_t	string_get_size_to_read(
 }
 
 bool	string_read_until_s(
-	t_string *const string,
+	t_string *string,
 	int fd,
-	const char *const s,
+	const char *s,
 	ssize_t slen)
 {
 	size_t	target_read_len;

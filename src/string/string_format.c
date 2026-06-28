@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_format.c                                      :+:      :+:    :+:   */
+/*   string_format.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:33 by gastesan          #+#    #+#             */
-/*   Updated: 2026/02/05 18:32:42 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:32:12 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-bool	string_append_format(
-	t_string *const string,
-	const char *const fstring,
-	...)
+bool	string_append_format(t_string *string, const char *fstring, ...)
 {
 	va_list	args;
 	bool	success;
@@ -28,8 +25,8 @@ bool	string_append_format(
 }
 
 bool	string_append_vformat(
-	t_string *const string,
-	const char *const fstring,
+	t_string *string,
+	const char *fstring,
 	va_list args)
 {
 	t_buff	buff;

@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/27 14:13:43 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 19:00:28 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:08:41 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ bool	string_grow(t_string *string, size_t target_cap)
 	return (true);
 }
 
-ssize_t	string_read_n_bytes(t_string *const string, int fd, size_t n)
+ssize_t	string_read_n_bytes(t_string *string, int fd, size_t n)
 {
 	size_t	target_read_len;
 	ssize_t	read_len;

@@ -6,14 +6,14 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:36:16 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/20 14:08:43 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:38:27 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRIV_HASHMAP_H
 # define PRIV_HASHMAP_H
 
-#include "libft.h"
+# include "libft.h"
 
 /**
  * @brief Default string hash function (djb2).
@@ -27,7 +27,7 @@
 size_t		hash_string(const char *key);
 
 // TODO: doc
-bool	hashmap_need_resize(t_hashmap *map, const char *key);
+bool		hashmap_need_resize(t_hashmap *map, const char *key);
 
 /**
  * @brief Doubles the bucket capacity and rehashes every stored pair.

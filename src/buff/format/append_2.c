@@ -6,19 +6,19 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:41 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 18:48:28 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:13:54 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-bool	append_char(t_buff *const buff, char c)
+bool	append_char(t_buff *buff, char c)
 {
 	return (buff_append_n(buff, &c, 1));
 }
 
-bool	append_int(t_buff *const buff, int nb)
+bool	append_int(t_buff *buff, int nb)
 {
 	char	*tmp;
 	bool	success;
@@ -31,7 +31,7 @@ bool	append_int(t_buff *const buff, int nb)
 	return (success);
 }
 
-bool	append_uint(t_buff *const buff, unsigned int nb)
+bool	append_uint(t_buff *buff, unsigned int nb)
 {
 	char	*tmp;
 	bool	success;
@@ -44,7 +44,7 @@ bool	append_uint(t_buff *const buff, unsigned int nb)
 	return (success);
 }
 
-bool	append_hex(t_buff *const buff, unsigned long nb, bool uppercase)
+bool	append_hex(t_buff *buff, unsigned long nb, bool uppercase)
 {
 	char				*tmp;
 	bool				success;
@@ -62,14 +62,7 @@ bool	append_hex(t_buff *const buff, unsigned long nb, bool uppercase)
 	return (success);
 }
 
-/**
- * @brief Appends a pointer address to the buffer.
- *
- * @param buff Pointer to the buffer.
- * @param nb Pointer value as unsigned long.
- * @return true on success, false on failure.
- */
-bool	append_ptr(t_buff *const buff, unsigned long nb)
+bool	append_ptr(t_buff *buff, unsigned long nb)
 {
 	if (nb == 0)
 		return (buff_append_n(buff, "(nil)", 5));

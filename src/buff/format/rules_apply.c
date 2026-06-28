@@ -6,32 +6,12 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:47 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 18:48:56 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:31:02 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "buff_format.h"
 #include <stdlib.h>
-
-static bool	apply_precision(t_buff *const buff, const t_rules *const rules);
-static bool	apply_plus_space(t_buff *const buff, const t_rules *const r);
-static bool	apply_hex_prefix(t_buff *const buff, const t_rules *const rules);
-static bool	apply_width(t_buff *const buff, const t_rules *const rules);
-
-bool	rules_apply(t_buff *const buff, t_rules *const rules)
-{
-	if (buff->len == 1 && buff->data[0] == '0')
-		rules->is_zero = true;
-	if (rules->precision != -1 && !apply_precision(buff, rules))
-		return (false);
-	if ((rules->plus || rules->space) && !apply_plus_space(buff, rules))
-		return (false);
-	if (rules->hex_prefix && !apply_hex_prefix(buff, rules))
-		return (false);
-	if (rules->width_enabled && !apply_width(buff, rules))
-		return (false);
-	return (true);
-}
 
 /**
  * @brief Applies precision formatting to the buffer.
@@ -40,7 +20,7 @@ bool	rules_apply(t_buff *const buff, t_rules *const rules)
  * @param rules Pointer to the formatting rules.
  * @return true on success, false on failure.
  */
-static bool	apply_precision(t_buff *const buff, const t_rules *const rules)
+static inline bool	apply_precision(t_buff *buff, const t_rules *rules)
 {
 	size_t	len_without_sign;
 	long	zeros_len;
@@ -76,19 +56,19 @@ static bool	apply_precision(t_buff *const buff, const t_rules *const rules)
  * @param r Pointer to the formatting rules.
  * @return true on success, false on failure.
  */
-static bool	apply_plus_space(t_buff *const buff, const t_rules *const r)
+static inline bool	apply_plus_space(t_buff *buff, const t_rules *rules)
 {
 	char	sign;
 
 	if (buff->data[0] == '-')
 		return (true);
 	sign = buff->data[0];
-	if (r->plus)
+	if (rules->plus)
 	{
 		sign = '+';
 		return (buff_prepend_n(buff, &sign, 1));
 	}
-	else if (r->space)
+	else if (rules->space)
 	{
 		sign = ' ';
 		return (buff_prepend_n(buff, &sign, 1));
@@ -103,7 +83,7 @@ static bool	apply_plus_space(t_buff *const buff, const t_rules *const r)
  * @param rules Pointer to the formatting rules.
  * @return true on success, false on failure.
  */
-static bool	apply_hex_prefix(t_buff *const buff, const t_rules *const rules)
+static inline bool	apply_hex_prefix(t_buff *buff, const t_rules *rules)
 {
 	char	prefix[2];
 
@@ -126,31 +106,46 @@ static bool	apply_hex_prefix(t_buff *const buff, const t_rules *const rules)
  * @param r Pointer to the formatting rules.
  * @return true on success, false on failure.
  */
-static bool	apply_width(t_buff *const b, const t_rules *const r)
+static inline bool	apply_width(t_buff *buff, const t_rules *rules)
 {
 	char	*padding;
 	size_t	padding_len;
 	bool	success;
 
-	if (b->len >= (size_t)r->width)
+	if (buff->len >= (size_t)rules->width)
 		return (true);
-	padding_len = (size_t)r->width - b->len;
+	padding_len = (size_t)rules->width - buff->len;
 	padding = malloc(padding_len);
 	if (!padding)
 		return (false);
-	if (r->zero_padding)
+	if (rules->zero_padding)
 		ft_memset(padding, '0', padding_len);
 	else
 		ft_memset(padding, ' ', padding_len);
-	if (r->right_padding)
-		success = buff_append_n(b, padding, (long)padding_len);
-	else if (r->zero_padding && b->len > 0
-		&& (b->data[0] == '-' || r->plus || r->space))
-		success = buff_insert_n(b, 1, padding, (long)padding_len);
-	else if (r->zero_padding && b->len >= 2 && b->data[0] == '0'
-		&& (b->data[1] == 'x' || b->data[1] == 'X'))
-		success = buff_insert_n(b, 2, padding, (long)padding_len);
+	if (rules->right_padding)
+		success = buff_append_n(buff, padding, (long)padding_len);
+	else if (rules->zero_padding && buff->len > 0
+		&& (buff->data[0] == '-' || rules->plus || rules->space))
+		success = buff_insert_n(buff, 1, padding, (long)padding_len);
+	else if (rules->zero_padding && buff->len >= 2 && buff->data[0] == '0'
+		&& (buff->data[1] == 'x' || buff->data[1] == 'X'))
+		success = buff_insert_n(buff, 2, padding, (long)padding_len);
 	else
-		success = buff_prepend_n(b, padding, (long)padding_len);
+		success = buff_prepend_n(buff, padding, (long)padding_len);
 	return (free(padding), success);
+}
+
+bool	rules_apply(t_buff *buff, t_rules *rules)
+{
+	if (buff->len == 1 && buff->data[0] == '0')
+		rules->is_zero = true;
+	if (rules->precision != -1 && !apply_precision(buff, rules))
+		return (false);
+	if ((rules->plus || rules->space) && !apply_plus_space(buff, rules))
+		return (false);
+	if (rules->hex_prefix && !apply_hex_prefix(buff, rules))
+		return (false);
+	if (rules->width_enabled && !apply_width(buff, rules))
+		return (false);
+	return (true);
 }

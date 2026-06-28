@@ -6,18 +6,14 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:37 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 18:47:33 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:20:10 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-bool	buff_init(
-	t_buff *const buff,
-	size_t initial_cap,
-	const char *const str,
-	long n)
+bool	buff_init(t_buff *buff, size_t initial_cap, const char *str, long n)
 {
 	buff->data = NULL;
 	buff->cap = 0;
@@ -34,7 +30,7 @@ bool	buff_init(
 	return (true);
 }
 
-void	buff_free(t_buff *const buff)
+void	buff_free(t_buff *buff)
 {
 	if (buff->data)
 		free(buff->data);
@@ -43,7 +39,7 @@ void	buff_free(t_buff *const buff)
 	buff->data = NULL;
 }
 
-void	buff_free_void(void *const buff)
+void	buff_free_void(void *buff)
 {
 	buff_free(buff);
 }

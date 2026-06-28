@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:34:48 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/11 18:43:53 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/28 14:40:31 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_key_value	*key_value_new(const char *key, void *value)
 void	key_value_free(t_key_value **pair, void (*del)(void *))
 {
 	if (pair == NULL || *pair == NULL)
-		return ;	
+		return ;
 	if (del)
 		del((*pair)->value);
 	free((*pair)->key);

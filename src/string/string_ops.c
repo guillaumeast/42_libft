@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_ops.c                                         :+:      :+:    :+:   */
+/*   string_ops.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/04/28 14:02:37 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:32:37 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-bool	string_prepend(t_string *const dst, const t_string *const src)
+bool	string_prepend(t_string *dst, const t_string *src)
 {
 	return (string_prepend_n(dst, src->data, (long)src->len));
 }
@@ -26,17 +26,17 @@ bool	string_insert(
 	return (string_insert_n(dst, index, src->data, (long)src->len));
 }
 
-bool	string_append(t_string *const dst, const t_string *const src)
+bool	string_append(t_string *dst, const t_string *src)
 {
 	return (string_append_n(dst, src->data, (long)src->len));
 }
 
-bool	string_dup(t_string *const dst, const t_string *const src)
+bool	string_dup(t_string *dst, const t_string *src)
 {
 	return (string_dup_n(dst, src, src->len));
 }
 
-void	string_rm_part(t_string *const string, size_t i_start, ssize_t len)
+void	string_rm_part(t_string *string, size_t i_start, ssize_t len)
 {
 	char	*dst;
 	char	*src;

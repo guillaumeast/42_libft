@@ -6,14 +6,14 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:29:25 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 17:40:08 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:22:42 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-bool	buff_adjust(t_buff *const buff)
+bool	buff_adjust(t_buff *buff)
 {
 	char	*new_data;
 
@@ -37,7 +37,7 @@ bool	buff_adjust(t_buff *const buff)
 	return (true);
 }
 
-ssize_t	buff_get_index_c(const t_buff *const buff, char c)
+ssize_t	buff_get_index_c(const t_buff *buff, char c)
 {
 	size_t	i;
 
@@ -51,10 +51,7 @@ ssize_t	buff_get_index_c(const t_buff *const buff, char c)
 	return (-1);
 }
 
-ssize_t	buff_get_index_s(
-	const t_buff *const buff,
-	const char *const s,
-	ssize_t slen)
+ssize_t	buff_get_index_s(const t_buff *buff, const char *s, ssize_t slen)
 {
 	size_t	i;
 	size_t	j;
@@ -80,7 +77,7 @@ ssize_t	buff_get_index_s(
 	return (-1);
 }
 
-char	*buff_get_string(const t_buff *const buff)
+char	*buff_get_string(const t_buff *buff)
 {
 	char		*res;
 	size_t		len;

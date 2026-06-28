@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:44 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 19:15:21 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:15:22 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ typedef struct s_rules
  * @param rules Pointer to the rules structure to populate.
  * @param fstring Pointer to format string pointer (advanced by parsing).
  */
-void	rules_parse(t_rules *const rules, const char **const fstring);
+void	rules_parse(t_rules *rules, const char **const fstring);
 
 /**
  * @brief Applies formatting rules to a buffer.
@@ -69,7 +69,7 @@ void	rules_parse(t_rules *const rules, const char **const fstring);
  * @param rules Pointer to the rules structure.
  * @return true on success, false on failure.
  */
-bool	rules_apply(t_buff *const buff, t_rules *const rules);
+bool	rules_apply(t_buff *buff, t_rules *rules);
 
 /**
  * @brief Appends formatted argument to buffer based on rules.
@@ -79,10 +79,7 @@ bool	rules_apply(t_buff *const buff, t_rules *const rules);
  * @param args Pointer to the variable argument list.
  * @return true on success, false on failure.
  */
-bool	append(
-			t_buff *const buff,
-			t_rules *const rules,
-			va_list *const args);
+bool	append(t_buff *buff, t_rules *rules, va_list *args);
 
 /**
  * @brief Appends a character to the buffer.
@@ -91,7 +88,7 @@ bool	append(
  * @param c Character to append.
  * @return true on success, false on failure.
  */
-bool	append_char(t_buff *const buff, char c);
+bool	append_char(t_buff *buff, char c);
 
 /**
  * @brief Appends an integer to the buffer as a string.
@@ -100,7 +97,7 @@ bool	append_char(t_buff *const buff, char c);
  * @param nb Integer to append.
  * @return true on success, false on failure.
  */
-bool	append_int(t_buff *const buff, int nb);
+bool	append_int(t_buff *buff, int nb);
 
 /**
  * @brief Appends an unsigned integer to the buffer as a string.
@@ -109,7 +106,7 @@ bool	append_int(t_buff *const buff, int nb);
  * @param nb Unsigned integer to append.
  * @return true on success, false on failure.
  */
-bool	append_uint(t_buff *const buff, unsigned int nb);
+bool	append_uint(t_buff *buff, unsigned int nb);
 
 /**
  * @brief Appends a number in hexadecimal format to the buffer.
@@ -119,7 +116,7 @@ bool	append_uint(t_buff *const buff, unsigned int nb);
  * @param uppercase Use uppercase letters if true.
  * @return true on success, false on failure.
  */
-bool	append_hex(t_buff *const buff, unsigned long nb, bool uppercase);
+bool	append_hex(t_buff *buff, unsigned long nb, bool uppercase);
 
 /**
  * @brief Appends a pointer address to the buffer.
@@ -128,6 +125,6 @@ bool	append_hex(t_buff *const buff, unsigned long nb, bool uppercase);
  * @param nb Pointer value as unsigned long.
  * @return true on success, false on failure.
  */
-bool	append_ptr(t_buff *const buff, unsigned long nb);
+bool	append_ptr(t_buff *buff, unsigned long nb);
 
 #endif

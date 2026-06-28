@@ -6,13 +6,13 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 18:27:52 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/27 18:38:51 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:07:49 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-bool	string_cmp(const t_string *const a, const t_string *const b)
+bool	string_cmp(const t_string *a, const t_string *b)
 {
 	size_t	i;
 

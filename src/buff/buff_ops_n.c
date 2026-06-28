@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 19:13:51 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:20:38 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "buff_internal.h"
 #include <stdlib.h>
 
-bool	buff_prepend_n(t_buff *const b, const char *const str, long n)
+bool	buff_prepend_n(t_buff *b, const char *str, long n)
 {
 	size_t	strlen;
 	char	*new_data;
@@ -43,11 +43,7 @@ bool	buff_prepend_n(t_buff *const b, const char *const str, long n)
 	return (b->len = b->len + strlen, true);
 }
 
-bool	buff_insert_n(
-	t_buff *const b,
-	size_t index,
-	const char *const str,
-	long n)
+bool	buff_insert_n(t_buff *b, size_t index, const char *str, long n)
 {
 	size_t	strlen;
 	char	*new_data;
@@ -76,7 +72,7 @@ bool	buff_insert_n(
 	return (b->len = b->len + strlen, true);
 }
 
-bool	buff_append_n(t_buff *const b, const char *const str, long n)
+bool	buff_append_n(t_buff *b, const char *str, long n)
 {
 	size_t	strlen;
 
@@ -93,7 +89,7 @@ bool	buff_append_n(t_buff *const b, const char *const str, long n)
 	return (true);
 }
 
-bool	buff_dup_n(t_buff *const dst, const t_buff *const src, size_t n)
+bool	buff_dup_n(t_buff *dst, const t_buff *src, size_t n)
 {
 	if (n > src->len)
 		n = src->len;

@@ -6,43 +6,11 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:50 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 17:11:44 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:31:08 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "buff_format.h"
-
-static void	parse_flags(t_rules *const rules, const char **const fstring);
-static void	parse_width(t_rules *const rules, const char **const fstring);
-static void	parse_precision(t_rules *const rules, const char **const fstring);
-static void	normalize(t_rules *const rules);
-
-void	rules_parse(t_rules *const rules, const char **const fstring)
-{
-	const char	conversion_set[] = "csdiuxXp";
-
-	rules->plus = false;
-	rules->space = false;
-	rules->hex_prefix = false;
-	rules->zero_padding = false;
-	rules->right_padding = false;
-	rules->precision = -1;
-	rules->width_enabled = false;
-	rules->width = -1;
-	rules->conversion = '\0';
-	rules->is_zero = false;
-	if (**fstring != '%')
-	{
-		parse_flags(rules, fstring);
-		if (**fstring != '.' && !ft_isincharset(**fstring, conversion_set))
-			parse_width(rules, fstring);
-		if (**fstring == '.')
-			parse_precision(rules, fstring);
-	}
-	rules->conversion = **fstring;
-	normalize(rules);
-	(*fstring)++;
-}
 
 /**
  * @brief Parses flag characters from the format string.
@@ -50,7 +18,7 @@ void	rules_parse(t_rules *const rules, const char **const fstring)
  * @param rules Pointer to the rules structure.
  * @param fstring Pointer to format string pointer.
  */
-static void	parse_flags(t_rules *const rules, const char **const fstring)
+static void	parse_flags(t_rules *rules, const char **const fstring)
 {
 	const char	flag_set[] = "-0# +";
 	char		c;
@@ -78,7 +46,7 @@ static void	parse_flags(t_rules *const rules, const char **const fstring)
  * @param rules Pointer to the rules structure.
  * @param fstring Pointer to format string pointer.
  */
-static void	parse_width(t_rules *const rules, const char **const fstring)
+static void	parse_width(t_rules *rules, const char **const fstring)
 {
 	rules->width_enabled = true;
 	rules->width = ft_atoi(*fstring);
@@ -92,7 +60,7 @@ static void	parse_width(t_rules *const rules, const char **const fstring)
  * @param rules Pointer to the rules structure.
  * @param fstring Pointer to format string pointer.
  */
-static void	parse_precision(t_rules *const rules, const char **const fstring)
+static void	parse_precision(t_rules *rules, const char **const fstring)
 {
 	(*fstring)++;
 	rules->precision = ft_atoi(*fstring);
@@ -105,7 +73,7 @@ static void	parse_precision(t_rules *const rules, const char **const fstring)
  *
  * @param rules Pointer to the rules structure.
  */
-static void	normalize(t_rules *const rules)
+static void	normalize(t_rules *rules)
 {
 	char	conv;
 
@@ -132,4 +100,31 @@ static void	normalize(t_rules *const rules)
 	}
 	if (rules->right_padding || rules->precision != -1)
 		rules->zero_padding = false;
+}
+
+void	rules_parse(t_rules *rules, const char **const fstring)
+{
+	const char	conversion_set[] = "csdiuxXp";
+
+	rules->plus = false;
+	rules->space = false;
+	rules->hex_prefix = false;
+	rules->zero_padding = false;
+	rules->right_padding = false;
+	rules->precision = -1;
+	rules->width_enabled = false;
+	rules->width = -1;
+	rules->conversion = '\0';
+	rules->is_zero = false;
+	if (**fstring != '%')
+	{
+		parse_flags(rules, fstring);
+		if (**fstring != '.' && !ft_isincharset(**fstring, conversion_set))
+			parse_width(rules, fstring);
+		if (**fstring == '.')
+			parse_precision(rules, fstring);
+	}
+	rules->conversion = **fstring;
+	normalize(rules);
+	(*fstring)++;
 }

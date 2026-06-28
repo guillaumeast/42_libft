@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_life_cycle.c                                  :+:      :+:    :+:   */
+/*   string_life_cycle.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:37 by gastesan          #+#    #+#             */
-/*   Updated: 2026/05/11 16:23:38 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:32:25 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-bool	string_init(
-	t_string *const s,
-	size_t initial_cap,
-	const char *const str,
-	long n)
+bool	string_init(t_string *s, size_t initial_cap, const char *str, long n)
 {
 	s->data = NULL;
 	s->cap = 0;
@@ -38,7 +34,14 @@ bool	string_init(
 	return (true);
 }
 
-void	string_free(t_string *const string)
+void	string_take(t_string *dst, char *src, size_t cap, size_t len)
+{
+	dst->data = src;
+	dst->cap = cap;
+	dst->len = len;
+}
+
+void	string_free(t_string *string)
 {
 	if (string->data)
 		free(string->data);

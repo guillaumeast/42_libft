@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/27 14:13:43 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 17:01:18 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:19:42 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ size_t	buff_get_required_cap(size_t current_cap, size_t target_len)
 	return (new_cap);
 }
 
-bool	buff_grow(t_buff *const buff, size_t target_len)
+bool	buff_grow(t_buff *buff, size_t target_len)
 {
 	size_t	new_cap;
 	char	*new_data;
@@ -52,7 +52,7 @@ bool	buff_grow(t_buff *const buff, size_t target_len)
 	return (true);
 }
 
-ssize_t	buff_read_n_bytes(t_buff *const buff, int fd, size_t n)
+ssize_t	buff_read_n_bytes(t_buff *buff, int fd, size_t n)
 {
 	size_t	target_read_len;
 	ssize_t	read_len;

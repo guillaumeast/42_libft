@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_str.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/01 18:56:08 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/01 19:01:04 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/06/28 14:50:21 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,9 @@
 
 char	*str_str(const char *haystack, const char *needle)
 {
-	size_t	i;
-	size_t	j;
-	union u_const_cast
-	{
-		const char	*str;
-		char		*res;
-	}	cast;
+	size_t			i;
+	size_t			j;
+	t_const_cast	cast;
 
 	cast.str = haystack;
 	if (needle == NULL || haystack == NULL)

@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:29:29 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/27 17:42:16 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/28 14:22:14 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-bool	buff_read_until_c(t_buff *const buff, int fd, char c)
+bool	buff_read_until_c(t_buff *buff, int fd, char c)
 {
 	ssize_t	read_len;
 
@@ -36,7 +36,7 @@ bool	buff_read_until_c(t_buff *const buff, int fd, char c)
 	return (read_len >= 0);
 }
 
-bool	buff_read_until_n(t_buff *const buff, int fd, size_t n)
+bool	buff_read_until_n(t_buff *buff, int fd, size_t n)
 {
 	ssize_t	read_len;
 
@@ -47,7 +47,7 @@ bool	buff_read_until_n(t_buff *const buff, int fd, size_t n)
 	return (read_len >= 0);
 }
 
-bool	buff_read_all(t_buff *const buff, int fd)
+bool	buff_read_all(t_buff *buff, int fd)
 {
 	ssize_t	read_len;
 
