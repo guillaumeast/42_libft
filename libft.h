@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/28 14:48:30 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/29 16:30:11 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -2141,6 +2141,19 @@ void			string_rm_part(t_string *string, size_t i_start, ssize_t len);
  * @param len Logical length of the string stored in src.
  */
 void			string_take(t_string *dst, char *src, size_t cap, size_t len);
+
+/**
+ * @ingroup string
+ * @brief Removes leading copies of a character from a string.
+ *
+ * @note The string is modified in place and no allocation is performed.
+ *
+ * @warning string must be initialized before calling this function.
+ *
+ * @param string String to trim (borrowed).
+ * @param c Character to remove.
+ */
+void			string_trim_leading(t_string *string, char c);
 
 /* ************************************************************************* */
 /*                                  VECTOR                                   */

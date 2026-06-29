@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/28 14:32:34 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/29 16:29:38 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,18 @@ bool	string_dup_n(t_string *dst, const t_string *src, size_t n)
 		return (false);
 	}
 	return (true);
+}
+
+void	string_trim_leading(t_string *string, char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < string->len)
+	{
+		if (string->data[i] != c)
+			break ;
+		i++;
+	}
+	string_rm_part(string, 0, (ssize_t)i);
 }

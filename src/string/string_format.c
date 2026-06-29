@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 22:44:33 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/28 14:32:12 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/29 04:18:28 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ bool	string_append_vformat(
 
 	if (!buff_init(&buff, 0, NULL, 0))
 		return (false);
-	success = buff_append_vformat(&buff, fstring, args);
+	success = buff_append_vformat(&buff, fstring, args);	// TODO: directly format in string to avoid useless copy
 	if (success)
 		success = string_append_n(string, buff.data, (long)buff.len);
 	buff_free(&buff);
