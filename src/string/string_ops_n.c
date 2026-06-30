@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/29 16:29:38 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/30 13:14:02 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ bool	string_append_n(t_string *s, const char *str, long n)
 
 bool	string_dup_n(t_string *dst, const t_string *src, size_t n)
 {
+	(void)string_init(dst, 0, NULL, 0);
 	if (n > src->len)
 		n = src->len;
 	dst->len = 0;

@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/30 11:29:49 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/30 13:21:37 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1871,7 +1871,8 @@ bool			string_cmp(const t_string *a, const t_string *b);
  * @warning The previous logical content of dst is replaced, whether the
  *          function succeeds or fails.
  *
- * @param dst Destination string to overwrite (borrowed, initialized).
+ * @param dst Destination string to overwrite
+ *            (borrowed, initialized by the function).
  * @param src Source string to duplicate (borrowed, initialized).
  * @return true on success, false on memory allocation failure.
  */
@@ -1885,7 +1886,8 @@ bool			string_dup(t_string *dst, const t_string *src);
  * @warning The previous logical content of dst is replaced, whether the
  *          function succeeds or fails.
  *
- * @param dst Destination string to overwrite (borrowed, initialized).
+ * @param dst Destination string to overwrite
+ *            (borrowed, initialized by the function).
  * @param src Source string to duplicate (borrowed, initialized).
  * @param n Maximum number of bytes to copy.
  * @return true on success, false on memory allocation failure.
