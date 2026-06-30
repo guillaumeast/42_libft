@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:37 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/30 11:28:55 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/30 18:04:18 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	string_take(t_string *dst, char *src, size_t cap, ssize_t len)
 
 void	string_free(t_string *string)
 {
-	if (string->data)
+	if (string->data && string->cap > 0)
 		free(string->data);
 	string->len = 0;
 	string->cap = 0;
