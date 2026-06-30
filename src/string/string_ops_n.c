@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/30 16:47:49 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/30 17:40:50 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ bool	string_dup_n(t_string *dst, const t_string *src, size_t n)
 		return (true);
 	if (n > src->len)
 		n = src->len;
-	dst->len = 0;
 	if (!string_append_n(dst, src->data, (long)n))
 	{
 		string_free(dst);
