@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:37 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/28 14:32:25 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/30 11:28:55 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,14 @@ bool	string_init(t_string *s, size_t initial_cap, const char *str, long n)
 	return (true);
 }
 
-void	string_take(t_string *dst, char *src, size_t cap, size_t len)
+void	string_take(t_string *dst, char *src, size_t cap, ssize_t len)
 {
 	dst->data = src;
 	dst->cap = cap;
-	dst->len = len;
+	if (len < 0)
+		dst->len = str_len(src);
+	else
+		dst->len = (size_t)len;
 }
 
 void	string_free(t_string *string)

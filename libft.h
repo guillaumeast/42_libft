@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/29 16:30:11 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/06/30 11:29:49 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -2138,9 +2138,9 @@ void			string_rm_part(t_string *string, size_t i_start, ssize_t len);
  * @param dst Destination string to update (borrowed).
  * @param src Buffer to take ownership of (ownership transferred).
  * @param cap Capacity of src, in bytes.
- * @param len Logical length of the string stored in src.
+ * @param len Logical length of the string stored in src or -1 tu use str_len().
  */
-void			string_take(t_string *dst, char *src, size_t cap, size_t len);
+void			string_take(t_string *dst, char *src, size_t cap, ssize_t len);
 
 /**
  * @ingroup string
