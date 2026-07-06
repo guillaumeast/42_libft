@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:33:17 by adouieb           #+#    #+#             */
-/*   Updated: 2026/06/28 14:39:54 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/06 15:19:35 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "buckets.h"
-#include "key_value.h"
 
 void	bucket_free(void *bucket_ptr, void (*del)(void *))
 {

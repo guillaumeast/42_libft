@@ -6,7 +6,7 @@
 /*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 14:34:55 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/06 15:00:34 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/07/06 15:33:35 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 
 bool	hashmap_put(t_hashmap *map, const char *key, void *value)
 {
-	t_key_value	*existing;
+	void		*existing;
 	t_key_value	*pair;
 
 	existing = hashmap_get(map, key);
-	if (existing && existing->value == value)
+	if (existing && existing == value)
 		return (true);
 	if (hashmap_need_resize(map, key) && !hashmap_resize(map))
 		return (false);
