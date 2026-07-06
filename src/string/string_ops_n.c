@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/30 17:40:50 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/06 19:31:07 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,8 @@ bool	string_append_n(t_string *s, const char *str, long n)
 		strlen = (size_t)n;
 	if (!string_grow(s, s->len + strlen + 1))
 		return (false);
-	ft_memcpy(s->data + s->len, str, strlen);
+	if (strlen > 0)
+		ft_memcpy(s->data + s->len, str, strlen);
 	s->len = s->len + strlen;
 	s->data[s->len] = '\0';
 	return (true);

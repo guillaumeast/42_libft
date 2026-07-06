@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/06 15:18:42 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/07/06 19:48:27 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1141,7 +1141,7 @@ bool			hashmap_contains(t_hashmap *map, const char *key);
  * @return Pointer to the new pair (owned by caller), or NULL on allocation
  *         failure.
  */
-t_key_value	*key_value_new(const char *key, void *value);
+t_key_value		*key_value_new(const char *key, void *value);
 
 /**
  * @ingroup hashmap
@@ -1154,7 +1154,7 @@ t_key_value	*key_value_new(const char *key, void *value);
  * @param pair Address of the pair pointer to free (set to NULL on return).
  * @param del Optional destructor applied to the stored value (may be NULL).
  */
-void		key_value_free(t_key_value **pair, void (*del)(void *));
+void			key_value_free(t_key_value **pair, void (*del)(void *));
 
 /* ************************************************************************* */
 /*                                   LIST                                    */
@@ -2156,6 +2156,84 @@ bool			string_read_until_s(
  * @param len Number of bytes to remove, or negative to remove until end.
  */
 void			string_rm_part(t_string *string, size_t i_start, ssize_t len);
+
+/**
+ * @ingroup string
+ * @brief Splits a string into two initialized strings at a byte index.
+ *
+ * @note @p out_before and @p out_after are initialized by the function.
+ * @note When @p index is greater than or equal to @p src->len, @p out_before
+ *       receives a full copy of @p src and @p out_after is initialized empty.
+ *
+ * @warning @p src must be initialized before calling this function.
+ * @warning @p out_before and @p out_after must not already own allocated data.
+ *
+ * @param src Source string to split (borrowed, read-only).
+ * @param index Split index.
+ * @param out_before Destination receiving the bytes before @p index
+ *                   (borrowed, initialized by the function).
+ * @param out_after Destination receiving the bytes starting at @p index
+ *                  (borrowed, initialized by the function).
+ * @return true on success, false on memory allocation failure.
+ */
+bool			string_split_at(
+					const t_string *src,
+					size_t index,
+					t_string *out_before,
+					t_string *out_after);
+
+/**
+ * @ingroup string
+ * @brief Splits a string on a delimiter character into a @ref t_vector.
+ *
+ * Empty fields produced by repeated delimiters or delimiters at the edges are
+ * skipped.
+ *
+ * @note @p out is initialized by the function with @c sizeof(t_string) items.
+ * @note On failure, the function frees every initialized item and resets
+ *       @p out.
+ *
+ * @warning @p src must be initialized before calling this function.
+ * @warning @p out must not already own allocated data.
+ *
+ * @param src Source string to split (borrowed, read-only).
+ * @param c Delimiter character.
+ * @param out Destination vector receiving initialized @ref t_string items
+ *            (borrowed, initialized by the function).
+ * @return true on success, false on memory allocation failure.
+ */
+bool			string_split_on_char(
+					const t_string *src,
+					char c,
+					t_vector *out);
+
+/**
+ * @ingroup string
+ * @brief Splits a string on a delimiter C-string into a @ref t_vector.
+ *
+ * Empty fields produced by repeated separators or separators at the edges are
+ * skipped.
+ *
+ * @note @p out is initialized by the function with @c sizeof(t_string) items.
+ * @note When @p sep is empty, @p out receives one item containing a full copy
+ *       of @p src.
+ * @note On failure, the function frees every initialized item and resets
+ *       @p out.
+ *
+ * @warning @p src must be initialized before calling this function.
+ * @warning @p sep must point to a valid NUL-terminated C-string.
+ * @warning @p out must not already own allocated data.
+ *
+ * @param src Source string to split (borrowed, read-only).
+ * @param sep Delimiter C-string (borrowed, read-only).
+ * @param out Destination vector receiving initialized @ref t_string items
+ *            (borrowed, initialized by the function).
+ * @return true on success, false on memory allocation failure.
+ */
+bool			string_split_on_string(
+					const t_string *src,
+					const char *sep,
+					t_vector *out);
 
 /**
  * @ingroup string
