@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   API.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 14:34:55 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/28 14:37:16 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/06 15:00:34 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ bool	hashmap_put(t_hashmap *map, const char *key, void *value)
 	return (true);
 }
 
-t_key_value	*hashmap_get(t_hashmap *map, const char *key)
+void	*hashmap_get(t_hashmap *map, const char *key)
 {
 	t_node	*entry;
 
@@ -43,7 +43,7 @@ t_key_value	*hashmap_get(t_hashmap *map, const char *key)
 	while (entry != NULL)
 	{
 		if (is_matching_key(entry->content, key))
-			return ((t_key_value *)entry->content);
+			return (((t_key_value *)entry->content)->value);
 		entry = entry->next;
 	}
 	return (NULL);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/30 13:21:37 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/06 15:00:31 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1081,7 +1081,7 @@ bool			hashmap_put(t_hashmap *map, const char *key, void *value);
  * @return The associated key/value pair (borrowed, still owned by the map),
  *         or NULL if the key is not present.
  */
-t_key_value		*hashmap_get(t_hashmap *map, const char *key);
+void		*hashmap_get(t_hashmap *map, const char *key);
 
 /**
  * @ingroup hashmap
