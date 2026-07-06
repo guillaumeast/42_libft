@@ -6,7 +6,7 @@
 /*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/06 15:00:31 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/07/06 15:03:21 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1078,7 +1078,7 @@ bool			hashmap_put(t_hashmap *map, const char *key, void *value);
  *
  * @param map Pointer to an initialized map (borrowed).
  * @param key NUL-terminated key to look up (borrowed).
- * @return The associated key/value pair (borrowed, still owned by the map),
+ * @return The associated value to the key (borrowed, still owned by the map),
  *         or NULL if the key is not present.
  */
 void		*hashmap_get(t_hashmap *map, const char *key);
