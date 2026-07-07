@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/07 17:17:09 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/07 18:13:56 by adouieb          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1047,6 +1047,8 @@ bool			hashmap_init(
  * @param map Pointer to the map to free (borrowed).
  */
 void			hashmap_free(t_hashmap *map);
+
+void			hashmap_clear(t_hashmap *map);
 
 /**
  * @ingroup hashmap
