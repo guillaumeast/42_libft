@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 19:39:29 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/07 13:16:10 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/07 13:53:46 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ static inline bool	string_split_on_string_keep_empties(
 bool	string_split_on_string(
 			const t_string *src,
 			const char *sep,
-			bool skip_empty_entries,
+			bool keep_empty_entries,
 			t_vector *out)
 {
-	if (skip_empty_entries == true)
-		return (string_split_on_string_skip_empties(src, sep, out));
-	return (string_split_on_string_keep_empties(src, sep, out));
+	if (keep_empty_entries == true)
+		return (string_split_on_string_keep_empties(src, sep, out));
+	return (string_split_on_string_skip_empties(src, sep, out));
 }

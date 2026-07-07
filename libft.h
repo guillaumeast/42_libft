@@ -2186,11 +2186,11 @@ bool			string_split_at(
  * @ingroup string
  * @brief Splits a string on a delimiter character into a @ref t_vector.
  *
- * Empty fields are kept when @p skip_empty_entries is @c false and skipped
- * when it is @c true.
+ * Empty fields are kept when @p keep_empty_entries is @c true and skipped
+ * when it is @c false.
  *
  * @note @p out is initialized by the function with @c sizeof(t_string) items.
- * @note When @p skip_empty_entries is @c false and @p src is empty, @p out
+ * @note When @p keep_empty_entries is @c true and @p src is empty, @p out
  *       receives one empty @ref t_string.
  * @note On failure, the function frees every initialized item and resets
  *       @p out.
@@ -2200,7 +2200,7 @@ bool			string_split_at(
  *
  * @param src Source string to split (borrowed, read-only).
  * @param c Delimiter character.
- * @param skip_empty_entries True to drop empty fields, false to keep them.
+ * @param keep_empty_entries True to keep empty fields, false to drop them.
  * @param out Destination vector receiving initialized @ref t_string items
  *            (borrowed, initialized by the function).
  * @return true on success, false on memory allocation failure.
@@ -2208,20 +2208,20 @@ bool			string_split_at(
 bool			string_split_on_char(
 					const t_string *src,
 					char c,
-					bool skip_empty_entries,
+					bool keep_empty_entries,
 					t_vector *out);
 
 /**
  * @ingroup string
  * @brief Splits a string on a delimiter C-string into a @ref t_vector.
  *
- * Empty fields are kept when @p skip_empty_entries is @c false and skipped
- * when it is @c true.
+ * Empty fields are kept when @p keep_empty_entries is @c true and skipped
+ * when it is @c false.
  *
  * @note @p out is initialized by the function with @c sizeof(t_string) items.
- * @note When @p sep is empty and @p skip_empty_entries is @c false, @p out
+ * @note When @p sep is empty and @p keep_empty_entries is @c true, @p out
  *       receives one item containing a full copy of @p src.
- * @note When @p sep is empty and @p skip_empty_entries is @c true, @p out
+ * @note When @p sep is empty and @p keep_empty_entries is @c false, @p out
  *       receives one item only if @p src is not empty.
  * @note On failure, the function frees every initialized item and resets
  *       @p out.
@@ -2232,7 +2232,7 @@ bool			string_split_on_char(
  *
  * @param src Source string to split (borrowed, read-only).
  * @param sep Delimiter C-string (borrowed, read-only).
- * @param skip_empty_entries True to drop empty fields, false to keep them.
+ * @param keep_empty_entries True to keep empty fields, false to drop them.
  * @param out Destination vector receiving initialized @ref t_string items
  *            (borrowed, initialized by the function).
  * @return true on success, false on memory allocation failure.
@@ -2240,7 +2240,7 @@ bool			string_split_on_char(
 bool			string_split_on_string(
 					const t_string *src,
 					const char *sep,
-					bool skip_empty_entries,
+					bool keep_empty_entries,
 					t_vector *out);
 
 /**
