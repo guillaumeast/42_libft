@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/06 19:48:27 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/07 17:17:09 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,7 @@ typedef struct s_vector
 
 /* ------------------------------- T_HASHMAP ------------------------------- */
 
-/** @brief Default number of buckets allocated by hashmap_init(). */
+/** @brief Default number of buckets allocated when an empty map first grows. */
 # define HASHMAP_INIT_CAP	50
 
 /**
@@ -1015,16 +1015,20 @@ void			fprint_err(
  * @ingroup hashmap
  * @brief Initializes an empty hash map.
  *
- * Allocates the initial bucket array (HASHMAP_INIT_CAP buckets) and installs
- * the default string hash function. The del callback is stored as-is and used
- * to release stored values; the map does not own del itself.
+ * Allocates an initial bucket array of @p initial_cap slots and installs
+ * @ref hash_string as the default hash function. The @p del callback is stored
+ * as-is and used later to release stored values; the map does not own
+ * @p del itself.
  *
- * @note On failure the map is left in a zeroed state and must not be used.
+ * @note When @p initial_cap is @c 0, the map starts with no buckets and grows
+ *       to @c HASHMAP_INIT_CAP on the first insertion that requires storage.
+ * @note On failure, @p map is left in a zeroed state.
  *
- * @param map Pointer to the map structure to initialize (uninitialized).
+ * @param map Pointer to the map structure to initialize
+ *            (borrowed, initialized by the function).
  * @param initial_cap Initial capacity of the bucket array.
- * @param del Optional destructor applied to each value on removal/free.
- *            Pass NULL to never free stored values.
+ * @param del Optional destructor applied to each stored value on removal or
+ *            free.
  * @return true on success, false on memory allocation failure.
  */
 bool			hashmap_init(
@@ -1040,7 +1044,7 @@ bool			hashmap_init(
  * the map's del callback (if any), and the bucket array is freed. The map is
  * reset to a zeroed state afterwards.
  *
- * @param map Pointer to the map to free (borrowed; reset to zero on return).
+ * @param map Pointer to the map to free (borrowed).
  */
 void			hashmap_free(t_hashmap *map);
 
@@ -1061,13 +1065,16 @@ void			hashmap_free(t_hashmap *map);
  * @note If key already exists and value is the same pointer as the currently
  *       stored value, hashmap_put() is a no-op and returns true.
  *
- * @warning When del is not NULL, each stored value pointer must have unique
- *          ownership. Storing the same owned pointer under several different
- *          keys can cause a double free on removal or hashmap_free().
+ * @warning @p map must be initialized before calling this function.
+ * @warning When the map destructor is not NULL, each stored value pointer must
+ *          have unique ownership. Storing the same owned pointer under several
+ *          different keys can cause a double free on removal or
+ *          @ref hashmap_free().
  *
  * @param map Pointer to an initialized map (borrowed).
- * @param key NUL-terminated key (borrowed; duplicated internally).
- * @param value Value to associate with key (ownership transferred on success).
+ * @param key NUL-terminated key to duplicate internally (borrowed, read-only).
+ * @param value Value to associate with @p key (ownership taken by map on
+ *              success).
  * @return true on success, false on memory allocation failure.
  */
 bool			hashmap_put(t_hashmap *map, const char *key, void *value);
@@ -1076,31 +1083,35 @@ bool			hashmap_put(t_hashmap *map, const char *key, void *value);
  * @ingroup hashmap
  * @brief Retrieves the value associated with a key.
  *
- * @param map Pointer to an initialized map (borrowed).
- * @param key NUL-terminated key to look up (borrowed).
- * @return The associated value to the key (borrowed, still owned by the map),
- *         or NULL if the key is not present.
+ * @note The returned pointer is borrowed from @p map and exposed as read-only.
+ *       It becomes invalid if the matching pair is removed or replaced, or if
+ *       @p map is freed.
+ *
+ * @param map Pointer to an initialized map (borrowed, read-only).
+ * @param key NUL-terminated key to look up (borrowed, read-only).
+ * @return Associated value (borrowed, read-only), or NULL if the key is not
+ *         present.
  */
-void			*hashmap_get(t_hashmap *map, const char *key);
+const void		*hashmap_get(const t_hashmap *map, const char *key);
 
 /**
  * @ingroup hashmap
  * @brief Collects every key/value pair stored in the map.
  *
  * Builds a freshly allocated, NULL-terminated array holding a pointer to each
- * of the map's size pairs, in unspecified (bucket) order.
+ * of the map's pairs, in unspecified bucket order.
  *
  * @note The returned array is owned by the caller and must be freed with a
- *       single free(). The pairs it points to are borrowed and remain owned by
- *       the map; do not free them and do not use the array after the map (or
- *       any referenced pair) has been modified or freed.
+ *       single free(). The pairs it points to are borrowed, read-only and
+ *       remain owned by the map; do not free them and do not use the array
+ *       after the map (or any referenced pair) has been modified or freed.
  *
- * @param map Pointer to an initialized map (borrowed).
- * @return A NULL-terminated array of pair pointers (owned by caller), or NULL
- *         on memory allocation failure. The array is empty (only the NULL
- *         terminator) when the map holds no pairs.
+ * @param map Pointer to an initialized map (borrowed, read-only).
+ * @return NULL-terminated array of pair pointers (owned by caller), or NULL on
+ *         memory allocation failure. The array contains only the NULL
+ *         terminator when the map holds no pairs.
  */
-t_key_value		**hashmap_get_all(t_hashmap *map);
+const t_key_value	**hashmap_get_all(const t_hashmap *map);
 
 /**
  * @ingroup hashmap
@@ -1109,8 +1120,10 @@ t_key_value		**hashmap_get_all(t_hashmap *map);
  * The matching pair is unlinked and freed: its key copy is freed and its value
  * is passed to the map's del callback (if any).
  *
+ * @warning @p map must be initialized before calling this function.
+ *
  * @param map Pointer to an initialized map (borrowed).
- * @param key NUL-terminated key to remove (borrowed).
+ * @param key NUL-terminated key to remove (borrowed, read-only).
  * @return true if a pair was removed, false if the key was not found.
  */
 bool			hashmap_remove(t_hashmap *map, const char *key);
@@ -1119,11 +1132,13 @@ bool			hashmap_remove(t_hashmap *map, const char *key);
  * @ingroup hashmap
  * @brief Tests whether a key is present in the map.
  *
- * @param map Pointer to an initialized map (borrowed).
- * @param key NUL-terminated key to look for (borrowed).
+ * @warning @p map must be initialized before calling this function.
+ *
+ * @param map Pointer to an initialized map (borrowed, read-only).
+ * @param key NUL-terminated key to look for (borrowed, read-only).
  * @return true if the key is present, false otherwise.
  */
-bool			hashmap_contains(t_hashmap *map, const char *key);
+bool			hashmap_contains(const t_hashmap *map, const char *key);
 
 /**
  * @ingroup hashmap

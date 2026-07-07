@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   API.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 14:34:55 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/06 15:33:35 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/07/07 17:06:53 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 bool	hashmap_put(t_hashmap *map, const char *key, void *value)
 {
-	void		*existing;
+	const void	*existing;
 	t_key_value	*pair;
 
 	existing = hashmap_get(map, key);
@@ -33,7 +33,7 @@ bool	hashmap_put(t_hashmap *map, const char *key, void *value)
 	return (true);
 }
 
-void	*hashmap_get(t_hashmap *map, const char *key)
+const void	*hashmap_get(const t_hashmap *map, const char *key)
 {
 	t_node	*entry;
 
@@ -49,12 +49,12 @@ void	*hashmap_get(t_hashmap *map, const char *key)
 	return (NULL);
 }
 
-t_key_value	**hashmap_get_all(t_hashmap *map)
+const t_key_value	**hashmap_get_all(const t_hashmap *map)
 {
-	t_key_value	**res;
-	size_t		pair_i;
-	t_node		*entry;
-	size_t		bucket_i;
+	const t_key_value	**res;
+	size_t				pair_i;
+	t_node				*entry;
+	size_t				bucket_i;
 
 	res = malloc(sizeof(t_key_value *) * (map->size + 1));
 	if (res == NULL)
@@ -104,7 +104,7 @@ bool	hashmap_remove(t_hashmap *map, const char *key)
 	return (false);
 }
 
-bool	hashmap_contains(t_hashmap *map, const char *key)
+bool	hashmap_contains(const t_hashmap *map, const char *key)
 {
 	t_node	*entry;
 
