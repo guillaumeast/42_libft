@@ -2280,6 +2280,26 @@ void			string_take(t_string *dst, char *src, size_t cap, ssize_t len);
 
 /**
  * @ingroup string
+ * @brief Move the internal storage of one string into another string.
+ *
+ * The internal data is not copied. After the move, @p src keeps the same
+ * @c data and @c len values but its @c cap is set to @c 0.
+ *
+ * @note Calling @ref string_free() on @p src after a successful move is
+ *       unnecessary but safe.
+ * @note If the caller later modifies @p src through an API that grows or
+ *       reallocates storage, new storage is allocated for @p src instead of
+ *       reusing the moved storage.
+ *
+ * @warning The previous content of @p dst is overwritten without being freed.
+ *
+ * @param dst Destination string receiving the moved storage (borrowed).
+ * @param src Source string whose storage is moved to @p dst (borrowed).
+ */
+void			string_take_string(t_string *dst, t_string *src);
+
+/**
+ * @ingroup string
  * @brief Removes leading copies of a character from a string.
  *
  * @note The string is modified in place and no allocation is performed.
