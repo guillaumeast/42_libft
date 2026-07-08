@@ -18,6 +18,7 @@ SRCS		:= \
 	$(wildcard src/put/*.c) \
 	$(wildcard src/str/*.c) \
 	$(wildcard src/string/*.c) \
+	$(wildcard src/string/split/*.c) \
 	$(wildcard src/vector/*.c)
 
 INCLUDES	:= \
@@ -25,7 +26,9 @@ INCLUDES	:= \
 	-Isrc/buff/format \
 	-Isrc/hashmap \
 	-Isrc/hashmap/buckets \
-	-Isrc/hashmap/key_value
+	-Isrc/hashmap/key_value \
+	-Isrc/string \
+	-Isrc/string/split
 
 OBJ_DIR		:= obj
 OBJ			:= $(SRCS:%.c=$(OBJ_DIR)/%.o)
