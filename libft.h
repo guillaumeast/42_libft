@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/07 18:13:56 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/07/11 01:11:16 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1095,6 +1095,8 @@ void			hashmap_clear(t_hashmap *map);
  */
 bool			hashmap_put(t_hashmap *map, const char *key, void *value);
 
+void			*hashmap_get(const t_hashmap *map, const char *key);
+
 /**
  * @ingroup hashmap
  * @brief Retrieves the value associated with a key.
@@ -1108,7 +1110,7 @@ bool			hashmap_put(t_hashmap *map, const char *key, void *value);
  * @return Associated value (borrowed, read-only), or NULL if the key is not
  *         present.
  */
-const void		*hashmap_get(const t_hashmap *map, const char *key);
+const void		*hashmap_get_const(const t_hashmap *map, const char *key);
 
 /**
  * @ingroup hashmap

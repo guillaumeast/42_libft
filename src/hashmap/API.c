@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 14:34:55 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/07 17:06:53 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/11 01:11:44 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	hashmap_put(t_hashmap *map, const char *key, void *value)
 	const void	*existing;
 	t_key_value	*pair;
 
-	existing = hashmap_get(map, key);
+	existing = hashmap_get_const(map, key);
 	if (existing && existing == value)
 		return (true);
 	if (hashmap_need_resize(map, key) && !hashmap_resize(map))
@@ -33,7 +33,7 @@ bool	hashmap_put(t_hashmap *map, const char *key, void *value)
 	return (true);
 }
 
-const void	*hashmap_get(const t_hashmap *map, const char *key)
+void	*hashmap_get(const t_hashmap *map, const char *key)
 {
 	t_node	*entry;
 
@@ -47,6 +47,11 @@ const void	*hashmap_get(const t_hashmap *map, const char *key)
 		entry = entry->next;
 	}
 	return (NULL);
+}
+
+const void	*hashmap_get_const(const t_hashmap *map, const char *key)
+{
+	return (hashmap_get(map, key));
 }
 
 const t_key_value	**hashmap_get_all(const t_hashmap *map)
