@@ -967,6 +967,20 @@ char			*ft_ultoa_base(unsigned long n, const char *base);
  */
 bool			parse_int(char *s, int *out);
 
+/**
+ * @ingroup conv
+ * @brief Parses a string to a long with overflow detection.
+ *
+ * Accepts an optional leading '+' or '-' sign followed by digits.
+ * Returns false if the string is empty, contains non-digit characters,
+ * or the value would overflow a long.
+ *
+ * @param s String to parse (borrowed).
+ * @param out Pointer to store the parsed long (modified on success).
+ * @return true on success, false if parsing failed or value out of range.
+ */
+bool			parse_long(char *s, long *out);
+
 /* ************************************************************************* */
 /*                                  ERROR                                    */
 /* ************************************************************************* */
