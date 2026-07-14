@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 14:41:15 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/28 14:41:16 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/14 04:26:37 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,22 @@ bool	vector_merge(t_vector *dst, t_vector *src, size_t index)
 		src->len * src->item_size);
 	dst->len = target_len;
 	return (true);
+}
+
+void	vector_clear(t_vector *vector, void (*del)(void *))
+{
+	size_t	i;
+
+	if (del != NULL)
+	{
+		i = 0;
+		while (i < vector->len)
+		{
+			del((char *)vector->data + (i * vector->item_size));
+			i++;
+		}
+	}
+	vector->len = 0;
 }
 
 static bool	grow_and_merge(t_vector *dst, t_vector *src, size_t index)

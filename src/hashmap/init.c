@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adouieb <adouieb@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 15:30:50 by adouieb           #+#    #+#             */
-/*   Updated: 2026/07/07 18:14:00 by adouieb          ###   ########.fr       */
+/*   Updated: 2026/07/14 04:31:12 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ void	hashmap_free(t_hashmap *map)
 void	hashmap_clear(t_hashmap *map)
 {
 	buckets_foreach(&map->buckets, map->del_value, bucket_free);
+	map->buckets.len = 0;
 	map->size = 0;
 }

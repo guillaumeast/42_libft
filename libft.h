@@ -1062,6 +1062,18 @@ bool			hashmap_init(
  */
 void			hashmap_free(t_hashmap *map);
 
+/**
+ * @ingroup hashmap
+ * @brief Removes all key/value pairs from a hash map.
+ *
+ * Frees every stored pair, resets the map size to @c 0 and empties the bucket
+ * chains, while keeping the bucket array, hash function and value destructor
+ * available for later insertions.
+ *
+ * @warning @p map must be initialized before calling this function.
+ *
+ * @param map Pointer to the map to clear (borrowed).
+ */
 void			hashmap_clear(t_hashmap *map);
 
 /**
@@ -2409,6 +2421,22 @@ bool			vector_dup(t_vector *dst, t_vector *src);
  * @param item_free Optional callback to free each item (can be NULL).
  */
 void			vector_free(t_vector *vector, void (*item_free)(void *item));
+
+/**
+ * @ingroup vector
+ * @brief Removes all items from a vector without freeing its storage.
+ *
+ * If @p del is not @c NULL, it is called once for each stored item before the
+ * vector length is reset to @c 0. The callback receives a pointer to the item
+ * slot inside the vector storage.
+ *
+ * @warning @p vector must be initialized before calling this function.
+ *
+ * @param vector Pointer to an initialized vector (borrowed).
+ * @param del Optional callback applied to each stored item before clearing
+ *            (borrowed, read-only).
+ */
+void			vector_clear(t_vector *vector, void (*del)(void *));
 
 /**
  * @ingroup vector
