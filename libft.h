@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/11 01:11:16 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/17 15:37:17 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -2029,6 +2029,19 @@ ssize_t			string_get_index_s(
 					const t_string *string,
 					const char *s,
 					ssize_t slen);
+
+/**
+ * @brief Grows the string to accommodate the target length if necessary.
+ *
+ * No-op if current capacity is already sufficient.
+ *
+ * @warning string must be initialized before calling this function.
+ *
+ * @param string Pointer to an initialized string (borrowed).
+ * @param target_len The minimum length the string should accommodate.
+ * @return true on success, false on memory allocation failure.
+ */
+bool	string_grow(t_string *string, size_t target_cap);
 
 /**
  * @ingroup string

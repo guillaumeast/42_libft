@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 02:13:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/28 14:08:53 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/17 15:36:57 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,6 @@
  * @return The new required capacity.
  */
 size_t	string_get_required_cap(size_t current_cap, size_t target_cap);
-
-/**
- * @brief Grows the string to accommodate the target length if necessary.
- *
- * No-op if current capacity is already sufficient.
- *
- * @warning string must be initialized before calling this function.
- *
- * @param string Pointer to an initialized string (borrowed).
- * @param target_len The minimum length the string should accommodate.
- * @return true on success, false on memory allocation failure.
- */
-bool	string_grow(t_string *string, size_t target_cap);
 
 /**
  * @brief Reads up to n bytes from a file descriptor into a string.
