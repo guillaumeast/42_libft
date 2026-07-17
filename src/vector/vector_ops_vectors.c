@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 14:41:15 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/17 14:55:28 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/17 15:59:20 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-static bool	grow_and_merge(t_vector *dst, t_vector *src, size_t index);
+static bool	grow_and_merge(t_vector *dst, const t_vector *src, size_t index);
 static bool	compute_new_cap(size_t dst_len, size_t src_len, size_t *new_cap);
 
-bool	vector_merge(t_vector *dst, t_vector *src, size_t index)
+bool	vector_merge(t_vector *dst, const t_vector *src, size_t index)
 {
 	size_t	target_len;
 
@@ -60,7 +60,7 @@ void	vector_clear(t_vector *vector, void (*del)(void *))
 	vector->len = 0;
 }
 
-static bool	grow_and_merge(t_vector *dst, t_vector *src, size_t index)
+static bool	grow_and_merge(t_vector *dst, const t_vector *src, size_t index)
 {
 	size_t	newcap;
 	size_t	old_cap;

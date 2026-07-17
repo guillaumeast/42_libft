@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 14:41:21 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/17 14:50:23 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/17 15:58:34 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ bool	vector_adjust(t_vector *vector)
 	return (true);
 }
 
-bool	vector_dup(t_vector *dst, t_vector *src)
+bool	vector_dup(t_vector *dst, const t_vector *src)
 {
 	if (dst == src)
 		return (false);

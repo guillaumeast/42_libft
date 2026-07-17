@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/17 15:37:17 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/17 15:59:58 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -2424,7 +2424,7 @@ bool			vector_adjust(t_vector *vector);
  * @param src Source vector to duplicate (borrowed).
  * @return true on success, false on failure.
  */
-bool			vector_dup(t_vector *dst, t_vector *src);
+bool			vector_dup(t_vector *dst, const t_vector *src);
 
 /**
  * @ingroup vector
@@ -2554,6 +2554,6 @@ void			vector_take(t_vector *dst, t_vector *src);
  * @return true on success, false on invalid input, overflow, or allocation
  *         failure.
  */
-bool			vector_merge(t_vector *dst, t_vector *src, size_t index);
+bool			vector_merge(t_vector *dst, const t_vector *src, size_t index);
 
 #endif
