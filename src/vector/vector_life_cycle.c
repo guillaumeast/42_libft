@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 14:41:21 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/30 11:29:26 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/17 14:50:23 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ bool	vector_grow(t_vector *vector)
 	if (!new_data)
 		return (false);
 	ft_memcpy(new_data, vector->data, vector->len * vector->item_size);
-	free(vector->data);
+	if (vector->cap > 0)
+		free(vector->data);
 	vector->data = new_data;
 	vector->cap = new_cap;
 	return (true);
@@ -70,7 +71,8 @@ bool	vector_adjust(t_vector *vector)
 	if (!new_data)
 		return (false);
 	ft_memcpy(new_data, vector->data, vector->len * vector->item_size);
-	free(vector->data);
+	if (vector->cap > 0)
+		free(vector->data);
 	vector->data = new_data;
 	vector->cap = vector->len;
 	return (true);
@@ -105,7 +107,8 @@ void	vector_free(t_vector *vector, void (*item_free)(void *item))
 			i++;
 		}
 	}
-	free(vector->data);
+	if (vector->cap > 0)
+		free(vector->data);
 	vector->data = NULL;
 	vector->len = 0;
 	vector->cap = 0;

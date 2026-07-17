@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 14:41:15 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/14 04:26:37 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/17 14:55:28 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,31 +62,31 @@ void	vector_clear(t_vector *vector, void (*del)(void *))
 
 static bool	grow_and_merge(t_vector *dst, t_vector *src, size_t index)
 {
-	size_t	new_cap;
-	void	*new_data;
+	size_t	newcap;
+	size_t	old_cap;
+	void	*newdata;
 
-	new_cap = dst->cap;
-	if (new_cap == 0)
-		new_cap = VECTOR_INIT_CAP;
-	if (!compute_new_cap(dst->len, src->len, &new_cap)
-		|| new_cap > SIZE_MAX / dst->item_size)
+	newcap = dst->cap;
+	if (newcap == 0)
+		newcap = VECTOR_INIT_CAP;
+	if (!compute_new_cap(dst->len, src->len, &newcap)
+		|| newcap > SIZE_MAX / dst->item_size)
 		return (false);
-	new_data = malloc(new_cap * dst->item_size);
-	if (!new_data)
+	newdata = malloc(newcap * dst->item_size);
+	if (!newdata)
 		return (false);
-	ft_memcpy(new_data, dst->data, index * dst->item_size);
+	old_cap = dst->cap;
+	ft_memcpy(newdata, dst->data, index * dst->item_size);
 	ft_memcpy(
-		new_data + ((index + src->len) * dst->item_size),
+		newdata + ((index + src->len) * dst->item_size),
 		dst->data + (index * dst->item_size),
 		(dst->len - index) * dst->item_size);
 	ft_memcpy(
-		new_data + (index * dst->item_size), src->data,
+		newdata + (index * dst->item_size), src->data,
 		src->len * dst->item_size);
-	free(dst->data);
-	dst->data = new_data;
-	dst->cap = new_cap;
-	dst->len += src->len;
-	return (true);
+	if (old_cap > 0)
+		free(dst->data);
+	return (dst->data = newdata, dst->cap = newcap, dst->len += src->len, true);
 }
 
 static bool	compute_new_cap(size_t dst_len, size_t src_len, size_t *new_cap)
@@ -108,4 +108,10 @@ static bool	compute_new_cap(size_t dst_len, size_t src_len, size_t *new_cap)
 	}
 	*new_cap = tmp_new_cap;
 	return (true);
+}
+
+void	vector_take(t_vector *dst, t_vector *src)
+{
+	*dst = *src;
+	src->cap = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 14:41:18 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/28 14:41:19 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/17 14:54:11 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ bool	vector_insert(t_vector *vector, size_t index, const void *item)
 static bool	grow_and_insert(t_vector *vector, size_t index, const void *item)
 {
 	size_t	new_cap;
+	size_t	old_cap;
 	void	*new_data;
 
 	if (vector->cap > SIZE_MAX / 2)
@@ -77,6 +78,7 @@ static bool	grow_and_insert(t_vector *vector, size_t index, const void *item)
 	new_data = malloc(new_cap * vector->item_size);
 	if (!new_data)
 		return (false);
+	old_cap = vector->cap;
 	vector->cap = new_cap;
 	ft_memcpy(new_data, vector->data, index * vector->item_size);
 	ft_memcpy(new_data + (index * vector->item_size), item, vector->item_size);
@@ -84,10 +86,9 @@ static bool	grow_and_insert(t_vector *vector, size_t index, const void *item)
 		new_data + ((index + 1) * vector->item_size),
 		vector->data + (index * vector->item_size),
 		(vector->len - index) * vector->item_size);
-	free(vector->data);
-	vector->data = new_data;
-	vector->len++;
-	return (true);
+	if (old_cap > 0)
+		free(vector->data);
+	return (vector->data = new_data, vector->len++, true);
 }
 
 bool	vector_remove(t_vector *vector, size_t index, void *dst)

@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 01:30:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/06 19:31:07 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/17 15:01:31 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ bool	string_prepend_n(t_string *s, const char *str, long n)
 		new_data = malloc(new_cap);
 		if (!new_data)
 			return (false);
-		s->cap = new_cap;
 		ft_memcpy(new_data + strlen, s->data, s->len);
-		free(s->data);
+		if (s->cap > 0)
+			free(s->data);
+		s->cap = new_cap;
 		s->data = new_data;
 	}
 	else
 		ft_memmove(s->data + strlen, s->data, s->len);
 	ft_memcpy(s->data, str, strlen);
 	s->len = s->len + strlen;
-	s->data[s->len] = '\0';
-	return (true);
+	return (s->data[s->len] = '\0', true);
 }
 
 bool	string_insert_n(t_string *s, size_t index, const char *str, long n)
@@ -59,17 +59,17 @@ bool	string_insert_n(t_string *s, size_t index, const char *str, long n)
 		new_data = malloc(new_cap);
 		if (!new_data)
 			return (false);
-		s->cap = new_cap;
 		ft_memcpy(new_data, s->data, index);
 		ft_memcpy(new_data + index + strlen, s->data + index, s->len - index);
-		free(s->data);
+		if (s->cap > 0)
+			free(s->data);
+		s->cap = new_cap;
 		s->data = new_data;
 	}
 	else
 		ft_memmove(s->data + index + strlen, s->data + index, s->len - index);
 	ft_memcpy(s->data + index, str, strlen);
-	s->len = s->len + strlen;
-	return (s->data[s->len] = '\0', true);
+	return (s->len = s->len + strlen, s->data[s->len] = '\0', true);
 }
 
 bool	string_append_n(t_string *s, const char *str, long n)

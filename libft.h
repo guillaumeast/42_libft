@@ -65,22 +65,23 @@ typedef struct s_buff
  * @struct s_string
  * @brief Dynamic string structure with NUL-terminated storage.
  *
- * @warning When cap == 0, data is NULL and must not be used as a C string.
- *          Call a function that allocates storage before reading data.
+ * When @ref s_string::data is not @c NULL and @ref s_string::cap is @c 0, the
+ * string borrows its storage. When @ref s_string::cap is greater than @c 0,
+ * the string owns its storage.
  *
- * @var s_string::data Pointer to the allocated data (owned, NUL-terminated
- *                     when cap > 0).
- * @var s_string::cap Current allocated capacity (in bytes, including room for
- *                    the trailing NUL).
+ * @var s_string::data Pointer to the string storage (borrowed or owned,
+ *                     NUL-terminated when not @c NULL).
+ * @var s_string::cap Current capacity in bytes, including room for the
+ *                    trailing NUL. Also encodes storage ownership.
  * @var s_string::len Current string length (in bytes, excluding the trailing
  *                    NUL).
  */
 typedef struct s_string
 {
-	/** @brief Pointer to the allocated data
-				(owned, NUL-terminated if cap > 0). */
+	/** @brief Pointer to the string storage
+				(borrowed or owned, NUL-terminated if not @c NULL). */
 	char	*data;
-	/** @brief Current allocated capacity (in bytes). */
+	/** @brief Current capacity in bytes, also encoding storage ownership. */
 	size_t	cap;
 	/** @brief Current length in bytes, excluding the trailing NUL. */
 	size_t	len;
@@ -142,22 +143,25 @@ typedef struct s_btree_node
  * @struct s_vector
  * @brief Dynamic array storing contiguous fixed-size items.
  *
- * The vector owns a single allocated memory block containing items stored
- * contiguously, with no gaps between them.
+ * Items are stored contiguously, with no gaps between them. When
+ * @ref s_vector::data is not @c NULL and @ref s_vector::cap is @c 0, the
+ * vector borrows its storage. When @ref s_vector::cap is greater than @c 0,
+ * the vector owns its storage.
  *
- * @var s_vector::data Pointer to the allocated contiguous array of items
- *                     (owned by the vector, may be NULL).
- * @var s_vector::cap Current allocated capacity, expressed in items.
+ * @var s_vector::data Pointer to the contiguous array of items (borrowed or
+ *                     owned by the vector, may be @c NULL).
+ * @var s_vector::cap Current capacity, expressed in items. Also encodes
+ *                    storage ownership.
  * @var s_vector::len Current number of stored items, expressed in items.
  * @var s_vector::item_size Size of each item, expressed in bytes.
  */
 typedef struct s_vector
 {
-	/** @brief Pointer to the allocated contiguous array of items
-	*         (owned by the vector, may be NULL).
+	/** @brief Pointer to the contiguous array of items
+	*         (borrowed or owned by the vector, may be @c NULL).
 	*/
 	void	*data;
-	/** @brief Current allocated capacity, expressed in items. */
+	/** @brief Current capacity in items, also encoding storage ownership. */
 	size_t	cap;
 	/** @brief Current number of stored items, expressed in items. */
 	size_t	len;
@@ -1974,8 +1978,9 @@ bool			string_dup_n(t_string *dst, const t_string *src, size_t n);
  * @ingroup string
  * @brief Frees the string's internal data.
  *
- * Sets string->data to NULL after freeing.
- * Sets string->len and string->cap to 0 after freeing.
+ * Frees @p string->data only when @p string owns its storage, that is when
+ * @p string->cap is greater than @c 0. Then sets @p string->data to @c NULL
+ * and @p string->len and @p string->cap to @c 0.
  *
  * @warning Does not free the t_string struct itself, only its internal data.
  *
@@ -2290,19 +2295,19 @@ bool			string_split_on_string(
 
 /**
  * @ingroup string
- * @brief Takes ownership of an existing buffer and installs it in a string.
+ * @brief Installs an existing buffer in a string without copying it.
  *
  * The buffer is not copied. The string structure is updated to reference the
- * provided storage directly.
+ * provided storage directly. When @p cap is @c 0, @p dst borrows @p src.
+ * When @p cap is greater than @c 0, @p dst owns @p src.
  *
  * @warning dst must point to an initialized t_string.
- * @warning src becomes owned by dst on success and must not be freed by the
- *          caller afterwards.
  *
  * @param dst Destination string to update (borrowed).
- * @param src Buffer to take ownership of (ownership transferred).
+ * @param src Buffer installed in @p dst (borrowed, read-only).
  * @param cap Capacity of src, in bytes.
- * @param len Logical length of the string stored in src or -1 tu use str_len().
+ * @param len Logical length of the string stored in src or -1 to use
+ *            @ref str_len().
  */
 void			string_take(t_string *dst, char *src, size_t cap, ssize_t len);
 
@@ -2412,8 +2417,10 @@ bool			vector_dup(t_vector *dst, t_vector *src);
  * @ingroup vector
  * @brief Frees the vector's internal storage.
  *
- * Sets vector->data to NULL after freeing.
- * Sets vector->len and vector->cap to 0 after freeing.
+ * Calls @p item_free on each stored item when provided. Frees @p vector->data
+ * only when @p vector owns its storage, that is when @p vector->cap is
+ * greater than @c 0. Then sets @p vector->data to @c NULL and @p vector->len
+ * and @p vector->cap to @c 0.
  *
  * @warning Does not free the t_vector struct itself, only its internal data.
  *
@@ -2501,6 +2508,21 @@ bool			vector_insert(t_vector *vector, size_t index, const void *item);
  * @return true on success, false if index is out of bounds.
  */
 bool			vector_remove(t_vector *vector, size_t index, void *dst);
+
+/**
+ * @ingroup vector
+ * @brief Transfers a vector state into another one without copying items.
+ *
+ * After the transfer, @p dst receives the previous state of @p src. Then
+ * @p src keeps its @p data pointer and @p len, but no longer owns the storage
+ * because @p src->cap is set to @c 0.
+ *
+ * @warning @p dst and @p src must be different.
+ *
+ * @param dst Destination vector receiving the transferred state (borrowed).
+ * @param src Source vector whose state is transferred (borrowed).
+ */
+void			vector_take(t_vector *dst, t_vector *src);
 
 /**
  * @ingroup vector

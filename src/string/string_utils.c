@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/10 19:29:25 by gastesan          #+#    #+#             */
-/*   Updated: 2026/06/28 14:12:00 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/17 15:01:51 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ bool	string_adjust(t_string *string)
 		ft_memcpy(new_data, string->data, string->len + 1);
 	else
 		new_data[0] = '\0';
-	free(string->data);
+	if (string->cap > 0)
+		free(string->data);
 	string->data = new_data;
 	string->cap = new_cap;
 	return (true);
