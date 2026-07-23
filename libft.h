@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:34:40 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/17 15:59:58 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/18 22:49:44 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <stddef.h>
 # include <stdbool.h>
+# include <stdint.h>
 # include <sys/types.h>
 
 # define BUFFER_SIZE		128

@@ -6,7 +6,7 @@
 /*   By: gastesan <gastesan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 14:41:21 by gastesan          #+#    #+#             */
-/*   Updated: 2026/07/17 15:58:34 by gastesan         ###   ########.fr       */
+/*   Updated: 2026/07/23 18:14:45 by gastesan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,18 +97,20 @@ void	vector_free(t_vector *vector, void (*item_free)(void *item))
 	size_t	i;
 	char	*data;
 
-	if (item_free)
-	{
-		data = (char *)vector->data;
-		i = 0;
-		while (i < vector->len)
-		{
-			item_free(data + (i * vector->item_size));
-			i++;
-		}
-	}
 	if (vector->cap > 0)
+	{
+		if (item_free)
+		{
+			data = (char *)vector->data;
+			i = 0;
+			while (i < vector->len)
+			{
+				item_free(data + (i * vector->item_size));
+				i++;
+			}
+		}
 		free(vector->data);
+	}
 	vector->data = NULL;
 	vector->len = 0;
 	vector->cap = 0;
